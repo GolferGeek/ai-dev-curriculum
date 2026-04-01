@@ -1,0 +1,22 @@
+---
+description: Align Cursor with this repo’s Claude Code curriculum — same docs, same artifact flow, reference .claude for definitions.
+alwaysApply: true
+---
+
+# GolferGeek AI Dev Curriculum (Cursor + Claude Code)
+
+## Two tools, one playbook
+
+- **Claude Code** (CLI / subscription): **Slash commands** live in **`.claude/commands/`** — `/intention`, `/prd`, `/plan`, `/run-plan`. Skills and agents are under **`.claude/skills/`** and **`.claude/agents/`**. That is the **authoritative** automation path for Phase 00.
+- **Cursor** (this IDE): There is **no** native `/run-plan` in Cursor that invokes those files. Cursor **reads** this rule plus project files. Follow the **same sequence** using [docs/phase-00/RUN-ORDER.md](../../docs/phase-00/RUN-ORDER.md) and the same artifacts under **`docs/artifacts/`**.
+
+## What to do in Cursor
+
+1. Open [docs/phase-00/STARTER-KIT.md](../../docs/phase-00/STARTER-KIT.md) and [CLAUDE.md](../../CLAUDE.md).
+2. Execute the workflow **in order** (intention → PRD → plan → implement or delegate). Treat **`.claude/commands/*.md`** as **prompt templates**: read the file and perform that role in chat if not using Claude Code slash commands.
+3. When editing code, respect [docs/phase-00/intention-monorepo.md](../../docs/phase-00/intention-monorepo.md) once the monorepo exists; use skills **monorepo-turbo** and **prd-alignment** by reading **`.claude/skills/`** and applying that discipline.
+4. Prefer **@** references to `docs/phase-00/` and `.claude/` so context stays aligned with the course.
+
+## Not automatic cross-calls
+
+Cursor does **not** “call” Claude Code skills remotely. This rule **mirrors intent** so both tools stay consistent. For **verified** slash-command behavior, use **Claude Code** in this repo.
