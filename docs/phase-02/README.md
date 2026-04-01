@@ -101,6 +101,17 @@ Defines the exact build/lint/test commands for each app type (Next.js vs SwiftUI
 - **Medium:** lint violations, warnings
 - **Low:** style issues, unused imports
 
+### `terminal-reporting` — how agents talk to you
+
+All phase-02 agents follow a consistent reporting format so you always know what's happening:
+
+- **During work:** live progress tables showing what's running, what's been found, what agents are working on
+- **After work:** clean summary tables with severity counts, specific issues listed, report file path, and "next step" suggestion
+- **During commit:** a checklist showing each quality gate as it passes or fails
+- **During PR eval:** progress through files being reviewed, accumulating issue counts
+
+You'll see tables like this throughout the phase — they're designed to be scannable at a glance so you're never wondering "what's it doing?"
+
 ---
 
 ## The agents behind the scenes
