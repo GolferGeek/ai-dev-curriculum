@@ -52,14 +52,20 @@ Anyone (human or agent) should be able to start from **clone + this README + `do
    - `npm run build`, `npm run test` (or documented equivalents)
    - **The app is running** (dev or preview) and **checked in a browser** — manually and/or via Playwright as documented in `docs/phase-00/VERIFY.md`
 
-**Checkpoint commit (rollback while developing):** discard failed implementation and return to **documented-only** instructions (no `apps/` or Turbo in tree yet — **not** tag `0.0` — see below). The checkpoint is the commit whose message starts with **`docs: demo-grade bar, strong track intentions, README checkpoint`**.
+**Checkpoint — doc-only starting place (rollback while developing):** discard failed implementation and return to the **saved curriculum baseline**: demo-grade intentions, **PRD → plan** anchors in each `intention-*.md`, `DEMO-GRADE-BAR.md`, and no `apps/` / Turbo in the tree yet (**not** tag `0.0` — see below).
+
+**Canonical marker:** git tag **`curriculum-start`** (points at the commit that last updated those docs).
 
 ```bash
-git fetch origin
-git reset --hard "$(git rev-list -n 1 --grep='^docs: demo-grade bar, strong track intentions, README checkpoint' --all)"
+git fetch origin --tags
+git reset --hard curriculum-start
 ```
 
-If that ever matches more than one commit, pick the intended one with `git log --oneline --grep='demo-grade bar'`. Optional: maintainers may tag that commit as **`docs-checkpoint`**, then `git reset --hard docs-checkpoint`.
+**Fallback** (same tree, if tags weren’t fetched): find the commit titled **`docs: anchor intention → PRD → plan in each intention file`** (or match the latest **`docs:`** checkpoint on `main` you intend), or after pulling: `git reset --hard origin/main` when **`main`** is this doc baseline.
+
+```bash
+git reset --hard "$(git rev-list -n 1 --grep='^docs: anchor intention → PRD → plan in each intention file$' --all)"
+```
 
 ---
 
