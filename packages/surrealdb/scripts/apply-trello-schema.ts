@@ -31,7 +31,12 @@ async function main() {
   // Splitting on semicolons would break DEFINE ACCESS and other compound
   // statements that contain inner semicolons.
   const schemaPath = join(__dirname, "..", "schema", "001-trello.surql");
-  const schema = readFileSync(schemaPath, "utf-8");
+  const rawSchema = readFileSync(schemaPath, "utf-8");
+
+  // Inject JWT secret from env var (falls back to a dev-only default)
+  const jwtSecret =
+    process.env.JWT_SECRET ?? "dev-only-secret-change-in-prod";
+  const schema = rawSchema.replace(/__JWT_SECRET__/g, jwtSecret);
 
   // Strip the DEFINE NAMESPACE / USE NS / DEFINE DATABASE / USE DB lines
   // since we already set them above via db.use().

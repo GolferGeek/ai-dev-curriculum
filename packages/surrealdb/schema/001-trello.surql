@@ -27,15 +27,15 @@ DEFINE ACCESS IF NOT EXISTS user_access ON DATABASE TYPE RECORD
     WHERE email = $email
       AND crypto::argon2::compare(password, $password)
   )
-  -- TODO: Replace with env-injected secret in production
-  WITH JWT ALGORITHM HS256 KEY 'trello-killer-secret-key-change-in-prod'
+  -- JWT secret is injected by apply-trello-schema.ts from the JWT_SECRET env var
+  WITH JWT ALGORITHM HS256 KEY '__JWT_SECRET__'
   DURATION FOR TOKEN 24h, FOR SESSION 7d;
 
 -- ─── Board table ─────────────────────────────────────────────
 DEFINE TABLE IF NOT EXISTS board SCHEMAFULL
   PERMISSIONS
     FOR select, update, delete WHERE owner = $auth
-    FOR create FULL;
+    FOR create WHERE owner = $auth;
 
 DEFINE FIELD IF NOT EXISTS owner   ON TABLE board TYPE record<user> DEFAULT $auth;
 DEFINE FIELD IF NOT EXISTS name    ON TABLE board TYPE string;
@@ -45,6 +45,7 @@ DEFINE FIELD IF NOT EXISTS created ON TABLE board TYPE datetime DEFAULT time::no
 DEFINE TABLE IF NOT EXISTS list SCHEMAFULL
   PERMISSIONS
     FOR select, update, delete WHERE board.owner = $auth
+    -- SurrealDB may not support nested field refs in permissions; keep FULL for child table
     FOR create FULL;
 
 DEFINE FIELD IF NOT EXISTS board    ON TABLE list TYPE record<board>;
@@ -56,6 +57,7 @@ DEFINE FIELD IF NOT EXISTS created  ON TABLE list TYPE datetime DEFAULT time::no
 DEFINE TABLE IF NOT EXISTS card SCHEMAFULL
   PERMISSIONS
     FOR select, update, delete WHERE list.board.owner = $auth
+    -- SurrealDB may not support nested field refs in permissions; keep FULL for child table
     FOR create FULL;
 
 DEFINE FIELD IF NOT EXISTS list        ON TABLE card TYPE record<list>;
