@@ -47,7 +47,6 @@ export default function BoardView({ boardId, lists }: BoardViewProps) {
               <div key={String(card.id)}>
                 <CardItem
                   card={card}
-                  boardId={boardId}
                   onOpenDetail={setSelectedCard}
                 />
                 <MoveCardSelect

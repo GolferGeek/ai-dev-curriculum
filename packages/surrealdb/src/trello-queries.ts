@@ -1,9 +1,10 @@
 import { Surreal } from "surrealdb";
+import type { Board, TrelloList, Card } from "./types";
 
 // ─── Board queries ───────────────────────────────────────────
 
-export async function listBoards(db: Surreal): Promise<any[]> {
-  const [rows] = await db.query<[any[]]>(
+export async function listBoards(db: Surreal): Promise<Board[]> {
+  const [rows] = await db.query<[Board[]]>(
     `SELECT * FROM board ORDER BY created DESC;`
   );
   return rows;
@@ -12,17 +13,17 @@ export async function listBoards(db: Surreal): Promise<any[]> {
 export async function createBoard(
   db: Surreal,
   name: string
-): Promise<any> {
-  const [rows] = await db.query<[any[]]>(
+): Promise<Board> {
+  const [rows] = await db.query<[Board[]]>(
     `CREATE board SET name = $name;`,
     { name }
   );
   return rows[0];
 }
 
-export async function getBoard(db: Surreal, id: string): Promise<any> {
-  const [rows] = await db.query<[any[]]>(
-    `SELECT * FROM type::thing($id);`,
+export async function getBoard(db: Surreal, id: string): Promise<Board | null> {
+  const [rows] = await db.query<[Board[]]>(
+    `SELECT * FROM type::record($id);`,
     { id }
   );
   return rows[0] ?? null;
@@ -31,17 +32,17 @@ export async function getBoard(db: Surreal, id: string): Promise<any> {
 export async function deleteBoard(db: Surreal, id: string): Promise<void> {
   // Delete all cards in all lists of this board
   await db.query(
-    `DELETE card WHERE list.board = type::thing($id);`,
+    `DELETE card WHERE list.board = type::record($id);`,
     { id }
   );
   // Delete all lists
   await db.query(
-    `DELETE list WHERE board = type::thing($id);`,
+    `DELETE list WHERE board = type::record($id);`,
     { id }
   );
   // Delete the board
   await db.query(
-    `DELETE type::thing($id);`,
+    `DELETE type::record($id);`,
     { id }
   );
 }
@@ -51,9 +52,9 @@ export async function deleteBoard(db: Surreal, id: string): Promise<void> {
 export async function getListsForBoard(
   db: Surreal,
   boardId: string
-): Promise<any[]> {
-  const [rows] = await db.query<[any[]]>(
-    `SELECT * FROM list WHERE board = type::thing($bid) ORDER BY position ASC;`,
+): Promise<TrelloList[]> {
+  const [rows] = await db.query<[TrelloList[]]>(
+    `SELECT * FROM list WHERE board = type::record($bid) ORDER BY position ASC;`,
     { bid: boardId }
   );
   return rows;
@@ -64,9 +65,9 @@ export async function createList(
   boardId: string,
   name: string,
   position: number
-): Promise<any> {
-  const [rows] = await db.query<[any[]]>(
-    `CREATE list SET board = type::thing($bid), name = $name, position = $pos;`,
+): Promise<TrelloList> {
+  const [rows] = await db.query<[TrelloList[]]>(
+    `CREATE list SET board = type::record($bid), name = $name, position = $pos;`,
     { bid: boardId, name, pos: position }
   );
   return rows[0];
@@ -79,21 +80,21 @@ export async function updateList(
 ): Promise<void> {
   if (data.name !== undefined) {
     await db.query(
-      `UPDATE type::thing($id) SET name = $name;`,
+      `UPDATE type::record($id) SET name = $name;`,
       { id, name: data.name }
     );
   }
   if (data.position !== undefined) {
     await db.query(
-      `UPDATE type::thing($id) SET position = $pos;`,
+      `UPDATE type::record($id) SET position = $pos;`,
       { id, pos: data.position }
     );
   }
 }
 
 export async function deleteList(db: Surreal, id: string): Promise<void> {
-  await db.query(`DELETE card WHERE list = type::thing($id);`, { id });
-  await db.query(`DELETE type::thing($id);`, { id });
+  await db.query(`DELETE card WHERE list = type::record($id);`, { id });
+  await db.query(`DELETE type::record($id);`, { id });
 }
 
 // ─── Card queries ────────────────────────────────────────────
@@ -101,9 +102,9 @@ export async function deleteList(db: Surreal, id: string): Promise<void> {
 export async function getCardsForList(
   db: Surreal,
   listId: string
-): Promise<any[]> {
-  const [rows] = await db.query<[any[]]>(
-    `SELECT * FROM card WHERE list = type::thing($lid) ORDER BY position ASC;`,
+): Promise<Card[]> {
+  const [rows] = await db.query<[Card[]]>(
+    `SELECT * FROM card WHERE list = type::record($lid) ORDER BY position ASC;`,
     { lid: listId }
   );
   return rows;
@@ -115,17 +116,20 @@ export async function createCard(
   title: string,
   description: string | null,
   position: number
-): Promise<any> {
-  const [rows] = await db.query<[any[]]>(
-    `CREATE card SET list = type::thing($lid), title = $title, description = $desc, position = $pos;`,
-    { lid: listId, title, desc: description, pos: position }
-  );
+): Promise<Card> {
+  const query = description
+    ? `CREATE card SET list = type::record($lid), title = $title, description = $desc, position = $pos;`
+    : `CREATE card SET list = type::record($lid), title = $title, position = $pos;`;
+  const params = description
+    ? { lid: listId, title, desc: description, pos: position }
+    : { lid: listId, title, pos: position };
+  const [rows] = await db.query<[Card[]]>(query, params);
   return rows[0];
 }
 
-export async function getCard(db: Surreal, id: string): Promise<any> {
-  const [rows] = await db.query<[any[]]>(
-    `SELECT * FROM type::thing($id);`,
+export async function getCard(db: Surreal, id: string): Promise<Card | null> {
+  const [rows] = await db.query<[Card[]]>(
+    `SELECT * FROM type::record($id);`,
     { id }
   );
   return rows[0] ?? null;
@@ -138,32 +142,36 @@ export async function updateCard(
 ): Promise<void> {
   if (data.title !== undefined) {
     await db.query(
-      `UPDATE type::thing($id) SET title = $title;`,
+      `UPDATE type::record($id) SET title = $title;`,
       { id, title: data.title }
     );
   }
   if (data.description !== undefined) {
-    await db.query(
-      `UPDATE type::thing($id) SET description = $desc;`,
-      { id, desc: data.description }
-    );
+    if (data.description === null) {
+      await db.query(`UPDATE type::record($id) SET description = NONE;`, { id });
+    } else {
+      await db.query(
+        `UPDATE type::record($id) SET description = $desc;`,
+        { id, desc: data.description }
+      );
+    }
   }
   if (data.list !== undefined) {
     await db.query(
-      `UPDATE type::thing($id) SET list = type::thing($lid);`,
+      `UPDATE type::record($id) SET list = type::record($lid);`,
       { id, lid: data.list }
     );
   }
   if (data.position !== undefined) {
     await db.query(
-      `UPDATE type::thing($id) SET position = $pos;`,
+      `UPDATE type::record($id) SET position = $pos;`,
       { id, pos: data.position }
     );
   }
 }
 
 export async function deleteCard(db: Surreal, id: string): Promise<void> {
-  await db.query(`DELETE type::thing($id);`, { id });
+  await db.query(`DELETE type::record($id);`, { id });
 }
 
 export async function moveCard(
@@ -173,7 +181,7 @@ export async function moveCard(
   newPosition: number
 ): Promise<void> {
   await db.query(
-    `UPDATE type::thing($id) SET list = type::thing($lid), position = $pos;`,
+    `UPDATE type::record($id) SET list = type::record($lid), position = $pos;`,
     { id: cardId, lid: newListId, pos: newPosition }
   );
 }

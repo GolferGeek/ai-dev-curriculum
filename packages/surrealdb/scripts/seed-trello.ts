@@ -1,18 +1,22 @@
 import { Surreal } from "surrealdb";
+import type { User, Board, TrelloList } from "../src/types.js";
 
 const SURREAL_URL = process.env.SURREAL_URL ?? "http://127.0.0.1:8000";
 
 async function main() {
   const db = new Surreal();
   await db.connect(SURREAL_URL);
-  await db.signin({ username: "root", password: "root" });
+  await db.signin({
+    username: process.env.SURREAL_ROOT_USER ?? "root",
+    password: process.env.SURREAL_ROOT_PASS ?? "root",
+  });
   await db.use({ namespace: "trello", database: "main" });
 
   // Create a demo user via direct insert (bypassing access layer for seeding)
   const email = "demo@example.com";
   const password = "password123";
 
-  const [existing] = await db.query<[any[]]>(
+  const [existing] = await db.query<[User[]]>(
     `SELECT * FROM user WHERE email = $email;`,
     { email }
   );
@@ -28,36 +32,36 @@ async function main() {
   }
 
   // Get the demo user ID
-  const [users] = await db.query<[any[]]>(
+  const [users] = await db.query<[User[]]>(
     `SELECT * FROM user WHERE email = $email;`,
     { email }
   );
   const userId = users[0].id;
 
   // Check if boards already seeded
-  const [existingBoards] = await db.query<[any[]]>(
+  const [existingBoards] = await db.query<[Board[]]>(
     `SELECT * FROM board WHERE owner = $uid;`,
     { uid: userId }
   );
 
   if (existingBoards.length === 0) {
     // Board 1: Project Alpha
-    const [board1Result] = await db.query<[any[]]>(
+    const [board1Result] = await db.query<[Board[]]>(
       `CREATE board SET owner = $uid, name = 'Project Alpha';`,
       { uid: userId }
     );
     const board1Id = board1Result[0].id;
 
     // Lists for Board 1
-    const [list1Result] = await db.query<[any[]]>(
+    const [list1Result] = await db.query<[TrelloList[]]>(
       `CREATE list SET board = $bid, name = 'To Do', position = 0;`,
       { bid: board1Id }
     );
-    const [list2Result] = await db.query<[any[]]>(
+    const [list2Result] = await db.query<[TrelloList[]]>(
       `CREATE list SET board = $bid, name = 'In Progress', position = 1;`,
       { bid: board1Id }
     );
-    const [list3Result] = await db.query<[any[]]>(
+    const [list3Result] = await db.query<[TrelloList[]]>(
       `CREATE list SET board = $bid, name = 'Done', position = 2;`,
       { bid: board1Id }
     );
@@ -97,21 +101,21 @@ async function main() {
     );
 
     // Board 2: Personal Tasks
-    const [board2Result] = await db.query<[any[]]>(
+    const [board2Result] = await db.query<[Board[]]>(
       `CREATE board SET owner = $uid, name = 'Personal Tasks';`,
       { uid: userId }
     );
     const board2Id = board2Result[0].id;
 
-    const [ptList1] = await db.query<[any[]]>(
+    const [ptList1] = await db.query<[TrelloList[]]>(
       `CREATE list SET board = $bid, name = 'Backlog', position = 0;`,
       { bid: board2Id }
     );
-    const [ptList2] = await db.query<[any[]]>(
+    const [ptList2] = await db.query<[TrelloList[]]>(
       `CREATE list SET board = $bid, name = 'This Week', position = 1;`,
       { bid: board2Id }
     );
-    const [ptList3] = await db.query<[any[]]>(
+    const [ptList3] = await db.query<[TrelloList[]]>(
       `CREATE list SET board = $bid, name = 'Completed', position = 2;`,
       { bid: board2Id }
     );

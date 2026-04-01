@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 interface CardData {
   id: string;
   title: string;
@@ -12,11 +10,10 @@ interface CardData {
 
 interface CardItemProps {
   card: CardData;
-  boardId: string;
   onOpenDetail: (card: CardData) => void;
 }
 
-export default function CardItem({ card, boardId, onOpenDetail }: CardItemProps) {
+export default function CardItem({ card, onOpenDetail }: CardItemProps) {
   return (
     <button
       onClick={() => onOpenDetail(card)}

@@ -21,7 +21,10 @@ export async function getConnection(): Promise<Surreal> {
 export async function getRootConnection(): Promise<Surreal> {
   const db = new Surreal();
   await db.connect(SURREAL_URL);
-  await db.signin({ username: "root", password: "root" });
+  await db.signin({
+    username: process.env.SURREAL_ROOT_USER ?? "root",
+    password: process.env.SURREAL_ROOT_PASS ?? "root",
+  });
   await db.use({ namespace: SURREAL_NS, database: SURREAL_DB });
   return db;
 }

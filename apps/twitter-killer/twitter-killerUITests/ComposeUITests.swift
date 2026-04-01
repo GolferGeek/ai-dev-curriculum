@@ -23,16 +23,17 @@ final class ComposeUITests: XCTestCase {
         // Type a post
         textEditor.tap()
         let keyboard = app.keyboards.firstMatch
-        guard keyboard.waitForExistence(timeout: 5) else {
-            // Keyboard not available -- skip typing portion
+        if !keyboard.waitForExistence(timeout: 5) {
+            XCTFail("Keyboard did not appear after tapping text editor")
             return
         }
 
         textEditor.typeText("Hello from UI test")
 
         // Dismiss keyboard
-        app.navigationBars.firstMatch.tap()
-        sleep(1)
+        let navBar = app.navigationBars.firstMatch
+        XCTAssertTrue(navBar.waitForExistence(timeout: 3), "Navigation bar should exist")
+        navBar.tap()
 
         // Post
         let postButton = app.buttons["compose_post_button"]

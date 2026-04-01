@@ -2,46 +2,57 @@
 
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { getDb, getAuthenticatedDb } from "./surreal";
+import {
+  signup,
+  signin,
+  authenticateWithToken,
+  getConnection,
+  createInvoice,
+  markInvoicePaid,
+  createExpense,
+} from "@curriculum/surrealdb";
 import { getToken, setToken, clearToken } from "./auth";
 
 // ─── Auth actions ─────────────────────────────────────────────
 
 export async function signupAction(formData: FormData) {
-  const name = formData.get("name") as string;
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const password = formData.get("password");
 
-  const db = await getDb();
+  if (!name || !email || !password) {
+    redirect("/signup?error=Missing+required+fields");
+  }
+
   try {
-    const tokens = await db.signup({
-      namespace: "quickbooks",
-      database: "main",
-      access: "user_access",
-      variables: { email, password, name },
+    const token = await signup({
+      email: email.toString(),
+      password: password.toString(),
+      name: name.toString(),
     });
-    await setToken(typeof tokens === "string" ? tokens : tokens.access);
-  } finally {
-    await db.close();
+    await setToken(token);
+  } catch {
+    redirect("/signup?error=Signup+failed.+Email+may+already+be+in+use.");
   }
   redirect("/dashboard");
 }
 
 export async function signinAction(formData: FormData) {
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
+  const email = formData.get("email");
+  const password = formData.get("password");
 
-  const db = await getDb();
+  if (!email || !password) {
+    redirect("/signin?error=Missing+required+fields");
+  }
+
   try {
-    const tokens = await db.signin({
-      namespace: "quickbooks",
-      database: "main",
-      access: "user_access",
-      variables: { email, password },
+    const token = await signin({
+      email: email.toString(),
+      password: password.toString(),
     });
-    await setToken(typeof tokens === "string" ? tokens : tokens.access);
-  } finally {
-    await db.close();
+    await setToken(token);
+  } catch {
+    redirect("/signin?error=Invalid+email+or+password");
   }
   redirect("/dashboard");
 }
@@ -57,32 +68,24 @@ export async function createInvoiceAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const client = formData.get("client") as string;
-  const due_date = formData.get("due_date") as string;
-  const descriptionsRaw = formData.getAll("li_description") as string[];
-  const amountsRaw = formData.getAll("li_amount") as string[];
+  const client = formData.get("client")?.toString() ?? "";
+  const due_date = formData.get("due_date")?.toString() ?? "";
+  const descriptionsRaw = formData.getAll("li_description").map(String);
+  const amountsRaw = formData.getAll("li_amount").map(String);
 
   const line_items = descriptionsRaw.map((desc, i) => ({
     description: desc,
     amount: parseFloat(amountsRaw[i]) || 0,
   }));
 
-  const total = line_items.reduce((s, li) => s + li.amount, 0);
-
-  const db = await getAuthenticatedDb(token);
+  const db = await getConnection();
   try {
-    const [invoice] = await db.query<[any[]]>(
-      `CREATE invoice SET client = $client, due_date = <datetime>$due_date, total = $total;`,
-      { client, due_date: due_date + "T00:00:00Z", total }
-    );
-
-    const invoiceId = invoice[0].id;
-    for (const li of line_items) {
-      await db.query(
-        `CREATE line_item SET invoice = $inv, description = $desc, amount = $amount;`,
-        { inv: invoiceId, desc: li.description, amount: li.amount }
-      );
-    }
+    await authenticateWithToken(db, token!);
+    await createInvoice(db, {
+      client,
+      due_date: due_date + "T00:00:00Z",
+      line_items,
+    });
   } finally {
     await db.close();
   }
@@ -94,13 +97,11 @@ export async function markInvoicePaidAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const id = formData.get("id") as string;
-  const db = await getAuthenticatedDb(token);
+  const id = formData.get("id")?.toString() ?? "";
+  const db = await getConnection();
   try {
-    await db.query(
-      `UPDATE type::record($id) SET status = 'paid', paid_at = time::now();`,
-      { id }
-    );
+    await authenticateWithToken(db, token!);
+    await markInvoicePaid(db, id);
   } finally {
     await db.close();
   }
@@ -114,17 +115,20 @@ export async function createExpenseAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const description = formData.get("description") as string;
-  const amount = parseFloat(formData.get("amount") as string) || 0;
-  const category = formData.get("category") as string;
-  const date = formData.get("date") as string;
+  const description = formData.get("description")?.toString() ?? "";
+  const amount = parseFloat(formData.get("amount")?.toString() ?? "0") || 0;
+  const category = formData.get("category")?.toString() ?? "";
+  const date = formData.get("date")?.toString() ?? "";
 
-  const db = await getAuthenticatedDb(token);
+  const db = await getConnection();
   try {
-    await db.query(
-      `CREATE expense SET description = $desc, amount = $amount, category = $cat, date = <datetime>$date;`,
-      { desc: description, amount, cat: category, date: date + "T00:00:00Z" }
-    );
+    await authenticateWithToken(db, token!);
+    await createExpense(db, {
+      description,
+      amount,
+      category,
+      date: date + "T00:00:00Z",
+    });
   } finally {
     await db.close();
   }

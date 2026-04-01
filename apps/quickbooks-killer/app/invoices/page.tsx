@@ -2,15 +2,8 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 import { getToken } from "@/lib/auth";
-import { getAuthenticatedDb } from "@/lib/surreal";
-
-interface Invoice {
-  id: string | { toString(): string };
-  client: string;
-  total: number;
-  due_date: string;
-  status: string;
-}
+import { getConnection, authenticateWithToken, listInvoices } from "@curriculum/surrealdb";
+import type { Invoice } from "@curriculum/surrealdb";
 
 export default async function InvoicesPage() {
   const token = await getToken();
@@ -19,17 +12,15 @@ export default async function InvoicesPage() {
   let invoices: Invoice[] = [];
 
   try {
-    const db = await getAuthenticatedDb(token);
+    const db = await getConnection();
     try {
-      const [rows] = await db.query<[Invoice[]]>(
-        `SELECT * FROM invoice ORDER BY created DESC;`
-      );
-      invoices = rows ?? [];
+      await authenticateWithToken(db, token);
+      invoices = await listInvoices(db);
     } finally {
       await db.close();
     }
-  } catch {
-    // DB unavailable
+  } catch (e: unknown) {
+    console.error("Invoices DB error:", e instanceof Error ? e.message : e);
   }
 
   return (
@@ -75,8 +66,7 @@ export default async function InvoicesPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {invoices.map((inv: Invoice) => {
-                  const id =
-                    typeof inv.id === "object" ? inv.id.toString() : inv.id;
+                  const id = String(inv.id);
                   return (
                     <tr key={id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 font-medium text-gray-900">

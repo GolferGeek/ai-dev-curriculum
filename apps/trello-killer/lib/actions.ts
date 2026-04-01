@@ -1,46 +1,61 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getDb, getAuthenticatedDb } from "./surreal";
+import {
+  trelloSignup,
+  trelloSignin,
+  getTrelloAuthenticatedDb,
+  createBoard,
+  getListsForBoard,
+  createList,
+  getCardsForList,
+  createCard,
+  updateCard,
+  moveCard,
+  deleteCard,
+} from "@curriculum/surrealdb";
 import { getToken, setToken, clearToken } from "./auth";
 
 // ─── Auth actions ─────────────────────────────────────────────
 
 export async function signupAction(formData: FormData) {
-  const name = formData.get("name") as string;
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const password = formData.get("password");
 
-  const db = await getDb();
+  if (!name || !email || !password) {
+    redirect("/signup?error=Missing+required+fields");
+  }
+
   try {
-    const tokens = await db.signup({
-      namespace: "trello",
-      database: "main",
-      access: "user_access",
-      variables: { email, password, name },
+    const token = await trelloSignup({
+      email: email.toString(),
+      password: password.toString(),
+      name: name.toString(),
     });
-    await setToken(typeof tokens === "string" ? tokens : tokens.access);
-  } finally {
-    await db.close();
+    await setToken(token);
+  } catch {
+    redirect("/signup?error=Signup+failed.+Email+may+already+be+in+use.");
   }
   redirect("/boards");
 }
 
 export async function signinAction(formData: FormData) {
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
+  const email = formData.get("email");
+  const password = formData.get("password");
 
-  const db = await getDb();
+  if (!email || !password) {
+    redirect("/signin?error=Missing+required+fields");
+  }
+
   try {
-    const tokens = await db.signin({
-      namespace: "trello",
-      database: "main",
-      access: "user_access",
-      variables: { email, password },
+    const token = await trelloSignin({
+      email: email.toString(),
+      password: password.toString(),
     });
-    await setToken(typeof tokens === "string" ? tokens : tokens.access);
-  } finally {
-    await db.close();
+    await setToken(token);
+  } catch {
+    redirect("/signin?error=Invalid+email+or+password");
   }
   redirect("/boards");
 }
@@ -56,12 +71,12 @@ export async function createBoardAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const name = formData.get("name") as string;
-  if (!name?.trim()) return;
+  const name = formData.get("name")?.toString() ?? "";
+  if (!name.trim()) return;
 
-  const db = await getAuthenticatedDb(token);
+  const db = await getTrelloAuthenticatedDb(token);
   try {
-    await db.query(`CREATE board SET name = $name;`, { name: name.trim() });
+    await createBoard(db, name.trim());
   } finally {
     await db.close();
   }
@@ -72,23 +87,15 @@ export async function createListAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const boardId = formData.get("boardId") as string;
-  const name = formData.get("name") as string;
-  if (!name?.trim() || !boardId) return;
+  const boardId = formData.get("boardId")?.toString() ?? "";
+  const name = formData.get("name")?.toString() ?? "";
+  if (!name.trim() || !boardId) return;
 
-  const db = await getAuthenticatedDb(token);
+  const db = await getTrelloAuthenticatedDb(token);
   try {
-    // Get the next position
-    const [lists] = await db.query<[any[]]>(
-      `SELECT * FROM list WHERE board = type::record($bid) ORDER BY position DESC LIMIT 1;`,
-      { bid: boardId }
-    );
-    const nextPos = lists.length > 0 ? (lists[0].position ?? 0) + 1 : 0;
-
-    await db.query(
-      `CREATE list SET board = type::record($bid), name = $name, position = $pos;`,
-      { bid: boardId, name: name.trim(), pos: nextPos }
-    );
+    const lists = await getListsForBoard(db, boardId);
+    const nextPos = lists.length > 0 ? (lists[lists.length - 1].position ?? 0) + 1 : 0;
+    await createList(db, boardId, name.trim(), nextPos);
   } finally {
     await db.close();
   }
@@ -99,24 +106,16 @@ export async function createCardAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const listId = formData.get("listId") as string;
-  const boardId = formData.get("boardId") as string;
-  const title = formData.get("title") as string;
-  if (!title?.trim() || !listId) return;
+  const listId = formData.get("listId")?.toString() ?? "";
+  const boardId = formData.get("boardId")?.toString() ?? "";
+  const title = formData.get("title")?.toString() ?? "";
+  if (!title.trim() || !listId) return;
 
-  const db = await getAuthenticatedDb(token);
+  const db = await getTrelloAuthenticatedDb(token);
   try {
-    // Get the next position
-    const [cards] = await db.query<[any[]]>(
-      `SELECT * FROM card WHERE list = type::record($lid) ORDER BY position DESC LIMIT 1;`,
-      { lid: listId }
-    );
-    const nextPos = cards.length > 0 ? (cards[0].position ?? 0) + 1 : 0;
-
-    await db.query(
-      `CREATE card SET list = type::record($lid), title = $title, position = $pos;`,
-      { lid: listId, title: title.trim(), pos: nextPos }
-    );
+    const cards = await getCardsForList(db, listId);
+    const nextPos = cards.length > 0 ? (cards[cards.length - 1].position ?? 0) + 1 : 0;
+    await createCard(db, listId, title.trim(), null, nextPos);
   } finally {
     await db.close();
   }
@@ -127,40 +126,32 @@ export async function updateCardAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const cardId = formData.get("cardId") as string;
-  const boardId = formData.get("boardId") as string;
-  const title = formData.get("title") as string;
-  const description = formData.get("description") as string;
-  const newListId = formData.get("listId") as string;
+  const cardId = formData.get("cardId")?.toString() ?? "";
+  const boardId = formData.get("boardId")?.toString() ?? "";
+  const title = formData.get("title")?.toString();
+  const description = formData.get("description")?.toString();
+  const newListId = formData.get("listId")?.toString();
 
   if (!cardId || !boardId) return;
 
-  const db = await getAuthenticatedDb(token);
+  const db = await getTrelloAuthenticatedDb(token);
   try {
+    const updates: { title?: string; description?: string | null; list?: string; position?: number } = {};
+
     if (title !== undefined && title !== null) {
-      await db.query(
-        `UPDATE type::record($id) SET title = $title;`,
-        { id: cardId, title }
-      );
+      updates.title = title;
     }
     if (description !== undefined && description !== null) {
-      await db.query(
-        `UPDATE type::record($id) SET description = $desc;`,
-        { id: cardId, desc: description || null }
-      );
+      updates.description = description || null;
     }
     if (newListId) {
-      // When moving to a new list, place at the end
-      const [cards] = await db.query<[any[]]>(
-        `SELECT * FROM card WHERE list = type::record($lid) ORDER BY position DESC LIMIT 1;`,
-        { lid: newListId }
-      );
-      const nextPos = cards.length > 0 ? (cards[0].position ?? 0) + 1 : 0;
-      await db.query(
-        `UPDATE type::record($id) SET list = type::record($lid), position = $pos;`,
-        { id: cardId, lid: newListId, pos: nextPos }
-      );
+      const cards = await getCardsForList(db, newListId);
+      const nextPos = cards.length > 0 ? (cards[cards.length - 1].position ?? 0) + 1 : 0;
+      updates.list = newListId;
+      updates.position = nextPos;
     }
+
+    await updateCard(db, cardId, updates);
   } finally {
     await db.close();
   }
@@ -171,23 +162,17 @@ export async function moveCardAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const cardId = formData.get("cardId") as string;
-  const newListId = formData.get("newListId") as string;
-  const boardId = formData.get("boardId") as string;
+  const cardId = formData.get("cardId")?.toString() ?? "";
+  const newListId = formData.get("newListId")?.toString() ?? "";
+  const boardId = formData.get("boardId")?.toString() ?? "";
 
   if (!cardId || !newListId || !boardId) return;
 
-  const db = await getAuthenticatedDb(token);
+  const db = await getTrelloAuthenticatedDb(token);
   try {
-    const [cards] = await db.query<[any[]]>(
-      `SELECT * FROM card WHERE list = type::record($lid) ORDER BY position DESC LIMIT 1;`,
-      { lid: newListId }
-    );
-    const nextPos = cards.length > 0 ? (cards[0].position ?? 0) + 1 : 0;
-    await db.query(
-      `UPDATE type::record($id) SET list = type::record($lid), position = $pos;`,
-      { id: cardId, lid: newListId, pos: nextPos }
-    );
+    const cards = await getCardsForList(db, newListId);
+    const nextPos = cards.length > 0 ? (cards[cards.length - 1].position ?? 0) + 1 : 0;
+    await moveCard(db, cardId, newListId, nextPos);
   } finally {
     await db.close();
   }
@@ -198,14 +183,14 @@ export async function deleteCardAction(formData: FormData) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  const cardId = formData.get("cardId") as string;
-  const boardId = formData.get("boardId") as string;
+  const cardId = formData.get("cardId")?.toString() ?? "";
+  const boardId = formData.get("boardId")?.toString() ?? "";
 
   if (!cardId || !boardId) return;
 
-  const db = await getAuthenticatedDb(token);
+  const db = await getTrelloAuthenticatedDb(token);
   try {
-    await db.query(`DELETE type::record($id);`, { id: cardId });
+    await deleteCard(db, cardId);
   } finally {
     await db.close();
   }

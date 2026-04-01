@@ -3,13 +3,8 @@ import Sidebar from "@/components/Sidebar";
 import BoardCard from "@/components/BoardCard";
 import NewBoardForm from "@/components/NewBoardForm";
 import { getToken } from "@/lib/auth";
-import { getAuthenticatedDb } from "@/lib/surreal";
-
-interface Board {
-  id: string;
-  name: string;
-  created?: string;
-}
+import { getTrelloAuthenticatedDb, listBoards } from "@curriculum/surrealdb";
+import type { Board } from "@curriculum/surrealdb";
 
 export default async function BoardsPage() {
   const token = await getToken();
@@ -18,17 +13,14 @@ export default async function BoardsPage() {
   let boards: Board[] = [];
 
   try {
-    const db = await getAuthenticatedDb(token);
+    const db = await getTrelloAuthenticatedDb(token);
     try {
-      const [rows] = await db.query<[Board[]]>(
-        `SELECT * FROM board ORDER BY created DESC;`
-      );
-      boards = rows;
+      boards = await listBoards(db);
     } finally {
       await db.close();
     }
-  } catch {
-    // If DB is unavailable, show empty
+  } catch (e: unknown) {
+    console.error("Boards DB error:", e instanceof Error ? e.message : e);
   }
 
   return (

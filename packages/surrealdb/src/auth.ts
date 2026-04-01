@@ -1,5 +1,5 @@
 import { Surreal } from "surrealdb";
-import { getConnection } from "./connection.js";
+import { getConnection } from "./connection";
 
 export interface SignupParams {
   email: string;
@@ -18,7 +18,7 @@ export interface SigninParams {
 export async function signup(params: SignupParams): Promise<string> {
   const db = await getConnection();
   try {
-    const token = await db.signup({
+    const result = await db.signup({
       namespace: "quickbooks",
       database: "main",
       access: "user_access",
@@ -28,7 +28,7 @@ export async function signup(params: SignupParams): Promise<string> {
         name: params.name,
       },
     });
-    return token as unknown as string;
+    return typeof result === "string" ? result : (result as { access: string }).access;
   } finally {
     await db.close();
   }
@@ -40,7 +40,7 @@ export async function signup(params: SignupParams): Promise<string> {
 export async function signin(params: SigninParams): Promise<string> {
   const db = await getConnection();
   try {
-    const token = await db.signin({
+    const result = await db.signin({
       namespace: "quickbooks",
       database: "main",
       access: "user_access",
@@ -49,7 +49,7 @@ export async function signin(params: SigninParams): Promise<string> {
         password: params.password,
       },
     });
-    return token as unknown as string;
+    return typeof result === "string" ? result : (result as { access: string }).access;
   } finally {
     await db.close();
   }

@@ -12,7 +12,6 @@ final class FacebookKillerUITests: XCTestCase {
 
     override func tearDown() {
         app.terminate()
-        sleep(1)
         super.tearDown()
     }
 
@@ -20,11 +19,10 @@ final class FacebookKillerUITests: XCTestCase {
 
     func testOnboardingFlow() {
         app.launch()
-        sleep(2)
 
         // Verify all onboarding elements exist
         let nameField = app.textFields["onboarding_name_field"]
-        XCTAssertTrue(nameField.waitForExistence(timeout: 10), "Name field should exist")
+        XCTAssertTrue(nameField.waitForExistence(timeout: 12), "Name field should exist")
 
         let bioField = app.textFields["onboarding_bio_field"]
         XCTAssertTrue(bioField.exists, "Bio field should exist")
@@ -41,66 +39,81 @@ final class FacebookKillerUITests: XCTestCase {
     func testComposeAndPost() {
         app.launchArguments.append("-UITestSeeded")
         app.launch()
-        sleep(3)
 
         let composeTab = app.tabBars.buttons["Compose"]
-        XCTAssertTrue(composeTab.waitForExistence(timeout: 10), "Compose tab should exist")
+        XCTAssertTrue(composeTab.waitForExistence(timeout: 13), "Compose tab should exist")
         composeTab.tap()
-        sleep(2)
 
         let textView = app.textViews["compose_text_field"]
-        XCTAssertTrue(textView.waitForExistence(timeout: 10), "Compose text field should exist")
+        XCTAssertTrue(textView.waitForExistence(timeout: 12), "Compose text field should exist")
+
+        // Actually type a post
+        textView.tap()
+        let keyboard = app.keyboards.firstMatch
+        if !keyboard.waitForExistence(timeout: 5) {
+            XCTFail("Keyboard did not appear after tapping compose text field")
+            return
+        }
+        textView.typeText("Hello from UI test!")
 
         let postButton = app.buttons["compose_post_button"]
         XCTAssertTrue(postButton.waitForExistence(timeout: 5), "Post button should exist")
+        postButton.tap()
+
+        // Verify we navigate to feed and the new post appears
+        let feedTab = app.tabBars.buttons["Feed"]
+        XCTAssertTrue(feedTab.waitForExistence(timeout: 5), "Feed tab should exist after posting")
+        feedTab.tap()
+
+        let newPost = app.staticTexts["Hello from UI test!"]
+        XCTAssertTrue(newPost.waitForExistence(timeout: 10), "Newly composed post should appear in feed")
     }
 
     func testFeedDisplay() {
         app.launchArguments.append(contentsOf: ["-UITestSeeded", "-UITestWithSampleData"])
         app.launch()
-        sleep(3)
 
         let feedTab = app.tabBars.buttons["Feed"]
-        XCTAssertTrue(feedTab.waitForExistence(timeout: 10), "Feed tab should exist")
+        XCTAssertTrue(feedTab.waitForExistence(timeout: 13), "Feed tab should exist")
         feedTab.tap()
-        sleep(3)
 
-        let hasContent = app.staticTexts.element(boundBy: 0).waitForExistence(timeout: 10)
-        XCTAssertTrue(hasContent, "Feed should display posts from friends")
+        // Check for specific seeded post content from SampleData.swift (Alice's post)
+        let alicePost = app.staticTexts["Just got back from an amazing hike in the mountains! The views were incredible."]
+        XCTAssertTrue(alicePost.waitForExistence(timeout: 13), "Alice's seeded post should appear in feed")
+
+        // Also verify another seeded post is present (Bob's post)
+        let bobPost = app.staticTexts["Found the perfect pour-over ratio today. Life is good."]
+        XCTAssertTrue(bobPost.waitForExistence(timeout: 5), "Bob's seeded post should appear in feed")
     }
 
     func testFriendsTab() {
         app.launchArguments.append(contentsOf: ["-UITestSeeded", "-UITestWithSampleData"])
         app.launch()
-        sleep(3)
 
         let friendsTab = app.tabBars.buttons["Friends"]
-        XCTAssertTrue(friendsTab.waitForExistence(timeout: 10), "Friends tab should exist")
+        XCTAssertTrue(friendsTab.waitForExistence(timeout: 13), "Friends tab should exist")
         friendsTab.tap()
-        sleep(3)
 
         // Check for "My Friends" or "No friends yet" (either means the section rendered)
         let myFriends = app.staticTexts["My Friends"]
         let noFriends = app.staticTexts["No friends yet"]
-        let hasFriendsContent = myFriends.waitForExistence(timeout: 10) || noFriends.exists
+        let hasFriendsContent = myFriends.waitForExistence(timeout: 13) || noFriends.exists
         XCTAssertTrue(hasFriendsContent, "Friends tab should show content")
     }
 
     func testProfileView() {
         app.launchArguments.append("-UITestSeeded")
         app.launch()
-        sleep(3)
 
         let profileTab = app.tabBars.buttons["Profile"]
-        XCTAssertTrue(profileTab.waitForExistence(timeout: 10), "Profile tab should exist")
+        XCTAssertTrue(profileTab.waitForExistence(timeout: 13), "Profile tab should exist")
         profileTab.tap()
-        sleep(3)
 
         // Look for user name by accessibility identifier or text
         let profileName = app.staticTexts["profile_name"]
         let nameText = app.staticTexts["Test User"]
 
-        let found = profileName.waitForExistence(timeout: 10) || nameText.waitForExistence(timeout: 5)
+        let found = profileName.waitForExistence(timeout: 13) || nameText.waitForExistence(timeout: 5)
         XCTAssertTrue(found, "Profile should show user name")
     }
 }

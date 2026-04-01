@@ -1,6 +1,6 @@
-export { getConnection, getRootConnection, SURREAL_URL, SURREAL_NS, SURREAL_DB } from "./connection.js";
-export { signup, signin, authenticateWithToken } from "./auth.js";
-export type { SignupParams, SigninParams } from "./auth.js";
+export { getConnection, getRootConnection, SURREAL_URL, SURREAL_NS, SURREAL_DB } from "./connection";
+export { signup, signin, authenticateWithToken } from "./auth";
+export type { SignupParams, SigninParams } from "./auth";
 export {
   createInvoice,
   listInvoices,
@@ -10,8 +10,9 @@ export {
   createExpense,
   listExpenses,
   getDashboardData,
-} from "./queries.js";
-export type { CreateInvoiceInput, CreateExpenseInput, DashboardData } from "./queries.js";
+} from "./queries";
+export type { CreateInvoiceInput, CreateExpenseInput, DashboardData } from "./queries";
+export type { Invoice, LineItem, Expense, User, AggregateRow, Board, TrelloList, Card } from "./types";
 
 // ─── Trello exports ──────────────────────────────────────────
 export {
@@ -21,7 +22,7 @@ export {
   getTrelloAuthenticatedDb,
   TRELLO_NS,
   TRELLO_DB,
-} from "./trello-auth.js";
+} from "./trello-auth";
 export {
   listBoards,
   createBoard,
@@ -37,4 +38,4 @@ export {
   updateCard,
   deleteCard,
   moveCard,
-} from "./trello-queries.js";
+} from "./trello-queries";

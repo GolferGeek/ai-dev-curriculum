@@ -1,4 +1,5 @@
 import { Surreal } from "surrealdb";
+import type { Invoice, LineItem, Expense, AggregateRow } from "./types";
 
 // ─── Invoice queries ──────────────────────────────────────────
 
@@ -11,10 +12,10 @@ export interface CreateInvoiceInput {
 export async function createInvoice(
   db: Surreal,
   input: CreateInvoiceInput
-): Promise<any> {
+): Promise<Invoice> {
   const total = input.line_items.reduce((s, li) => s + li.amount, 0);
 
-  const [invoice] = await db.query<[any[]]>(
+  const [invoice] = await db.query<[Invoice[]]>(
     `CREATE invoice SET client = $client, due_date = <datetime>$due_date, total = $total;`,
     { client: input.client, due_date: input.due_date, total }
   );
@@ -31,16 +32,16 @@ export async function createInvoice(
   return invoice[0];
 }
 
-export async function listInvoices(db: Surreal): Promise<any[]> {
-  const [rows] = await db.query<[any[]]>(
+export async function listInvoices(db: Surreal): Promise<Invoice[]> {
+  const [rows] = await db.query<[Invoice[]]>(
     `SELECT * FROM invoice ORDER BY created DESC;`
   );
   return rows;
 }
 
-export async function getInvoice(db: Surreal, id: string): Promise<any> {
-  const [rows] = await db.query<[any[]]>(
-    `SELECT * FROM type::thing($id);`,
+export async function getInvoice(db: Surreal, id: string): Promise<Invoice | null> {
+  const [rows] = await db.query<[Invoice[]]>(
+    `SELECT * FROM type::record($id);`,
     { id }
   );
   return rows[0] ?? null;
@@ -49,9 +50,9 @@ export async function getInvoice(db: Surreal, id: string): Promise<any> {
 export async function getLineItems(
   db: Surreal,
   invoiceId: string
-): Promise<any[]> {
-  const [rows] = await db.query<[any[]]>(
-    `SELECT * FROM line_item WHERE invoice = type::thing($id);`,
+): Promise<LineItem[]> {
+  const [rows] = await db.query<[LineItem[]]>(
+    `SELECT * FROM line_item WHERE invoice = type::record($id);`,
     { id: invoiceId }
   );
   return rows;
@@ -59,7 +60,7 @@ export async function getLineItems(
 
 export async function markInvoicePaid(db: Surreal, id: string): Promise<void> {
   await db.query(
-    `UPDATE type::thing($id) SET status = 'paid', paid_at = time::now();`,
+    `UPDATE type::record($id) SET status = 'paid', paid_at = time::now();`,
     { id }
   );
 }
@@ -76,8 +77,8 @@ export interface CreateExpenseInput {
 export async function createExpense(
   db: Surreal,
   input: CreateExpenseInput
-): Promise<any> {
-  const [rows] = await db.query<[any[]]>(
+): Promise<Expense> {
+  const [rows] = await db.query<[Expense[]]>(
     `CREATE expense SET description = $desc, amount = $amount, category = $cat, date = <datetime>$date;`,
     {
       desc: input.description,
@@ -89,8 +90,8 @@ export async function createExpense(
   return rows[0];
 }
 
-export async function listExpenses(db: Surreal): Promise<any[]> {
-  const [rows] = await db.query<[any[]]>(
+export async function listExpenses(db: Surreal): Promise<Expense[]> {
+  const [rows] = await db.query<[Expense[]]>(
     `SELECT * FROM expense ORDER BY date DESC;`
   );
   return rows;
@@ -104,22 +105,22 @@ export interface DashboardData {
   totalIncome: number;
   totalExpenses: number;
   netProfitLoss: number;
-  recentExpenses: any[];
+  recentExpenses: Expense[];
 }
 
 export async function getDashboardData(
   db: Surreal
 ): Promise<DashboardData> {
-  const [outstanding] = await db.query<[any[]]>(
+  const [outstanding] = await db.query<[AggregateRow[]]>(
     `SELECT count() AS cnt, math::sum(total) AS total FROM invoice WHERE status = 'unpaid' GROUP ALL;`
   );
-  const [income] = await db.query<[any[]]>(
+  const [income] = await db.query<[AggregateRow[]]>(
     `SELECT math::sum(total) AS total FROM invoice WHERE status = 'paid' GROUP ALL;`
   );
-  const [expenses] = await db.query<[any[]]>(
+  const [expenses] = await db.query<[AggregateRow[]]>(
     `SELECT math::sum(amount) AS total FROM expense GROUP ALL;`
   );
-  const [recent] = await db.query<[any[]]>(
+  const [recent] = await db.query<[Expense[]]>(
     `SELECT * FROM expense ORDER BY date DESC LIMIT 5;`
   );
 

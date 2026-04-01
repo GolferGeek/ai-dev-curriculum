@@ -2,19 +2,8 @@ import { redirect } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import DashboardCard from "@/components/DashboardCard";
 import { getToken } from "@/lib/auth";
-import { getAuthenticatedDb } from "@/lib/surreal";
-
-interface Expense {
-  description: string;
-  category: string;
-  date: string;
-  amount: number;
-}
-
-interface AggregateRow {
-  cnt?: number;
-  total?: number;
-}
+import { getConnection, authenticateWithToken, getDashboardData } from "@curriculum/surrealdb";
+import type { DashboardData, Expense } from "@curriculum/surrealdb";
 
 function formatCurrency(n: number): string {
   return "$" + Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -24,44 +13,25 @@ export default async function DashboardPage() {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  let data = {
+  let data: DashboardData = {
     outstandingCount: 0,
     outstandingTotal: 0,
     totalIncome: 0,
     totalExpenses: 0,
     netProfitLoss: 0,
-    recentExpenses: [] as Expense[],
+    recentExpenses: [],
   };
 
   try {
-    const db = await getAuthenticatedDb(token);
+    const db = await getConnection();
     try {
-      const [outstanding] = await db.query<[AggregateRow[]]>(
-        `SELECT count() AS cnt, math::sum(total) AS total FROM invoice WHERE status = 'unpaid' GROUP ALL;`
-      );
-      const [income] = await db.query<[AggregateRow[]]>(
-        `SELECT math::sum(total) AS total FROM invoice WHERE status = 'paid' GROUP ALL;`
-      );
-      const [expenses] = await db.query<[AggregateRow[]]>(
-        `SELECT math::sum(amount) AS total FROM expense GROUP ALL;`
-      );
-      const [recent] = await db.query<[Expense[]]>(
-        `SELECT * FROM expense ORDER BY date DESC LIMIT 5;`
-      );
-
-      data = {
-        outstandingCount: outstanding[0]?.cnt ?? 0,
-        outstandingTotal: outstanding[0]?.total ?? 0,
-        totalIncome: income[0]?.total ?? 0,
-        totalExpenses: expenses[0]?.total ?? 0,
-        netProfitLoss: (income[0]?.total ?? 0) - (expenses[0]?.total ?? 0),
-        recentExpenses: recent ?? [],
-      };
+      await authenticateWithToken(db, token);
+      data = await getDashboardData(db);
     } finally {
       await db.close();
     }
-  } catch {
-    // If DB is unavailable, show zeroes
+  } catch (e: unknown) {
+    console.error("Dashboard DB error:", e instanceof Error ? e.message : e);
   }
 
   const profitVariant: "success" | "danger" =

@@ -1,11 +1,15 @@
 import { Surreal } from "surrealdb";
+import type { User, Invoice, Expense } from "../src/types.js";
 
 const SURREAL_URL = process.env.SURREAL_URL ?? "http://127.0.0.1:8000";
 
 async function main() {
   const db = new Surreal();
   await db.connect(SURREAL_URL);
-  await db.signin({ username: "root", password: "root" });
+  await db.signin({
+    username: process.env.SURREAL_ROOT_USER ?? "root",
+    password: process.env.SURREAL_ROOT_PASS ?? "root",
+  });
   await db.use({ namespace: "quickbooks", database: "main" });
 
   // Create a demo user via direct insert (bypassing access layer for seeding)
@@ -13,7 +17,7 @@ async function main() {
   const password = "password123";
 
   // Check if demo user exists
-  const [existing] = await db.query<[any[]]>(
+  const [existing] = await db.query<[User[]]>(
     `SELECT * FROM user WHERE email = $email;`,
     { email }
   );
@@ -29,21 +33,21 @@ async function main() {
   }
 
   // Get the demo user ID
-  const [users] = await db.query<[any[]]>(
+  const [users] = await db.query<[User[]]>(
     `SELECT * FROM user WHERE email = $email;`,
     { email }
   );
   const userId = users[0].id;
 
   // Seed invoices
-  const [existingInvoices] = await db.query<[any[]]>(
+  const [existingInvoices] = await db.query<[Invoice[]]>(
     `SELECT * FROM invoice WHERE owner = $uid;`,
     { uid: userId }
   );
 
   if (existingInvoices.length === 0) {
     // Invoice 1 — unpaid
-    const [inv1] = await db.query<[any[]]>(
+    const [inv1] = await db.query<[Invoice[]]>(
       `CREATE invoice SET owner = $uid, client = 'Acme Corp', due_date = <datetime>'2026-04-15T00:00:00Z', total = 2500, status = 'unpaid';`,
       { uid: userId }
     );
@@ -57,7 +61,7 @@ async function main() {
     );
 
     // Invoice 2 — paid
-    const [inv2] = await db.query<[any[]]>(
+    const [inv2] = await db.query<[Invoice[]]>(
       `CREATE invoice SET owner = $uid, client = 'StartupXYZ', due_date = <datetime>'2026-03-01T00:00:00Z', total = 4000, status = 'paid', paid_at = <datetime>'2026-03-05T00:00:00Z';`,
       { uid: userId }
     );
@@ -67,7 +71,7 @@ async function main() {
     );
 
     // Invoice 3 — unpaid
-    const [inv3] = await db.query<[any[]]>(
+    const [inv3] = await db.query<[Invoice[]]>(
       `CREATE invoice SET owner = $uid, client = 'Local Coffee Co', due_date = <datetime>'2026-04-30T00:00:00Z', total = 750, status = 'unpaid';`,
       { uid: userId }
     );
@@ -82,7 +86,7 @@ async function main() {
   }
 
   // Seed expenses
-  const [existingExpenses] = await db.query<[any[]]>(
+  const [existingExpenses] = await db.query<[Expense[]]>(
     `SELECT * FROM expense WHERE owner = $uid;`,
     { uid: userId }
   );

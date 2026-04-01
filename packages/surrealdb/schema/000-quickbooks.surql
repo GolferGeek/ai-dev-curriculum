@@ -27,6 +27,7 @@ DEFINE ACCESS IF NOT EXISTS user_access ON DATABASE TYPE RECORD
     WHERE email = $email
       AND crypto::argon2::compare(password, $password)
   )
+  -- TODO: Replace with env-injected secret in production
   WITH JWT ALGORITHM HS256 KEY 'quickbooks-killer-secret-key-change-in-prod'
   DURATION FOR TOKEN 24h, FOR SESSION 7d;
 

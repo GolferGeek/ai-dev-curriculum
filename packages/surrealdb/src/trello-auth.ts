@@ -34,7 +34,7 @@ export async function trelloSignup(params: {
         name: params.name,
       },
     });
-    return token as unknown as string;
+    return typeof token === "string" ? token : (token as { access: string }).access;
   } finally {
     await db.close();
   }
@@ -58,7 +58,7 @@ export async function trelloSignin(params: {
         password: params.password,
       },
     });
-    return token as unknown as string;
+    return typeof token === "string" ? token : (token as { access: string }).access;
   } finally {
     await db.close();
   }

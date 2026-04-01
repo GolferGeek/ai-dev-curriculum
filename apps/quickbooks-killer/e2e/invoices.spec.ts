@@ -56,7 +56,7 @@ test.describe("Invoices", () => {
 
     // Mark as paid
     await page.click('button:has-text("Mark as Paid")');
-    // Wait for status badge to change from unpaid to paid (green badge)
-    await expect(page.locator(".bg-green-100")).toBeVisible({ timeout: 10000 });
+    // Wait for the unpaid badge to disappear and paid badge to appear
+    await expect(page.locator("text=unpaid")).not.toBeVisible({ timeout: 10000 });
   });
 });

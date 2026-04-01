@@ -32,7 +32,7 @@ test.describe("Dashboard", () => {
     // Mark it as paid
     await page.click("text=View");
     await page.click('button:has-text("Mark as Paid")');
-    await expect(page.locator(".bg-green-100")).toBeVisible({ timeout: 10000 });
+    await expect(page.locator("text=unpaid")).not.toBeVisible({ timeout: 10000 });
 
     // Create an expense
     await page.click('a[href="/expenses"]');

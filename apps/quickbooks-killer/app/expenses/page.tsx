@@ -2,14 +2,8 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 import { getToken } from "@/lib/auth";
-import { getAuthenticatedDb } from "@/lib/surreal";
-
-interface Expense {
-  description: string;
-  category: string;
-  date: string;
-  amount: number;
-}
+import { getConnection, authenticateWithToken, listExpenses } from "@curriculum/surrealdb";
+import type { Expense } from "@curriculum/surrealdb";
 
 export default async function ExpensesPage() {
   const token = await getToken();
@@ -18,17 +12,15 @@ export default async function ExpensesPage() {
   let expenses: Expense[] = [];
 
   try {
-    const db = await getAuthenticatedDb(token);
+    const db = await getConnection();
     try {
-      const [rows] = await db.query<[Expense[]]>(
-        `SELECT * FROM expense ORDER BY date DESC;`
-      );
-      expenses = rows ?? [];
+      await authenticateWithToken(db, token);
+      expenses = await listExpenses(db);
     } finally {
       await db.close();
     }
-  } catch {
-    // DB unavailable
+  } catch (e: unknown) {
+    console.error("Expenses DB error:", e instanceof Error ? e.message : e);
   }
 
   // Calculate running total (cumulative from oldest to newest, displayed newest first)

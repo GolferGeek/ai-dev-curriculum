@@ -24,5 +24,10 @@ final class ProfileUITests: XCTestCase {
         let profileHandle = app.staticTexts["profile_handle"]
         XCTAssertTrue(profileHandle.exists, "Profile handle should appear")
         XCTAssertEqual(profileHandle.label, "@testuser")
+
+        // Verify the sign out button exists and is tappable
+        let signOutButton = app.buttons["profile_sign_out_button"]
+        XCTAssertTrue(signOutButton.waitForExistence(timeout: 5), "Sign out button should exist on profile")
+        XCTAssertTrue(signOutButton.isHittable, "Sign out button should be tappable")
     }
 }

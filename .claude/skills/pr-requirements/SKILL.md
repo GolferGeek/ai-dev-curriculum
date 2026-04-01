@@ -52,5 +52,5 @@ These are the rules that must be satisfied before code ships. `/commit` checks t
 
 *When `/pr-eval` finds a violation that the above rules didn't catch, add it here with the date and context. This section grows over time.*
 
-<!-- Example:
-- 2026-04-01: API routes must return 401 (not 200 with error body) for auth failures. Found in QuickBooks invoice route. -->
+- 2026-04-01: `.gitignore` must include `.env*` patterns to prevent accidental credential commits. Found during PR review of surrealdb package.
+- 2026-04-01: iOS UI tests must not use `sleep()` — use `waitForExistence` or XCTest expectations. Found in twitter-killer and facebook-killer with 14 combined sleep calls adding 20+ seconds of flaky wait time.

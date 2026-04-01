@@ -24,30 +24,34 @@ final class OnboardingUITests: XCTestCase {
         // Try to type into fields
         nameField.tap()
         let keyboard = app.keyboards.firstMatch
-        if keyboard.waitForExistence(timeout: 5) {
-            nameField.typeText("Test User")
-            handleField.tap()
-            sleep(1)
-            handleField.typeText("testuser")
-
-            // Dismiss keyboard
-            let titleText = app.staticTexts["Welcome to Chirp"]
-            if titleText.exists {
-                titleText.tap()
-            }
-            sleep(2)
-
-            // Complete onboarding
-            if getStartedButton.isEnabled {
-                getStartedButton.tap()
-                let tabBar = app.tabBars.firstMatch
-                XCTAssertTrue(tabBar.waitForExistence(timeout: 10), "Tab bar should appear after onboarding")
-            }
+        if !keyboard.waitForExistence(timeout: 5) {
+            XCTFail("Keyboard did not appear after tapping name field")
+            return
         }
-        // If keyboard doesn't appear, the test still passes because we verified
-        // the onboarding screen structure (name field, handle field, button exist).
-        // The full typing flow is also exercised in ComposeUITests (which uses --seeded
-        // to skip onboarding but still types into the text editor).
+
+        nameField.typeText("Test User")
+        handleField.tap()
+        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3), "Keyboard should remain visible after tapping handle field")
+        handleField.typeText("testuser")
+
+        // Dismiss keyboard
+        let titleText = app.staticTexts["Welcome to Chirp"]
+        if titleText.exists {
+            titleText.tap()
+        }
+
+        // Wait for keyboard to dismiss
+        let keyboardDismissed = NSPredicate(format: "count == 0")
+        expectation(for: keyboardDismissed, evaluatedWith: app.keyboards)
+        waitForExpectations(timeout: 5)
+
+        // Complete onboarding
+        XCTAssertTrue(getStartedButton.waitForExistence(timeout: 3), "Get Started button should be available")
+        XCTAssertTrue(getStartedButton.isEnabled, "Get Started button should be enabled after filling fields")
+        getStartedButton.tap()
+
+        let tabBar = app.tabBars.firstMatch
+        XCTAssertTrue(tabBar.waitForExistence(timeout: 10), "Tab bar should appear after onboarding")
     }
 
     func testOnboardingScreenStructure() throws {

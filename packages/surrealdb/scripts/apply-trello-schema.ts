@@ -11,7 +11,10 @@ const SURREAL_URL = process.env.SURREAL_URL ?? "http://127.0.0.1:8000";
 async function main() {
   const db = new Surreal();
   await db.connect(SURREAL_URL);
-  await db.signin({ username: "root", password: "root" });
+  await db.signin({
+    username: process.env.SURREAL_ROOT_USER ?? "root",
+    password: process.env.SURREAL_ROOT_PASS ?? "root",
+  });
 
   // Create namespace and database
   try {

@@ -2,23 +2,9 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 import { getToken } from "@/lib/auth";
-import { getAuthenticatedDb } from "@/lib/surreal";
+import { getConnection, authenticateWithToken, getInvoice, getLineItems } from "@curriculum/surrealdb";
+import type { Invoice, LineItem } from "@curriculum/surrealdb";
 import { markInvoicePaidAction } from "@/lib/actions";
-
-interface Invoice {
-  id: string | { toString(): string };
-  client: string;
-  total: number;
-  status: string;
-  due_date: string;
-  paid_at?: string;
-}
-
-interface LineItem {
-  description: string;
-  amount: number;
-  invoice: string;
-}
 
 export default async function InvoiceDetailPage({
   params,
@@ -34,26 +20,19 @@ export default async function InvoiceDetailPage({
   let lineItems: LineItem[] = [];
 
   try {
-    const db = await getAuthenticatedDb(token);
+    const db = await getConnection();
     try {
-      const [invRows] = await db.query<[Invoice[]]>(
-        `SELECT * FROM type::record($id);`,
-        { id: decodedId }
-      );
-      invoice = invRows[0] ?? null;
+      await authenticateWithToken(db, token);
+      invoice = await getInvoice(db, decodedId);
 
       if (invoice) {
-        const [liRows] = await db.query<[LineItem[]]>(
-          `SELECT * FROM line_item WHERE invoice = type::record($id);`,
-          { id: decodedId }
-        );
-        lineItems = liRows ?? [];
+        lineItems = await getLineItems(db, decodedId);
       }
     } finally {
       await db.close();
     }
-  } catch {
-    // DB unavailable
+  } catch (e: unknown) {
+    console.error("Invoice detail DB error:", e instanceof Error ? e.message : e);
   }
 
   if (!invoice) {

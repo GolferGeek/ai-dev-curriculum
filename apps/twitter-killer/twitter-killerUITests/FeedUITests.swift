@@ -20,5 +20,14 @@ final class FeedUITests: XCTestCase {
         // which should appear in the feed (own posts always show)
         let postText = app.staticTexts["Seeded post one"]
         XCTAssertTrue(postText.waitForExistence(timeout: 10), "Seeded post should appear in feed")
+
+        // Verify post author name is visible alongside the post
+        let authorName = app.staticTexts["Test User"]
+        XCTAssertTrue(authorName.waitForExistence(timeout: 5), "Post author name should appear in feed")
+
+        // Tap the post to verify navigation to detail view
+        postText.tap()
+        let detailView = app.navigationBars.firstMatch
+        XCTAssertTrue(detailView.waitForExistence(timeout: 5), "Detail view should appear after tapping a post")
     }
 }
