@@ -5,6 +5,27 @@ import BoardView from "@/components/BoardView";
 import { getToken } from "@/lib/auth";
 import { getAuthenticatedDb } from "@/lib/surreal";
 
+interface Board {
+  id: string;
+  name: string;
+  created?: string;
+}
+
+interface Card {
+  id: string;
+  title: string;
+  description?: string | null;
+  list: string;
+  position: number;
+}
+
+interface ListWithCards {
+  id: string;
+  name: string;
+  position: number;
+  cards: Card[];
+}
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
@@ -15,16 +36,16 @@ export default async function BoardDetailPage({ params }: PageProps) {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  let board: any = null;
-  let allBoards: any[] = [];
-  let listsWithCards: any[] = [];
+  let board: Board | null = null;
+  let allBoards: Board[] = [];
+  let listsWithCards: ListWithCards[] = [];
 
   try {
     const db = await getAuthenticatedDb(token);
     try {
       // Get the board
-      const [boardRows] = await db.query<[any[]]>(
-        `SELECT * FROM type::thing($id);`,
+      const [boardRows] = await db.query<[Board[]]>(
+        `SELECT * FROM type::record($id);`,
         { id: boardId }
       );
       board = boardRows[0] ?? null;
@@ -34,28 +55,28 @@ export default async function BoardDetailPage({ params }: PageProps) {
       }
 
       // Get all boards for sidebar
-      const [boardsRows] = await db.query<[any[]]>(
+      const [boardsRows] = await db.query<[Board[]]>(
         `SELECT * FROM board ORDER BY created DESC;`
       );
       allBoards = boardsRows;
 
       // Get lists for this board
-      const [listRows] = await db.query<[any[]]>(
-        `SELECT * FROM list WHERE board = type::thing($bid) ORDER BY position ASC;`,
+      const [listRows] = await db.query<[ListWithCards[]]>(
+        `SELECT * FROM list WHERE board = type::record($bid) ORDER BY position ASC;`,
         { bid: boardId }
       );
 
       // Get cards for each list
       listsWithCards = [];
       for (const list of listRows) {
-        const [cardRows] = await db.query<[any[]]>(
-          `SELECT * FROM card WHERE list = type::thing($lid) ORDER BY position ASC;`,
+        const [cardRows] = await db.query<[Card[]]>(
+          `SELECT * FROM card WHERE list = type::record($lid) ORDER BY position ASC;`,
           { lid: String(list.id) }
         );
         listsWithCards.push({
           ...list,
           id: String(list.id),
-          cards: cardRows.map((c: any) => ({
+          cards: cardRows.map((c: Card) => ({
             ...c,
             id: String(c.id),
             list: String(c.list),

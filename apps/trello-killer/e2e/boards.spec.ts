@@ -19,11 +19,12 @@ test.describe("Boards", () => {
     await page.fill('input[name="name"]', "My Test Board");
     await page.click('button:has-text("Create")');
 
-    // Board should appear
-    await expect(page.locator("text=My Test Board")).toBeVisible();
+    // Board should appear in main content
+    await expect(page.locator("main h3").filter({ hasText: "My Test Board" })).toBeVisible();
 
     // Open the board
-    await page.click("text=My Test Board");
+    await page.locator("main h3").filter({ hasText: "My Test Board" }).click();
+    await page.waitForURL(/\/boards\//);
     await expect(page.locator("h2")).toContainText("My Test Board");
   });
 });

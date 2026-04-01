@@ -4,16 +4,24 @@ import Sidebar from "@/components/Sidebar";
 import { getToken } from "@/lib/auth";
 import { getAuthenticatedDb } from "@/lib/surreal";
 
+interface Invoice {
+  id: string | { toString(): string };
+  client: string;
+  total: number;
+  due_date: string;
+  status: string;
+}
+
 export default async function InvoicesPage() {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  let invoices: any[] = [];
+  let invoices: Invoice[] = [];
 
   try {
     const db = await getAuthenticatedDb(token);
     try {
-      const [rows] = await db.query<[any[]]>(
+      const [rows] = await db.query<[Invoice[]]>(
         `SELECT * FROM invoice ORDER BY created DESC;`
       );
       invoices = rows ?? [];
@@ -66,7 +74,7 @@ export default async function InvoicesPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {invoices.map((inv: any) => {
+                {invoices.map((inv: Invoice) => {
                   const id =
                     typeof inv.id === "object" ? inv.id.toString() : inv.id;
                   return (

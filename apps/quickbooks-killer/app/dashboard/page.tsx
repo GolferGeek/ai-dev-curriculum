@@ -4,6 +4,18 @@ import DashboardCard from "@/components/DashboardCard";
 import { getToken } from "@/lib/auth";
 import { getAuthenticatedDb } from "@/lib/surreal";
 
+interface Expense {
+  description: string;
+  category: string;
+  date: string;
+  amount: number;
+}
+
+interface AggregateRow {
+  cnt?: number;
+  total?: number;
+}
+
 function formatCurrency(n: number): string {
   return "$" + Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -18,22 +30,22 @@ export default async function DashboardPage() {
     totalIncome: 0,
     totalExpenses: 0,
     netProfitLoss: 0,
-    recentExpenses: [] as any[],
+    recentExpenses: [] as Expense[],
   };
 
   try {
     const db = await getAuthenticatedDb(token);
     try {
-      const [outstanding] = await db.query<[any[]]>(
+      const [outstanding] = await db.query<[AggregateRow[]]>(
         `SELECT count() AS cnt, math::sum(total) AS total FROM invoice WHERE status = 'unpaid' GROUP ALL;`
       );
-      const [income] = await db.query<[any[]]>(
+      const [income] = await db.query<[AggregateRow[]]>(
         `SELECT math::sum(total) AS total FROM invoice WHERE status = 'paid' GROUP ALL;`
       );
-      const [expenses] = await db.query<[any[]]>(
+      const [expenses] = await db.query<[AggregateRow[]]>(
         `SELECT math::sum(amount) AS total FROM expense GROUP ALL;`
       );
-      const [recent] = await db.query<[any[]]>(
+      const [recent] = await db.query<[Expense[]]>(
         `SELECT * FROM expense ORDER BY date DESC LIMIT 5;`
       );
 
@@ -146,7 +158,7 @@ export default async function DashboardPage() {
             <p className="text-gray-400 text-sm">No expenses logged yet.</p>
           ) : (
             <div className="divide-y divide-gray-100">
-              {data.recentExpenses.map((exp: any, i: number) => (
+              {data.recentExpenses.map((exp: Expense, i: number) => (
                 <div
                   key={i}
                   className="flex justify-between items-center py-3"

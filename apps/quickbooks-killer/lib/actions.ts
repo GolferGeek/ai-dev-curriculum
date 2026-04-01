@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { getDb, getAuthenticatedDb } from "./surreal";
 import { getToken, setToken, clearToken } from "./auth";
 
@@ -13,13 +14,13 @@ export async function signupAction(formData: FormData) {
 
   const db = await getDb();
   try {
-    const token = await db.signup({
+    const tokens = await db.signup({
       namespace: "quickbooks",
       database: "main",
       access: "user_access",
       variables: { email, password, name },
     });
-    await setToken(token as unknown as string);
+    await setToken(typeof tokens === "string" ? tokens : tokens.access);
   } finally {
     await db.close();
   }
@@ -32,13 +33,13 @@ export async function signinAction(formData: FormData) {
 
   const db = await getDb();
   try {
-    const token = await db.signin({
+    const tokens = await db.signin({
       namespace: "quickbooks",
       database: "main",
       access: "user_access",
       variables: { email, password },
     });
-    await setToken(token as unknown as string);
+    await setToken(typeof tokens === "string" ? tokens : tokens.access);
   } finally {
     await db.close();
   }
@@ -85,6 +86,7 @@ export async function createInvoiceAction(formData: FormData) {
   } finally {
     await db.close();
   }
+  revalidatePath("/invoices");
   redirect("/invoices");
 }
 
@@ -96,12 +98,13 @@ export async function markInvoicePaidAction(formData: FormData) {
   const db = await getAuthenticatedDb(token);
   try {
     await db.query(
-      `UPDATE type::thing($id) SET status = 'paid', paid_at = time::now();`,
+      `UPDATE type::record($id) SET status = 'paid', paid_at = time::now();`,
       { id }
     );
   } finally {
     await db.close();
   }
+  revalidatePath(`/invoices/${encodeURIComponent(id)}`);
   redirect(`/invoices/${encodeURIComponent(id)}`);
 }
 
@@ -125,5 +128,6 @@ export async function createExpenseAction(formData: FormData) {
   } finally {
     await db.close();
   }
+  revalidatePath("/expenses");
   redirect("/expenses");
 }

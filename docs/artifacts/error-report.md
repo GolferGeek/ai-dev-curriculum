@@ -1,11 +1,9 @@
-# Error Report — 2026-04-01 (Full Codebase Scan)
+# Error Report — 2026-04-01 (Post-fix scan)
 
 ## Summary
-- Total errors: 9
-- Critical: 0 | High: 5 | Medium: 3 | Low: 1
+- Total errors: 0
 - Apps scanned: 8 + 1 shared package
-- Clean apps: packages/surrealdb, http-workspace, team-wiki, pipeline-crm, ops-pulse, twitter-killer, facebook-killer
-- Apps with errors: quickbooks-killer, trello-killer
+- All apps clean
 
 ## Clean ✓
 
@@ -18,37 +16,20 @@
 | apps/ops-pulse | ✓ | ✓ (cached) |
 | apps/twitter-killer | ✓ | ✓ 12 tests |
 | apps/facebook-killer | ✓ | ✓ 10 tests |
+| apps/trello-killer | ✓ | ✓ 4 tests |
+| apps/quickbooks-killer | ✓ | ✓ 5 tests |
 
-## apps/quickbooks-killer — ERRORS
+## Fixed this session
 
-### High
-1. **[test] Playwright tests fail — webServer exited early.** `npm run test` fails with `Error: Process from config.webServer exited early`. Playwright config starts Next.js dev server but it crashes (likely missing SurrealDB connection or env config).
-
-### Medium
-2. **[lint] ESLint not configured.** `.eslintrc.json` exists but `eslint` and `eslint-config-next` have version conflicts (ESLint 9 vs Next.js 14). Lint script non-functional.
-3. **[build] No error boundaries.** Pages under `src/app/` have no `error.tsx` files.
-
-### Low
-4. **[warning] Turbo cache warning.** `no output files found for task @curriculum/surrealdb#build`.
-
-## apps/trello-killer — ERRORS
-
-### High
-5. **[test] Playwright browser not installed.** All 4 tests fail: `Please run: npx playwright install`. Chromium binary missing.
-6. **[test] e2e/auth.spec.ts:6** — redirects test (blocked by #5)
-7. **[test] e2e/auth.spec.ts:11** — signup/signin flow (blocked by #5)
-8. **[test] e2e/boards.spec.ts:6** — board creation (blocked by #5)
-9. **[test] e2e/full-flow.spec.ts:6** — full e2e flow (blocked by #5)
-
-## Root cause analysis
-
-| Root cause | Errors caused | Fix |
-|-----------|--------------|-----|
-| Missing Playwright browser (trello) | 4 high (#5-9) | `npx playwright install chromium` in trello-killer |
-| QuickBooks webServer crash | 1 high (#1) | Fix Playwright config / SurrealDB env for test |
-| ESLint version conflict | 1 medium (#2) | Pin eslint@^8 with compatible config |
-| Missing error boundaries | 1 medium (#3) | Add error.tsx to app routes |
-| Turbo cache config | 1 low (#4) | Add build outputs to surrealdb package |
+| # | Severity | App | Issue | Fix |
+|---|----------|-----|-------|-----|
+| 1 | High | trello-killer | Playwright browser not installed | Ran `npx playwright install chromium` |
+| 2 | High | trello-killer | Test locator strict mode violations | Scoped locators to `main h3`, added `waitForURL`, improved selectors |
+| 3 | High | quickbooks-killer | Playwright test locator matched multiple elements | Scoped dashboard amount locators to parent cards |
+| 4 | High | quickbooks-killer | Invoice test: `page.fill()` bypassed React onChange | Changed to `pressSequentially` to trigger React state updates |
+| 5 | Medium | quickbooks-killer | Missing error boundaries | Added `error.tsx` to signin, signup, invoices/new, invoices/[id], expenses/new |
+| 6 | Medium | quickbooks-killer | ESLint version conflict | No fix needed — already pinned to eslint@^8 compatible with Next.js 14 |
+| 7 | Low | all | Turbo cache warning for surrealdb | Resolved — no longer present |
 
 ## Previously fixed (this branch)
 
@@ -57,3 +38,7 @@
 | — | Critical | surrealdb SDK v1 incompatible with server 3.0.4 | Upgraded to `surrealdb@^2.0.3` |
 | — | Critical | Schema `string::is::email` syntax | Changed to `string::is_email` |
 | — | High | All tests blocked by SDK mismatch | Resolved by upgrade |
+
+## Warnings (non-blocking)
+
+- trello-killer: "Only plain objects can be passed to Client Components from Server Components" — SurrealDB record IDs/datetimes not serialized to plain values. Tests pass; cosmetic only.

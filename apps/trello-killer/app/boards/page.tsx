@@ -5,16 +5,22 @@ import NewBoardForm from "@/components/NewBoardForm";
 import { getToken } from "@/lib/auth";
 import { getAuthenticatedDb } from "@/lib/surreal";
 
+interface Board {
+  id: string;
+  name: string;
+  created?: string;
+}
+
 export default async function BoardsPage() {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  let boards: any[] = [];
+  let boards: Board[] = [];
 
   try {
     const db = await getAuthenticatedDb(token);
     try {
-      const [rows] = await db.query<[any[]]>(
+      const [rows] = await db.query<[Board[]]>(
         `SELECT * FROM board ORDER BY created DESC;`
       );
       boards = rows;

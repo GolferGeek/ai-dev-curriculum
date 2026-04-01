@@ -18,38 +18,38 @@ async function main() {
     await db.query("DEFINE NAMESPACE IF NOT EXISTS quickbooks;");
     await db.query("USE NS quickbooks;");
     await db.query("DEFINE DATABASE IF NOT EXISTS main;");
-  } catch (e: any) {
-    console.log("Namespace/DB setup note:", e.message ?? e);
+  } catch (e: unknown) {
+    console.log("Namespace/DB setup note:", e instanceof Error ? e.message : String(e));
   }
 
   await db.use({ namespace: "quickbooks", database: "main" });
 
-  // Read and apply the full schema
+  // Read and apply the full schema as a single multi-statement query.
+  // Splitting on semicolons would break DEFINE ACCESS and other compound
+  // statements that contain inner semicolons.
   const schemaPath = join(__dirname, "..", "schema.surql");
   const schema = readFileSync(schemaPath, "utf-8");
 
-  // Split on semicolons and execute each statement
-  const statements = schema
-    .split(";")
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0 && !s.startsWith("--"));
+  // Strip the DEFINE NAMESPACE / USE NS / DEFINE DATABASE / USE DB lines
+  // since we already set them above via db.use().
+  const stripped = schema
+    .split("\n")
+    .filter((line) => {
+      const t = line.trim().toUpperCase();
+      return (
+        !t.startsWith("DEFINE NAMESPACE") &&
+        !t.startsWith("USE NS") &&
+        !t.startsWith("DEFINE DATABASE") &&
+        !t.startsWith("USE DB")
+      );
+    })
+    .join("\n");
 
-  for (const stmt of statements) {
-    try {
-      await db.query(stmt + ";");
-    } catch (e: any) {
-      // Tolerate "already exists" type errors
-      const msg = e.message ?? String(e);
-      if (
-        msg.includes("already exists") ||
-        msg.includes("already defined")
-      ) {
-        console.log(`  (skipped, already exists): ${stmt.slice(0, 60)}...`);
-      } else {
-        console.error(`Error applying: ${stmt.slice(0, 80)}...`);
-        console.error(e);
-      }
-    }
+  try {
+    await db.query(stripped);
+  } catch (e: unknown) {
+    console.error("Error applying schema:", e instanceof Error ? e.message : String(e));
+    throw e;
   }
 
   console.log("Schema applied successfully.");

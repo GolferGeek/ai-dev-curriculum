@@ -2,15 +2,18 @@
 
 import { useState } from "react";
 
+interface CardData {
+  id: string;
+  title: string;
+  description?: string | null;
+  list: string;
+  position: number;
+}
+
 interface CardItemProps {
-  card: {
-    id: string;
-    title: string;
-    description?: string | null;
-    list: string;
-  };
+  card: CardData;
   boardId: string;
-  onOpenDetail: (card: any) => void;
+  onOpenDetail: (card: CardData) => void;
 }
 
 export default function CardItem({ card, boardId, onOpenDetail }: CardItemProps) {

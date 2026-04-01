@@ -33,10 +33,10 @@ DEFINE ACCESS IF NOT EXISTS user_access ON DATABASE TYPE RECORD
 -- ─── Invoice table ────────────────────────────────────────────
 DEFINE TABLE IF NOT EXISTS invoice SCHEMAFULL
   PERMISSIONS
-    FOR select, update, delete WHERE owner = $auth.id
+    FOR select, update, delete WHERE owner = $auth
     FOR create FULL;
 
-DEFINE FIELD IF NOT EXISTS owner      ON TABLE invoice TYPE record<user> DEFAULT $auth.id;
+DEFINE FIELD IF NOT EXISTS owner      ON TABLE invoice TYPE record<user> DEFAULT $auth;
 DEFINE FIELD IF NOT EXISTS client     ON TABLE invoice TYPE string;
 DEFINE FIELD IF NOT EXISTS due_date   ON TABLE invoice TYPE datetime;
 DEFINE FIELD IF NOT EXISTS paid_at    ON TABLE invoice TYPE option<datetime>;
@@ -47,7 +47,7 @@ DEFINE FIELD IF NOT EXISTS created    ON TABLE invoice TYPE datetime DEFAULT tim
 -- ─── Line-item table ─────────────────────────────────────────
 DEFINE TABLE IF NOT EXISTS line_item SCHEMAFULL
   PERMISSIONS
-    FOR select, update, delete WHERE invoice.owner = $auth.id
+    FOR select, update, delete WHERE invoice.owner = $auth
     FOR create FULL;
 
 DEFINE FIELD IF NOT EXISTS invoice     ON TABLE line_item TYPE record<invoice>;
@@ -57,10 +57,10 @@ DEFINE FIELD IF NOT EXISTS amount      ON TABLE line_item TYPE number;
 -- ─── Expense table ───────────────────────────────────────────
 DEFINE TABLE IF NOT EXISTS expense SCHEMAFULL
   PERMISSIONS
-    FOR select, update, delete WHERE owner = $auth.id
+    FOR select, update, delete WHERE owner = $auth
     FOR create FULL;
 
-DEFINE FIELD IF NOT EXISTS owner       ON TABLE expense TYPE record<user> DEFAULT $auth.id;
+DEFINE FIELD IF NOT EXISTS owner       ON TABLE expense TYPE record<user> DEFAULT $auth;
 DEFINE FIELD IF NOT EXISTS description ON TABLE expense TYPE string;
 DEFINE FIELD IF NOT EXISTS amount      ON TABLE expense TYPE number;
 DEFINE FIELD IF NOT EXISTS category    ON TABLE expense TYPE string

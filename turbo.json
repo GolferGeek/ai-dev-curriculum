@@ -5,6 +5,10 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "@curriculum/surrealdb#build": {
+      "dependsOn": [],
+      "outputs": []
+    },
     "test": {
       "dependsOn": ["build"]
     },

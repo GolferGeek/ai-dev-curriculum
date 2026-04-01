@@ -4,16 +4,23 @@ import Sidebar from "@/components/Sidebar";
 import { getToken } from "@/lib/auth";
 import { getAuthenticatedDb } from "@/lib/surreal";
 
+interface Expense {
+  description: string;
+  category: string;
+  date: string;
+  amount: number;
+}
+
 export default async function ExpensesPage() {
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  let expenses: any[] = [];
+  let expenses: Expense[] = [];
 
   try {
     const db = await getAuthenticatedDb(token);
     try {
-      const [rows] = await db.query<[any[]]>(
+      const [rows] = await db.query<[Expense[]]>(
         `SELECT * FROM expense ORDER BY date DESC;`
       );
       expenses = rows ?? [];
@@ -87,7 +94,7 @@ export default async function ExpensesPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {expenses.map((exp: any, i: number) => (
+                {expenses.map((exp: Expense, i: number) => (
                   <tr key={i} className="hover:bg-gray-50">
                     <td className="px-6 py-4 font-medium text-gray-900">
                       {exp.description}

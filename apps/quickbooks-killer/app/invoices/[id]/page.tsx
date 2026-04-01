@@ -5,6 +5,21 @@ import { getToken } from "@/lib/auth";
 import { getAuthenticatedDb } from "@/lib/surreal";
 import { markInvoicePaidAction } from "@/lib/actions";
 
+interface Invoice {
+  id: string | { toString(): string };
+  client: string;
+  total: number;
+  status: string;
+  due_date: string;
+  paid_at?: string;
+}
+
+interface LineItem {
+  description: string;
+  amount: number;
+  invoice: string;
+}
+
 export default async function InvoiceDetailPage({
   params,
 }: {
@@ -15,21 +30,21 @@ export default async function InvoiceDetailPage({
   const token = await getToken();
   if (!token) redirect("/signin");
 
-  let invoice: any = null;
-  let lineItems: any[] = [];
+  let invoice: Invoice | null = null;
+  let lineItems: LineItem[] = [];
 
   try {
     const db = await getAuthenticatedDb(token);
     try {
-      const [invRows] = await db.query<[any[]]>(
-        `SELECT * FROM type::thing($id);`,
+      const [invRows] = await db.query<[Invoice[]]>(
+        `SELECT * FROM type::record($id);`,
         { id: decodedId }
       );
       invoice = invRows[0] ?? null;
 
       if (invoice) {
-        const [liRows] = await db.query<[any[]]>(
-          `SELECT * FROM line_item WHERE invoice = type::thing($id);`,
+        const [liRows] = await db.query<[LineItem[]]>(
+          `SELECT * FROM line_item WHERE invoice = type::record($id);`,
           { id: decodedId }
         );
         lineItems = liRows ?? [];
@@ -103,7 +118,7 @@ export default async function InvoiceDetailPage({
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {lineItems.map((li: any, i: number) => (
+              {lineItems.map((li: LineItem, i: number) => (
                 <tr key={i}>
                   <td className="py-3 text-gray-900">{li.description}</td>
                   <td className="py-3 text-right text-gray-700">

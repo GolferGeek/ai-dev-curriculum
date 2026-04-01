@@ -32,6 +32,7 @@ test.describe("Dashboard", () => {
     // Mark it as paid
     await page.click("text=View");
     await page.click('button:has-text("Mark as Paid")');
+    await expect(page.locator(".bg-green-100")).toBeVisible({ timeout: 10000 });
 
     // Create an expense
     await page.click('a[href="/expenses"]');
@@ -45,8 +46,12 @@ test.describe("Dashboard", () => {
     // Go to dashboard and verify
     await page.click('a[href="/dashboard"]');
     await expect(page.locator("text=Total Income")).toBeVisible();
-    await expect(page.locator("text=$1000.00")).toBeVisible();
-    await expect(page.locator("text=$200.00")).toBeVisible();
+    await expect(
+      page.locator("text=Total Income").locator("..").locator("text=$1,000.00")
+    ).toBeVisible();
+    await expect(
+      page.locator("text=Total Expenses").locator("..").locator("text=$200.00")
+    ).toBeVisible();
     await expect(page.locator("text=Net Profit / Loss")).toBeVisible();
   });
 });

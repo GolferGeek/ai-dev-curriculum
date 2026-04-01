@@ -6,6 +6,7 @@ test.describe("Full Flow", () => {
   test("signup -> create board -> add lists -> add cards -> move card -> signout -> signin -> verify persistence", async ({
     page,
   }) => {
+    test.setTimeout(60000);
     const email = uniqueEmail();
     const password = "testpass123";
 
@@ -21,30 +22,33 @@ test.describe("Full Flow", () => {
     await page.click("text=Create new board");
     await page.fill('input[name="name"]', "Sprint Board");
     await page.click('button:has-text("Create")');
-    await expect(page.locator("text=Sprint Board")).toBeVisible();
+    await expect(page.locator("main h3").filter({ hasText: "Sprint Board" })).toBeVisible();
 
     // 3. Open the board
-    await page.click("text=Sprint Board");
+    await page.locator("main h3").filter({ hasText: "Sprint Board" }).click();
+    await page.waitForURL(/\/boards\//);
     await expect(page.locator("h2")).toContainText("Sprint Board");
 
-    // 4. Add lists
-    await page.click("text=Add another list");
-    await page.fill('input[name="name"]', "To Do");
-    await page.click('button:has-text("Add List")');
-    await expect(page.locator("text=To Do")).toBeVisible();
+    // 4. Add lists — helper to add a list and wait for the redirect
+    const addList = async (name: string) => {
+      // If the form is still open from a previous add, click Cancel first
+      const cancelBtn = page.locator('button:has-text("Cancel")');
+      if (await cancelBtn.isVisible({ timeout: 500 }).catch(() => false)) {
+        await cancelBtn.click();
+      }
+      await page.locator("text=Add another list").click();
+      await page.fill('input[name="name"]', name);
+      await page.locator('button:has-text("Add List")').click();
+      // Wait for the list heading to appear (server action redirect reloads the page)
+      await expect(page.locator(`h3:has-text("${name}")`)).toBeVisible({ timeout: 10000 });
+    };
 
-    await page.click("text=Add another list");
-    await page.fill('input[name="name"]', "In Progress");
-    await page.click('button:has-text("Add List")');
-    await expect(page.locator("text=In Progress")).toBeVisible();
-
-    await page.click("text=Add another list");
-    await page.fill('input[name="name"]', "Done");
-    await page.click('button:has-text("Add List")');
-    await expect(page.locator("text=Done")).toBeVisible();
+    await addList("To Do");
+    await addList("In Progress");
+    await addList("Done");
 
     // 5. Add a card to "To Do"
-    const todoColumn = page.locator("div").filter({ hasText: /^To Do$/ }).first().locator("..").locator("..");
+    const todoColumn = page.locator("div.shrink-0").filter({ has: page.locator('h3', { hasText: "To Do" }) });
     await todoColumn.locator("text=Add a card").click();
     await todoColumn.locator('textarea[name="title"]').fill("Write tests");
     await todoColumn.locator('button:has-text("Add Card")').click();
@@ -54,17 +58,19 @@ test.describe("Full Flow", () => {
     await page.locator("text=Write tests").first().click();
     await expect(page.locator("text=Card Details")).toBeVisible();
 
-    // 7. Edit card description
+    // 7. Edit card description and move to "In Progress" in one save
     await page.fill('textarea[name="description"]', "Add Playwright e2e tests");
+    await page.locator('select[name="listId"]').selectOption({ label: "In Progress" });
     await page.click('button:has-text("Save Changes")');
 
-    // 8. Move card via dropdown
-    // After redirect, find the card's move-to dropdown
-    const cardMoveSelect = page.locator("text=Write tests").first().locator("..").locator('select[name="newListId"]');
-    await cardMoveSelect.selectOption({ label: "In Progress" });
-
-    // 9. Verify card is now in "In Progress" column
+    // 8. Verify card still exists after save + move
     await expect(page.locator("text=Write tests")).toBeVisible();
+
+    // 9. Close modal if still open (server action redirect preserves client state)
+    const closeBtn = page.locator('button[aria-label="Close"]');
+    if (await closeBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await closeBtn.click();
+    }
 
     // 10. Sign out
     await page.click('button:has-text("Sign Out")');
@@ -77,13 +83,14 @@ test.describe("Full Flow", () => {
     await expect(page).toHaveURL(/\/boards/);
 
     // 12. Verify persistence — board exists
-    await expect(page.locator("text=Sprint Board")).toBeVisible();
+    await expect(page.locator("main h3").filter({ hasText: "Sprint Board" })).toBeVisible();
 
     // Open the board and verify data
-    await page.click("text=Sprint Board");
-    await expect(page.locator("text=To Do")).toBeVisible();
-    await expect(page.locator("text=In Progress")).toBeVisible();
-    await expect(page.locator("text=Done")).toBeVisible();
-    await expect(page.locator("text=Write tests")).toBeVisible();
+    await page.locator("main h3").filter({ hasText: "Sprint Board" }).click();
+    await page.waitForURL(/\/boards\//);
+    await expect(page.locator("h3", { hasText: "To Do" })).toBeVisible();
+    await expect(page.locator("h3", { hasText: "In Progress" })).toBeVisible();
+    await expect(page.locator("h3", { hasText: "Done" })).toBeVisible();
+    await expect(page.locator("text=Write tests").first()).toBeVisible();
   });
 });

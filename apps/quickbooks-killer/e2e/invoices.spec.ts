@@ -23,16 +23,21 @@ test.describe("Invoices", () => {
     await page.fill('input[name="client"]', "Acme Test Corp");
     await page.fill('input[name="due_date"]', "2026-05-01");
 
-    // First line item
-    await page.fill('input[name="li_description"]', "Web Development");
-    await page.fill('input[name="li_amount"]', "1500");
+    // First line item — use clear + type to trigger React onChange
+    const descInput = page.locator('input[name="li_description"]').first();
+    const amtInput = page.locator('input[name="li_amount"]').first();
+    await descInput.clear();
+    await descInput.pressSequentially("Web Development");
+    await amtInput.clear();
+    await amtInput.pressSequentially("1500");
 
     // Add second line item
-    await page.click("text=+ Add Item");
-    const descInputs = page.locator('input[name="li_description"]');
-    const amountInputs = page.locator('input[name="li_amount"]');
-    await descInputs.nth(1).fill("Design Work");
-    await amountInputs.nth(1).fill("500");
+    await page.locator('button', { hasText: '+ Add Item' }).click();
+    await expect(page.locator('input[name="li_description"]')).toHaveCount(2, { timeout: 10000 });
+    const descInput2 = page.locator('input[name="li_description"]').nth(1);
+    const amtInput2 = page.locator('input[name="li_amount"]').nth(1);
+    await descInput2.pressSequentially("Design Work");
+    await amtInput2.pressSequentially("500");
 
     // Submit
     await page.click('button:has-text("Create Invoice")');
@@ -51,6 +56,7 @@ test.describe("Invoices", () => {
 
     // Mark as paid
     await page.click('button:has-text("Mark as Paid")');
-    await expect(page.locator("text=paid")).toBeVisible();
+    // Wait for status badge to change from unpaid to paid (green badge)
+    await expect(page.locator(".bg-green-100")).toBeVisible({ timeout: 10000 });
   });
 });
