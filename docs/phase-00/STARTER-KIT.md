@@ -7,7 +7,7 @@ This document is the **map** for the **`.claude/`** directory in this project. I
 ## What we intend to do
 
 1. **Part A — House:** Establish a **Turbo monorepo** (`apps/`, `packages/`, `turbo.json`) using a **provided** [intention for the monorepo](./intention-monorepo.md), then **PRD → plan → `/run-plan`** with the **monorepo builder** agent.
-2. **Part B — First app:** Pick **one** of four [product tracks](./README.md); use the **given** app intention, then **PRD → plan → `/run-plan`** with the matching **track builder** agent.
+2. **Part B — First app:** Pick **one** of four [product tracks](./README.md); use the **given** app intention (**Demo-grade minimums** inside each `intention-*.md`), plus the cross-cutting [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md), then **PRD → plan → `/run-plan`** with the matching **track builder** agent.
 3. **Same vocabulary everywhere:** `/intention`, `/prd`, `/plan`, `/run-plan` — see [COMMANDS.md](./COMMANDS.md).
 
 Artifacts (intention / PRD / plan markdown) usually live under **`docs/artifacts/`** unless you choose another path and tell the commands.

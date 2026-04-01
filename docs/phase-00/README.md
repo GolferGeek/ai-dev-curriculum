@@ -4,6 +4,8 @@
 
 This phase has **two beats**, both using the same **command** vocabulary: **`/intention`**, **`/prd`**, **`/plan`**, **`/run-plan`**. Details: [COMMANDS.md](./COMMANDS.md).
 
+**Quality bar:** [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md) plus the **Demo-grade minimums** in each track’s `intention-*.md` — the curriculum proves **agents + skills + prompts** by shipping **credible product slices**, not placeholder hero pages.
+
 ---
 
 ## Part A — Turbo monorepo (the house)
@@ -25,14 +27,14 @@ After the monorepo exists:
 3. **`/prd`** → **`/plan`** from that intention; iterate until PRD and plan match intention.
 4. **`/run-plan`** — Use the **track-specific builder agent** (wired for that product shape) so scaffolding matches what you picked.
 
-### Tracks (pick one)
+### Tracks (pick one for class; maintainers may implement all four under `apps/`)
 
 | Track | Intention file | One-line idea |
 |--------|----------------|---------------|
-| A | [intention-http-workspace.md](./intention-http-workspace.md) | Mini Postman: collections, requests, environments, history |
-| B | [intention-team-wiki.md](./intention-team-wiki.md) | Team wiki / runbook hub: spaces, markdown, search |
-| C | [intention-pipeline-crm.md](./intention-pipeline-crm.md) | Pipeline CRM: kanban + records + activity |
-| D | [intention-ops-pulse.md](./intention-ops-pulse.md) | Ops pulse: checks, status tiles, incident log |
+| A | [intention-http-workspace.md](./intention-http-workspace.md) | Mini Postman: collections, send, environments, history (see **Demo-grade minimums**) |
+| B | [intention-team-wiki.md](./intention-team-wiki.md) | Wiki / runbook hub: structure, markdown edit/preview, search, persistence |
+| C | [intention-pipeline-crm.md](./intention-pipeline-crm.md) | Pipeline CRM: board, records, detail, notes, filters |
+| D | [intention-ops-pulse.md](./intention-ops-pulse.md) | Ops pulse: many checks, refresh, incident log, failure UX |
 
 Open **only** the intention for the track you chose for **why**; PRD and plan carry **what** and **how**.
 

@@ -1,2 +1,11 @@
 # Internal planning & build specs (not shipped in public curriculum repo)
 .docs/
+
+# Node / monorepo (once scaffolded)
+node_modules/
+dist/
+.turbo/
+test-results/
+playwright-report/
+playwright/.cache/
+*.tsbuildinfo

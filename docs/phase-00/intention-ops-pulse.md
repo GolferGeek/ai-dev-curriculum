@@ -4,16 +4,27 @@
 
 “Is it up?” and “what broke last?” shouldn’t require SSH and five tabs. A **single dashboard** that shows **check results** and a **short incident log** gives teams **at-a-glance confidence** and a **paper trail** for what was noticed and when.
 
+This track should read as **ops tooling**: tiles that update, logs you can append, failure text you can trust—not two colored boxes and a tagline.
+
 ## Who it’s for
 
-People who operate services or internal platforms and want **visibility** without standing up a full observability vendor in the first iteration.
+People who operate services or internal platforms who want **visibility** without standing up a full observability vendor in the first iteration.
 
-## What “good” looks like
+## Demo-grade minimums (non-negotiable for “done”)
 
-- **Configurable checks**: e.g. HTTP health endpoints, script exit codes, or “file freshness”—your PRD picks **two or three** check types for v1, not every integration under the sun.
-- **Status tiles** (green / yellow / red or similar) with **last run time** and **clear failure text**.
-- **Incident or event log**: timestamp, what failed, optional note—so postmortems have a starting point.
-- Optional: **on-call or owner** as **static config** (names in a file) for the demo—no paging provider required.
+Ship **monitoring-shaped** UI: checks, time, and log—not a status poster.
+
+1. **Checks** — **At least 4 configured checks** (mix of outcomes: OK / warn / fail). Each row or tile shows **name, status, last run time**, and **short detail** (HTTP code, error text, or “script output”).
+2. **Run / refresh** — User can trigger **“Run checks”** or **refresh** and see **updated timestamps** (use **`fetch`** to public endpoints, **mocked timers**, or deterministic stubs—document what’s real vs simulated).
+3. **Incident log** — **Append-only list** of events: timestamp, severity or source, message; user can **add a manual entry** (e.g. “Investigating DB latency”).
+4. **Persistence** — Log and check config survive refresh (**`localStorage`** or equivalent) where applicable; pure simulated checks should still **persist manual log entries**.
+5. **Failure UX** — At least one check demonstrates **clear failure text** (not only red color)—same prominence as success.
+
+## What “great” adds (when time allows)
+
+- Grouping checks by service or region.
+- Snooze / acknowledge (client-only flag).
+- Static “owner” or on-call name from config file for the demo.
 
 ## Out of scope for the first version
 
@@ -21,4 +32,4 @@ People who operate services or internal platforms and want **visibility** withou
 
 ## Success
 
-During the demo someone can **point at the board** and say “we’d know before customers do”—and the **failure path** is as clear as the happy path.
+During the demo someone can **run checks, see a failure explained, and add an incident note** that **survives reload**—the story is **operational**, not decorative.

@@ -21,17 +21,23 @@ Checks (non-exhaustive; extend as the repo grows):
 
 Exit non-zero if something critical is missing.
 
-## Tests (to add with implementation)
+## Tests (once monorepo + apps exist)
 
-**Phase 00** ships **documentation and verify script** first. When **`/run-plan`** generates real apps:
+Until Part A/B add `turbo.json` and `apps/*`, only the **structure script** above is required. When implemented:
 
-| Layer | Suggestion |
+| Layer | Expectation |
 |--------|------------|
-| **Monorepo** | Root `turbo run test` (or `pnpm test`) — each package declares `test`. |
-| **Track-specific** | Minimum **smoke test** per app: renders or API health (e.g. Vitest/Playwright/Jest — pick one stack in the plan). |
-| **CI** | Optional GitHub Action: install → `verify-curriculum-structure.sh` → `turbo run build test`. |
+| **Monorepo** | Root `npm run build` and `npm run test` (`turbo run build` / `turbo run test`). Each app under `apps/*` declares `build` and `test`. |
+| **Browsers** | Documented Playwright install (e.g. `postinstall` or `npx playwright install`); consistent env for browser path if used. |
+| **Track apps** | **Vite + React** under **`apps/`** — **demo-grade** per [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md) and each **`intention-*.md`**. |
+| **Run + browser** | **Run** the app after build; Playwright should cover **at least one meaningful interaction** per app. Prefer **`http://localhost:<port>`** for Vite. |
+| **CI** | Optional: `npm ci` → `verify-curriculum-structure.sh` → `npm run build` → `npm run test`. |
 
-Keep **curriculum tests** separate from product tests if useful, e.g. **`tests/curriculum/`** only checking invariants (“monorepo has `apps/web` when Track A chosen”). That avoids coupling to one product’s UI.
+Keep **curriculum tests** separate from product tests if useful, e.g. **`tests/curriculum/`** only checking invariants. Maintainer loop (rollback → fix README → retry) is in the **root README**.
+
+### README-driven validation
+
+If a maintainer cannot get from **clone + README + `docs/phase-00/`** to a green build **without extra chat**, **roll back** to the checkpoint commit in the README, **fix the docs or scripts**, **commit + push**, and run the flow again.
 
 ## “Wipe and retry”
 

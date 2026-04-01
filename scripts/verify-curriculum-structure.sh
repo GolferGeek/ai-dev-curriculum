@@ -15,6 +15,7 @@ for f in \
   docs/phase-00/PREREQUISITES.md \
   docs/phase-00/RUN-ORDER.md \
   docs/phase-00/VERIFY.md \
+  docs/phase-00/DEMO-GRADE-BAR.md \
   CLAUDE.md \
   ; do
   [[ -f "$f" ]] || fail "missing $f"

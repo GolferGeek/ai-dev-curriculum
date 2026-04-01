@@ -14,6 +14,7 @@ Developers using this course and **Claude Code** (or similar) with a **specializ
 - **`apps/`** for deployable surfaces (e.g. web, API) and **`packages/`** for shared libraries, types, UI kit, config—**names and layout** match what the monorepo agent documents.
 - **One command from root** can build (or check) the whole graph; local dev story is documented (package manager, Node version if relevant).
 - **Room to grow**: Phase 01 adds a second app without restructuring everything.
+- **Every app in `apps/`** that follows a curriculum track must meet that track’s **demo-grade minimums** in its `intention-*.md`. Cross-cutting bar: **[DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md)** (product-shaped tools, not single starter screens).
 
 ## Out of scope for the first cut
 
