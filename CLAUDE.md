@@ -5,6 +5,7 @@ This repository is the **GolferGeek AI development curriculum** and starter kit.
 **Start here (learners):** [docs/phase-00/README.md](docs/phase-00/README.md)  
 **Phase 01 (SaaS killers):** [docs/phase-01/README.md](docs/phase-01/README.md)  
 **Phase 02 (Quality engineering):** [docs/phase-02/README.md](docs/phase-02/README.md)  
+**Phase 03 (Research):** [docs/phase-03/README.md](docs/phase-03/README.md)  
 **What’s in `.claude/`:** [docs/phase-00/STARTER-KIT.md](docs/phase-00/STARTER-KIT.md)
 
 ## Commands & pipeline
@@ -12,7 +13,7 @@ This repository is the **GolferGeek AI development curriculum** and starter kit.
 All commands are in `.claude/skills/`. The full development pipeline:
 
 ```
-/intention → /prd → /plan → /run-plan → /scan-errors → /fix-errors → /monitor → /harden → /commit pr → /pr-evals → /pr-eval
+/intention → /prd → /plan → /run-plan → /scan-errors → /fix-errors → /monitor → /harden → /commit pr → /pr-evals → /pr-eval → /ingest → /map → /security-scan → /git-story → /improve → /deep-dive → /author-agent
 ```
 
 ### Build phase
@@ -41,11 +42,23 @@ All commands are in `.claude/skills/`. The full development pipeline:
 | `/pr-evals` | List open PRs → pick one to evaluate |
 | `/pr-eval 42` | Full review → approve or request changes on GitHub |
 
+### Research phase
+| Command | What it does |
+|---------|-------------|
+| `/ingest` | Whole-repo orientation → ingest report |
+| `/map` | Map entry/exit points, data flow, auth boundaries |
+| `/security-scan` | Find vulnerabilities, auth gaps, exposed secrets |
+| `/git-story` | Git history: hotspots, churn, contributors, velocity |
+| `/improve` | Dead code, missing tests, tech debt, performance |
+| `/deep-dive [area]` | Specialist focus: frontend, backend, data, or path |
+| `/author-agent` | Create custom agents/skills from observed patterns |
+
 ### Agents
 Delegate execution to the appropriate agent per the active plan:
 - **Phase 00:** **monorepo-builder** or **track** app builders (http-workspace, team-wiki, pipeline-crm, ops-pulse).
 - **Phase 01:** **saas-researcher** → **surrealdb-builder** → **nextjs-saas-builder** (web) or **ios-builder** (iOS).
 - **Phase 02:** **error-scanner** / **error-fixer**, **arch-monitor** / **arch-hardener**, **commit-agent** / **pr-evaluator**.
+- **Phase 03:** **repo-researcher**, **security-researcher**, **git-historian**, **agent-author**.
 
 ## Quality bar
 
