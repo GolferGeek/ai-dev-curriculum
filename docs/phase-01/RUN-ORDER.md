@@ -9,24 +9,34 @@
 
 ## Steps
 
-1. **Pick your SaaS killer** — read the intention files in this folder. Choose Web A (QuickBooks), Web B (Trello), iOS A (Twitter), or iOS B (Facebook). Or run `/research custom` to scope your own.
+| Step | What to type | What happens |
+|------|-------------|-------------|
+| 1 | Pick your SaaS killer from the [README](./README.md#pick-your-saas-killer). | Choose Web A, Web B, iOS A, or iOS B. |
+| 2 | `/intention docs/phase-01/intention-<track>.md` | Reviews the intention with you. Outputs `docs/artifacts/intention.md`. |
+| 3 | `/prd docs/artifacts/intention.md` | Builds PRD from intention. Outputs `docs/artifacts/prd.md`. |
+| 4 | Review PRD — does it cover all Demo-grade minimums? Are non-goals explicit? | Challenge pass. Fix before proceeding. |
+| 5 | `/plan docs/artifacts/prd.md` | Builds plan from PRD. Outputs `docs/artifacts/plan.md`. |
+| 6 | Review plan — does it deliver every PRD goal? Are agents assigned to milestones? | Challenge pass. Fix before proceeding. |
+| 7 | `/run-plan docs/artifacts/plan.md` | Invokes agents in order (SurrealDB → app builder). Builds the code. |
+| 8 | `npm run build` (web) or `xcodebuild build` (iOS) | Does it compile? |
+| 9 | `npm run test` (web) or `xcodebuild test` (iOS) | Do tests pass? |
+| 10 | `/test-browser` (web) or test in Simulator (iOS) | Visual QA — does it look and work right? |
+| 11 | Fix what's broken, re-run tests, iterate until demo-grade bar is met. | Done when it's credible. |
 
-2. **Refine intention** — `/intention` to review and tighten the provided intention for your track.
+Replace `<track>` with: `quickbooks-killer`, `trello-killer`, `twitter-killer`, or `facebook-killer`.
 
-3. **Write PRD** — `/prd` to turn intention into requirements with acceptance criteria.
+## The full command chain at a glance
 
-4. **Challenge pass** — Does every PRD goal trace to the intention? Are non-goals explicit? Fix before proceeding.
+```
+/intention docs/phase-01/intention-quickbooks-killer.md   → docs/artifacts/intention.md
+/prd docs/artifacts/intention.md                          → docs/artifacts/prd.md
+/plan docs/artifacts/prd.md                               → docs/artifacts/plan.md
+/run-plan docs/artifacts/plan.md                          → code in apps/ and packages/
+```
 
-5. **Write plan** — `/plan` to create milestones. Plan should name which agents handle which steps.
+## If something fails
 
-6. **Challenge pass** — Does the plan justify the PRD? Does it cover demo-grade minimums? Fix before proceeding.
-
-7. **Build** — `/run-plan` to execute. Agents build in order: SurrealDB layer → app layer.
-
-8. **Verify build** — `npm run build` (web) or `xcodebuild build` (iOS).
-
-9. **Run tests** — `npm run test` (web) or `xcodebuild test` (iOS).
-
-10. **Visual QA** — `/test-browser` to walk through the app in Chrome (web tracks). iOS tracks: test in Simulator.
-
-11. **Iterate** — Fix what's broken, re-run tests, re-test visually until demo-grade bar is met.
+1. Capture the error (build, test, or visual QA).
+2. Fix forward **or** reset uncommitted app work and re-run `/run-plan docs/artifacts/plan.md`.
+3. If the plan was wrong, go back to `/plan docs/artifacts/prd.md` and regenerate.
+4. If the PRD was wrong, go back to `/prd docs/artifacts/intention.md` and regenerate.

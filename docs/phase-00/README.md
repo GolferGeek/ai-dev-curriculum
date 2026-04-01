@@ -66,17 +66,37 @@ You don't need to know the details of Turborepo. The **monorepo-builder** agent 
 
 1. **Read the intention** — Open [intention-monorepo.md](./intention-monorepo.md). This explains *why* we're setting up the monorepo and what "done" looks like. It's already written for you — your first intention is a freebie.
 
-2. **Run `/intention`** — This lets you review and refine the intention in your own words. You're not starting from scratch; you're making it yours.
+2. **Review the intention** — Run the command below. This reads the provided intention and walks you through it. You'll refine it in your own words. The output goes to `docs/artifacts/intention.md`.
 
-3. **Run `/prd`** — The AI turns your intention into a PRD with concrete requirements. Read it. Does every requirement trace back to the intention? If something looks off, say so.
+   ```
+   /intention docs/phase-00/intention-monorepo.md
+   ```
 
-4. **Run `/plan`** — The AI creates the build plan. Check it: does it cover everything in the PRD? Are there any risks?
+3. **Build the PRD** — Give the refined intention to `/prd`. It produces a PRD with goals, non-goals, and success criteria. Read it. Does every requirement trace back to the intention? If something looks off, say so.
 
-5. **Run `/run-plan`** — The **monorepo-builder** agent takes over and creates the project structure. When it's done, you'll have `apps/`, `packages/`, `turbo.json`, and working root scripts.
+   ```
+   /prd docs/artifacts/intention.md
+   ```
 
-6. **Verify** — Run `./scripts/verify-curriculum-structure.sh` from the repo root. Green means you're good.
+   Output: `docs/artifacts/prd.md`
 
-> **Challenge pass:** Before each `/run-plan`, ask yourself: "Does the PRD match the intention? Does the plan match the PRD?" This is the habit that separates good AI-assisted development from chaotic prompting.
+4. **Build the plan** — Give the PRD to `/plan`. It creates the build plan with milestones and agent assignments. Check it: does it cover everything in the PRD?
+
+   ```
+   /plan docs/artifacts/prd.md
+   ```
+
+   Output: `docs/artifacts/plan.md`
+
+5. **Challenge pass** — Before building, ask yourself: "Does the PRD match the intention? Does the plan match the PRD?" This is the habit that separates good AI-assisted development from chaotic prompting. Have Claude check too — it will flag mismatches.
+
+6. **Build it** — Give the plan to `/run-plan`. The **monorepo-builder** agent takes over and creates the project structure. When it's done, you'll have `apps/`, `packages/`, `turbo.json`, and working root scripts.
+
+   ```
+   /run-plan docs/artifacts/plan.md
+   ```
+
+7. **Verify** — Run `./scripts/verify-curriculum-structure.sh` from the repo root. Green means you're good.
 
 ---
 
@@ -93,17 +113,43 @@ Now the house is built. Time to move in some furniture. Pick **one** of these fo
 
 **Pick the one that sounds most interesting to you.** They're all about the same difficulty, and they all follow the same pipeline. The only difference is which agent does the building.
 
-**What you'll do:**
+**What you'll do** (example below uses Track A — substitute your track's intention file):
 
 1. **Read the intention** — Open the `intention-*.md` for your track. Pay special attention to the **Demo-grade minimums** section — that's the contract for what "done" means. These apps need to feel like real tools, not homework assignments (see [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md) for details).
 
-2. **Run `/prd`** — Turn that intention into requirements. Each Demo-grade minimum should become a specific, testable requirement.
+2. **Review the intention** — Pass your track's intention file to `/intention`:
 
-3. **Run `/plan`** — Get the build plan. It should name specific screens, data shapes, and test strategies.
+   ```
+   /intention docs/phase-00/intention-http-workspace.md
+   ```
 
-4. **Run `/run-plan`** — The track-specific agent builds your app inside `apps/`. This is where the magic happens — watch an agent turn a plan into a working application.
+   Output: `docs/artifacts/intention.md` (refined version ready for PRD)
 
-5. **Test it** — Run `npm run build` and `npm run test` from the repo root (Turborepo runs them for all apps). Your app should build clean and pass its Playwright tests.
+3. **Build the PRD** — Pass the refined intention to `/prd`. Each Demo-grade minimum should become a specific, testable requirement.
+
+   ```
+   /prd docs/artifacts/intention.md
+   ```
+
+   Output: `docs/artifacts/prd.md`
+
+4. **Build the plan** — Pass the PRD to `/plan`. It should name specific screens, data shapes, and test strategies.
+
+   ```
+   /plan docs/artifacts/prd.md
+   ```
+
+   Output: `docs/artifacts/plan.md`
+
+5. **Challenge pass** — Does the PRD cover every intention item? Does the plan deliver every PRD goal? Fix gaps before building.
+
+6. **Build it** — Pass the plan to `/run-plan`. The track-specific agent builds your app inside `apps/`. This is where the magic happens — watch an agent turn a plan into a working application.
+
+   ```
+   /run-plan docs/artifacts/plan.md
+   ```
+
+7. **Test it** — Run `npm run build` and `npm run test` from the repo root (Turborepo runs them for all apps). Your app should build clean and pass its Playwright tests.
 
 > **Note:** You're not writing the intention from scratch in Part B — it's provided. Your job is to understand it, turn it into a solid PRD and plan, and then let the agent build. In later phases, *you'll* write the intentions.
 

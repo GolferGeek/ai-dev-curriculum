@@ -75,43 +75,68 @@ Choose one (or bring your own — run `/research custom` to scope it):
 
 ### 1. Research & intention (~15 min)
 
-```
-/research quickbooks        # or trello, twitter, facebook, custom
-/intention                  # refine the draft into your intention file
-```
-
-Read the provided intention file for your track. Restate or tighten it with `/intention` — or start from the research agent's draft if you went custom.
-
-### 2. PRD & plan (~15 min)
+Read the provided intention file for your track. Then review and refine it:
 
 ```
-/prd                        # turn intention into requirements
-/plan                       # turn PRD into milestones with agent assignments
+/intention docs/phase-01/intention-quickbooks-killer.md
 ```
+
+Output: `docs/artifacts/intention.md`
+
+(Substitute your track's file: `intention-trello-killer.md`, `intention-twitter-killer.md`, or `intention-facebook-killer.md`.)
+
+For a **custom** SaaS killer, run `/research "your idea"` first to get a draft, then `/intention docs/artifacts/intention.md` to refine it.
+
+### 2. PRD (~10 min)
+
+Pass the refined intention to `/prd`:
+
+```
+/prd docs/artifacts/intention.md
+```
+
+Output: `docs/artifacts/prd.md`
+
+Review it: Does every Demo-grade minimum have a matching goal with testable acceptance criteria? Are non-goals explicit? Fix before proceeding.
+
+### 3. Plan (~10 min)
+
+Pass the PRD to `/plan`:
+
+```
+/plan docs/artifacts/prd.md
+```
+
+Output: `docs/artifacts/plan.md`
 
 The plan should name **which agents** handle which milestones:
 - **surrealdb-builder** → database schema, auth scopes, seed data
 - **nextjs-saas-builder** or **ios-builder** → the app itself
 
-### 3. Build (~60 min)
+Review it: Does every PRD goal have a milestone? Are verification steps included? Fix before proceeding.
+
+### 4. Build (~60 min)
+
+Pass the plan to `/run-plan`:
 
 ```
-/run-plan                   # agents build in order: DB first, then app
+/run-plan docs/artifacts/plan.md
 ```
 
-This invokes agents sequentially. The SurrealDB agent builds the data layer, then the app agent builds on top of it.
+This invokes agents sequentially. For web apps: SurrealDB agent builds the data layer first, then the Next.js agent builds the app on top. For iOS: the iOS agent builds everything.
 
-### 4. Test & verify (~30 min)
+### 5. Test & verify (~30 min)
 
+**Web apps:**
 ```
 npm run build               # does it compile?
 npm run test                # do Playwright tests pass?
 /test-browser               # visual QA in Chrome
 ```
 
-For iOS:
+**iOS apps:**
 ```
-xcodebuild -scheme <AppName> -destination 'platform=iOS Simulator,name=iPhone 16' build test
+xcodebuild -scheme <AppName> -destination 'platform=iOS Simulator,name=iPhone 17' build test
 ```
 
 ---
