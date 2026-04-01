@@ -28,3 +28,7 @@ Someone cloning the repo can run the **documented** root scripts, see **Turbo** 
 ## Relationship to the first product
 
 This intention defines **the house**. The **first app** (HTTP workspace, wiki, CRM, or ops pulse) gets its **own** intention file **after** the shell exists—see [README](./README.md).
+
+## How this feeds PRD → plan → app
+
+This file is the **shell intention** before **`/prd`** for Part A. The PRD should require **Turbo**, **`apps/` + `packages/`**, root `package.json` workspaces, and `turbo.json` tasks (`build`, `test`, `dev` as needed). The plan should list **exact paths** to create (`apps/<name>`, `packages/*/package.json`), **package manager**, and **root scripts** so `turbo run build` (or documented equivalent) is real. **Do not** treat an empty `apps/` folder as “done”—the shell is the repeatable layout; **track apps** still follow their **intention-*.md** and [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md) when built.

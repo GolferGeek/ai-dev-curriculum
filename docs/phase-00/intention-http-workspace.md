@@ -34,3 +34,7 @@ Ship a **multi-area UI** (e.g. sidebar + main panels, or clear tabs), not a sing
 ## Success
 
 Someone new can **create requests, switch environment, hit Run, and inspect the response**—and the UI looks like a **credible API client**, not a slide deck.
+
+## How this feeds PRD → plan → app
+
+This file is the **product intention** learners copy or align to before **`/prd`**. Treat **Demo-grade minimums** above as the **contract**: the PRD should restate each numbered item as a **requirement with testable acceptance criteria**; the plan should name **screens or tabs**, **data shapes** (collections, requests, environments, history entries), **`localStorage` (or other) keys**, and **which public URL** you will call for the live send demo. If anything is ambiguous, prefer the **stricter** reading and [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md)—not a slimmed-down “starter page.”

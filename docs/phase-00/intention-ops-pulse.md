@@ -33,3 +33,7 @@ Ship **monitoring-shaped** UI: checks, time, and log—not a status poster.
 ## Success
 
 During the demo someone can **run checks, see a failure explained, and add an incident note** that **survives reload**—the story is **operational**, not decorative.
+
+## How this feeds PRD → plan → app
+
+This file is the **product intention** before **`/prd`**. The PRD should list **≥4 checks** with expected outcomes (OK/warn/fail) and **incident log** fields. The plan should define **run checks** behavior (real `fetch` vs. stub—document which), **how last-run times update**, **log persistence**, and **one failing check** with visible **error text** (not color-only). Tie work to [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md); avoid two decorative tiles and a headline.

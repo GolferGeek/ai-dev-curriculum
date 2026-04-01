@@ -34,3 +34,7 @@ Ship a **working pipeline**, not a static kanban screenshot.
 ## Success
 
 Moving a card **feels like progress**; opening a record **answers** “where are we?” with **notes that stick** after reload—credible **mini-CRM**, not a UI mock.
+
+## How this feeds PRD → plan → app
+
+This file is the **product intention** before **`/prd`**. The PRD should name the **entity** (e.g. Deal / Lead) and tie every **Demo-grade minimum** to acceptance criteria. The plan should specify **≥3 stage names**, **seed data** (8–12 records), **move interaction** (drag-and-drop vs. stage control—pick one and commit), **detail surface** (drawer/modal/route), **notes model** (append-only, newest-first), **filter UI**, and **`localStorage` shape**. Do not ship a static board; [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md) applies.

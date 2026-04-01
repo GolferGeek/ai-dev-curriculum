@@ -33,3 +33,7 @@ Ship **browse + read + write + search** as **real interactions**, not copy on a 
 ## Success
 
 A teammate can **find** a page via search, **edit** it, refresh, and **still see their changes**—the tool feels **usable during an incident**, not like a concept mock.
+
+## How this feeds PRD → plan → app
+
+This file is the **product intention** before **`/prd`**. The PRD should map each **Demo-grade minimum** to requirements (including **two spaces with multiple pages each**, **CRUD**, **search**, **persistence**). The plan should sketch **navigation** (sidebar/tree + content area), **page model** (id, title, markdown body, space id, updatedAt), **seed pages** for the ≤3-click runbook path, and **where data lives** (`localStorage` etc.). If scope is tight, cut “great” features—not the minimums in this file or [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md).

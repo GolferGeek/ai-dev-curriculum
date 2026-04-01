@@ -23,3 +23,7 @@ Track-specific requirements live in:
 - [intention-ops-pulse.md](./intention-ops-pulse.md)
 
 When in doubt, **match the track intention file**, then this bar, then the root **README** § 0.0 intention.
+
+## Chain: intention → PRD → plan → build
+
+Each **`intention-*.md`** is the **starting brief** for the matching track (and **intention-monorepo.md** for Part A). **`/prd`** should lift requirements from that file—especially **Demo-grade minimums**—into explicit goals and acceptance tests; **`/plan`** should name implementation slices (routes, state, persistence, tests) without inventing a smaller product. If the PRD or plan drifts toward a **starter page**, reset against the intention and this bar.
