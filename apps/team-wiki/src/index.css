@@ -1,0 +1,146 @@
+:root {
+  font-family: system-ui, sans-serif;
+  background: #0c1f18;
+  color: #e8f4ef;
+  line-height: 1.5;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.wiki-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.wiki-head {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #1d4b3a;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.wiki-head h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.wiki-head input[type="search"] {
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #2d6b52;
+  background: #0a1814;
+  color: inherit;
+}
+.wiki-body {
+  display: flex;
+  flex: 1;
+}
+.tree {
+  width: 260px;
+  border-right: 1px solid #1d4b3a;
+  padding: 0.75rem;
+  overflow: auto;
+}
+.space {
+  margin-bottom: 1rem;
+}
+.space-name {
+  font-weight: 600;
+  color: #6ee7b7;
+}
+.tree ul {
+  list-style: none;
+  padding-left: 0.5rem;
+}
+.tree button {
+  background: none;
+  border: none;
+  color: #c8eadf;
+  cursor: pointer;
+  text-align: left;
+  padding: 0.2rem 0;
+}
+.tree button.sel {
+  color: #fff;
+  font-weight: 600;
+}
+.tree button:hover {
+  text-decoration: underline;
+}
+.content {
+  flex: 1;
+  padding: 1rem 1.25rem;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.toolbar h2 {
+  margin: 0;
+  flex: 1;
+  min-width: 120px;
+}
+.meta {
+  font-size: 0.8rem;
+  color: #8ec4b2;
+}
+.modes button {
+  margin-right: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #2d6b52;
+  background: #0a1814;
+  color: inherit;
+  cursor: pointer;
+}
+.modes button.on {
+  background: #15803d;
+  border-color: #15803d;
+}
+.title-input {
+  width: 100%;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem;
+  border-radius: 6px;
+  border: 1px solid #2d6b52;
+  background: #0a1814;
+  color: inherit;
+}
+.editor {
+  width: 100%;
+  font-family: ui-monospace, monospace;
+  background: #0a1814;
+  color: #e8f4ef;
+  border: 1px solid #2d6b52;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+.preview {
+  background: #0a1814;
+  border: 1px solid #2d6b52;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 200px;
+}
+.preview p {
+  margin: 0.35rem 0;
+}
+.muted {
+  color: #6b9085;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

@@ -1,0 +1,58 @@
+name: facebook-killer
+options:
+  bundleIdPrefix: com.golfergeek
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+settings:
+  SWIFT_VERSION: "5.9"
+  IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+targets:
+  facebook-killer:
+    type: application
+    platform: iOS
+    sources:
+      - facebook-killer
+    settings:
+      INFOPLIST_FILE: facebook-killer/App/Info.plist
+      PRODUCT_BUNDLE_IDENTIFIER: com.golfergeek.facebook-killer
+      TARGETED_DEVICE_FAMILY: "1,2"
+      SWIFT_EMIT_LOC_STRINGS: "YES"
+    info:
+      path: facebook-killer/App/Info.plist
+      properties:
+        CFBundleName: "Facebook Killer"
+        CFBundleDisplayName: "Circle"
+        CFBundleIdentifier: "com.golfergeek.facebook-killer"
+        CFBundleVersion: "1"
+        CFBundleShortVersionString: "1.0"
+        CFBundlePackageType: "APPL"
+        CFBundleExecutable: "facebook-killer"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+
+  facebook-killerTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - facebook-killerTests
+    dependencies:
+      - target: facebook-killer
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.golfergeek.facebook-killerTests
+      GENERATE_INFOPLIST_FILE: "YES"
+      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/facebook-killer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/facebook-killer"
+      BUNDLE_LOADER: "$(TEST_HOST)"
+
+  facebook-killerUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - facebook-killerUITests
+    dependencies:
+      - target: facebook-killer
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.golfergeek.facebook-killerUITests
+      GENERATE_INFOPLIST_FILE: "YES"
+      TEST_TARGET_NAME: facebook-killer

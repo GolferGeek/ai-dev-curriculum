@@ -6,7 +6,7 @@ Open-source curriculum and starter codebase for AI-assisted development with **a
 
 **Phase 00:** [docs/phase-00/README.md](./docs/phase-00/README.md) — **Part A:** Turbo monorepo + **Part B:** one app track (learners) or **all tracks** (maintainer reference apps). **Starter kit map:** [docs/phase-00/STARTER-KIT.md](./docs/phase-00/STARTER-KIT.md). **Run in order:** [docs/phase-00/RUN-ORDER.md](./docs/phase-00/RUN-ORDER.md). **Prerequisites:** [docs/phase-00/PREREQUISITES.md](./docs/phase-00/PREREQUISITES.md). **Verify:** `./scripts/verify-curriculum-structure.sh` — [docs/phase-00/VERIFY.md](./docs/phase-00/VERIFY.md). **Demo bar (what “done” means):** [docs/phase-00/DEMO-GRADE-BAR.md](./docs/phase-00/DEMO-GRADE-BAR.md).
 
-**This tree (checkpoint):** there is **no** root `package.json` workspace, **no** Turbo, and **no** `apps/` yet — only **documentation and `.claude/`**. Intentions describe what **`/run-plan`** must build next. After Part A/B land, follow [VERIFY.md](./docs/phase-00/VERIFY.md) for `npm install`, `npm run build`, and `npm run test`.
+**This tree (checkpoint):** root **`package.json`** workspaces (`apps/*`, `packages/*`), **Turbo** (`turbo.json`), and **four** demo apps under **`apps/`** (`http-workspace`, `team-wiki`, `pipeline-crm`, `ops-pulse`) plus **`packages/config`**. Follow [VERIFY.md](./docs/phase-00/VERIFY.md): `npm install`, `npm run build`, `npm run test`, and `./scripts/verify-curriculum-structure.sh`.
 
 Maintainers: internal build specs and PRD live in **`.docs/`** (listed in `.gitignore` and not published in the public clone).
 

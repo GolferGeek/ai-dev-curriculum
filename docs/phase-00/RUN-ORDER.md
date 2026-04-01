@@ -1,38 +1,41 @@
-# Run order — “grab context and run in sequence”
-
-Hand this to someone who learns best from a **checklist**. It matches [STARTER-KIT.md](./STARTER-KIT.md) and [README.md](./README.md).
+# Run order — step-by-step checklist
 
 ## Before you start
 
 1. Read [PREREQUISITES.md](./PREREQUISITES.md).
-2. Clone the repo; open it in **Claude Code** (recommended for slash commands) or **Cursor** (follow the same steps manually using the command **files** in `.claude/commands/` as prompts).
+2. Clone the repo; open it in **Claude Code**.
 
 ## Part A — Monorepo shell
 
-| Step | Action |
-|------|--------|
-| 1 | Read [intention-monorepo.md](./intention-monorepo.md). |
-| 2 | Run **`/intention`** (Claude Code) **or** paste/use `.claude/commands/intention.md` as the prompt in Cursor. |
-| 3 | Run **`/prd`**, then **`/plan`** — store outputs under **`docs/artifacts/`** (create the folder if needed). |
-| 4 | Run **`/run-plan`** — should delegate to **monorepo-builder** until Turbo + `apps/` + `packages/` match the plan. |
-| 5 | Run **`./scripts/verify-curriculum-structure.sh`** (from repo root). Fix until it passes for “monorepo present” checks. |
+| Step | What to type | What happens |
+|------|-------------|-------------|
+| 1 | Read [intention-monorepo.md](./intention-monorepo.md) | Understand why we're building a monorepo. |
+| 2 | `/intention docs/phase-00/intention-monorepo.md` | Reviews the intention with you. Outputs `docs/artifacts/intention.md`. |
+| 3 | `/prd docs/artifacts/intention.md` | Builds PRD from intention. Outputs `docs/artifacts/prd.md`. |
+| 4 | Review the PRD — does every goal trace to the intention? | Challenge pass. Fix before proceeding. |
+| 5 | `/plan docs/artifacts/prd.md` | Builds plan from PRD. Outputs `docs/artifacts/plan.md`. |
+| 6 | Review the plan — does it cover every PRD goal? | Challenge pass. Fix before proceeding. |
+| 7 | `/run-plan docs/artifacts/plan.md` | Invokes **monorepo-builder**. Creates `apps/`, `packages/`, `turbo.json`. |
+| 8 | `./scripts/verify-curriculum-structure.sh` | Green means you're good. |
 
 ## Part B — First app (pick A–D)
 
-| Step | Action |
-|------|--------|
-| 1 | Choose **one** track from [README.md](./README.md#tracks-pick-one). |
-| 2 | Open **only** that track’s `intention-*.md`. |
-| 3 | **`/prd`** then **`/plan`** from that intention (challenge passes as the course teaches). |
-| 4 | **`/run-plan`** with the matching **track** agent (HTTP wiki, CRM, ops). |
-| 5 | Run **app tests** when the starter implements them (`turbo run test` or per-app `test` script). Re-run **`verify-curriculum-structure.sh`** if extended. |
+| Step | What to type | What happens |
+|------|-------------|-------------|
+| 1 | Choose a track from the [README](./README.md#part-b--your-first-app-pick-one). | Pick what interests you. |
+| 2 | `/intention docs/phase-00/intention-<track>.md` | Reviews the track intention. Outputs `docs/artifacts/intention.md`. |
+| 3 | `/prd docs/artifacts/intention.md` | Builds PRD. Outputs `docs/artifacts/prd.md`. |
+| 4 | Review PRD — does it cover all Demo-grade minimums? | Challenge pass. |
+| 5 | `/plan docs/artifacts/prd.md` | Builds plan. Outputs `docs/artifacts/plan.md`. |
+| 6 | Review plan — does it deliver every PRD goal? | Challenge pass. |
+| 7 | `/run-plan docs/artifacts/plan.md` | Invokes the track agent. Builds the app in `apps/`. |
+| 8 | `npm run build` | Does it compile? |
+| 9 | `npm run test` | Do tests pass? |
+
+Replace `<track>` with: `http-workspace`, `team-wiki`, `pipeline-crm`, or `ops-pulse`.
 
 ## If something fails
 
 1. Capture the error (build, test, or verify script).
-2. Fix forward **or** reset uncommitted app work and re-run **`/run-plan`** from a clean **plan** file.
-3. Keep **`.claude/`**, **`docs/phase-00/`**, **`CLAUDE.md`**, and **`.cursor/rules/`** — wipe generated **app** code only if you need a clean retry.
-
-## Cursor users
-
-Use **[@ references](https://www.cursor.com/docs)** to `docs/phase-00/STARTER-KIT.md` and the relevant `.claude/commands/*.md` file so the agent follows the same steps as slash commands in Claude Code.
+2. Fix forward **or** reset uncommitted app work and re-run `/run-plan docs/artifacts/plan.md` from a clean plan.
+3. Keep `.claude/`, `docs/phase-00/`, `CLAUDE.md` — wipe generated **app** code only if you need a clean retry.

@@ -21,7 +21,7 @@ for f in \
   [[ -f "$f" ]] || fail "missing $f"
 done
 
-# Claude Code kit
+# Claude Code kit — phase 00
 for f in \
   .claude/commands/intention.md \
   .claude/commands/prd.md \
@@ -34,6 +34,66 @@ for f in \
   .claude/agents/app-builder-team-wiki.md \
   .claude/agents/app-builder-pipeline-crm.md \
   .claude/agents/app-builder-ops-pulse.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
+# Claude Code kit — phase 01
+for f in \
+  .claude/commands/research.md \
+  .claude/commands/test-browser.md \
+  .claude/skills/surrealdb.md \
+  .claude/skills/nextjs-saas.md \
+  .claude/skills/ios-swiftui.md \
+  .claude/agents/surrealdb-builder.md \
+  .claude/agents/nextjs-saas-builder.md \
+  .claude/agents/ios-builder.md \
+  .claude/agents/saas-researcher.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
+# Phase 01 docs
+for f in \
+  docs/phase-01/README.md \
+  docs/phase-01/DEMO-GRADE-BAR.md \
+  docs/phase-01/PREREQUISITES.md \
+  docs/phase-01/RUN-ORDER.md \
+  docs/phase-01/intention-quickbooks-killer.md \
+  docs/phase-01/intention-trello-killer.md \
+  docs/phase-01/intention-twitter-killer.md \
+  docs/phase-01/intention-facebook-killer.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
+# Claude Code kit — phase 02
+for f in \
+  .claude/commands/scan-errors.md \
+  .claude/commands/fix-errors.md \
+  .claude/commands/monitor.md \
+  .claude/commands/harden.md \
+  .claude/commands/commit.md \
+  .claude/commands/pr-eval.md \
+  .claude/skills/web-architecture.md \
+  .claude/skills/ios-architecture.md \
+  .claude/skills/data-architecture.md \
+  .claude/skills/pr-requirements.md \
+  .claude/skills/quality-gates.md \
+  .claude/agents/error-scanner.md \
+  .claude/agents/error-fixer.md \
+  .claude/agents/arch-monitor.md \
+  .claude/agents/arch-hardener.md \
+  .claude/agents/commit-agent.md \
+  .claude/agents/pr-evaluator.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
+# Phase 02 docs
+for f in \
+  docs/phase-02/README.md \
+  docs/phase-02/RUN-ORDER.md \
   ; do
   [[ -f "$f" ]] || fail "missing $f"
 done

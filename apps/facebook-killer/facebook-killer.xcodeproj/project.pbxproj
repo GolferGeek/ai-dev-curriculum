@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		134C3A5C29FFABAC341723E1 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3659E2DDB4D7A71DC01693 /* FeedView.swift */; };
+		46AA40C03535A22145CAC605 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F321CC649B7B2C89AB1859F /* SampleData.swift */; };
+		552731FD432D71CB0E718A03 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D13F7C86AF7DBC708B346D /* ModelTests.swift */; };
+		588C30B020C25488077C8BE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07703A0496BFAAC4F0B147F /* User.swift */; };
+		5FF9EC91113ACE5D8F96152C /* ComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62B9900A38ADCF0AE611D5F /* ComposeView.swift */; };
+		659F0B021285339EF28997A6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEACC2E85D1A5F4F10F3ACA /* OnboardingView.swift */; };
+		6BC855C79CE1CB58EBBB1AC6 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810663956BF387B799FBC597 /* UserProfileView.swift */; };
+		82C83BEDBA6C8D1CA526BE36 /* PostRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9348396B943C930503669E /* PostRowView.swift */; };
+		A2E02379818AEA8E603608CB /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CC3D211DE9ADC5367CAB2C /* UITests.swift */; };
+		A492B6DBB2C5687AEB7C582C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1029995F6F63432A7053D /* MainTabView.swift */; };
+		B67BA38502AC0B7C48E135A4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAB1924EAA60B1455C2133 /* Post.swift */; };
+		BA3DF6C8F01A9361F39BF96B /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F250F3A871DFF9CA6B54E /* Friendship.swift */; };
+		C1C81C3DDADB72A0B5FE19C6 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB28237498AD8B151EB7703 /* Like.swift */; };
+		CA0BCDC3F3DF8912E4FEFAC6 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE79797321B9B3CC33A677E /* FriendsView.swift */; };
+		D4BC786C8F142A205606128E /* FacebookKillerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775E213EAB0297B4EB3920C /* FacebookKillerApp.swift */; };
+		D4C8D09E1AD5B3251931A049 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A91028F5FFF93DCE0711FE /* ProfileView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4225857055FE804A2836D9AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F455831797EE6354EE81877 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F546D5879FF690DE1EEC5AC4;
+			remoteInfo = "facebook-killer";
+		};
+		93192A87FDDBA54D749EBC76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F455831797EE6354EE81877 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F546D5879FF690DE1EEC5AC4;
+			remoteInfo = "facebook-killer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22B1029995F6F63432A7053D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		237F250F3A871DFF9CA6B54E /* Friendship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friendship.swift; sourceTree = "<group>"; };
+		30CC3D211DE9ADC5367CAB2C /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+		3180BB431BC36DC2DD95DD8C /* facebook-killer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "facebook-killer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3305FF7B025EFE725CE75EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3775E213EAB0297B4EB3920C /* FacebookKillerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookKillerApp.swift; sourceTree = "<group>"; };
+		4FEACC2E85D1A5F4F10F3ACA /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		5BB28237498AD8B151EB7703 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		65A91028F5FFF93DCE0711FE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		6DA7DBB644BC22C2D4972704 /* facebook-killerUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "facebook-killerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78DAB1924EAA60B1455C2133 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		7B3659E2DDB4D7A71DC01693 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		7CE79797321B9B3CC33A677E /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		810663956BF387B799FBC597 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		8D9348396B943C930503669E /* PostRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowView.swift; sourceTree = "<group>"; };
+		9F321CC649B7B2C89AB1859F /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		A07703A0496BFAAC4F0B147F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A62B9900A38ADCF0AE611D5F /* ComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeView.swift; sourceTree = "<group>"; };
+		D9B684BA67D10D3613C2118E /* facebook-killerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "facebook-killerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4D13F7C86AF7DBC708B346D /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1F0851BE69B4B048BEC44C17 /* facebook-killerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4D13F7C86AF7DBC708B346D /* ModelTests.swift */,
+			);
+			path = "facebook-killerTests";
+			sourceTree = "<group>";
+		};
+		325C5BF8D7050E4E228AC0A2 /* facebook-killer */ = {
+			isa = PBXGroup;
+			children = (
+				CD1B05333DF9E370A4F00A68 /* App */,
+				9FF53D04DA310B21E9953905 /* Helpers */,
+				6BD2DA6135BCB08015871F99 /* Models */,
+				A77E88F86D2F84194F43E928 /* Views */,
+			);
+			path = "facebook-killer";
+			sourceTree = "<group>";
+		};
+		6BD2DA6135BCB08015871F99 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				237F250F3A871DFF9CA6B54E /* Friendship.swift */,
+				5BB28237498AD8B151EB7703 /* Like.swift */,
+				78DAB1924EAA60B1455C2133 /* Post.swift */,
+				A07703A0496BFAAC4F0B147F /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		925E5E7C1C7F177AB53B429F = {
+			isa = PBXGroup;
+			children = (
+				325C5BF8D7050E4E228AC0A2 /* facebook-killer */,
+				1F0851BE69B4B048BEC44C17 /* facebook-killerTests */,
+				DA75C6391818E3D8D7709EBA /* facebook-killerUITests */,
+				9880C230C12C30C7188E904F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9880C230C12C30C7188E904F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3180BB431BC36DC2DD95DD8C /* facebook-killer.app */,
+				D9B684BA67D10D3613C2118E /* facebook-killerTests.xctest */,
+				6DA7DBB644BC22C2D4972704 /* facebook-killerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FF53D04DA310B21E9953905 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9F321CC649B7B2C89AB1859F /* SampleData.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A77E88F86D2F84194F43E928 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A62B9900A38ADCF0AE611D5F /* ComposeView.swift */,
+				7B3659E2DDB4D7A71DC01693 /* FeedView.swift */,
+				7CE79797321B9B3CC33A677E /* FriendsView.swift */,
+				22B1029995F6F63432A7053D /* MainTabView.swift */,
+				4FEACC2E85D1A5F4F10F3ACA /* OnboardingView.swift */,
+				8D9348396B943C930503669E /* PostRowView.swift */,
+				65A91028F5FFF93DCE0711FE /* ProfileView.swift */,
+				810663956BF387B799FBC597 /* UserProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CD1B05333DF9E370A4F00A68 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3775E213EAB0297B4EB3920C /* FacebookKillerApp.swift */,
+				3305FF7B025EFE725CE75EAF /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DA75C6391818E3D8D7709EBA /* facebook-killerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				30CC3D211DE9ADC5367CAB2C /* UITests.swift */,
+			);
+			path = "facebook-killerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		090B29C07FBED99EA7D2922E /* facebook-killerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31A0F1F51A2978CED768C607 /* Build configuration list for PBXNativeTarget "facebook-killerTests" */;
+			buildPhases = (
+				25D52406880B96E32B2BB60A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3A534E2256FD871C94AA79A /* PBXTargetDependency */,
+			);
+			name = "facebook-killerTests";
+			packageProductDependencies = (
+			);
+			productName = "facebook-killerTests";
+			productReference = D9B684BA67D10D3613C2118E /* facebook-killerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A1B2F2907449DEE6ED9355E7 /* facebook-killerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD301B8EE4576C7AE8B743C9 /* Build configuration list for PBXNativeTarget "facebook-killerUITests" */;
+			buildPhases = (
+				CE1DF6429B48D601005BD5DA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44DDEBB553364E6A99F591A1 /* PBXTargetDependency */,
+			);
+			name = "facebook-killerUITests";
+			packageProductDependencies = (
+			);
+			productName = "facebook-killerUITests";
+			productReference = 6DA7DBB644BC22C2D4972704 /* facebook-killerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		F546D5879FF690DE1EEC5AC4 /* facebook-killer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E78C0A2368975BC978D102F4 /* Build configuration list for PBXNativeTarget "facebook-killer" */;
+			buildPhases = (
+				D2520CC9F382D374A197890D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "facebook-killer";
+			packageProductDependencies = (
+			);
+			productName = "facebook-killer";
+			productReference = 3180BB431BC36DC2DD95DD8C /* facebook-killer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F455831797EE6354EE81877 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A1B2F2907449DEE6ED9355E7 = {
+						TestTargetID = F546D5879FF690DE1EEC5AC4;
+					};
+				};
+			};
+			buildConfigurationList = 508FC874DDD4B04C79A1C95B /* Build configuration list for PBXProject "facebook-killer" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 925E5E7C1C7F177AB53B429F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9880C230C12C30C7188E904F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F546D5879FF690DE1EEC5AC4 /* facebook-killer */,
+				090B29C07FBED99EA7D2922E /* facebook-killerTests */,
+				A1B2F2907449DEE6ED9355E7 /* facebook-killerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25D52406880B96E32B2BB60A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				552731FD432D71CB0E718A03 /* ModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE1DF6429B48D601005BD5DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2E02379818AEA8E603608CB /* UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2520CC9F382D374A197890D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF9EC91113ACE5D8F96152C /* ComposeView.swift in Sources */,
+				D4BC786C8F142A205606128E /* FacebookKillerApp.swift in Sources */,
+				134C3A5C29FFABAC341723E1 /* FeedView.swift in Sources */,
+				CA0BCDC3F3DF8912E4FEFAC6 /* FriendsView.swift in Sources */,
+				BA3DF6C8F01A9361F39BF96B /* Friendship.swift in Sources */,
+				C1C81C3DDADB72A0B5FE19C6 /* Like.swift in Sources */,
+				A492B6DBB2C5687AEB7C582C /* MainTabView.swift in Sources */,
+				659F0B021285339EF28997A6 /* OnboardingView.swift in Sources */,
+				B67BA38502AC0B7C48E135A4 /* Post.swift in Sources */,
+				82C83BEDBA6C8D1CA526BE36 /* PostRowView.swift in Sources */,
+				D4C8D09E1AD5B3251931A049 /* ProfileView.swift in Sources */,
+				46AA40C03535A22145CAC605 /* SampleData.swift in Sources */,
+				588C30B020C25488077C8BE1 /* User.swift in Sources */,
+				6BC855C79CE1CB58EBBB1AC6 /* UserProfileView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		44DDEBB553364E6A99F591A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F546D5879FF690DE1EEC5AC4 /* facebook-killer */;
+			targetProxy = 4225857055FE804A2836D9AB /* PBXContainerItemProxy */;
+		};
+		B3A534E2256FD871C94AA79A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F546D5879FF690DE1EEC5AC4 /* facebook-killer */;
+			targetProxy = 93192A87FDDBA54D749EBC76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2B64974463139A4D9AF6EED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.golfergeek.facebook-killerUITests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "facebook-killer";
+			};
+			name = Debug;
+		};
+		3E86F79FB194351A41F0DECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "facebook-killer/App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.golfergeek.facebook-killer";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71194B1727B2F8B888A04C4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.golfergeek.facebook-killerTests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/facebook-killer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/facebook-killer";
+			};
+			name = Release;
+		};
+		799DB1835CCB19C2618840F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.golfergeek.facebook-killerUITests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "facebook-killer";
+			};
+			name = Release;
+		};
+		9366BB05872A7D9B03B41075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		B6FF5C2547E3EE32439C0096 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		BB34CF8F1E5B37C035271DF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "facebook-killer/App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.golfergeek.facebook-killer";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D2F7C50EE969DF5CC40D348F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.golfergeek.facebook-killerTests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/facebook-killer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/facebook-killer";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31A0F1F51A2978CED768C607 /* Build configuration list for PBXNativeTarget "facebook-killerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2F7C50EE969DF5CC40D348F /* Debug */,
+				71194B1727B2F8B888A04C4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		508FC874DDD4B04C79A1C95B /* Build configuration list for PBXProject "facebook-killer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6FF5C2547E3EE32439C0096 /* Debug */,
+				9366BB05872A7D9B03B41075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E78C0A2368975BC978D102F4 /* Build configuration list for PBXNativeTarget "facebook-killer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E86F79FB194351A41F0DECE /* Debug */,
+				BB34CF8F1E5B37C035271DF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FD301B8EE4576C7AE8B743C9 /* Build configuration list for PBXNativeTarget "facebook-killerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B64974463139A4D9AF6EED1 /* Debug */,
+				799DB1835CCB19C2618840F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F455831797EE6354EE81877 /* Project object */;
+}

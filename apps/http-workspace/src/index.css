@@ -1,0 +1,132 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #e8eef7;
+  background: #0f172a;
+  line-height: 1.5;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+.top h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+}
+.sub {
+  color: #94a3b8;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+}
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.tabs button {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tabs button.active {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+.panel {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.row label,
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 140px;
+}
+input,
+textarea,
+select {
+  background: #0f172a;
+  border: 1px solid #475569;
+  color: #f8fafc;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+}
+.primary {
+  background: #22c55e;
+  border: none;
+  color: #052e16;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.resolved {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+.response {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #334155;
+}
+.response pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #0f172a;
+  padding: 0.75rem;
+  border-radius: 6px;
+  max-height: 240px;
+  overflow: auto;
+}
+.err {
+  color: #f87171;
+}
+.muted {
+  color: #64748b;
+}
+.card {
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+}
+.hist-list {
+  list-style: none;
+  padding: 0;
+}
+.hist-list li {
+  margin: 0.35rem 0;
+}
+.linkish {
+  background: none;
+  border: none;
+  color: #38bdf8;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}

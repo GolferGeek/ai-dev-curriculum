@@ -1,29 +1,56 @@
 # Commands (Claude Code) — Phase 00 workflow
 
-These are the **slash commands** (or equivalent) the course ships with. They map to **skills** the model loads and **agents** that own specific roles. Exact paths live under **`.claude/`** when the starter kit is implemented.
+These are the **slash commands** you'll use. Each one takes a file as input and produces a file as output. The chain looks like this:
 
-| Command | Purpose |
-|---------|---------|
-| **`/intention`** | Guided pass to capture or refine an **intention** artifact (markdown): why we’re building, for whom, what “good” and “out of scope” mean. Used for the **monorepo** first; same shape for **product** work later. |
-| **`/prd`** | Turn the current intention into a **PRD**: requirements, non-goals, success criteria, open questions. |
-| **`/plan`** | From PRD + intention, produce an **implementation plan**: milestones, risks, how we’ll verify, file/package touchpoints. |
-| **`/run-plan`** | Execute the agreed plan: scaffold or modify the repo **using** the monorepo agent (or app builders) so work lands in the right **apps/** and **packages/**—not a free-form chat dump. |
+```
+/intention <intention-file>  →  docs/artifacts/intention.md
+/prd docs/artifacts/intention.md  →  docs/artifacts/prd.md
+/plan docs/artifacts/prd.md  →  docs/artifacts/plan.md
+/run-plan docs/artifacts/plan.md  →  built code in apps/ and packages/
+```
+
+## Command reference
+
+| Command | Input | Output | What it does |
+|---------|-------|--------|-------------|
+| **`/intention`** | A provided intention file (e.g. `docs/phase-00/intention-monorepo.md`) | `docs/artifacts/intention.md` | Reviews and refines the intention with you. |
+| **`/prd`** | The refined intention file | `docs/artifacts/prd.md` | Turns intention into goals, non-goals, success criteria, test expectations. |
+| **`/plan`** | The PRD file | `docs/artifacts/plan.md` | Turns PRD into milestones, agent assignments, risks, verification steps. |
+| **`/run-plan`** | The plan file | Code in `apps/` and `packages/` | Invokes agents to build the code. |
 
 ## Typical order — monorepo first
 
-1. Align on **[intention-monorepo](./intention-monorepo.md)** (given; you may still run `/intention` to restate or extend it).
-2. `/prd` → `/plan` for the **workspace shell** (Turbo, `apps/`, `packages/`).
-3. `/run-plan` → monorepo agent applies the plan and creates the Turbo layout.
+```
+/intention docs/phase-00/intention-monorepo.md
+/prd docs/artifacts/intention.md
+/plan docs/artifacts/prd.md
+/run-plan docs/artifacts/plan.md
+```
 
-## Typical order — first app (starter for 00)
+## Typical order — first app (pick A–D)
 
-1. **Pick one** product track; open the **given** [app intention](./README.md#tracks-pick-one) (you do **not** write the intention from scratch).
-2. `/prd` and `/plan` from **that** intention (challenge passes: PRD vs intention, plan vs PRD).
-3. `/run-plan` with the **app-specific builder agent** (one of four) so the scaffold matches the track you chose.
+```
+/intention docs/phase-00/intention-http-workspace.md
+/prd docs/artifacts/intention.md
+/plan docs/artifacts/prd.md
+/run-plan docs/artifacts/plan.md
+```
 
-## Agents (overview)
+(Substitute your track's intention file for Track B, C, or D.)
 
-- **Monorepo agent** (+ skills): Turbo layout, boundaries, conventions—used with `/run-plan` for the shell.
-- **Track agents** (to be wired): builders oriented toward **HTTP workspace**, **wiki**, **CRM**, or **ops pulse**—so `/run-plan` for the app phase isn’t generic mush.
+## Challenge passes
 
-See the repo’s **`.claude/`** tree once Phase 00 is implemented for names and file layout.
+Before each step, the command checks the previous artifact:
+- `/prd` checks: does the PRD cover every item in the intention?
+- `/plan` checks: does the plan deliver every PRD goal?
+- `/run-plan` checks: is the plan clear enough to build from?
+
+If something doesn't match, the command flags it and asks you to fix it before proceeding.
+
+## Agents (who gets invoked by `/run-plan`)
+
+- **monorepo-builder** — creates the Turbo layout (Part A)
+- **app-builder-http-workspace** — Track A: mini Postman
+- **app-builder-team-wiki** — Track B: wiki / runbooks
+- **app-builder-pipeline-crm** — Track C: pipeline CRM
+- **app-builder-ops-pulse** — Track D: ops dashboard
