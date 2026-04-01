@@ -4,7 +4,7 @@ description: Pre-commit quality gate — scans errors, checks architecture, veri
 
 # /commit
 
-**Input:** Optional `push` flag to also push after committing.
+**Input:** Optional flags: `push` (push after commit), `pr` (push + create PR).
 **Output:** A clean commit (if all checks pass) or a blocking report (if checks fail).
 
 When the user runs this command:
@@ -20,17 +20,28 @@ When the user runs this command:
    - Stages appropriate files (never secrets, generated files, or dependencies)
    - Drafts a commit message (describes *why*, includes checks-passed summary)
    - Shows the user what will be committed and waits for approval
-   - Commits (and pushes if `/commit push` was used)
+   - Commits
+   - If `push` → pushes to remote
+   - If `pr` → pushes to remote + creates a PR via `gh pr create` with a summary of what changed and checks passed
 
 4. **If any check fails:**
    - Reports exactly what failed
    - Suggests `/fix-errors` for build issues, `/harden` for architecture issues
+
+## PR creation (when using `pr` flag)
+
+When creating a PR:
+- Title: use the commit message first line
+- Body: include a summary section (bullet points of what changed), a checks-passed section, and the standard footer
+- Use `gh pr create --title "..." --body "..."`
+- Tell the user the PR URL when done
 
 ## Example usage
 
 ```
 /commit                         # check everything, then commit
 /commit push                    # check everything, commit, and push
+/commit pr                      # check everything, commit, push, and create PR
 ```
 
-Arguments: `$ARGUMENTS` — optional `push` to push after committing.
+Arguments: `$ARGUMENTS` — optional `push` or `pr`.

@@ -38,14 +38,17 @@ This phase gives you **six commands** that answer those questions automatically.
 
 **Why it exists:** Your app can build and pass tests while still having serious architectural problems — database calls scattered through UI components, auth tokens in localStorage, API routes that skip authentication. The build doesn't catch these. `/monitor` does, because it reads the **architecture skills** (more on those below) and checks every file against them.
 
-### Pair 3: Ship quality — commit safely and review thoroughly
+### Pair 3: Ship quality — commit, create PRs, and review
 
 | Command | What it does |
 |---------|-------------|
-| **`/commit [push]`** | Before committing, runs error scan + architecture monitor + PR requirements check. Only commits if everything passes. Blocks if anything fails. |
-| **`/pr-eval <PR>`** | Evaluates a pull request against all rules. When it finds a new violation pattern, it **adds it** to the rules so `/commit` catches it next time. |
+| **`/commit`** | Before committing, runs error scan + architecture monitor + PR requirements check. Only commits if everything passes. Blocks if anything fails. |
+| **`/commit push`** | Same checks, then commits and pushes to remote. |
+| **`/commit pr`** | Same checks, then commits, pushes, and **creates a PR** on GitHub. |
+| **`/pr-evals`** | Lists all open PRs — pick one to evaluate. |
+| **`/pr-eval <PR>`** | Evaluates a PR against all rules. **Approves** on GitHub if clean. **Requests changes** if must-fix issues exist. When it finds a new violation pattern, it **adds it** to the rules so `/commit` catches it next time. |
 
-**Why it exists:** `/commit` is your pre-flight checklist. You wouldn't take off without one. `/pr-eval` is the code reviewer's tool — and its superpower is the **feedback loop**: every new issue it finds becomes a rule that `/commit` enforces automatically going forward.
+**Why it exists:** `/commit pr` is your pre-flight checklist + launch in one command. `/pr-evals` gives you a dashboard of what's waiting for review. `/pr-eval` is the code reviewer — and its superpower is the **feedback loop**: every new issue it finds becomes a rule that `/commit` enforces automatically going forward. When the review passes, it approves the PR on GitHub so you don't have to context-switch to the browser.
 
 ---
 
@@ -188,49 +191,59 @@ This reads the monitor report and fixes each violation. Then it runs `/scan-erro
 
 After this step, your app should be clean: zero build errors AND zero architectural violations.
 
-### Step 5: Commit with confidence
+### Step 5: Commit and create a PR
 
 ```
-/commit
+/commit pr
 ```
 
-This is the quality gate. Before committing, it runs:
+This is the quality gate + ship in one command. Before committing, it runs:
 1. Error scan (build + lint + test)
 2. Architecture monitor (all rules)
 3. PR requirements check (every item in `pr-requirements`)
 
 If **anything** fails, it blocks the commit and tells you exactly what to fix. No guessing.
 
-If everything passes, it shows you what it's about to commit and asks for your approval. The commit message includes which checks passed.
+If everything passes, it commits, pushes to your branch, and creates a PR on GitHub. You'll get the PR URL back.
 
-To commit and push in one step:
-
-```
-/commit push
-```
-
-### Step 6: Evaluate the PR
-
-After pushing, create a PR and evaluate it:
+You can also commit without creating a PR:
 
 ```
-/pr-eval feature/quickbooks-killer
+/commit                         # just commit locally
+/commit push                    # commit and push (no PR)
+```
+
+### Step 6: Review open PRs
+
+```
+/pr-evals
+```
+
+This lists all open PRs in the repo. Pick one and it runs a full evaluation on it.
+
+Or evaluate a specific PR directly:
+
+```
+/pr-eval 42
 ```
 
 The evaluator reads every changed file, checks it against all architecture rules and PR requirements, and produces a structured review: verdict, issues, suggestions.
 
-**The feedback loop:** If the evaluator finds a violation that the current rules don't cover, it adds a new rule to `.claude/skills/pr-requirements.md`. Next time anyone runs `/commit`, that rule is part of the checklist. The system gets smarter every time.
+- **If the PR is clean:** it runs `gh pr review --approve` — the PR is approved on GitHub.
+- **If there are must-fix issues:** it runs `gh pr review --request-changes` with the list of what needs fixing.
+
+**The feedback loop:** If the evaluator finds a violation that the current rules don't cover, it adds a new rule to `.claude/skills/pr-requirements/SKILL.md`. Next time anyone runs `/commit`, that rule is part of the checklist. The system gets smarter every time.
 
 ---
 
 ## The feedback loop — the most important concept
 
 ```
-Developer builds → /commit checks → ships clean code
-                                          ↓
-PR reviewer runs /pr-eval → finds new pattern → adds to pr-requirements
-                                                         ↓
-                                          /commit catches it next time
+Developer builds → /commit pr → gates pass → PR created on GitHub
+                                                     ↓
+                   /pr-evals → pick PR → /pr-eval → approved (or changes requested)
+                                              ↓
+                   Finds new pattern → adds to pr-requirements → /commit catches it next time
 ```
 
 Your quality rules **evolve with your codebase**. Every code review makes future commits better. This is how professional teams scale quality without slowing down — the rules remember what humans discovered.
@@ -240,8 +253,8 @@ Your quality rules **evolve with your codebase**. Every code review makes future
 ## Quick reference
 
 - **Step-by-step checklist:** [RUN-ORDER.md](./RUN-ORDER.md)
-- **Architecture skills:** `.claude/skills/system-architecture.md`, `web-architecture.md`, `ios-architecture.md`, `data-architecture.md`
-- **PR requirements:** `.claude/skills/pr-requirements.md`
+- **Architecture skills:** `.claude/skills/system-architecture/`, `web-architecture/`, `ios-architecture/`, `data-architecture/`
+- **PR requirements:** `.claude/skills/pr-requirements/SKILL.md`
 - **Error report:** `docs/artifacts/error-report.md` (created by `/scan-errors`)
 - **Monitor report:** `docs/artifacts/monitor-report.md` (created by `/monitor`)
 

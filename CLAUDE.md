@@ -7,10 +7,41 @@ This repository is the **GolferGeek AI development curriculum** and starter kit.
 **Phase 02 (Quality engineering):** [docs/phase-02/README.md](docs/phase-02/README.md)  
 **What’s in `.claude/`:** [docs/phase-00/STARTER-KIT.md](docs/phase-00/STARTER-KIT.md)
 
-## Commands & agents
+## Commands & pipeline
 
-Use **`/intention`**, **`/prd`**, **`/plan`**, **`/run-plan`** as defined in `.claude/commands/`. Phase 01 adds **`/research`** and **`/test-browser`**.
+All commands are in `.claude/skills/`. The full development pipeline:
 
+```
+/intention → /prd → /plan → /run-plan → /scan-errors → /fix-errors → /monitor → /harden → /commit pr → /pr-evals → /pr-eval
+```
+
+### Build phase
+| Command | What it does |
+|---------|-------------|
+| `/intention` | Review or create an intention file → feeds `/prd` |
+| `/research` | Research a SaaS product to scope a killer app |
+| `/prd` | Turn intention into a PRD |
+| `/plan` | Turn PRD into an implementation plan |
+| `/run-plan` | Execute the plan — invoke assigned agents to build code |
+| `/test-browser` | Visually test a running app in Chrome |
+
+### Quality phase
+| Command | What it does |
+|---------|-------------|
+| `/scan-errors` | Scan for build, lint, test errors → error report |
+| `/fix-errors` | Fix errors from the report, iterate until clean |
+| `/monitor` | Scan for architecture violations |
+| `/harden` | Fix architecture violations |
+
+### Ship phase
+| Command | What it does |
+|---------|-------------|
+| `/commit` | Quality gate → commit (add `push` or `pr` flag) |
+| `/commit pr` | Quality gate → commit → push → create PR |
+| `/pr-evals` | List open PRs → pick one to evaluate |
+| `/pr-eval 42` | Full review → approve or request changes on GitHub |
+
+### Agents
 Delegate execution to the appropriate agent per the active plan:
 - **Phase 00:** **monorepo-builder** or **track** app builders (http-workspace, team-wiki, pipeline-crm, ops-pulse).
 - **Phase 01:** **saas-researcher** → **surrealdb-builder** → **nextjs-saas-builder** (web) or **ios-builder** (iOS).

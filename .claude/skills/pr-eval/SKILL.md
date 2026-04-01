@@ -1,5 +1,5 @@
 ---
-description: Evaluate a PR against architecture rules and PR requirements. Adds new rules when it finds gaps.
+description: Evaluate a PR against architecture rules and PR requirements. Asks user before approving/merging. Adds new rules when it finds gaps.
 ---
 
 # /pr-eval
@@ -17,11 +17,26 @@ When the user runs this command:
    - Walks every PR requirement
    - Produces a structured review (verdict, issues, suggestions)
 
-3. **If the agent finds a violation pattern not covered by existing rules**, it adds it to the "Reviewer-added rules" section of `.claude/skills/pr-requirements.md`. This closes the feedback loop — `/commit` will catch it next time.
+3. **If the agent finds a violation pattern not covered by existing rules**, it adds it to the "Reviewer-added rules" section of `.claude/skills/pr-requirements/SKILL.md`. This closes the feedback loop — `/commit` will catch it next time.
 
-4. Tell the user:
-   - The verdict (approve / request changes / needs discussion)
+4. **Present the verdict to the user and ask what to do:**
+
+   - **APPROVE (no must-fix issues):** Show the review summary, then ask the user:
+     - "Approve" → `gh pr review <number> --approve --body "..."`
+     - "Approve & Merge" → approve, then `gh pr merge <number> --squash`
+     - "Skip" → don't take any GitHub action, just show the review
+
+   - **REQUEST CHANGES (must-fix issues exist):** Show the must-fix list, then ask the user:
+     - "Request changes on GitHub" → `gh pr review <number> --request-changes --body "..."`
+     - "Skip" → don't take any GitHub action, just show the review
+     - Suggest `/fix-errors` or `/harden` as appropriate.
+
+   - **NEEDS DISCUSSION:** Report findings and ask the user how to proceed. Don't take any GitHub action.
+
+5. Tell the user:
+   - The verdict
    - Issues found and which rules they violate
+   - What action was taken on GitHub (if any)
    - Any new rules that were added to pr-requirements
 
 ## Example usage
