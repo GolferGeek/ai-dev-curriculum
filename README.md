@@ -89,6 +89,6 @@ git reset --hard "$(git rev-list -n 1 --grep='^docs: anchor intention → PRD �
    ```
 4. **Learners:** `git clone … && git checkout 0.0` **or** `git checkout 00` — same tree, **proven** by your run-through.
 
-**Relationship:** The **checkpoint SHA** above (full hash in the code block) is for **rolling back failed implementation** while you’re still building toward `0.0`. Tag **`0.0`** lands on the commit **after** you’ve finished that work and **validated** it — the **published** “start here” snapshot.
+**Relationship:** Tag **`curriculum-start`** is the **documented doc-only baseline** for rolling back failed app work. Tag **`0.0`** is for **after** a full implementation is **validated** (build, tests, browser) — the **published** “start here” snapshot for learners who want a **green** repo, not docs-only.
 
 ---
