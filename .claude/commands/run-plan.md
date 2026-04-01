@@ -23,10 +23,14 @@ When the user runs this command:
 
    **Phase 01 — Web SaaS killer (QuickBooks, Trello):**
    1. Invoke **surrealdb-builder** → schema files, auth scopes, seed data, shared `packages/surrealdb/`.
-   2. Invoke **nextjs-saas-builder** → Next.js app under `apps/<name>/` with auth, pages, API routes, tests.
+   2. Invoke the app-specific builder:
+      - **app-builder-quickbooks-killer** → invoices, expenses, dashboard at `apps/quickbooks-killer/`
+      - **app-builder-trello-killer** → boards, lists, cards at `apps/trello-killer/`
 
    **Phase 01 — iOS SaaS killer (Twitter, Facebook):**
-   1. Invoke **ios-builder** → Xcode project under `apps/<name>/` with SwiftData models, SwiftUI views, tests.
+   1. Invoke the app-specific builder:
+      - **app-builder-twitter-killer** → feed, posts, follows at `apps/twitter-killer/`
+      - **app-builder-facebook-killer** → profiles, friends, feed at `apps/facebook-killer/`
    2. (If plan includes sync) Invoke **surrealdb-builder** → schema and auth for server sync.
 
 4. **After each milestone**, run the verification step from the plan (build, test) and fix trivial issues.

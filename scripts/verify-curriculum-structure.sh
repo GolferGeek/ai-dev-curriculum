@@ -67,6 +67,37 @@ for f in \
   [[ -f "$f" ]] || fail "missing $f"
 done
 
+# Claude Code kit — phase 02
+for f in \
+  .claude/commands/scan-errors.md \
+  .claude/commands/fix-errors.md \
+  .claude/commands/monitor.md \
+  .claude/commands/harden.md \
+  .claude/commands/commit.md \
+  .claude/commands/pr-eval.md \
+  .claude/skills/web-architecture.md \
+  .claude/skills/ios-architecture.md \
+  .claude/skills/data-architecture.md \
+  .claude/skills/pr-requirements.md \
+  .claude/skills/quality-gates.md \
+  .claude/agents/error-scanner.md \
+  .claude/agents/error-fixer.md \
+  .claude/agents/arch-monitor.md \
+  .claude/agents/arch-hardener.md \
+  .claude/agents/commit-agent.md \
+  .claude/agents/pr-evaluator.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
+# Phase 02 docs
+for f in \
+  docs/phase-02/README.md \
+  docs/phase-02/RUN-ORDER.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
 # Cursor alignment (optional but recommended for this repo)
 [[ -f .cursor/rules/golfergeek-curriculum.mdc ]] || fail "missing .cursor/rules/golfergeek-curriculum.mdc"
 

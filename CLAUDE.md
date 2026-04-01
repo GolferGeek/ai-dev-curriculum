@@ -4,6 +4,7 @@ This repository is the **GolferGeek AI development curriculum** and starter kit.
 
 **Start here (learners):** [docs/phase-00/README.md](docs/phase-00/README.md)  
 **Phase 01 (SaaS killers):** [docs/phase-01/README.md](docs/phase-01/README.md)  
+**Phase 02 (Quality engineering):** [docs/phase-02/README.md](docs/phase-02/README.md)  
 **What’s in `.claude/`:** [docs/phase-00/STARTER-KIT.md](docs/phase-00/STARTER-KIT.md)
 
 ## Commands & agents
@@ -13,6 +14,7 @@ Use **`/intention`**, **`/prd`**, **`/plan`**, **`/run-plan`** as defined in `.c
 Delegate execution to the appropriate agent per the active plan:
 - **Phase 00:** **monorepo-builder** or **track** app builders (http-workspace, team-wiki, pipeline-crm, ops-pulse).
 - **Phase 01:** **saas-researcher** → **surrealdb-builder** → **nextjs-saas-builder** (web) or **ios-builder** (iOS).
+- **Phase 02:** **error-scanner** / **error-fixer**, **arch-monitor** / **arch-hardener**, **commit-agent** / **pr-evaluator**.
 
 ## Quality bar
 
