@@ -21,7 +21,7 @@ for f in \
   [[ -f "$f" ]] || fail "missing $f"
 done
 
-# Claude Code kit
+# Claude Code kit — phase 00
 for f in \
   .claude/commands/intention.md \
   .claude/commands/prd.md \
@@ -34,6 +34,35 @@ for f in \
   .claude/agents/app-builder-team-wiki.md \
   .claude/agents/app-builder-pipeline-crm.md \
   .claude/agents/app-builder-ops-pulse.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
+# Claude Code kit — phase 01
+for f in \
+  .claude/commands/research.md \
+  .claude/commands/test-browser.md \
+  .claude/skills/surrealdb.md \
+  .claude/skills/nextjs-saas.md \
+  .claude/skills/ios-swiftui.md \
+  .claude/agents/surrealdb-builder.md \
+  .claude/agents/nextjs-saas-builder.md \
+  .claude/agents/ios-builder.md \
+  .claude/agents/saas-researcher.md \
+  ; do
+  [[ -f "$f" ]] || fail "missing $f"
+done
+
+# Phase 01 docs
+for f in \
+  docs/phase-01/README.md \
+  docs/phase-01/DEMO-GRADE-BAR.md \
+  docs/phase-01/PREREQUISITES.md \
+  docs/phase-01/RUN-ORDER.md \
+  docs/phase-01/intention-quickbooks-killer.md \
+  docs/phase-01/intention-trello-killer.md \
+  docs/phase-01/intention-twitter-killer.md \
+  docs/phase-01/intention-facebook-killer.md \
   ; do
   [[ -f "$f" ]] || fail "missing $f"
 done
