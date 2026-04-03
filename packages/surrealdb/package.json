@@ -1,0 +1,21 @@
+{
+  "name": "@curriculum/surrealdb",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "echo 'no build step — consumed as TS source'",
+    "test": "echo 'tested via app-level Playwright'",
+    "db:setup": "node --loader ts-node/esm scripts/apply-schema.ts",
+    "db:seed": "node --loader ts-node/esm scripts/seed.ts",
+    "db:setup:trello": "node --loader ts-node/esm scripts/apply-trello-schema.ts",
+    "db:seed:trello": "node --loader ts-node/esm scripts/seed-trello.ts"
+  },
+  "dependencies": {
+    "surrealdb": "^2.0.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
