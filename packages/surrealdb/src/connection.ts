@@ -17,13 +17,25 @@ export async function getConnection(): Promise<Surreal> {
 
 /**
  * Get a root-authenticated connection (for schema ops, seeding, etc.).
+ * In production, SURREAL_ROOT_USER and SURREAL_ROOT_PASS must be set explicitly.
  */
 export async function getRootConnection(): Promise<Surreal> {
+  const isProduction = process.env.NODE_ENV === "production";
+  const rootUser = process.env.SURREAL_ROOT_USER;
+  const rootPass = process.env.SURREAL_ROOT_PASS;
+
+  if (isProduction && (!rootUser || !rootPass)) {
+    throw new Error(
+      "SURREAL_ROOT_USER and SURREAL_ROOT_PASS must be set in production. " +
+        "Refusing to use default credentials.",
+    );
+  }
+
   const db = new Surreal();
   await db.connect(SURREAL_URL);
   await db.signin({
-    username: process.env.SURREAL_ROOT_USER ?? "root",
-    password: process.env.SURREAL_ROOT_PASS ?? "root",
+    username: rootUser ?? "root",
+    password: rootPass ?? "root",
   });
   await db.use({ namespace: SURREAL_NS, database: SURREAL_DB });
   return db;

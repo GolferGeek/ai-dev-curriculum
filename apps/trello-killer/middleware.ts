@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 const PUBLIC_PATHS = ["/signin", "/signup"];
 
+function isTokenExpired(token: string): boolean {
+  try {
+    const payload = JSON.parse(
+      Buffer.from(token.split(".")[1], "base64url").toString()
+    );
+    return payload.exp ? payload.exp < Date.now() / 1000 : false;
+  } catch {
+    return true; // malformed = treat as expired
+  }
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -12,9 +23,13 @@ export function middleware(request: NextRequest) {
 
   // Check for auth token
   const token = request.cookies.get("trello_token")?.value;
-  if (!token) {
+  if (!token || isTokenExpired(token)) {
     const signinUrl = new URL("/signin", request.url);
-    return NextResponse.redirect(signinUrl);
+    const response = NextResponse.redirect(signinUrl);
+    if (token) {
+      response.cookies.delete("trello_token");
+    }
+    return response;
   }
 
   return NextResponse.next();
@@ -22,6 +37,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|api).*)",
+    "/((?!_next/static|_next/image|favicon.ico).*)",
   ],
 };

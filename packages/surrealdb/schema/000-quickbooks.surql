@@ -27,15 +27,15 @@ DEFINE ACCESS IF NOT EXISTS user_access ON DATABASE TYPE RECORD
     WHERE email = $email
       AND crypto::argon2::compare(password, $password)
   )
-  -- TODO: Replace with env-injected secret in production
-  WITH JWT ALGORITHM HS256 KEY 'quickbooks-killer-secret-key-change-in-prod'
+  -- JWT secret is injected by apply-schema.ts from the JWT_SECRET env var
+  WITH JWT ALGORITHM HS256 KEY '__JWT_SECRET__'
   DURATION FOR TOKEN 24h, FOR SESSION 7d;
 
 -- ─── Invoice table ────────────────────────────────────────────
 DEFINE TABLE IF NOT EXISTS invoice SCHEMAFULL
   PERMISSIONS
     FOR select, update, delete WHERE owner = $auth
-    FOR create FULL;
+    FOR create WHERE owner = $auth;
 
 DEFINE FIELD IF NOT EXISTS owner      ON TABLE invoice TYPE record<user> DEFAULT $auth;
 DEFINE FIELD IF NOT EXISTS client     ON TABLE invoice TYPE string;
@@ -49,6 +49,7 @@ DEFINE FIELD IF NOT EXISTS created    ON TABLE invoice TYPE datetime DEFAULT tim
 DEFINE TABLE IF NOT EXISTS line_item SCHEMAFULL
   PERMISSIONS
     FOR select, update, delete WHERE invoice.owner = $auth
+    -- SurrealDB may not support nested field refs in permissions; keep FULL for child table
     FOR create FULL;
 
 DEFINE FIELD IF NOT EXISTS invoice     ON TABLE line_item TYPE record<invoice>;
@@ -59,7 +60,7 @@ DEFINE FIELD IF NOT EXISTS amount      ON TABLE line_item TYPE number;
 DEFINE TABLE IF NOT EXISTS expense SCHEMAFULL
   PERMISSIONS
     FOR select, update, delete WHERE owner = $auth
-    FOR create FULL;
+    FOR create WHERE owner = $auth;
 
 DEFINE FIELD IF NOT EXISTS owner       ON TABLE expense TYPE record<user> DEFAULT $auth;
 DEFINE FIELD IF NOT EXISTS description ON TABLE expense TYPE string;
