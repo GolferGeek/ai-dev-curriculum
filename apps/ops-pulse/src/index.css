@@ -1,0 +1,92 @@
+:root {
+  font-family: system-ui, sans-serif;
+  background: #0f172a;
+  color: #f1f5f9;
+  line-height: 1.5;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.ops header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ops h1 {
+  margin: 0;
+  flex: 1;
+  font-size: 1.25rem;
+}
+.ops header button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: inherit;
+  cursor: pointer;
+}
+.checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  padding: 0 1rem;
+}
+.tile {
+  border-radius: 10px;
+  padding: 0.75rem;
+  border: 1px solid #334155;
+}
+.tile.ok {
+  background: rgba(34, 197, 94, 0.12);
+}
+.tile.warn {
+  background: rgba(234, 179, 8, 0.12);
+}
+.tile.fail {
+  background: rgba(248, 113, 113, 0.12);
+}
+.t-name {
+  font-weight: 600;
+}
+.t-st {
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+}
+.t-time {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+.t-detail {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+.log-section {
+  padding: 1rem;
+  max-width: 720px;
+}
+.add-log {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.add-log input {
+  flex: 1;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: inherit;
+}
+.log-section ul {
+  list-style: none;
+  padding: 0;
+}
+.log-section li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #1e293b;
+  font-size: 0.9rem;
+}
