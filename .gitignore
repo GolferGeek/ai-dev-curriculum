@@ -1,0 +1,17 @@
+# Internal planning & build specs (not shipped in public curriculum repo)
+.docs/
+
+# Environment files (secrets)
+.env
+.env.*
+!.env.example
+
+# Node / monorepo (once scaffolded)
+node_modules/
+dist/
+.next/
+.turbo/
+test-results/
+playwright-report/
+playwright/.cache/
+*.tsbuildinfo
