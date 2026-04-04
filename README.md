@@ -19,6 +19,7 @@ git checkout phase-00
 | **02 — Quality engineering** | Scan, fix, monitor, harden, and ship | `git checkout phase-02` |
 | **03 — Research** | Understand any codebase, create your own tools | `git checkout phase-03` |
 | **04 — Protocols** | Agents talking to agents (and paying for things) | `git checkout phase-04` |
+| **05 — Skills Browser** | Discover and explore the skill ecosystem | `git checkout phase-05` |
 
 Each phase builds on the last. Start at 00 and work forward.
 
@@ -29,6 +30,7 @@ Each phase builds on the last. Start at 00 and work forward.
 - **Phase 02:** Adds `/scan-errors`, `/fix-errors`, `/monitor`, `/harden`, `/commit`, `/pr-eval`, `/pr-evals`. Quality engineering pipeline with zero-tolerance gates.
 - **Phase 03:** Adds `/ingest`, `/map`, `/security-scan`, `/git-story`, `/improve`, `/deep-dive`, `/author-agent`. Research tools and custom agent creation.
 - **Phase 04:** Protocol skills and specialized agents. You build a multi-agent demo with A2A discovery, task delegation, x402 payment gates, AP2 mandates, and a real-time protocol dashboard.
+- **Phase 05:** Skill ecosystem knowledge and catalog agents. You build a Skills Browser — search, filter, and preview 1,000+ free skills from across the ecosystem.
 
 ## Quick links
 
@@ -37,6 +39,7 @@ Each phase builds on the last. Start at 00 and work forward.
 - [Phase 02 Guide](docs/phase-02/README.md)
 - [Phase 03 Guide](docs/phase-03/README.md)
 - [Phase 04 Guide](docs/phase-04/README.md)
+- [Phase 05 Guide](docs/phase-05/README.md)
 - [What's in `.claude/`](docs/phase-00/STARTER-KIT.md)
 
 ---
