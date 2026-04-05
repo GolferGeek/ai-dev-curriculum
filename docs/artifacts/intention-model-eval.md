@@ -20,18 +20,52 @@ A **Model Evaluation Lab** (`apps/model-eval/`) with three components:
 
 Real prompts from the Orchestrator AI prediction and risk analysis system, each with sample data baked in so they run standalone:
 
-| # | Prompt | Analysis Type | Tests |
-|---|--------|--------------|-------|
-| 1 | Blue Team Risk Defender | Adversarial defense | Evidence marshaling, structured argument |
-| 2 | Red Team Risk Challenger | Adversarial attack | Finding blind spots, alternative scenarios |
-| 3 | Arbiter Risk Synthesizer | Multi-perspective synthesis | Weighing arguments, score adjustment |
-| 4 | Dimension Risk Analyzer | Multi-source evidence weighing | Integrating news + predictions into scored assessment |
-| 5 | Executive Summary Generator | Portfolio synthesis | Concise writing, actionable recommendations |
-| 6 | Learning Generator | Meta-analysis | Pattern recognition from prediction failures |
-| 7 | Missed Opportunity Analyst | Post-mortem | Root cause analysis, signal gap identification |
-| 8 | Prediction Synthesizer | Competing opinion arbitration | Weighing confidence levels, making a call |
-| 9 | Legal Document Classifier | Expert classification | Structured taxonomy, confidence scoring |
-| 10 | Task Decomposition | Requirement analysis | Breaking freeform text into structured plans |
+**Tier 1 — Quick Tasks (5 prompts, ~20-50 token responses):**
+Every model should handle these. Tests speed + basic competence.
+
+| # | Task | Tests |
+|---|------|-------|
+| 1 | Entity extraction from a paragraph | NER accuracy, speed |
+| 2 | Sentiment classification with confidence | Classification accuracy |
+| 3 | One-sentence summary | Compression, key point retention |
+| 4 | Natural language to JSON | Structure compliance |
+| 5 | Code bug fix (off-by-one) | Code comprehension |
+
+**Tier 2 — Tool Calling (3 prompts):**
+Tests structured function call generation. Models that can't do this score 0 on structure.
+
+| # | Task | Tests |
+|---|------|-------|
+| 6 | Single tool call (get_weather) | Correct function + params |
+| 7 | Multi-tool chain (flights + hotel) | Two calls, correct params |
+| 8 | Tool selection (1 of 5 relevant) | Picks right tool, ignores others |
+
+**Tier 3 — Multimodal (3 prompts):**
+Image + text. Non-multimodal models skip these entirely.
+
+| # | Task | Tests |
+|---|------|-------|
+| 9 | Read a bar chart, identify top 3 | Visual comprehension |
+| 10 | OCR a code screenshot | Text extraction |
+| 11 | Critique a UI screenshot | Visual reasoning |
+
+**Tier 4 — Analyst (10 prompts):**
+Real prompts from Orchestrator AI. Deep reasoning, multi-step, structured output.
+
+| # | Prompt | Tests |
+|---|--------|-------|
+| 12 | Blue Team Risk Defender | Evidence marshaling, structured argument |
+| 13 | Red Team Risk Challenger | Finding blind spots, alternative scenarios |
+| 14 | Arbiter Risk Synthesizer | Weighing arguments, score adjustment |
+| 15 | Dimension Risk Analyzer | Integrating news + predictions into scored assessment |
+| 16 | Executive Summary Generator | Concise writing, actionable recommendations |
+| 17 | Learning Generator | Pattern recognition from prediction failures |
+| 18 | Missed Opportunity Analyst | Root cause analysis, signal gap identification |
+| 19 | Prediction Synthesizer | Weighing confidence levels, making a call |
+| 20 | Legal Document Classifier | Structured taxonomy, confidence scoring |
+| 21 | Task Decomposition | Breaking freeform text into structured plans |
+
+**21 prompts total across 4 tiers.**
 
 ### 2. The models
 
@@ -64,7 +98,18 @@ Real prompts from the Orchestrator AI prediction and risk analysis system, each 
 
 Judges skip scoring their own responses.
 
-### 3. The tournament
+### 3. Multiple runs (3 per prompt per model)
+
+Each model runs each prompt **3 times** to capture consistency:
+- **Best of 3** — the model's ceiling
+- **Average of 3** — typical expected quality
+- **Consistency (std dev)** — reliability indicator (low variance = trustworthy)
+
+A model scoring 7, 7, 7 is more useful than one scoring 9, 3, 8.
+
+**Total generations:** 13 models × 21 prompts × 3 runs = **819** (minus multimodal skips)
+
+### 4. The tournament
 
 **Round 1 — Screening (1-10):**
 
@@ -94,11 +139,12 @@ Final score = sum across judges. Max = 400.
 
 ### 4. The dashboard
 
-- **Round 1 heatmap:** rows=models, cols=prompts, cells=avg score, color-coded
+- **Round 1 heatmap:** rows=models, cols=prompts (grouped by tier), cells=avg score, color-coded. Toggle: best/avg/worst of 3 runs. Consistency indicators on cells with high variance.
 - **Speed chart:** bar chart of tokens/sec per model
-- **Quality vs Speed scatter:** X=tokens/sec, Y=avg score, bubble size=model params
+- **Quality vs Speed scatter:** X=tokens/sec, Y=avg score, bubble size=model params. Tier selector to see trade-offs per task type.
+- **Consistency view:** models ranked by reliability (low std dev = green, high = red)
 - **Round 2 podium:** top 5 with weighted scores and judge agreement/disagreement
-- **Drilldown:** click any cell to see the actual response + judge commentary
+- **Drilldown:** click any cell to see all 3 runs, actual responses + judge commentary
 
 ## Demo-grade minimums
 
