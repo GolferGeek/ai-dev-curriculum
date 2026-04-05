@@ -4,7 +4,7 @@
 
 Every month there are new models. Marketing says they're all amazing. Benchmarks test toy problems. But when you give a model a real analyst prompt — the kind your business actually runs — how does it perform? How fast is it? And compared to what?
 
-We need a tool that answers this with real data: take our actual analyst prompts, run them against every model we have access to (local Ollama + cloud API), have multiple AI judges score the outputs, and show the results on a dashboard. This is how you make model selection decisions — not from blog posts, from your own evaluation.
+We need a tool that answers this with real data: configure your own test battery, pick your models, pick your judges, run the evaluation, and watch the results fill in live on a dashboard. This is how you make model selection decisions — not from blog posts, from your own evaluation.
 
 ## Who
 
@@ -14,11 +14,53 @@ We need a tool that answers this with real data: take our actual analyst prompts
 
 ## What we're building
 
-A **Model Evaluation Lab** (`apps/model-eval/`) with three components:
+A **configurable Model Evaluation Lab** (`apps/model-eval/`) — a Next.js app where you configure everything from the UI, hit Run, and watch results fill in live.
 
-### 1. The prompts (10 analyst-grade)
+### The app is the control panel
 
-Real prompts from the Orchestrator AI prediction and risk analysis system, each with sample data baked in so they run standalone:
+**Everything is configurable from the dashboard — no hardcoded models, prompts, or settings.**
+
+#### Models tab
+- **Auto-discovers local models** from Ollama (`ollama ls` / `GET /api/tags`)
+- Each model has a checkbox and a role toggle: **Contestant** (being tested), **Judge** (evaluates others), or **Both**
+- **Frontier models via OpenRouter:** enter OpenRouter API key in settings → unlocks Claude, GPT-4o, Gemini Pro, etc. as contestants and/or judges
+- **Anthropic models:** enter Anthropic API key → Claude Haiku, Sonnet as contestants/judges
+- Models that are judges skip scoring their own responses
+
+#### Prompts tab
+- Shows all available prompts grouped by tier (Quick Tasks, Tool Calling, Multimodal, Analyst)
+- Checkboxes to select which prompts to include in the run
+- **Add custom prompts** right in the UI: name, prompt text, expected format, tier
+- Custom prompts are saved to a local config file
+
+#### Config tab
+- **Runs per prompt** — how many times each model runs each prompt (default 3, configurable 1-10)
+- **Timeout per generation** — max seconds to wait (default 300)
+- **Judge scoring criteria weights** — adjust importance of accuracy/reasoning/structure/insight
+- **Round 2 point values** — configurable (default 100/70/40/20/10)
+- **Top N for Round 2** — how many advance (default 5)
+
+#### Run
+- Hit **Start Evaluation** — harness runs in the background
+- Watch the heatmap fill in cell by cell (gray → blue pulsing → green/yellow/red)
+- **Progress bar** showing X of N generations complete
+- Can **pause/resume** — saves state, picks up where it left off
+- Can run a **subset** — just one tier, just one model, just re-run failures
+
+#### Results
+- Heatmap, speed chart, quality/speed scatter, consistency view, Round 2 podium, drilldown
+- All update live as results arrive
+- **Export markdown report** to `docs/artifacts/model-eval-report.md`
+
+### Model sources
+
+| Source | How it works | Models available |
+|--------|-------------|-----------------|
+| **Ollama** (local) | Auto-discovered via `GET http://localhost:11434/api/tags` | Whatever you've pulled — Gemma 4, Qwen, DeepSeek, Llama, etc. |
+| **Anthropic API** | Enter API key in settings | claude-haiku-4-5, claude-sonnet-4-6, claude-opus-4-6 |
+| **OpenRouter** | Enter API key in settings | 200+ models — GPT-4o, Gemini Pro, Mistral Large, Command R+, etc. |
+
+### The prompts (21 built-in across 4 tiers)
 
 **Tier 1 — Quick Tasks (5 prompts, ~20-50 token responses):**
 Every model should handle these. Tests speed + basic competence.
@@ -57,118 +99,85 @@ Real prompts from Orchestrator AI. Deep reasoning, multi-step, structured output
 | 12 | Blue Team Risk Defender | Evidence marshaling, structured argument |
 | 13 | Red Team Risk Challenger | Finding blind spots, alternative scenarios |
 | 14 | Arbiter Risk Synthesizer | Weighing arguments, score adjustment |
-| 15 | Dimension Risk Analyzer | Integrating news + predictions into scored assessment |
-| 16 | Executive Summary Generator | Concise writing, actionable recommendations |
-| 17 | Learning Generator | Pattern recognition from prediction failures |
-| 18 | Missed Opportunity Analyst | Root cause analysis, signal gap identification |
-| 19 | Prediction Synthesizer | Weighing confidence levels, making a call |
-| 20 | Legal Document Classifier | Structured taxonomy, confidence scoring |
-| 21 | Task Decomposition | Breaking freeform text into structured plans |
+| 15 | Dimension Risk Analyzer | Integrating news + predictions |
+| 16 | Executive Summary Generator | Concise writing, recommendations |
+| 17 | Learning Generator | Pattern recognition from failures |
+| 18 | Missed Opportunity Analyst | Root cause analysis |
+| 19 | Prediction Synthesizer | Weighing competing opinions |
+| 20 | Legal Document Classifier | Expert classification |
+| 21 | Task Decomposition | Freeform to structured |
 
-**21 prompts total across 4 tiers.**
+**Plus custom prompts** added by the user in the UI.
 
-### 2. The models
+### Multiple runs for consistency
 
-**Being tested (13):**
-
-| Model | Size | Source | Family |
-|-------|------|--------|--------|
-| gemma4:e2b | ~7 GB | Ollama | Google Gemma 4 |
-| gemma4:e4b | ~10 GB | Ollama | Google Gemma 4 |
-| gemma4:26b | ~18 GB | Ollama | Google Gemma 4 (MoE) |
-| gemma4:31b | 19 GB | Ollama | Google Gemma 4 |
-| qwen3.5:latest | 6.6 GB | Ollama | Alibaba Qwen 3.5 |
-| qwen3.5:9b | 6.6 GB | Ollama | Alibaba Qwen 3.5 |
-| qwen3:8b | 5.2 GB | Ollama | Alibaba Qwen 3 |
-| qwq:latest | 19 GB | Ollama | Alibaba QwQ reasoning |
-| deepseek-r1:latest | 5.2 GB | Ollama | DeepSeek reasoning |
-| gpt-oss:20b | 13 GB | Ollama | GPT open source |
-| llama3.2:3b | 2.0 GB | Ollama | Meta Llama |
-| claude-haiku-4-5 | — | Anthropic API | Anthropic |
-| claude-sonnet-4-6 | — | Anthropic API | Anthropic |
-
-**Judges (4):**
-
-| Judge | Source | Why |
-|-------|--------|-----|
-| deepseek-r1:latest | Ollama | Chain-of-thought evaluator |
-| gpt-oss:20b | Ollama | Different training lineage |
-| qwq:latest | Ollama | Reasoning specialist |
-| claude-sonnet-4-6 | Anthropic API | Quality ceiling |
-
-Judges skip scoring their own responses.
-
-### 3. Multiple runs (3 per prompt per model)
-
-Each model runs each prompt **3 times** to capture consistency:
-- **Best of 3** — the model's ceiling
-- **Average of 3** — typical expected quality
-- **Consistency (std dev)** — reliability indicator (low variance = trustworthy)
+Each model runs each prompt N times (configurable, default 3):
+- **Best of N** — the model's ceiling
+- **Average of N** — typical expected quality
+- **Consistency (std dev)** — reliability indicator
 
 A model scoring 7, 7, 7 is more useful than one scoring 9, 3, 8.
 
-**Total generations:** 13 models × 21 prompts × 3 runs = **819** (minus multimodal skips)
-
-### 4. The tournament
+### The tournament
 
 **Round 1 — Screening (1-10):**
+Each judge scores each response on 4 criteria (weights configurable):
+- Accuracy, Reasoning, Structure, Insight
 
-Each judge scores each response on 4 criteria:
-- **Accuracy** — correct conclusions from the data
-- **Reasoning** — multi-step logic, considered alternatives
-- **Structure** — followed required format, valid JSON
-- **Insight** — surfaced something non-obvious
+**Round 2 — Weighted ranking (top N):**
+Each judge ranks the top N head-to-head. Points configurable (default 100/70/40/20/10).
 
-Score = average of 4 criteria. Final Round 1 score = average across judges.
+### The dashboard (live updating)
 
-**Round 2 — Weighted ranking (top 5):**
+The dashboard updates in real time as the harness runs:
+- **Heatmap** fills in cell by cell — gray → blue → green/yellow/red
+- **Speed chart** grows as each model completes
+- **Quality/Speed scatter** builds up as data arrives
+- **Consistency view** shows reliability after 3+ runs per cell
+- **Round 2 podium** appears after Round 1 completes
+- **Progress bar** — X of N generations done
 
-Each judge sees all 5 responses side-by-side and ranks them:
-- 1st = 100 points
-- 2nd = 70 points
-- 3rd = 40 points
-- 4th = 20 points
-- 5th = 10 points
+### Markdown report
 
-Final score = sum across judges. Max = 400.
+The harness produces `docs/artifacts/model-eval-report.md`:
+- Winner with one-line summary
+- Leaderboard (all models ranked)
+- Best model per tier
+- Speed tiers (>50 t/s, 20-50 t/s, <20 t/s)
+- Judge agreement
+- Surprises (over/underperformers)
+- Recommendation ("Use X for quick tasks, Y for analyst work, Z for multimodal")
 
-**Speed metrics:**
-- Every generation captures **tokens/second**
-- Ollama: `eval_count / (eval_duration / 1e9)` from response
-- Anthropic: `output_tokens / elapsed_seconds`
-
-### 4. The dashboard
-
-- **Round 1 heatmap:** rows=models, cols=prompts (grouped by tier), cells=avg score, color-coded. Toggle: best/avg/worst of 3 runs. Consistency indicators on cells with high variance.
-- **Speed chart:** bar chart of tokens/sec per model
-- **Quality vs Speed scatter:** X=tokens/sec, Y=avg score, bubble size=model params. Tier selector to see trade-offs per task type.
-- **Consistency view:** models ranked by reliability (low std dev = green, high = red)
-- **Round 2 podium:** top 5 with weighted scores and judge agreement/disagreement
-- **Drilldown:** click any cell to see all 3 runs, actual responses + judge commentary
+Report updates live alongside the dashboard.
 
 ## Demo-grade minimums
 
-- [ ] Harness sends prompts to at least 5 models and gets responses
+- [ ] Dashboard auto-discovers Ollama models
+- [ ] User can select contestants, judges, and prompts from the UI
+- [ ] Runs per prompt is configurable
+- [ ] Harness sends prompts and gets responses
 - [ ] Token speed is captured for every generation
-- [ ] At least 2 judges score the responses
-- [ ] Round 1 heatmap shows scores across models × prompts
-- [ ] Speed chart shows tokens/sec comparison
-- [ ] Quality vs Speed scatter plot works
-- [ ] Round 2 ranking produces a clear winner
-- [ ] Drilldown shows actual model responses with judge commentary
-- [ ] Results are saved to JSON (survives restart)
+- [ ] Results update live on the dashboard as the harness runs
+- [ ] Round 1 heatmap shows scores grouped by tier
+- [ ] Speed chart and quality/speed scatter work
+- [ ] Consistency indicators visible after multiple runs
+- [ ] Drilldown shows actual responses with judge commentary
+- [ ] Markdown report generated
+- [ ] Results survive restart (saved to JSON)
 
 ## Out of scope
 
-- Real-time streaming of model responses (batch is fine)
-- Cost tracking for API models (interesting but not MVP)
+- Real-time streaming of individual model token generation
+- Cost tracking per API call (interesting but not MVP)
 - Automated model downloading (user pre-downloads via `ollama pull`)
 - Statistical significance testing (visual comparison is sufficient)
 - Multi-GPU optimization
+- Scheduled/recurring evaluations
 
 ## Success criteria
 
-1. Looking at the dashboard, you can immediately answer: "Which model gives the best analyst-quality responses?"
-2. You can see the speed trade-off: "This model is 80% as good but 3x faster"
-3. You can drill into any result and read exactly what the model said and what the judges thought
-4. Running a new evaluation (adding a model or prompt) takes minutes, not hours of setup
+1. A user can configure and launch an evaluation from the dashboard in under 2 minutes
+2. They can watch results fill in live — no waiting for everything to finish
+3. Looking at the dashboard, they can immediately answer: "Which model should I use for this task?"
+4. They can export a shareable report for their team
+5. Adding a new model (pull from Ollama, check the box) takes seconds

@@ -1,0 +1,48 @@
+import { ModelConfig } from "@/lib/types";
+
+export const OPENROUTER_MODELS: ModelConfig[] = [
+  {
+    id: "openrouter:openai/gpt-4o",
+    name: "GPT-4o",
+    provider: "openrouter",
+    model: "openai/gpt-4o",
+    role: "contestant",
+    selected: false,
+    supportsTools: true,
+    supportsImages: true,
+    approxParams: "~200B",
+  },
+  {
+    id: "openrouter:google/gemini-pro-1.5",
+    name: "Gemini Pro 1.5",
+    provider: "openrouter",
+    model: "google/gemini-pro-1.5",
+    role: "contestant",
+    selected: false,
+    supportsTools: true,
+    supportsImages: true,
+    approxParams: "~300B",
+  },
+  {
+    id: "openrouter:mistralai/mistral-large",
+    name: "Mistral Large",
+    provider: "openrouter",
+    model: "mistralai/mistral-large",
+    role: "contestant",
+    selected: false,
+    supportsTools: true,
+    supportsImages: false,
+    approxParams: "~70B",
+  },
+  {
+    id: "openrouter:cohere/command-r-plus",
+    name: "Command R+",
+    provider: "openrouter",
+    model: "cohere/command-r-plus",
+    role: "contestant",
+    selected: false,
+    supportsTools: true,
+    supportsImages: false,
+    approxParams: "~104B",
+  },
+];

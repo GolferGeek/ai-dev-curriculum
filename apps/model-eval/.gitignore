@@ -1,0 +1,9 @@
+node_modules/
+.next/
+data/results*.json
+data/intermediate/
+data/run-state.json
+data/config.json
+data/custom-prompts.json
+data/prompt-selection.json
+data/round2.json

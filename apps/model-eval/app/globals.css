@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-lg p-4;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-800 hover:bg-gray-700 text-gray-200 font-medium py-2 px-4 rounded-lg transition-colors border border-gray-700;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+  }
+
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+  }
+
+  .input-field {
+    @apply bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+  }
+
+  .badge-tier-1 {
+    @apply badge bg-green-900 text-green-300;
+  }
+
+  .badge-tier-2 {
+    @apply badge bg-blue-900 text-blue-300;
+  }
+
+  .badge-tier-3 {
+    @apply badge bg-purple-900 text-purple-300;
+  }
+
+  .badge-tier-4 {
+    @apply badge bg-orange-900 text-orange-300;
+  }
+
+  .badge-custom {
+    @apply badge bg-pink-900 text-pink-300;
+  }
+}
