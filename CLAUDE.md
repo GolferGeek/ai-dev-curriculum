@@ -8,6 +8,7 @@ This repository is the **GolferGeek AI development curriculum** and starter kit.
 **Phase 03 (Research):** [docs/phase-03/README.md](docs/phase-03/README.md)  
 **Phase 04 (Protocols):** [docs/phase-04/README.md](docs/phase-04/README.md)  
 **Phase 05 (Skills Browser):** [docs/phase-05/README.md](docs/phase-05/README.md)  
+**Phase 06 (Model Eval Lab):** [docs/phase-06/README.md](docs/phase-06/README.md)  
 **What’s in `.claude/`:** [docs/phase-00/STARTER-KIT.md](docs/phase-00/STARTER-KIT.md)
 
 ## Commands & pipeline
