@@ -1,6 +1,6 @@
 # AI Development Curriculum
 
-You've built apps, hardened them, researched codebases, built a multi-agent protocol demo — and now you're going to explore the **skill ecosystem**. There are over 1,000 free skills out there. Let's build a way to find them.
+You've built apps, maintained quality, researched codebases, demonstrated protocols, browsed the skill ecosystem — and now you're going to answer the question everyone's asking: **which model should I actually use?**
 
 ---
 
@@ -13,15 +13,16 @@ You've built apps, hardened them, researched codebases, built a multi-agent prot
 | ~~02 — Quality engineering~~ | ~~Scan, fix, monitor, harden, and ship with confidence~~ | ~~`phase-02`~~ ✓ |
 | ~~03 — Research~~ | ~~Understand any codebase and create your own tools~~ | ~~`phase-03`~~ ✓ |
 | ~~04 — Protocols~~ | ~~Agents talking to agents (and paying for things)~~ | ~~`phase-04`~~ ✓ |
-| **05 — Skills Browser** | Discover and explore the skill ecosystem | `phase-05` ← **you are here** |
+| ~~05 — Skills Browser~~ | ~~Discover and explore the skill ecosystem~~ | ~~`phase-05`~~ ✓ |
+| **06 — Model Eval Lab** | Which model should you actually use? | `phase-06` ← **you are here** |
 
-You're going to build a Skills Browser — an app that catalogs skills from across the ecosystem and lets anyone browse, search, preview, and copy them. Think npm search, but for AI skills.
+You're going to build a Model Evaluation Lab — test 13 models with 10 real analyst prompts, have 4 AI judges score every response, capture token speeds, and visualize it all on a tournament dashboard.
 
 ## Get started
 
-**Read this first:** [docs/phase-05/README.md](docs/phase-05/README.md)
+**Read this first:** [docs/phase-06/README.md](docs/phase-06/README.md)
 
-It explains the 5 levels of skills, the data sources, and walks you through building the browser.
+Make sure Ollama is running with your models downloaded.
 
 ---
 
