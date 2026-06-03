@@ -37,7 +37,7 @@ Keep **curriculum tests** separate from product tests if useful, e.g. **`tests/c
 
 ### README-driven validation
 
-If a maintainer cannot get from **clone + README + `docs/phase-00/`** to a green build **without extra chat**, **roll back** to the checkpoint commit in the README, **fix the docs or scripts**, **commit + push**, and run the flow again.
+If a maintainer cannot get from **clone + README + `docs/phase-00/`** to a green build **without extra chat**, **reset** to the phase tag you started from (e.g. `git checkout -b retry phase-00`), **fix the docs or scripts**, **commit + push**, and run the flow again.
 
 ## “Wipe and retry”
 

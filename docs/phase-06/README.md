@@ -1,5 +1,7 @@
 # Phase 06 — Model Eval Lab: how good are these models, really?
 
+*Last verified: June 2026*
+
 **Prereqs:** Phase 05 complete. Ollama installed with models downloaded.
 
 You've built apps, maintained quality, researched codebases, demonstrated protocols, and browsed the skill ecosystem. Now for a question that matters more every month: **which AI model should I actually use?**

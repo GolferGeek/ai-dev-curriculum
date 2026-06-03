@@ -117,12 +117,12 @@ Create a new task or continue an existing one. This is the primary method.
       "message": {
         "role": "agent",
         "parts": [
-          { "type": "text", "text": "Invoice INV-2024-001 created for Acme Corp." },
+          { "type": "text", "text": "Invoice INV-2026-001 created for Acme Corp." },
           {
             "type": "data",
             "mimeType": "application/json",
             "data": {
-              "invoiceId": "INV-2024-001",
+              "invoiceId": "INV-2026-001",
               "total": 250.00,
               "currency": "USD"
             }

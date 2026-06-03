@@ -9,6 +9,8 @@
 
 ## Download models (if needed)
 
+> **Staleness warning:** model tags rot fast. Verify each `ollama pull` below still resolves before a cohort, and swap in current equivalents where they don't.
+
 ```bash
 # Contestants
 ollama pull gemma4:e2b

@@ -29,7 +29,7 @@ Response:
       "name": "gemma4:e2b",
       "size": 1500000000,
       "digest": "abc123...",
-      "modified_at": "2024-03-15T10:00:00Z"
+      "modified_at": "2026-03-15T10:00:00Z"
     }
   ]
 }
@@ -71,7 +71,7 @@ Response:
 ```json
 {
   "model": "gemma4:e2b",
-  "created_at": "2024-03-15T12:00:00Z",
+  "created_at": "2026-03-15T12:00:00Z",
   "message": {
     "role": "assistant",
     "content": "{ \"risk_score\": 72, ... }"

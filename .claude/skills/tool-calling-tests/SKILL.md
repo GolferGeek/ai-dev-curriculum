@@ -389,7 +389,7 @@ For Anthropic models, tools are sent differently:
 
 ```json
 {
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-4-6",
   "messages": [
     { "role": "user", "content": "What's the weather in Denver?" }
   ],
