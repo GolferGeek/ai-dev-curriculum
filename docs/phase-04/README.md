@@ -1,5 +1,7 @@
 # Phase 04 — Protocols: agents talking to agents (and paying for things)
 
+*Last verified: June 2026*
+
 **Prereqs:** Phase 03 complete (comfortable with research commands and the agent pipeline).
 
 This is the capstone. Everything you've learned — building apps, maintaining quality, researching codebases, creating your own tools — comes together in one demo that shows the **future of how software works**: autonomous agents discovering each other, delegating tasks, streaming results to a dashboard, and paying for premium services. All using real, open protocols.

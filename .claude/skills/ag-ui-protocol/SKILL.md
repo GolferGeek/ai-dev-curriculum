@@ -60,7 +60,7 @@ AG-UI events are delivered via **Server-Sent Events** (SSE). The frontend opens 
 GET /ag-ui/stream?runId=run-001
 Accept: text/event-stream
 
-data: {"type":"RUN_STARTED","runId":"run-001","timestamp":"2025-01-01T00:00:01Z"}
+data: {"type":"RUN_STARTED","runId":"run-001","timestamp":"2026-01-01T00:00:01Z"}
 
 data: {"type":"TEXT_MESSAGE_START","messageId":"msg-001"}
 
@@ -116,7 +116,7 @@ Every protocol exchange in the system generates AG-UI events that the dashboard 
     "requestBody": { "...raw JSON-RPC..." },
     "responseBody": { "...raw JSON-RPC..." },
     "duration": 234,
-    "timestamp": "2025-01-01T00:00:01Z"
+    "timestamp": "2026-01-01T00:00:01Z"
   }
 }
 ```
@@ -133,7 +133,7 @@ Every protocol exchange in the system generates AG-UI events that the dashboard 
     "summary": "Payment: $0.25 for invoice creation",
     "amount": { "value": 25, "currency": "USD" },
     "mandateRef": "mandate-001",
-    "timestamp": "2025-01-01T00:00:02Z"
+    "timestamp": "2026-01-01T00:00:02Z"
   }
 }
 ```
@@ -149,7 +149,7 @@ Every protocol exchange in the system generates AG-UI events that the dashboard 
     "target": "orchestrator",
     "summary": "Intent Mandate: up to $50 for invoice + payment agents",
     "mandate": { "...mandate JSON..." },
-    "timestamp": "2025-01-01T00:00:00Z"
+    "timestamp": "2026-01-01T00:00:00Z"
   }
 }
 ```

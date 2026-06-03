@@ -17,8 +17,8 @@ When a learner asks to create a new tool, walk them through these steps:
 
 1. **What pattern do you want to automate?** Ask them to describe the repetitive task or analysis they want to capture.
 2. **Command, skill, or agent?**
-   - **Command** (`.claude/commands/<name>.md`): A user-facing action invoked with `/<name>`. Best for workflows.
-   - **Skill** (`.claude/skills/<name>.md`): Background knowledge loaded by agents. Best for rules and conventions.
+   - **Command-style skill** (`.claude/skills/<name>/SKILL.md`): A user-facing action invoked by typing `/<name>`. Best for workflows.
+   - **Skill** (`.claude/skills/<name>/SKILL.md`): Background knowledge loaded by agents. Best for rules and conventions.
    - **Agent** (`.claude/agents/<name>.md`): A specialized role with specific tools and skills. Best for focused tasks.
 3. **What tools does it need?** Map the task to available tools: Read, Write, Edit, Glob, Grep, Bash.
 4. **What should the output look like?** Define the expected report format, file location, or terminal output.
@@ -47,7 +47,7 @@ You are the **agent name**. Your job is to...
 - Clear rules and conventions
 - Examples where helpful
 
-**Command files** follow the pattern found in `.claude/commands/`:
+**Command-style skill files** follow the pattern of the pipeline skills in `.claude/skills/`:
 - Description of what the command does
 - Input/output specification
 - Which agent to delegate to
@@ -56,14 +56,14 @@ You are the **agent name**. Your job is to...
 
 - Read existing agents in `.claude/agents/` to avoid duplicating functionality.
 - Read existing skills in `.claude/skills/` to reuse rather than reinvent.
-- Read existing commands in `.claude/commands/` to follow naming conventions.
+- Read existing pipeline skills in `.claude/skills/` to follow naming conventions.
 - Read the `day2-prep` skill before generating anything that touches production code.
 
 ## Where generated files go
 
 - Agents: `.claude/agents/<name>.md`
-- Skills: `.claude/skills/<name>.md`
-- Commands: `.claude/commands/<name>.md`
+- Skills: `.claude/skills/<name>/SKILL.md`
+- Command-style skills: `.claude/skills/<name>/SKILL.md`
 
 ## Hard rules
 

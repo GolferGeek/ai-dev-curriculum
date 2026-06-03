@@ -1,5 +1,7 @@
 # Phase 05 — Skills Browser: discover and explore the skill ecosystem
 
+*Last verified: June 2026*
+
 **Prereqs:** Phase 04 complete (comfortable with the full pipeline and protocol demo).
 
 You've built apps, hardened them, researched codebases, built a multi-agent protocol demo — and along the way, you've been using **skills** without thinking too much about them. Those markdown files in `.claude/skills/` that taught the agents how to build correctly? There are thousands more out there. And they work across 44+ AI tools, not just Claude Code.
@@ -36,7 +38,7 @@ Your browser will tag each skill so users know what they're getting.
 
 | Source | Scale | Quality | What's in it |
 |--------|-------|---------|-------------|
-| **VoltAgent/awesome-agent-skills** | 1,060+ | High — from real vendor teams | Official skills from Anthropic, Google, Vercel, Stripe, Cloudflare, Supabase, and 20+ more |
+| **VoltAgent/awesome-agent-skills** | 1,000+ (re-count before running) | High — from real vendor teams | Official skills from Anthropic, Google, Vercel, Stripe, Cloudflare, Supabase, and 20+ more |
 | **anthropics/skills** | 17 | Official | Skill-creator, document skills (PDF, DOCX, PPTX, XLSX), design, MCP builder |
 | **awesome-claude-code** | Curated | High — 36k+ stars | Community ecosystem catalog with CSV export |
 | **skills.pawgrammer.com** | 280+ | Community | Browseable by category with verification badges |
