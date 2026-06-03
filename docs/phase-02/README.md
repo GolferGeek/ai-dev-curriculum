@@ -1,6 +1,7 @@
 # Phase 02 — Quality engineering
 
 *Last verified: June 2026*
+*Talking points: [TALKING-POINTS.md](TALKING-POINTS.md) — the concepts you should be able to explain after this phase.*
 
 **Prereqs:** Phase 01 complete (at least one SaaS killer app built and working).
 
