@@ -28,8 +28,8 @@ Created by Google. AP2 defines how a **user authorizes an agent to spend** on th
     "maxAmount": { "value": 5000, "currency": "USD" },
     "maxPerTransaction": { "value": 1000, "currency": "USD" },
     "allowedServices": ["invoice-agent", "payment-agent"],
-    "validFrom": "2025-01-01T00:00:00Z",
-    "validUntil": "2025-12-31T23:59:59Z"
+    "validFrom": "2026-01-01T00:00:00Z",
+    "validUntil": "2026-12-31T23:59:59Z"
   },
   "signature": "base64-encoded-signature"
 }
@@ -48,7 +48,7 @@ Created by Google. AP2 defines how a **user authorizes an agent to spend** on th
       "service": "invoice-agent",
       "skill": "create-invoice",
       "amount": { "value": 25, "currency": "USD" },
-      "description": "Generate invoice INV-2024-001"
+      "description": "Generate invoice INV-2026-001"
     }
   ],
   "totalAmount": { "value": 25, "currency": "USD" },

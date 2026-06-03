@@ -25,7 +25,7 @@ Artifacts (intention / PRD / plan markdown) usually live under **`docs/artifacts
 
 ---
 
-## `.claude/commands/` — you invoke these
+## Pipeline skills (`.claude/skills/`) — you invoke these
 
 | File | Slash command | What it does |
 |------|----------------|---------------|
@@ -36,7 +36,7 @@ Artifacts (intention / PRD / plan markdown) usually live under **`docs/artifacts
 
 ---
 
-## `.claude/skills/` — model applies when relevant
+## Convention skills (`.claude/skills/`) — model applies when relevant
 
 | File | Skill | What it does |
 |------|--------|---------------|
@@ -71,8 +71,8 @@ Each agent file embeds a **pointer** to the matching **intention** under `docs/p
 
 ## Cursor vs Claude Code (important)
 
-- **Claude Code** runs **slash commands** from **`.claude/commands/`** (`/intention`, `/prd`, `/plan`, `/run-plan`). Skills and agents under **`.claude/skills/`** and **`.claude/agents/`** are built for that path.
-- **Cursor** does **not** execute those as native `/` commands. The project includes **`.cursor/rules/golfergeek-curriculum.mdc`** so Cursor’s agent follows the **same docs and artifact flow**. In Cursor, treat each command file as a **prompt recipe** or use **@** to attach `docs/phase-00/` and `.claude/commands/`.
+- **Claude Code** runs the pipeline skills from **`.claude/skills/`** — invoked by typing `/intention`, `/prd`, `/plan`, `/run-plan`. (Slash commands migrated into the skills format; typing `/name` still works.) Agents live under **`.claude/agents/`**.
+- **Cursor** does **not** execute those as native `/` commands. The project includes **`.cursor/rules/golfergeek-curriculum.mdc`** so Cursor’s agent follows the **same docs and artifact flow**. In Cursor, treat each pipeline skill file as a **prompt recipe** or use **@** to attach `docs/phase-00/` and `.claude/skills/`.
 - **Not automatic:** Cursor is **not** “calling Claude skills” remotely—both tools share **files and rules**; Claude Code is where slash commands are **guaranteed** to bind.
 
 Self-serve checklist: [RUN-ORDER.md](./RUN-ORDER.md) · Prerequisites: [PREREQUISITES.md](./PREREQUISITES.md) · Verification: [VERIFY.md](./VERIFY.md).

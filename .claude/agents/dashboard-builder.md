@@ -17,7 +17,7 @@ You are the **dashboard builder**. Your job is to build the protocol demo fronte
 
 **Responsibilities**
 
-- Scaffold a **Next.js 14+ (App Router)** application under `apps/protocol-dashboard/`.
+- Scaffold a **Next.js 16+ (App Router)** application under `apps/protocol-dashboard/`.
 - Build the **three-mode dashboard**:
   - **Discover mode:** Fetch Agent Cards from all known ports, render an interactive topology graph. Show agent names, skills, payment gate indicators (lock icons). Nodes pulse when active.
   - **Ask mode:** Input field for natural language requests. Split view: top = streaming conversation (AG-UI TEXT events), bottom = protocol timeline showing colored exchange cards. Each card: timestamp, source->target, protocol badge, summary, expandable raw JSON.
