@@ -29,7 +29,9 @@ This curriculum is driven by an AI agent — you direct it; it builds. Its skill
 - **Cursor** — free tier, no card: download at [cursor.com](https://www.cursor.com/), open it once and sign in. A visual editor with the agent built in.
 - **Codex** — if you have a ChatGPT account: see [chatgpt.com/codex](https://chatgpt.com/codex/).
 
-Not sure? Install **Cursor** — it's the easiest free start, and we'll compare tools in class. (The deeper lesson of this whole curriculum: the skill transfers; the tool doesn't matter much.)
+Not sure? Install **Cursor** — it's the easiest free start, and we'll compare tools in class.
+
+Confused about subscriptions vs. API keys, or what any of this costs? See **[Accounts, subscriptions & API keys](accounts-and-keys.md)** — five minutes, saves an hour. (The deeper lesson of this whole curriculum: the skill transfers; the tool doesn't matter much.)
 
 ## 5. Clone this curriculum (~3 min)
 
