@@ -28,7 +28,7 @@
 **Agent:** nextjs-saas-builder
 
 **What gets built:**
-- `apps/trello-killer/` — Next.js 14 App Router, Tailwind CSS, port 3200.
+- `apps/trello-killer/` — Next.js 16 App Router, Tailwind CSS, port 3200.
 - Auth pages: `/signin`, `/signup` with SurrealDB authentication, JWT cookies, middleware protection.
 - `/boards` — list boards, create new board.
 - `/boards/[id]` — board detail with lists as columns, cards in each list, add list, add card.

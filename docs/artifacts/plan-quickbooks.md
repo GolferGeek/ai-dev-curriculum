@@ -58,7 +58,7 @@ cd packages/surrealdb && npm run db:seed    # seeds demo data
 
 ### What gets built
 
-- `apps/quickbooks-killer/` — Next.js 14 App Router, Tailwind CSS, port 3100
+- `apps/quickbooks-killer/` — Next.js 16 App Router, Tailwind CSS, port 3100
 - **Auth pages:** `/signin`, `/signup` — forms calling SurrealDB auth helpers; JWT stored in cookie; middleware redirects unauthenticated users
 - **Dashboard:** `/dashboard` — outstanding invoices count+total, recent expenses, net profit/loss, color-coded indicator
 - **Invoices:** `/invoices` (list), `/invoices/new` (create form with dynamic line items), `/invoices/[id]` (detail + mark-as-paid button)

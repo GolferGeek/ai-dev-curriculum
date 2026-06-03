@@ -2,7 +2,7 @@
 
 ## Summary
 
-A self-hosted kanban board application built with Next.js 14 and SurrealDB. Users sign up, create boards, add lists and cards, move cards between lists, and manage their tasks through a multi-panel UI. All data is persisted in SurrealDB and scoped per user.
+A self-hosted kanban board application built with Next.js 16 and SurrealDB. Users sign up, create boards, add lists and cards, move cards between lists, and manage their tasks through a multi-panel UI. All data is persisted in SurrealDB and scoped per user.
 
 ## Goals
 

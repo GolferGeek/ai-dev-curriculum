@@ -36,6 +36,7 @@ Each phase builds on the last. Start at 00 and work forward.
 
 ## Quick links
 
+- [Pre-class setup](docs/pre-class-setup.md) — for live cohorts: do this before the first session
 - [Phase 00 Guide](docs/phase-00/README.md)
 - [Phase 01 Guide](docs/phase-01/README.md)
 - [Phase 02 Guide](docs/phase-02/README.md)

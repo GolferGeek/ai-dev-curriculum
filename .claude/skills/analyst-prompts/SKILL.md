@@ -178,13 +178,13 @@ You are a Dimension Risk Analyzer specializing in SUPPLY CHAIN risk for the semi
 Analyze the following signals and produce a dimension-specific risk score.
 
 NEWS ARTICLES:
-1. [Reuters, 2024-03-15] "TSMC reports 3-week delay on 3nm chip production due to equipment calibration issues at Fab 18. Company says Q2 delivery timelines remain on track."
-2. [Bloomberg, 2024-03-14] "US Commerce Department finalizes $6.6B CHIPS Act subsidy for TSMC Arizona fab. Production expected to begin late 2025."
-3. [Nikkei Asia, 2024-03-13] "Japan's Rapidus faces engineering talent shortage, delays 2nm pilot line by 6 months. Partners Intel and IBM reassessing timeline."
+1. [Reuters, 2026-03-15] "TSMC reports 3-week delay on 3nm chip production due to equipment calibration issues at Fab 18. Company says Q2 delivery timelines remain on track."
+2. [Bloomberg, 2026-03-14] "US Commerce Department finalizes $6.6B CHIPS Act subsidy for TSMC Arizona fab. Production expected to begin late 2027."
+3. [Nikkei Asia, 2026-03-13] "Japan's Rapidus faces engineering talent shortage, delays 2nm pilot line by 6 months. Partners Intel and IBM reassessing timeline."
 
 ANALYST PREDICTIONS:
-1. [Morgan Stanley, 2024-03-12] "We expect semiconductor supply chain normalization by Q3 2024. Maintain overweight on equipment makers. Risk: geopolitical escalation in Taiwan Strait." — Confidence: 0.72
-2. [Goldman Sachs, 2024-03-11] "Leading-edge chip shortage to persist through 2025 for AI accelerators. Trailing-edge (28nm+) in oversupply. Net effect on Apple: neutral to slightly positive as iPhone chips secure." — Confidence: 0.68
+1. [Morgan Stanley, 2026-03-12] "We expect semiconductor supply chain normalization by Q3 2026. Maintain overweight on equipment makers. Risk: geopolitical escalation in Taiwan Strait." — Confidence: 0.72
+2. [Goldman Sachs, 2026-03-11] "Leading-edge chip shortage to persist through 2027 for AI accelerators. Trailing-edge (28nm+) in oversupply. Net effect on Apple: neutral to slightly positive as iPhone chips secure." — Confidence: 0.68
 
 Produce a supply chain risk score (1-100) with detailed analysis.
 

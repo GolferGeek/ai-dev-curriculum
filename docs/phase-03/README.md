@@ -1,5 +1,7 @@
 # Phase 03 — Research: understanding any codebase
 
+*Last verified: June 2026*
+
 **Prereqs:** Phase 02 complete (at least one app scanned and hardened with clean gates).
 
 You've built apps. You've learned to keep them healthy — scanning for errors, fixing architecture violations, shipping through quality gates. But here's the thing: most of the code you'll work with in your career wasn't written by you. A new job. A legacy project. An open-source repo you want to contribute to. A teammate's code you're reviewing.

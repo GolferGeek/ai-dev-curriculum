@@ -18,9 +18,9 @@ Everything from [phase 00 prerequisites](../phase-00/PREREQUISITES.md), plus:
 ## Required (iOS tracks: Twitter killer, Facebook killer)
 
 - **macOS** (Xcode only runs on Mac)
-- **Xcode 15+** — Install from the Mac App Store. Includes Simulator, SwiftUI, SwiftData.
+- **Xcode 26+** — Install from the Mac App Store. Includes Simulator, SwiftUI, SwiftData. (Apple now versions Xcode by year; App Store submissions require the iOS 26 SDK as of April 2026.)
 - **Xcode Command Line Tools**: `xcode-select --install`
-- Verify: `xcodebuild -version` should print Xcode 15+
+- Verify: `xcodebuild -version` should print Xcode 26+
 
 ## Optional (all tracks)
 

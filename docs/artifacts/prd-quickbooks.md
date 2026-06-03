@@ -4,7 +4,7 @@
 
 ## Summary
 
-A self-hosted invoicing and expense tracker for freelancers. Users sign up, create invoices for clients, log expenses, and view a real-time profit/loss dashboard — all backed by SurrealDB with per-user data isolation. The app ships as a Next.js 14 App Router project inside the curriculum monorepo.
+A self-hosted invoicing and expense tracker for freelancers. Users sign up, create invoices for clients, log expenses, and view a real-time profit/loss dashboard — all backed by SurrealDB with per-user data isolation. The app ships as a Next.js 16 App Router project inside the curriculum monorepo.
 
 ## Goals
 

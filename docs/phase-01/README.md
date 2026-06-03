@@ -1,5 +1,7 @@
 # Phase 01 — Build a SaaS killer
 
+*Last verified: June 2026*
+
 **Prereqs:** Phase 00 complete (Turbo monorepo + one app track working). See [PREREQUISITES.md](./PREREQUISITES.md).
 
 You have a monorepo. You have the command pipeline (`/intention` → `/prd` → `/plan` → `/run-plan`). Now use them to build something **real** — a SaaS killer app with **authentication**, **database**, and **product-grade UI** in about two hours.
@@ -14,7 +16,7 @@ Phase 00 gave you Vite + React apps with localStorage. Phase 01 upgrades the sta
 |-------|----------|----------|
 | **Database** | localStorage | **SurrealDB** (local, schema-driven) |
 | **Auth** | None | **SurrealDB scopes** (signup/signin, JWT) |
-| **Web framework** | Vite + React | **Next.js 14 (App Router)** |
+| **Web framework** | Vite + React | **Next.js 16 (App Router)** |
 | **Mobile** | — | **SwiftUI + SwiftData** (iOS tracks) |
 | **Visual QA** | Manual | **Chrome browser tools** (`/test-browser`) |
 

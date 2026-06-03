@@ -19,7 +19,7 @@ This app is a freelancer/small-business invoicing and expense tracker. The core 
 
 **Responsibilities**
 
-- Build the Next.js 14 App Router app at `apps/quickbooks-killer/` (port 3100).
+- Build the Next.js 16 App Router app at `apps/quickbooks-killer/` (port 3100).
 - Wire SurrealDB auth (signup/signin scopes, JWT in cookies, middleware).
 - Implement: dashboard (outstanding invoices, income, expenses, net P/L with visual element), invoice CRUD (create with line items, list, detail, mark as paid), expense CRUD (create with category, list with running total).
 - Sidebar navigation between dashboard, invoices, expenses.

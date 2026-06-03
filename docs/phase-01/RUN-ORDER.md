@@ -4,7 +4,7 @@
 
 - [ ] Phase 00 complete (monorepo + one app track working)
 - [ ] SurrealDB installed (`surreal version` prints 2.x+)
-- [ ] (iOS tracks) Xcode 15+ installed (`xcodebuild -version`)
+- [ ] (iOS tracks) Xcode 26+ installed (`xcodebuild -version`)
 - [ ] (Optional) Chrome + Claude-in-Chrome extension for `/test-browser`
 
 ## Steps

@@ -19,7 +19,7 @@ This app is a self-hosted kanban project management tool. The core loop is: sign
 
 **Responsibilities**
 
-- Build the Next.js 14 App Router app at `apps/trello-killer/` (port 3200).
+- Build the Next.js 16 App Router app at `apps/trello-killer/` (port 3200).
 - Wire SurrealDB auth (signup/signin scopes, JWT in cookies, middleware).
 - Implement: boards page (list + create), board detail (lists as columns with cards), card detail (modal or page for edit/move), card movement between lists (drag-and-drop or move action).
 - Sidebar navigation with boards list.

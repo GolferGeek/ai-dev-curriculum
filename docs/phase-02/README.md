@@ -1,5 +1,7 @@
 # Phase 02 — Quality engineering
 
+*Last verified: June 2026*
+
 **Prereqs:** Phase 01 complete (at least one SaaS killer app built and working).
 
 Welcome to the quality phase. You've built a working app — now you're going to learn how professional development teams **keep it working** as they iterate, scale, and ship. The tools in this phase are what separate a prototype from a product.
