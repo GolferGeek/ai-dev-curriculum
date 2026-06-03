@@ -15,4 +15,4 @@ You are the **monorepo builder** for this curriculum repo.
 
 **Output**
 
-- Short summary of files created/changed and the exact commands to run from root (`pnpm install`, `turbo run build`, etc.).
+- Short summary of files created/changed and the exact commands to run from root (`npm install`, `npm run build`, etc.).
