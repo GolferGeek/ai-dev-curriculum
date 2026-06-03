@@ -1,6 +1,7 @@
 # Phase 05 — Skills Browser: discover and explore the skill ecosystem
 
 *Last verified: June 2026*
+*Talking points: [TALKING-POINTS.md](TALKING-POINTS.md) — the concepts you should be able to explain after this phase.*
 
 **Prereqs:** Phase 04 complete (comfortable with the full pipeline and protocol demo).
 

@@ -1,6 +1,7 @@
 # Phase 01 — Build a SaaS killer
 
 *Last verified: June 2026*
+*Talking points: [TALKING-POINTS.md](TALKING-POINTS.md) — the concepts you should be able to explain after this phase.*
 
 **Prereqs:** Phase 00 complete (Turbo monorepo + one app track working). See [PREREQUISITES.md](./PREREQUISITES.md).
 

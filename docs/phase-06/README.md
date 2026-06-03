@@ -1,6 +1,7 @@
 # Phase 06 — Model Eval Lab: how good are these models, really?
 
 *Last verified: June 2026*
+*Talking points: [TALKING-POINTS.md](TALKING-POINTS.md) — the concepts you should be able to explain after this phase.*
 
 **Prereqs:** Phase 05 complete. Ollama installed with models downloaded.
 

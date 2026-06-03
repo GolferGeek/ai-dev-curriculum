@@ -1,6 +1,7 @@
 # Phase 04 — Protocols: agents talking to agents (and paying for things)
 
 *Last verified: June 2026*
+*Talking points: [TALKING-POINTS.md](TALKING-POINTS.md) — the concepts you should be able to explain after this phase.*
 
 **Prereqs:** Phase 03 complete (comfortable with research commands and the agent pipeline).
 
