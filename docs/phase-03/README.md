@@ -1,6 +1,7 @@
 # Phase 03 — Research: understanding any codebase
 
 *Last verified: June 2026*
+*Talking points: [TALKING-POINTS.md](TALKING-POINTS.md) — the concepts you should be able to explain after this phase.*
 
 **Prereqs:** Phase 02 complete (at least one app scanned and hardened with clean gates).
 
