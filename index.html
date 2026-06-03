@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Dev Curriculum — Learn to build real software by directing AI</title>
+<meta name="description" content="A free, hands-on, seven-phase curriculum: build real software by directing AI agents. Self-paced or cohort. Bring a laptop; leave with shipped software.">
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#121826; --panel2:#0f1420; --line:#243047;
+    --ink:#e8edf6; --muted:#9aa7bd; --accent:#5b8cff; --accent2:#39d98a;
+    --chip:#1b2336; --radius:14px; --maxw:1000px;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  /* hero */
+  header{padding:72px 0 40px;background:
+    radial-gradient(1200px 500px at 70% -10%, rgba(91,140,255,.18), transparent 60%),
+    radial-gradient(800px 400px at 10% 0%, rgba(57,217,138,.10), transparent 60%);}
+  .kicker{color:var(--accent2);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;margin:0 0 14px;}
+  h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.12;margin:0 0 18px;letter-spacing:-.02em;}
+  .sub{font-size:1.15rem;color:var(--muted);max-width:46rem;margin:0 0 12px;}
+  .sub strong{color:var(--ink)}
+  .ctas{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;font-size:.98rem;}
+  .btn-primary{background:var(--accent);color:#fff;} .btn-primary:hover{background:#6f9aff;text-decoration:none;}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink);} .btn-ghost:hover{border-color:var(--accent);text-decoration:none;}
+  .freebadge{margin-top:18px;color:var(--muted);font-size:.92rem;}
+  /* sections */
+  section{padding:44px 0;} section h2{font-size:1.6rem;margin:0 0 8px;letter-spacing:-.01em;}
+  .lede{color:var(--muted);max-width:48rem;margin:0 0 26px;}
+  /* loop strip */
+  .loop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 0;}
+  .loop span{background:var(--chip);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-weight:600;font-size:.92rem;}
+  .loop em{color:var(--muted);font-style:normal;}
+  /* phases */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 16px;}
+  .card .ph{color:var(--accent2);font-weight:800;font-size:.78rem;letter-spacing:.1em;}
+  .card h3{margin:6px 0 8px;font-size:1.08rem;}
+  .card p{margin:0 0 12px;color:var(--muted);font-size:.95rem;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chips span{background:var(--chip);border:1px solid var(--line);color:var(--muted);
+    padding:3px 9px;border-radius:999px;font-size:.78rem;}
+  /* how */
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;}
+  .panel{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+  .panel h3{margin:0 0 10px;font-size:1.05rem;}
+  .panel p, .panel li{color:var(--muted);font-size:.96rem;}
+  .panel ul{margin:0;padding-left:18px;} .panel li{margin:6px 0;}
+  code{background:#1a2233;border:1px solid var(--line);padding:2px 7px;border-radius:6px;font-size:.88em;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#cdd9ee;}
+  .req{border-left:3px solid var(--accent);padding:12px 16px;background:var(--panel2);border-radius:8px;color:var(--muted);margin-top:18px;font-size:.95rem;}
+  footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:.92rem;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">AI Dev Curriculum · free &amp; open on GitHub</p>
+    <h1>Learn to build real software<br>by directing AI.</h1>
+    <p class="sub">You won't memorize a programming language. You'll learn the skill that's replacing that: <strong>describing what you want clearly enough that AI agents build it</strong> — then reading, testing, and shipping what they make. That skill survives every framework, every tool, every model upgrade. It's the durable one.</p>
+    <p class="sub">You'll do it, not watch it. Across seven hands-on phases you build a real portfolio — and the rhythm never changes:</p>
+    <div class="loop">
+      <span>say what you intend</span><em>→</em><span>spec it</span><em>→</em><span>plan it</span><em>→</em><span>let the agents build</span><em>→</em><span>verify it yourself</span><em>→</em><span>ship</span>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://github.com/GolferGeek/ai-dev-curriculum">Start now — it's free →</a>
+      <a class="btn btn-ghost" href="https://github.com/GolferGeek/ai-dev-curriculum/blob/main/docs/pre-class-setup.md">Pre-class setup (20 min)</a>
+    </div>
+    <p class="freebadge">Bring a laptop you can install software on. Leave with shipped software and the one skill that won't expire.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Seven phases. One loop. A real portfolio.</h2>
+    <p class="lede">Every phase ships step-by-step run orders, the AI agents and skills that do the building, a "demo-grade" quality bar — and plain-language <em>talking points</em>: the concepts you'll be able to explain when you're done.</p>
+    <div class="grid">
+
+      <div class="card"><div class="ph">PHASE 00</div><h3>Your first AI build</h3>
+        <p>Learn the pipeline (intention → PRD → plan → build) and direct agents to scaffold a monorepo and your first app — pick from four tracks.</p>
+        <div class="chips"><span>the pipeline</span><span>git &amp; branches</span><span>monorepo / Turborepo</span><span>React + Vite</span><span>E2E tests</span></div></div>
+
+      <div class="card"><div class="ph">PHASE 01</div><h3>SaaS killers</h3>
+        <p>Build a real product — sign-ups, sign-ins, a database, per-user data. Web (Next.js + SurrealDB) or iOS (SwiftUI + SwiftData).</p>
+        <div class="chips"><span>authentication</span><span>databases &amp; schemas</span><span>server vs client</span><span>protected routes</span></div></div>
+
+      <div class="card"><div class="ph">PHASE 02</div><h3>Quality engineering</h3>
+        <p>Keep apps healthy like a professional team: error scanners and fixers, architecture monitors, commit gates, and PR review — with a feedback loop that raises the bar automatically.</p>
+        <div class="chips"><span>quality gates</span><span>code review</span><span>architecture rules</span><span>commits &amp; PRs</span></div></div>
+
+      <div class="card"><div class="ph">PHASE 03</div><h3>Research any codebase</h3>
+        <p>The day-1-on-the-job skill: orient in a strange repo, map data flow and auth boundaries, scan for security issues, read the git history — then author your own agents.</p>
+        <div class="chips"><span>codebase orientation</span><span>security scanning</span><span>git archaeology</span><span>build your own tools</span></div></div>
+
+      <div class="card"><div class="ph">PHASE 04</div><h3>Protocols — agents hiring agents</h3>
+        <p>Build a live multi-agent demo where agents discover each other, delegate tasks, and pay for premium services — streamed to a real-time dashboard.</p>
+        <div class="chips"><span>A2A</span><span>x402 payments</span><span>AP2 mandates</span><span>AG-UI</span><span>MCP</span></div></div>
+
+      <div class="card"><div class="ph">PHASE 05</div><h3>Skills Browser</h3>
+        <p>Skills are an open format used across the industry. Build the missing piece: search, preview, and install across thousands of published skills — npm, but for AI skills.</p>
+        <div class="chips"><span>skill anatomy</span><span>open formats</span><span>cataloging</span></div></div>
+
+      <div class="card"><div class="ph">PHASE 06</div><h3>Model Eval Lab</h3>
+        <p>Which model should you actually use? Run a tournament on your own prompts — local models vs hosted, AI judges, speed-vs-quality scatter. Data, not hype.</p>
+        <div class="chips"><span>evals &amp; rubrics</span><span>local vs hosted</span><span>AI judges</span><span>tokens/sec</span></div></div>
+
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#16203a,#121826);">
+        <h3 style="margin-top:0;">By the end</h3>
+        <p style="margin-bottom:0;">A monorepo, multiple working apps, a SaaS product with real auth, a quality pipeline, research chops on any codebase, a multi-agent protocol demo — and the loop, which works on anything.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Two ways to take it</h2>
+    <div class="two">
+      <div class="panel">
+        <h3>Self-paced (free, start today)</h3>
+        <ul>
+          <li>Do the <a href="https://github.com/GolferGeek/ai-dev-curriculum/blob/main/docs/pre-class-setup.md">20-minute setup</a>, then:</li>
+          <li><code>git clone https://github.com/GolferGeek/ai-dev-curriculum.git</code></li>
+          <li><code>git checkout -b my-phase-00 phase-00</code></li>
+          <li>Follow each phase's README and run order; every phase has <em>talking points</em> — and anything you can't explain, your AI agent will, in three sentences.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Cohorts &amp; workshops</h3>
+        <ul>
+          <li>Live, hands-on sessions for schools, bootcamps, teams, and community programs — same curriculum, same pace, taught by the method it teaches.</li>
+          <li>Phase 00 runs as an intensive; the full sequence fits a multi-week program.</li>
+          <li>Interested in hosting one? <a href="https://github.com/GolferGeek/ai-dev-curriculum/issues">Open an issue</a> or reach out.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="req"><strong>What you need:</strong> a Mac, Windows, or Linux laptop you can install software on · Node.js · git · an AI coding agent (Claude Code, Cursor, or Codex — free options exist for each). That's it.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Built by <a href="https://github.com/GolferGeek">GolferGeek</a> — with the same pipeline it teaches.</span>
+    <span><a href="https://github.com/GolferGeek/ai-dev-curriculum">github.com/GolferGeek/ai-dev-curriculum</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
