@@ -3,7 +3,15 @@
 ## Before you start
 
 1. Read [PREREQUISITES.md](./PREREQUISITES.md).
-2. Clone the repo; open it in **Claude Code**.
+2. Clone the repo and start a work branch from the phase tag (phases are git **tags** — snapshots; your own branch avoids detached-HEAD confusion):
+
+   ```bash
+   git clone https://github.com/GolferGeek/ai-dev-curriculum.git
+   cd ai-dev-curriculum
+   git checkout -b my-phase-00 phase-00
+   ```
+
+3. Open the folder in **Claude Code**.
 
 ## Part A — Monorepo shell
 
@@ -18,6 +26,15 @@
 | 7 | `/run-plan docs/artifacts/plan.md` | Invokes **monorepo-builder**. Creates `apps/`, `packages/`, `turbo.json`. |
 | 8 | `./scripts/verify-curriculum-structure.sh` | Green means you're good. |
 
+## Between parts — archive your Part A artifacts
+
+Part B writes to the same `docs/artifacts/` filenames and would silently overwrite Part A's. Before starting Part B:
+
+```bash
+mkdir -p docs/artifacts/monorepo
+mv docs/artifacts/intention.md docs/artifacts/prd.md docs/artifacts/plan.md docs/artifacts/monorepo/
+```
+
 ## Part B — First app (pick A–D)
 
 | Step | What to type | What happens |
@@ -29,10 +46,14 @@
 | 5 | `/plan docs/artifacts/prd.md` | Builds plan. Outputs `docs/artifacts/plan.md`. |
 | 6 | Review plan — does it deliver every PRD goal? | Challenge pass. |
 | 7 | `/run-plan docs/artifacts/plan.md` | Invokes the track agent. Builds the app in `apps/`. |
-| 8 | `npm run build` | Does it compile? |
-| 9 | `npm run test` | Do tests pass? |
+| 8 | `npm install` | Install the dependencies the agent added. |
+| 9 | `npx playwright install chromium` | One-time browser download (~110 MB). Linux may also need `npx playwright install-deps`. |
+| 10 | `npm run build` | Does it compile? |
+| 11 | `npm run test` | Do tests pass? |
 
 Replace `<track>` with: `http-workspace`, `team-wiki`, `pipeline-crm`, or `ops-pulse`.
+
+> **Locked-down network?** If outbound calls are blocked (school/work), have the agent mock the demo API in tests (Playwright `page.route`) — the intentions explicitly allow "a documented mock." 
 
 ## If something fails
 

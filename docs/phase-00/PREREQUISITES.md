@@ -6,7 +6,7 @@
 |-------------|-----|
 | **Claude Code** (CLI) installed and signed in | The pipeline **skills** in `.claude/skills/` (`/intention`, `/prd`, `/plan`, `/run-plan` — invoked by typing `/name`) are the primary automation path. |
 | **Anthropic subscription** (or org billing) that covers Claude Code usage | Model calls for agents and long sessions are not free. |
-| **Node.js** LTS and a package manager (**pnpm** recommended for Turborepo; npm/yarn if you standardize otherwise) | Monorepo scripts and Turbo. |
+| **Node.js** LTS with **npm** (the curriculum's scripts, docs, and agents all standardize on npm) | Monorepo scripts and Turbo. |
 
 ## Cursor (optional but common)
 
