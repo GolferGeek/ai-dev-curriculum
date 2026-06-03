@@ -1,6 +1,6 @@
 # Commands (Claude Code) — Phase 00 workflow
 
-These are the **slash commands** you'll use. Each one takes a file as input and produces a file as output. The chain looks like this:
+These are the pipeline **skills** you invoke by typing `/name` (Claude Code migrated slash commands into the skills format — same flow, new home in `.claude/skills/`). Each one takes a file as input and produces a file as output. The chain looks like this:
 
 ```
 /intention <intention-file>  →  docs/artifacts/intention.md
