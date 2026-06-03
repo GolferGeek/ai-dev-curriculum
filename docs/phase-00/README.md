@@ -1,5 +1,7 @@
 # Phase 00 — Your first AI-powered build
 
+*Last verified: June 2026*
+
 Welcome! In this session you're going to build real, working software using **AI agents** — not by writing every line yourself, but by learning to **direct** the AI with the right instructions. By the end, you'll have a monorepo with a working app that you built by having a conversation.
 
 Before we start building, let's understand the three tools in your toolkit.
