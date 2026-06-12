@@ -25,7 +25,7 @@
 
 Replace `<track>` with: `quickbooks-killer`, `trello-killer`, `twitter-killer`, or `facebook-killer`.
 
-## The full command chain at a glance
+## The full skill chain at a glance
 
 ```
 /intention docs/phase-01/intention-quickbooks-killer.md   → docs/artifacts/intention.md

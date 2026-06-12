@@ -5,7 +5,7 @@
 
 **Prereqs:** Phase 00 complete (Turbo monorepo + one app track working). See [PREREQUISITES.md](./PREREQUISITES.md).
 
-You have a monorepo. You have the command pipeline (`/intention` → `/prd` → `/plan` → `/run-plan`). Now use them to build something **real** — a SaaS killer app with **authentication**, **database**, and **product-grade UI** in about two hours.
+You have a monorepo. You have the slash-invoked skill pipeline (`/intention` → `/prd` → `/plan` → `/run-plan`). Now use it to build something **real** — a SaaS killer app with **authentication**, **database**, and **product-grade UI** in about two hours.
 
 ---
 
@@ -23,7 +23,7 @@ Phase 00 gave you Vite + React apps with localStorage. Phase 01 upgrades the sta
 
 ---
 
-## New agents, skills, and commands
+## New agents and skills
 
 These are already set up in `.claude/` — here's what they do and why.
 
@@ -46,9 +46,9 @@ These are already set up in `.claude/` — here's what they do and why.
 | **monorepo-turbo** | (From phase 00) Turbo conventions — still applies for workspace structure. |
 | **prd-alignment** | (From phase 00) Traces goals to intention, flags drift — still applies. |
 
-### Commands
+### Slash-invoked skills
 
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | **`/research`** | Invokes saas-researcher to analyze a SaaS product and draft an intention. Use this first if you want help scoping. |
 | **`/intention`** | (Updated) Now supports phase-01 SaaS killers — QuickBooks, Trello, Twitter, Facebook, or custom. |

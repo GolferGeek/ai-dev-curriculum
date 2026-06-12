@@ -23,7 +23,7 @@ Download the **LTS** version from [nodejs.org](https://nodejs.org/) and run the 
 
 ## 4. Pick your AI coding agent (~10 min)
 
-This curriculum is driven by an AI agent — you direct it; it builds. Its skills and commands live in this repo's `.claude/` folder, and they work with several tools. **Bring whichever you already have a relationship with:**
+This curriculum is driven by an AI agent — you direct it; it builds. Its skills and agents live in this repo's `.claude/` folder, and they work with several tools. **Bring whichever you already have a relationship with:**
 
 - **Claude Code (CLI)** — if you have a Claude subscription (or API credits): `npm install -g @anthropic-ai/claude-code`, then run `claude` and sign in. *Note: a bare free Claude account is too limited for class — you'll want a subscription or starter API credits from [platform.claude.com](https://platform.claude.com/).*
 - **Cursor** — free tier, no card: download at [cursor.com](https://www.cursor.com/), open it once and sign in. A visual editor with the agent built in.
