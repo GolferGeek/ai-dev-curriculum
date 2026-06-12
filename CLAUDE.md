@@ -8,16 +8,16 @@ This repository is the **GolferGeek AI development curriculum** and starter kit.
 **Phase 03 (Research):** [docs/phase-03/README.md](docs/phase-03/README.md)  
 **What’s in `.claude/`:** [docs/phase-00/STARTER-KIT.md](docs/phase-00/STARTER-KIT.md)
 
-## Commands & pipeline
+## Skills & pipeline
 
-All commands are in `.claude/skills/`. The full development pipeline:
+Slash-invoked workflow skills live in `.claude/skills/`. The full development pipeline:
 
 ```
 /intention → /prd → /plan → /run-plan → /scan-errors → /fix-errors → /monitor → /harden → /commit pr → /pr-evals → /pr-eval → /ingest → /map → /security-scan → /git-story → /improve → /deep-dive → /author-agent
 ```
 
 ### Build phase
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | `/intention` | Review or create an intention file → feeds `/prd` |
 | `/research` | Research a SaaS product to scope a killer app |
@@ -27,7 +27,7 @@ All commands are in `.claude/skills/`. The full development pipeline:
 | `/test-browser` | Visually test a running app in Chrome |
 
 ### Quality phase
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | `/scan-errors` | Scan for build, lint, test errors → error report |
 | `/fix-errors` | Fix errors from the report, iterate until clean |
@@ -35,7 +35,7 @@ All commands are in `.claude/skills/`. The full development pipeline:
 | `/harden` | Fix architecture violations |
 
 ### Ship phase
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | `/commit` | Quality gate → commit (add `push` or `pr` flag) |
 | `/commit pr` | Quality gate → commit → push → create PR |
@@ -43,7 +43,7 @@ All commands are in `.claude/skills/`. The full development pipeline:
 | `/pr-eval 42` | Full review → approve or request changes on GitHub |
 
 ### Research phase
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | `/ingest` | Whole-repo orientation → ingest report |
 | `/map` | Map entry/exit points, data flow, auth boundaries |

@@ -1,6 +1,6 @@
-# Commands (Claude Code) — Phase 00 workflow
+# Slash Skills (Claude Code) — Phase 00 workflow
 
-These are the pipeline **skills** you invoke by typing `/name` (Claude Code migrated slash commands into the skills format — same flow, new home in `.claude/skills/`). Each one takes a file as input and produces a file as output. The chain looks like this:
+These are the pipeline **skills** you invoke by typing `/name` (Claude Code migrated slash workflows into the skills format — same flow, current home in `.claude/skills/`). Each one takes a file as input and produces a file as output. The chain looks like this:
 
 ```
 /intention <intention-file>  →  docs/artifacts/intention.md
@@ -9,9 +9,9 @@ These are the pipeline **skills** you invoke by typing `/name` (Claude Code migr
 /run-plan docs/artifacts/plan.md  →  built code in apps/ and packages/
 ```
 
-## Command reference
+## Skill reference
 
-| Command | Input | Output | What it does |
+| Slash skill | Input | Output | What it does |
 |---------|-------|--------|-------------|
 | **`/intention`** | A provided intention file (e.g. `docs/phase-00/intention-monorepo.md`) | `docs/artifacts/intention.md` | Reviews and refines the intention with you. |
 | **`/prd`** | The refined intention file | `docs/artifacts/prd.md` | Turns intention into goals, non-goals, success criteria, test expectations. |
@@ -40,12 +40,12 @@ These are the pipeline **skills** you invoke by typing `/name` (Claude Code migr
 
 ## Challenge passes
 
-Before each step, the command checks the previous artifact:
+Before each step, the invoked skill checks the previous artifact:
 - `/prd` checks: does the PRD cover every item in the intention?
 - `/plan` checks: does the plan deliver every PRD goal?
 - `/run-plan` checks: is the plan clear enough to build from?
 
-If something doesn't match, the command flags it and asks you to fix it before proceeding.
+If something doesn't match, the skill flags it and asks you to fix it before proceeding.
 
 ## Agents (who gets invoked by `/run-plan`)
 

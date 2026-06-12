@@ -6,7 +6,7 @@ We need a **single repository** that can hold **multiple apps and shared package
 
 ## Who it’s for
 
-Developers using this course and **Claude Code** (or similar) with a **specialized monorepo agent**, **skills**, and **commands** so scaffolding stays **repeatable**—not a one-off folder structure.
+Developers using this course and **Claude Code** (or similar) with a **specialized monorepo agent** and **skills** so scaffolding stays **repeatable**—not a one-off folder structure.
 
 ## What “good” looks like
 

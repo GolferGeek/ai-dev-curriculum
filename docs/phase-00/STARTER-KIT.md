@@ -1,6 +1,6 @@
 # The Claude starter kit — what this repo intends, what you start with, what each item does
 
-This document is the **map** for the **`.claude/`** directory in this project. In live sessions we **walk this tree** so you see **commands** (what you invoke), **skills** (what the model auto-applies), and **agents** (who executes **`/run-plan`** for monorepo vs each product track).
+This document is the **map** for the **`.claude/`** directory in this project. In live sessions we **walk this tree** so you see **slash-invoked workflow skills** (what you type as `/name`), **background skills** (what the model auto-applies), and **agents** (who executes **`/run-plan`** for monorepo vs each product track).
 
 ---
 
@@ -10,7 +10,7 @@ This document is the **map** for the **`.claude/`** directory in this project. I
 2. **Part B — First app:** Pick **one** of four [product tracks](./README.md); use the **given** app intention (**Demo-grade minimums** inside each `intention-*.md`), plus the cross-cutting [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md), then **PRD → plan → `/run-plan`** with the matching **track builder** agent.
 3. **Same vocabulary everywhere:** `/intention`, `/prd`, `/plan`, `/run-plan` — see [COMMANDS.md](./COMMANDS.md).
 
-Artifacts (intention / PRD / plan markdown) usually live under **`docs/artifacts/`** unless you choose another path and tell the commands.
+Artifacts (intention / PRD / plan markdown) usually live under **`docs/artifacts/`** unless you choose another path and tell the slash skill.
 
 ---
 
@@ -19,15 +19,15 @@ Artifacts (intention / PRD / plan markdown) usually live under **`docs/artifacts
 | Piece | Role |
 |--------|------|
 | **This repo** | Curriculum + starter **Claude Code** layout; not a finished production system until you run the plans. |
-| **`docs/phase-00/`** | Intentions (monorepo + four apps), command workflow, this starter-kit explainer. |
-| **`.claude/`** | Commands, skills, agents you use with Claude Code in this project. |
+| **`docs/phase-00/`** | Intentions (monorepo + four apps), skill workflow, this starter-kit explainer. |
+| **`.claude/`** | Skills and agents you use with Claude Code in this project. |
 | **`CLAUDE.md`** (repo root) | Short project rules for the assistant—points here and to `docs/`. |
 
 ---
 
 ## Pipeline skills (`.claude/skills/`) — you invoke these
 
-| File | Slash command | What it does |
+| File | Invoke as | What it does |
 |------|----------------|---------------|
 | `intention.md` | `/intention` | Shape or update an **intention** artifact; works for monorepo or a product track; points at provided intention files in `docs/phase-00/`. |
 | `prd.md` | `/prd` | Build or refresh a **PRD** from the active intention. |
@@ -64,21 +64,21 @@ Each agent file embeds a **pointer** to the matching **intention** under `docs/p
 ## How to use this in teaching
 
 1. Open **this document** and the **`.claude/`** folder side by side.
-2. Read **commands** aloud as “what humans type”; read **skills** as “how we keep quality”; read **agents** as “who runs the plan.”
+2. Read **slash-invoked skills** aloud as “what humans type”; read **background skills** as “how we keep quality”; read **agents** as “who runs the plan.”
 3. Run **`/run-plan`** only after a **plan** exists—otherwise send learners back to **`/plan`**.
 
 ---
 
 ## Cursor vs Claude Code (important)
 
-- **Claude Code** runs the pipeline skills from **`.claude/skills/`** — invoked by typing `/intention`, `/prd`, `/plan`, `/run-plan`. (Slash commands migrated into the skills format; typing `/name` still works.) Agents live under **`.claude/agents/`**.
-- **Cursor** does **not** execute those as native `/` commands. The project includes **`.cursor/rules/golfergeek-curriculum.mdc`** so Cursor’s agent follows the **same docs and artifact flow**. In Cursor, treat each pipeline skill file as a **prompt recipe** or use **@** to attach `docs/phase-00/` and `.claude/skills/`.
-- **Not automatic:** Cursor is **not** “calling Claude skills” remotely—both tools share **files and rules**; Claude Code is where slash commands are **guaranteed** to bind.
+- **Claude Code** runs the pipeline skills from **`.claude/skills/`** — invoked by typing `/intention`, `/prd`, `/plan`, `/run-plan`. (Slash workflows migrated into the skills format; typing `/name` still works.) Agents live under **`.claude/agents/`**.
+- **Cursor** does **not** execute those as native `/` entries. The project includes **`.cursor/rules/golfergeek-curriculum.mdc`** so Cursor’s agent follows the **same docs and artifact flow**. In Cursor, treat each pipeline skill file as a **prompt recipe** or use **@** to attach `docs/phase-00/` and `.claude/skills/`.
+- **Not automatic:** Cursor is **not** “calling Claude skills” remotely—both tools share **files and rules**; Claude Code is where slash-invoked skills are **guaranteed** to bind.
 
 Self-serve checklist: [RUN-ORDER.md](./RUN-ORDER.md) · Prerequisites: [PREREQUISITES.md](./PREREQUISITES.md) · Verification: [VERIFY.md](./VERIFY.md).
 
 ## See also
 
 - [Phase 00 README](./README.md) — Part A / Part B flow  
-- [COMMANDS.md](./COMMANDS.md) — order of operations  
+- [COMMANDS.md](./COMMANDS.md) — order of operations for slash-invoked skills
 - [intention-monorepo.md](./intention-monorepo.md) — monorepo intention  
