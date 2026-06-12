@@ -23,7 +23,7 @@ for f in \
   CLAUDE.md \
   ; do need "$f"; done
 
-# Pipeline + convention skills (commands live at .claude/skills/<name>/SKILL.md)
+# Pipeline + convention skills (slash-invoked workflows live at .claude/skills/<name>/SKILL.md)
 for s in intention prd plan run-plan monorepo-turbo prd-alignment; do skill "$s"; done
 for a in monorepo-builder app-builder-http-workspace app-builder-team-wiki \
          app-builder-pipeline-crm app-builder-ops-pulse; do agent "$a"; done

@@ -1,8 +1,8 @@
 # `.claude/` — Claude Code project config
 
-**Human-readable map:** [docs/phase-00/STARTER-KIT.md](../docs/phase-00/STARTER-KIT.md) — what each **command**, **skill**, and **agent** is for.
+**Human-readable map:** [docs/phase-00/STARTER-KIT.md](../docs/phase-00/STARTER-KIT.md) — what each **slash-invoked skill**, **background skill**, and **agent** is for.
 
-## Commands
+## Slash-invoked skills
 
 ### Build pipeline (Phase 00+)
 - **`/intention <file>`** — Review/refine an intention file → `docs/artifacts/intention.md`
@@ -39,7 +39,7 @@
 - **ios-architecture** — SwiftData only, accessibility IDs, UI testing, thin views
 - **data-architecture** — Version-controlled schemas, shared package, SurrealDB auth
 - **pr-requirements** — Living PR acceptance criteria (grows via /pr-eval feedback)
-- **quality-gates** — Build/lint/test commands per app type, error classification
+- **quality-gates** — Build/lint/test terminal commands per app type, error classification
 - **terminal-reporting** — How agents report progress and results: tables, charts, status updates
 
 ## Agents
