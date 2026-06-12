@@ -23,5 +23,5 @@
 ## Making your own tools (`/author-agent`)
 
 - **Agent vs. skill** — an agent is a *role* with tools and rules; a skill is *knowledge or a workflow* an agent applies. You should be able to say which a given idea wants to be.
-- **The meta-skill** — noticing a pattern you keep repeating and turning it into a reusable command: the moment you stop being only a user of the toolkit and start being its author.
+- **The meta-skill** — noticing a pattern you keep repeating and turning it into a reusable skill: the moment you stop being only a user of the toolkit and start being its author.
 - **Day-2 safety** — the extra care production code demands: read-only first, no secrets in prompts, smallest possible blast radius.
