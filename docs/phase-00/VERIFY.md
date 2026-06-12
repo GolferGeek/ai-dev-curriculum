@@ -15,7 +15,7 @@ From repo root:
 
 Checks (non-exhaustive; extend as the repo grows):
 
-- Required **`.claude/`** files exist (commands, skills, agents).
+- Required **`.claude/`** files exist (skills and agents).
 - **`docs/phase-00/`** starter docs exist.
 - If **`turbo.json`** exists, basic keys are present.
 

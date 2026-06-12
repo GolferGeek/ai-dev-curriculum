@@ -9,15 +9,15 @@ Before we start building, let's understand the three tools in your toolkit.
 
 ---
 
-## The toolkit: commands, skills, and agents
+## The toolkit: slash skills, background skills, and agents
 
-Open the `.claude/` folder in this repo. Everything the AI needs to help you is in there, organized into three categories. Here's what each one is and why it matters.
+Open the `.claude/` folder in this repo. Everything the AI needs to help you is in there, organized into skills and agents. Here's what each one is and why it matters.
 
-### Commands — what you type
+### Slash-invoked skills — what you type
 
-Commands are **slash commands** you run in Claude Code. They're your steering wheel. Each one kicks off a specific step in the process.
+The pipeline is made of **skills** stored in `.claude/skills/`. In Claude Code you invoke the workflow skills by typing `/name`; each one kicks off a specific step in the process.
 
-| Command | What it does | When you use it |
+| Slash skill | What it does | When you use it |
 |---------|-------------|-----------------|
 | **`/intention`** | Captures *why* you're building something, *who* it's for, and what *good* looks like. | First — before anything else. Every project starts with an intention. |
 | **`/prd`** | Turns your intention into a **Product Requirements Doc** — specific goals, non-goals, and success criteria. | After your intention is solid. |
@@ -28,7 +28,7 @@ Think of it as a pipeline: **intention** (why) → **PRD** (what) → **plan** (
 
 > You'll use this same pipeline in every phase of this curriculum. Master it once, use it forever.
 
-### Skills — what the AI knows
+### Background skills — what the AI knows
 
 Skills are **background knowledge** the AI applies automatically — you don't invoke them directly. They're like having an experienced colleague looking over your shoulder.
 
@@ -57,7 +57,7 @@ You don't call agents directly — `/run-plan` does it for you based on what you
 
 ## What we're building
 
-This phase has two parts, and you'll use the same command pipeline for both.
+This phase has two parts, and you'll use the same skill pipeline for both.
 
 ### Part A — The monorepo (the house)
 
@@ -69,7 +69,7 @@ You don't need to know the details of Turborepo. The **monorepo-builder** agent 
 
 1. **Read the intention** — Open [intention-monorepo.md](./intention-monorepo.md). This explains *why* we're setting up the monorepo and what "done" looks like. It's already written for you — your first intention is a freebie.
 
-2. **Review the intention** — Run the command below. This reads the provided intention and walks you through it. You'll refine it in your own words. The output goes to `docs/artifacts/intention.md`.
+2. **Review the intention** — Run the slash skill below. This reads the provided intention and walks you through it. You'll refine it in your own words. The output goes to `docs/artifacts/intention.md`.
 
    ```
    /intention docs/phase-00/intention-monorepo.md
@@ -162,7 +162,7 @@ Now the house is built. Time to move in some furniture. Pick **one** of these fo
 
 - **Prerequisites:** [PREREQUISITES.md](./PREREQUISITES.md) — what you need installed before starting
 - **Step-by-step checklist:** [RUN-ORDER.md](./RUN-ORDER.md) — if you prefer a linear checklist over this narrative
-- **Command details:** [COMMANDS.md](./COMMANDS.md) — deeper look at the command pipeline
+- **Pipeline details:** [COMMANDS.md](./COMMANDS.md) — deeper look at the slash-invoked skill pipeline
 - **Quality bar:** [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md) — what "done" looks like
 - **Full toolkit map:** [STARTER-KIT.md](./STARTER-KIT.md) — everything in `.claude/` explained
 - **Verification:** [VERIFY.md](./VERIFY.md) — how to check your work
@@ -174,7 +174,7 @@ Now the house is built. Time to move in some furniture. Pick **one** of these fo
 You might wonder: why not just start building the app?
 
 - **Structure first:** One monorepo, one set of conventions. Every app you build from now on lands in a known place with shared tooling. No "where does this go?" confusion later.
-- **Pipeline practice:** You used the same four commands (`/intention` → `/prd` → `/plan` → `/run-plan`) for both the monorepo *and* the app. That repetition is the point — you're building a muscle you'll use in every phase.
+- **Pipeline practice:** You used the same four slash-invoked skills (`/intention` → `/prd` → `/plan` → `/run-plan`) for both the monorepo *and* the app. That repetition is the point — you're building a muscle you'll use in every phase.
 - **Intentions are given:** In this phase, the intentions are provided so you can focus on **learning the pipeline**, not brainstorming from a blank page. Starting in phase 01, you'll define your own.
 
 ---

@@ -9,28 +9,28 @@ You've built apps. You've learned to keep them healthy — scanning for errors, 
 
 Phase 03 teaches you to **read and understand any codebase using AI agents**. The same agents that built and maintained your training repo can now help you make sense of code you've never seen before.
 
-And here's the fun part: at the end of this phase, you'll learn to **create your own agents and commands**. The tools you've been using? They're just markdown files. You can make new ones.
+And here's the fun part: at the end of this phase, you'll learn to **create your own agents and slash-invoked skills**. The tools you've been using? They're just markdown files. You can make new ones.
 
 ---
 
-## The toolkit: commands, skills, and agents
+## The toolkit: slash skills, background skills, and agents
 
 Open `.claude/skills/` — you'll see some new additions alongside the familiar ones from phases 01 and 02.
 
-### Commands — what you type
+### Slash-invoked skills — what you type
 
-Phase 03 gives you **seven new commands**, organized in three groups.
+Phase 03 gives you **seven new slash-invoked skills**, organized in three groups.
 
 **Orient — understand what you're looking at**
 
-| Command | What it does | What it produces |
+| Slash skill | What it does | What it produces |
 |---------|-------------|------------------|
 | **`/ingest`** | Gets the big picture — what is this codebase, what does it do, how is it organized. | `docs/artifacts/ingest-report.md` |
 | **`/map`** | Traces how data flows through the system — where it enters, where it's stored, where it goes out. | `docs/artifacts/map-report.md` |
 
 **Analyze — find what matters**
 
-| Command | What it does | What it produces |
+| Slash skill | What it does | What it produces |
 |---------|-------------|------------------|
 | **`/security-scan`** | Looks for vulnerabilities — auth gaps, exposed secrets, injection risks, permission problems. | `docs/artifacts/security-report.md` |
 | **`/git-story`** | Reads the history — who changed what, which files change most, where the risk lives. | `docs/artifacts/git-story-report.md` |
@@ -39,17 +39,17 @@ Phase 03 gives you **seven new commands**, organized in three groups.
 
 **Create — build your own tools**
 
-| Command | What it does | What it produces |
+| Slash skill | What it does | What it produces |
 |---------|-------------|------------------|
-| **`/author-agent`** | Helps you create your own custom commands and skills from patterns you've observed. | New files in `.claude/skills/` |
+| **`/author-agent`** | Helps you create your own custom agents and skills from patterns you've observed. | New files in `.claude/skills/` |
 
 Think of it as a progression: **orient** (what is this?) → **analyze** (what matters?) → **create** (what tools do I need?).
 
-> Each command produces a report in `docs/artifacts/`. You can read the reports, share them with your team, or use them as input to the next command.
+> Each slash-invoked skill produces a report in `docs/artifacts/`. You can read the reports, share them with your team, or use them as input to the next step.
 
 ### Skills — what the AI knows
 
-Two new background skills power the research commands:
+Two new background skills power the research workflow:
 
 | Skill | What it does |
 |-------|-------------|
@@ -60,18 +60,18 @@ These work like the architecture skills from Phase 02 — you don't type their n
 
 ### Agents — who does the work
 
-| Agent | What it does | Which commands use it |
+| Agent | What it does | Which slash skills use it |
 |-------|-------------|----------------------|
 | **repo-researcher** | The generalist — orients in any codebase, maps structure, finds patterns and improvements. | `/ingest`, `/map`, `/improve`, `/deep-dive` |
 | **security-researcher** | The security specialist — finds vulnerabilities, auth gaps, and data exposure risks. | `/security-scan` |
 | **git-historian** | The historian — reads git log, blame, and diff to reveal the codebase's story over time. | `/git-story` |
-| **agent-author** | The toolmaker — helps you create your own agents, skills, and commands. | `/author-agent` |
+| **agent-author** | The toolmaker — helps you create your own agents and skills. | `/author-agent` |
 
 ---
 
 ## Let's do it — step by step
 
-Here's where it gets interesting. You're going to run these commands on **your training repo** — the one you built in phases 00-02. You already know this codebase. That's the point. By researching code you already understand, you can verify the agents' findings and build confidence before pointing them at unfamiliar code.
+Here's where it gets interesting. You're going to run these slash-invoked skills on **your training repo** — the one you built in phases 00-02. You already know this codebase. That's the point. By researching code you already understand, you can verify the agents' findings and build confidence before pointing them at unfamiliar code.
 
 ### Step 1: Get oriented
 
@@ -113,7 +113,7 @@ Don't be surprised if it finds things even in well-built code. The training repo
 
 Every codebase tells a story through its git history. The git historian analyzes: when was this built? Who contributed? Which files change the most (those are your hotspots — high change = high risk)? Are there files that always change together (hidden coupling)?
 
-This command is especially powerful on repos with long histories. Your training repo might have a short history, but it still reveals patterns — the commit message style, the branch naming, the phases of work.
+This skill is especially powerful on repos with long histories. Your training repo might have a short history, but it still reveals patterns — the commit message style, the branch naming, the phases of work.
 
 ### Step 5: Find improvements
 
@@ -142,7 +142,7 @@ Try different focuses:
 /deep-dive apps/quickbooks-killer  # Everything about one specific app
 ```
 
-This is the command you'll use most on unfamiliar codebases. "I need to understand the auth system" → `/deep-dive backend`. "I need to review the data model" → `/deep-dive data`.
+This is the workflow you'll use most on unfamiliar codebases. "I need to understand the auth system" → `/deep-dive backend`. "I need to review the data model" → `/deep-dive data`.
 
 ### Step 7: Build your own tools
 
@@ -154,7 +154,7 @@ This is the capstone. Everything you've been using — `/ingest`, `/scan-errors`
 
 The agent author walks you through it:
 - "What pattern did you notice that you want to automate?"
-- "Should this be a command you type, or background knowledge?"
+- "Should this be a slash-invoked workflow, or background knowledge?"
 - "What should the output look like?"
 
 It generates a new SKILL.md file following the exact patterns in this repo. You test it. You refine it. You own it.
@@ -165,7 +165,7 @@ It generates a new SKILL.md file following the exact patterns in this repo. You 
 
 ## Day 2 — your codebase, your tools
 
-Everything you just used on the training repo works on **any** repo. The commands are generic. The agents read whatever code they find. Day 2 is when you point them at the code that matters to your job.
+Everything you just used on the training repo works on **any** repo. The skills are generic. The agents read whatever code they find. Day 2 is when you point them at the code that matters to your job.
 
 Here's the short version:
 1. Clone your production repo
@@ -196,4 +196,4 @@ If you can't use your own production code (security policy, NDA, etc.), that's f
 - **Phase 02** taught you to keep them healthy — scanning, fixing, hardening, shipping
 - **Phase 03** teaches you to **understand code you didn't write** — and to create your own tools for code you'll maintain
 
-These are the skills that make you effective on Day 1 of a new job, Day 1 of a new project, or Day 1 of any codebase you've never seen before. The agents do the heavy lifting. The skills carry the knowledge. The commands give you control. And now you can build new ones yourself.
+These are the skills that make you effective on Day 1 of a new job, Day 1 of a new project, or Day 1 of any codebase you've never seen before. The agents do the heavy lifting. The skills carry the knowledge. The `/name` workflow gives you control. And now you can build new ones yourself.

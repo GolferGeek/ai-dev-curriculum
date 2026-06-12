@@ -12,7 +12,7 @@
 
 | Requirement | Why |
 |-------------|-----|
-| **Cursor** + subscription if your workflow uses Cursor | Cursor **does not** execute `.claude` slash commands natively. Use [RUN-ORDER.md](./RUN-ORDER.md) and project [`.cursor/rules/`](../../.cursor/rules/) so the **same curriculum** applies; use **Claude Code** when you need verified `/` commands. |
+| **Cursor** + subscription if your workflow uses Cursor | Cursor **does not** execute `.claude` slash skills natively. Use [RUN-ORDER.md](./RUN-ORDER.md) and project [`.cursor/rules/`](../../.cursor/rules/) so the **same curriculum** applies; use **Claude Code** when you need verified `/name` invocation. |
 
 ## What we verify in-repo
 
