@@ -17,7 +17,7 @@ In phase 01, you built an app and it worked. But ask yourself:
 - Did you check if the architecture is clean? Is anything talking to the database directly instead of going through the shared package? Is auth handled consistently?
 - When you commit and push, how confident are you that a code reviewer would approve it?
 
-This phase gives you **six commands** that answer those questions automatically. They work in three pairs — each pair has a **scanner** that finds problems and a **fixer** that solves them.
+This phase gives you **six slash-invoked skills** that answer those questions automatically. They work in three pairs — each pair has a **scanner** that finds problems and a **fixer** that solves them.
 
 ---
 
@@ -25,7 +25,7 @@ This phase gives you **six commands** that answer those questions automatically.
 
 ### Pair 1: Build quality — find and fix errors
 
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | **`/scan-errors [app]`** | Runs build, lint, and tests. Writes every error to a report, classified by severity. Does **not** fix anything. |
 | **`/fix-errors [app]`** | Reads the error report, groups related errors, fixes them in batches, then re-scans. Iterates until zero errors. |
@@ -34,7 +34,7 @@ This phase gives you **six commands** that answer those questions automatically.
 
 ### Pair 2: Architectural quality — find and fix design violations
 
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | **`/monitor [app]`** | Scans your code against the **architecture skills** — the rules your team has decided matter. Writes a findings report. Does **not** fix anything. |
 | **`/harden [app]`** | Reads the findings report, fixes the violations, then runs `/scan-errors` to make sure the fixes didn't break the build. |
@@ -43,7 +43,7 @@ This phase gives you **six commands** that answer those questions automatically.
 
 ### Pair 3: Ship quality — commit, create PRs, and review
 
-| Command | What it does |
+| Slash skill | What it does |
 |---------|-------------|
 | **`/commit`** | Before committing, runs error scan + architecture monitor + PR requirements check. Only commits if everything passes. Blocks if anything fails. |
 | **`/commit push`** | Same checks, then commits and pushes to remote. |
@@ -51,13 +51,13 @@ This phase gives you **six commands** that answer those questions automatically.
 | **`/pr-evals`** | Lists all open PRs — pick one to evaluate. |
 | **`/pr-eval <PR>`** | Evaluates a PR against all rules. **Approves** on GitHub if clean. **Requests changes** if must-fix issues exist. When it finds a new violation pattern, it **adds it** to the rules so `/commit` catches it next time. |
 
-**Why it exists:** `/commit pr` is your pre-flight checklist + launch in one command. `/pr-evals` gives you a dashboard of what's waiting for review. `/pr-eval` is the code reviewer — and its superpower is the **feedback loop**: every new issue it finds becomes a rule that `/commit` enforces automatically going forward. When the review passes, it approves the PR on GitHub so you don't have to context-switch to the browser.
+**Why it exists:** `/commit pr` is your pre-flight checklist + launch in one step. `/pr-evals` gives you a dashboard of what's waiting for review. `/pr-eval` is the code reviewer — and its superpower is the **feedback loop**: every new issue it finds becomes a rule that `/commit` enforces automatically going forward. When the review passes, it approves the PR on GitHub so you don't have to context-switch to the browser.
 
 ---
 
 ## The skills that power it all
 
-The commands above are the interface. The **skills** are the brains. Each skill is a document full of rules that the agents read and enforce. Here's what each one covers:
+The slash-invoked skills above are the interface. The **background skills** are the brains. Each skill is a document full of rules that the agents read and enforce. Here's what each one covers:
 
 ### `system-architecture` — how apps work together
 
@@ -122,7 +122,7 @@ You'll see tables like this throughout the phase — they're designed to be scan
 
 ## The agents behind the scenes
 
-You don't invoke agents directly — the commands do it for you. But here's who does the work:
+You don't invoke agents directly — the slash-invoked skills do it for you. But here's who does the work:
 
 | Agent | Job | Skills it reads |
 |-------|-----|----------------|
@@ -133,7 +133,7 @@ You don't invoke agents directly — the commands do it for you. But here's who 
 | **commit-agent** | Pre-commit quality gate | quality-gates, pr-requirements, system-architecture |
 | **pr-evaluator** | Reviews PRs, feeds back new rules | quality-gates, pr-requirements, system-architecture |
 
-Each command can target **one app** (e.g. `/scan-errors quickbooks`) or **all apps** (e.g. `/scan-errors` with no argument). When targeting all apps, the agent becomes an orchestrator — spinning up per-app workers. iOS apps always run sequentially (they share the simulator).
+Each slash-invoked skill can target **one app** (e.g. `/scan-errors quickbooks`) or **all apps** (e.g. `/scan-errors` with no argument). When targeting all apps, the agent becomes an orchestrator — spinning up per-app workers. iOS apps always run sequentially (they share the simulator).
 
 ---
 
@@ -155,7 +155,7 @@ Open the report and read it. You'll see things like:
 - Lint violations (medium)
 - Warnings (low)
 
-Don't fix anything manually yet. That's what the next command is for.
+Don't fix anything manually yet. That's what the next slash skill is for.
 
 ### Step 2: Fix the errors
 
@@ -200,7 +200,7 @@ After this step, your app should be clean: zero build errors AND zero architectu
 /commit pr
 ```
 
-This is the quality gate + ship in one command. Before committing, it runs:
+This is the quality gate + ship in one step. Before committing, it runs:
 1. Error scan (build + lint + test)
 2. Architecture monitor (all rules)
 3. PR requirements check (every item in `pr-requirements`)
@@ -269,4 +269,4 @@ Your quality rules **evolve with your codebase**. Every code review makes future
 - **Phase 01** taught you to build real apps with auth and databases
 - **Phase 02** teaches you to **keep them healthy** — automated scanning, architectural governance, quality gates, and evolving rules
 
-These are the tools that let a team of developers ship fast without shipping broken. The agents carry the expertise. The skills carry the rules. The commands give you control. And the feedback loop means the system gets better every time someone uses it.
+These are the tools that let a team of developers ship fast without shipping broken. The agents carry the expertise. The skills carry the rules. The `/name` workflow gives you control. And the feedback loop means the system gets better every time someone uses it.

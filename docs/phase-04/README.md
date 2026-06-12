@@ -3,7 +3,7 @@
 *Last verified: June 2026*
 *Talking points: [TALKING-POINTS.md](TALKING-POINTS.md) — the concepts you should be able to explain after this phase.*
 
-**Prereqs:** Phase 03 complete (comfortable with research commands and the agent pipeline).
+**Prereqs:** Phase 03 complete (comfortable with research skills and the agent pipeline).
 
 This is the capstone. Everything you've learned — building apps, maintaining quality, researching codebases, creating your own tools — comes together in one demo that shows the **future of how software works**: autonomous agents discovering each other, delegating tasks, streaming results to a dashboard, and paying for premium services. All using real, open protocols.
 
@@ -113,9 +113,9 @@ apps/agent-to-agent/
 | **agent-service-builder** | Builds individual NestJS API services with Agent Cards and protocol handlers |
 | **dashboard-builder** | Builds the Next.js dashboard with AG-UI streaming and protocol visualization |
 
-### Commands — what you type
+### Slash-invoked skills — what you type
 
-No new commands! You use the pipeline you already know:
+No new slash skills. You use the pipeline you already know:
 
 ```
 /intention → /prd → /plan → /run-plan
