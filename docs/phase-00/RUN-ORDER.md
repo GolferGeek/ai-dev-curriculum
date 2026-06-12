@@ -11,7 +11,8 @@
    git checkout -b my-phase-00 phase-00
    ```
 
-3. Open the folder in **Claude Code**.
+3. Open this phase's guide: [docs/phase-00/README.md](./README.md). Every new phase branch has its own `docs/phase-XX/README.md`; use the zero-padded folder name.
+4. Open the folder in **Claude Code**.
 
 ## Part A — Monorepo shell
 

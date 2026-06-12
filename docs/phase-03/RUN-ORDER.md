@@ -4,7 +4,7 @@
 
 - [ ] Phase 02 complete (at least one app with clean `/scan-errors` and `/monitor`)
 - [ ] Training repo has git history (commits from phases 00-02)
-- [ ] You're comfortable with the command → agent → report pattern from Phase 02
+- [ ] You're comfortable with the slash skill → agent → report pattern from Phase 02
 
 ## Steps
 

@@ -2,7 +2,7 @@
 
 ## Before you start
 
-- [ ] Phase 03 complete (comfortable with research commands and the pipeline)
+- [ ] Phase 03 complete (comfortable with research skills and the pipeline)
 - [ ] Node.js 18+ installed
 - [ ] Familiar with the `/intention → /prd → /plan → /run-plan` pipeline
 
