@@ -8,6 +8,8 @@
 | **Anthropic subscription** (or org billing) that covers Claude Code usage | Model calls for agents and long sessions are not free. |
 | **Node.js** LTS with **npm** (the curriculum's scripts, docs, and agents all standardize on npm) | Monorepo scripts and Turbo. |
 
+**Windows:** Install [Git for Windows](https://git-scm.com/download/win) so Claude Code can use its Bash tool (PowerShell alone works, but Git Bash is smoother). Repo verify scripts under `scripts/*.sh` need Git Bash or WSL. Cursor and Codex also run natively on Windows — same workflow as macOS.
+
 ## Cursor (optional but common)
 
 | Requirement | Why |
