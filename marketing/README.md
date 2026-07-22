@@ -14,6 +14,8 @@ The course is designed for local businesses with small development teams, IT sta
 - [course-proposal.md](course-proposal.md) - business-facing proposal concept for Hennepin Tech or a similar workforce training partner.
 - [hennepin-tech-packet.md](hennepin-tech-packet.md) - the outreach packet: cover email draft, what to attach in what order, and the first-call agenda.
 - [marketing-copy.md](marketing-copy.md) - reusable copy for a catalog page, flyer, email, or landing page.
+- [course-deliverables.md](course-deliverables.md) - client-facing explanation of what participants leave with: working artifacts, repeatable workflow, and team operating-model documents.
+- [decks/phase-00-opening-ai-dev.pptx](decks/phase-00-opening-ai-dev.pptx) - Phase 00 opening PowerPoint for the AI development progression and course framing discussion.
 - [flyer.html](flyer.html) - a ready-to-share, print-friendly HTML flyer built from the marketing copy (open in a browser; print to PDF for distribution).
 - [week-long-syllabus.md](week-long-syllabus.md) - five-day syllabus (**two phases per day** on Days 1–3; Phase 06 + routing on Day 4; adoption / their-repo on Day 5).
 - [pre-course-setup.md](pre-course-setup.md) - learner-facing checklist to complete before Day 1 (accounts, installs, platform notes).
