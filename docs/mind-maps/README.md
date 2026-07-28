@@ -27,6 +27,14 @@ npm run mindmaps:check
 The generator validates the hierarchy and creates OPML 2.0 with notes that
 MindNode can import.
 
+The introduction source keeps a detailed outline and projects a smaller
+`canvasChildren` teaching scaffold. The generator rejects maps above their
+configured node or depth limits. This is an empirical compatibility guard:
+MindNode 2026.4.1 on macOS 27 crashed in canvas layout after importing the
+original 257-node introduction, even though the XML was valid. The supported
+introduction keeps detailed explanations in notes and instructor documents
+instead of rendering every sentence as a visible node.
+
 ## Map requirements
 
 The introduction map opens the course with Matt Weber's “Great Convergence”

@@ -5,6 +5,140 @@
     "ownerName": "Matt Weber",
     "ownerEmail": "golfergeek@gmail.com",
     "note": "Opening teaching map for Matt Weber. “The Great Convergence” is Matt's framing for the forces changing software development: capable models, agent harnesses, faster development cadence, and organizations reclaiming software that fits how they actually work.",
+    "compatibility": {
+      "maxNodes": 80,
+      "maxDepth": 3
+    },
+    "canvasChildren": [
+      {
+        "title": "Welcome — I am Matt Weber",
+        "note": "Senior developer for a few decades; recent Angular and C# backend work; builder of open-source platform tools for exercising AI-development learning; now fascinated by teaching it. Contact: golfergeek@gmail.com.",
+        "children": [
+          { "title": "A few decades as a senior developer" },
+          { "title": "Recent Angular frontend and C# backend work" },
+          { "title": "Discovered AI software development" },
+          { "title": "Built open-source platforms as a learning laboratory" },
+          { "title": "Now focused on how to teach the operating model" }
+        ]
+      },
+      {
+        "title": "Why software became the first proving ground",
+        "note": "Code offers enormous training material and unusually fast evidence through compilers, tests, linters, and observable behavior. It is highly testable, not magically simple or perfectly deterministic.",
+        "children": [
+          { "title": "1 — Code completion" },
+          { "title": "2 — Code generation" },
+          { "title": "3 — Agent harnesses" },
+          { "title": "The bottleneck moves from typing toward definition and review" }
+        ]
+      },
+      {
+        "title": "What a harness adds",
+        "note": "The harness turns model capability into an operating loop. Claude Code, Cursor, Codex, and other surfaces combine these elements differently.",
+        "children": [
+          { "title": "Prompt — the immediate request" },
+          { "title": "Context — repository, instructions, history, and knowledge" },
+          { "title": "Tools — files, terminal, browser, APIs, and other agents" },
+          { "title": "LLM — reasoning and generation" },
+          { "title": "Agent loop — act, observe evidence, and iterate" }
+        ]
+      },
+      {
+        "title": "The four forces converging",
+        "children": [
+          { "title": "Capable foundation models" },
+          { "title": "Operational IDE and CLI harnesses" },
+          { "title": "Radically faster development cadence" },
+          { "title": "Companies need software that fits their real work" }
+        ]
+      },
+      {
+        "title": "This requires a mind shift—and it is not for everybody",
+        "note": "The convergence creates an opportunity, not an obligation. “Not now” can be responsible. High-assurance systems can still use AI for research, tests, review, and bounded proposals while preserving line-by-line human authority.",
+        "children": [
+          { "title": "Some organizations are not ready right now" },
+          { "title": "Some codebases demand exceptional assurance" },
+          { "title": "Adoption is a continuum, not an on/off switch" },
+          { "title": "Expand agent authority only when evidence supports it" }
+        ]
+      },
+      {
+        "title": "For now — business-centered development",
+        "note": "Use verified cadence to address neglected business friction, then pursue new value. AI changes the build-versus-buy boundary without making every SaaS product obsolete.",
+        "children": [
+          { "title": "Own the ERP, SaaS, spreadsheet, and workflow gaps that matter" },
+          { "title": "Work down the long-neglected backlog" },
+          { "title": "Internal projects" },
+          { "title": "Customer-facing projects" },
+          { "title": "Expansion projects and new value" }
+        ]
+      },
+      {
+        "title": "Cadence changes the developer's job",
+        "note": "Cadence is the sustainable rate of moving from intention to trustworthy evidence. The developer increasingly manages outcomes, boundaries, contracts, authority, integration, and proof—not merely lines of code.",
+        "children": [
+          { "title": "Coordinate parallel agents and codebases" },
+          { "title": "Specifications become living instruments" },
+          { "title": "Short loop — define → delegate → inspect → learn" },
+          { "title": "Meetings move from handoffs toward decisions and risk" }
+        ]
+      },
+      {
+        "title": "Speed requires a stronger system",
+        "note": "Fast generation amplifies both strong definition and weak assumptions. Agent training means maintaining the agent's operating environment: role, context, memory, standards, tools, permissions, examples, and evaluations.",
+        "children": [
+          { "title": "Guardrails and authority boundaries" },
+          { "title": "Governance, ownership, and review dates" },
+          { "title": "Process, independent evidence, and rollback" },
+          { "title": "Project and company memory" },
+          { "title": "Coding and architectural standards" },
+          { "title": "Maintained skills, agents, tests, and evaluations" }
+        ]
+      },
+      {
+        "title": "Adoption requires comfort with continuing change",
+        "note": "An organization may freeze a good-enough system, but that consciously trades away some future improvements. Benefiting next week, month, and year requires controlled review, experiments, upgrades, and retirement without creating novelty churn.",
+        "children": [
+          { "title": "Models, harnesses, providers, and tactics keep moving" },
+          { "title": "Separate durable principles from changing terrain" },
+          { "title": "Budget for controlled modernization" },
+          { "title": "This commitment is genuinely challenging" }
+        ]
+      },
+      {
+        "title": "The organization must learn to build software again",
+        "note": "Reclaiming software also reclaims responsibilities that vendors absorbed. Generation without product ownership, testing, operations, and maintenance creates a fragile portfolio.",
+        "children": [
+          { "title": "Prioritize a real project portfolio" },
+          { "title": "Restore acceptance, unit, integration, browser, and security testing" },
+          { "title": "Own deployment, observability, support, and rollback" },
+          { "title": "Fund maintenance and lifecycle ownership" },
+          { "title": "Retire software that no longer earns its cost" }
+        ]
+      },
+      {
+        "title": "Learn the room before teaching the room",
+        "note": "Use the opening for a short, sanitized conversation. The detailed and mixed-client-safe worksheet is docs/instructor/COHORT-DISCOVERY.md.",
+        "children": [
+          { "title": "What kind of organization and customers?" },
+          { "title": "How many developers, roles, and experience levels?" },
+          { "title": "Excited, curious, skeptical, anxious, or mandated?" },
+          { "title": "What stack, delivery cadence, and testing maturity?" },
+          { "title": "What opportunities and high-assurance boundaries?" },
+          { "title": "What would make Friday and the next 90 days successful?" }
+        ]
+      },
+      {
+        "title": "The Great Convergence",
+        "note": "Capable models + operational harnesses + faster verified cadence + the need for software that fits. The opportunity is not simply more code; it is a new operating model for how an organization decides, builds, verifies, learns, and owns software.",
+        "children": [
+          { "title": "Define well" },
+          { "title": "Build fast" },
+          { "title": "Verify hard" },
+          { "title": "Govern and maintain the system" },
+          { "title": "The rest of the week teaches responsible operation" }
+        ]
+      }
+    ],
     "children": [
       {
         "title": "Welcome — I am Matt Weber",

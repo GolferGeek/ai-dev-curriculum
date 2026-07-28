@@ -39,6 +39,17 @@ function validateNode(node, trail) {
   }
 }
 
+function nodeCount(node) {
+  return 1 + (node.children ?? []).reduce((sum, child) => sum + nodeCount(child), 0);
+}
+
+function nodeDepth(node) {
+  const children = node.children ?? [];
+  return children.length
+    ? 1 + Math.max(...children.map((child) => nodeDepth(child)))
+    : 1;
+}
+
 function outline(node, indent = "    ") {
   const note = node.note ? ` _note="${escapeXml(node.note)}"` : "";
   const children = node.children ?? [];
@@ -76,8 +87,13 @@ function opml(map) {
     .join("\n");
 }
 
+const intro = {
+  ...data.intro,
+  children: data.intro.canvasChildren ?? data.intro.children,
+};
+
 const maps = [
-  { ...data.intro, destination: path.join(outputRoot, data.intro.file) },
+  { ...intro, destination: path.join(outputRoot, intro.file) },
   { ...data.master, destination: path.join(outputRoot, data.master.file) },
   ...data.phases.map((map) => ({
     ...map,
@@ -88,6 +104,20 @@ const maps = [
 const filenames = new Set();
 for (const map of maps) {
   validateNode(map, map.title);
+  const nodes = nodeCount(map);
+  const depth = nodeDepth(map);
+  const maxNodes = map.compatibility?.maxNodes ?? 100;
+  const maxDepth = map.compatibility?.maxDepth ?? 5;
+  if (nodes > maxNodes) {
+    throw new Error(
+      `${map.title} has ${nodes} nodes; MindNode compatibility limit is ${maxNodes}.`,
+    );
+  }
+  if (depth > maxDepth) {
+    throw new Error(
+      `${map.title} has depth ${depth}; MindNode compatibility limit is ${maxDepth}.`,
+    );
+  }
   if (filenames.has(map.destination)) {
     throw new Error(`Duplicate mind-map destination: ${map.destination}`);
   }
