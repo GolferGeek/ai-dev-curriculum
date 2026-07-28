@@ -64,7 +64,7 @@ From [official docs](https://code.claude.com/docs/en/github-actions#using-skills
 Example from this repo — [`nightly-hygiene-tier2.yml`](../../.github/workflows/nightly-hygiene-tier2.yml):
 
 ```yaml
-- uses: actions/checkout@v4
+- uses: actions/checkout@v7
 
 - uses: anthropics/claude-code-action@v1
   with:
