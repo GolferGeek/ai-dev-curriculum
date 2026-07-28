@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>The Great Convergence — Why AI Software Development, Why Now</title>
+    <ownerName>Matt Weber</ownerName>
+    <ownerEmail>golfergeek@gmail.com</ownerEmail>
+  </head>
+  <body>
+    <outline text="The Great Convergence — Why AI Software Development, Why Now" _note="Opening teaching map for Matt Weber. “The Great Convergence” is Matt&apos;s framing for the forces changing software development: capable models, agent harnesses, faster development cadence, and organizations reclaiming software that fits how they actually work.">
+      <outline text="Welcome — I am Matt Weber">
+        <outline text="Senior software developer for a few decades" _note="Establish experience without turning the introduction into a résumé. The useful point is that this perspective comes from living through several generations of software practice."/>
+        <outline text="Recent work — Angular frontends and C# backends"/>
+        <outline text="Then I discovered AI software development" _note="Describe this as a change in the way software is conceived, delegated, built, tested, and maintained—not merely a faster autocomplete."/>
+        <outline text="I built open-source platform tools to exercise what I was learning" _note="The tools were a laboratory: build real systems, expose weak assumptions, and turn discoveries into repeatable practices."/>
+        <outline text="Now I am fascinated by how to teach it"/>
+        <outline text="Contact — golfergeek@gmail.com"/>
+      </outline>
+      <outline text="The opening premise">
+        <outline text="Software was the natural first proving ground for foundation models" _note="Code offers enormous training material, rapid feedback, executable tests, compilers, linters, and observable outputs. It is more verifiable than many knowledge-work domains, although production software is never perfectly deterministic."/>
+        <outline text="Code is unusually testable—not magically simple" _note="A build can pass or fail and a test can pass or fail. Requirements, architecture, security, usability, and business fit still require judgment. This distinction keeps the argument credible."/>
+        <outline text="The early road became visible very quickly"/>
+      </outline>
+      <outline text="The road from suggestion to agency">
+        <outline text="1 — Code completion">
+          <outline text="Predict the next line or block"/>
+          <outline text="The developer remains the primary operator"/>
+          <outline text="Useful acceleration, but still centered on typing code"/>
+        </outline>
+        <outline text="2 — Code generation">
+          <outline text="Describe a function, test, component, or application slice"/>
+          <outline text="The model produces larger coherent units of work"/>
+          <outline text="The bottleneck starts moving from typing to definition and review"/>
+        </outline>
+        <outline text="3 — Agent harnesses" _note="Claude Code and the growing family of IDE, CLI, plugin, and agent-first environments made the model part of an operating loop.">
+          <outline text="Prompt — the immediate request"/>
+          <outline text="Context — repository, instructions, history, and retrieved knowledge"/>
+          <outline text="Tools — files, terminal, browser, APIs, databases, and other agents"/>
+          <outline text="LLM — reasoning and generation inside the loop"/>
+          <outline text="Harness — assembles the loop, permissions, state, and interface"/>
+          <outline text="Agent — pursues an outcome, observes evidence, and iterates"/>
+        </outline>
+      </outline>
+      <outline text="What changed when the harness arrived">
+        <outline text="The unit of work became an outcome, not a completion" _note="The developer can ask for a researched, implemented, tested, and explained change rather than accepting one suggestion at a time."/>
+        <outline text="Context became an engineering discipline">
+          <outline text="What must the agent know?"/>
+          <outline text="What should remain durable project or organizational memory?"/>
+          <outline text="What belongs in code, documentation, a skill, an agent, or the current task?"/>
+        </outline>
+        <outline text="Tools turned language into action"/>
+        <outline text="Evidence allowed the loop to continue">
+          <outline text="Build, lint, test, run, inspect, challenge, and revise"/>
+          <outline text="Longer model runs matter only when feedback remains trustworthy"/>
+        </outline>
+        <outline text="Every week improves some part of the system">
+          <outline text="Models become more capable"/>
+          <outline text="Context windows and usable working memory grow"/>
+          <outline text="Harnesses and IDEs improve orchestration and visibility"/>
+          <outline text="Agents work longer and recover from more failures"/>
+        </outline>
+      </outline>
+      <outline text="The four forces converging">
+        <outline text="1 — Capable foundation models" _note="Models can understand and produce increasingly large, connected portions of a software system."/>
+        <outline text="2 — Operational harnesses" _note="IDEs, CLIs, plugins, agent views, tools, context, skills, and sub-agents turn model capability into repeatable work."/>
+        <outline text="3 — Radical development cadence" _note="Cadence means the rate at which a team can move from intention to evidence and then safely begin the next iteration."/>
+        <outline text="4 — Companies need software that fits">
+          <outline text="SaaS gives broad capability but rarely matches every workflow"/>
+          <outline text="Spreadsheets and internal stopgaps expose the remaining gaps"/>
+          <outline text="AI changes the build-versus-buy boundary"/>
+          <outline text="Organizations can selectively reclaim differentiating software"/>
+        </outline>
+      </outline>
+      <outline text="Cadence changes the developer&apos;s job">
+        <outline text="From writing every line to managing contracts" _note="The developer increasingly defines outcomes, boundaries, interfaces, invariants, evidence, and authority. “Contract manager” is a useful metaphor, but technical judgment and accountability stay with the developer."/>
+        <outline text="One developer can coordinate parallel work">
+          <outline text="Multiple sub-agents on one bounded issue"/>
+          <outline text="Multiple tasks progressing across one codebase"/>
+          <outline text="Multiple codebases open in one working environment"/>
+          <outline text="Humans integrate decisions, conflicts, and proof"/>
+        </outline>
+        <outline text="Capable agents can implement many professional tasks" _note="Avoid the universal claim that an agent is simply “as good as most coders.” Performance varies by task, context, tools, model, and verification. The important change is useful implementation capacity under strong supervision."/>
+        <outline text="The scarce work moves">
+          <outline text="Choosing the right problem"/>
+          <outline text="Defining boundaries and acceptance criteria"/>
+          <outline text="Supplying trustworthy context"/>
+          <outline text="Reviewing architecture, security, and product fit"/>
+          <outline text="Verifying evidence and retaining organizational learning"/>
+        </outline>
+      </outline>
+      <outline text="The rhythm of software development changes">
+        <outline text="Specifications become living instruments" _note="Teams still need shared intent. The difference is that they can test an interpretation quickly, inspect working software, and revise the specification with evidence."/>
+        <outline text="Fewer meetings devoted only to expensive handoffs"/>
+        <outline text="More conversations about decisions, risks, and tradeoffs"/>
+        <outline text="Shorter loop — define → delegate → inspect → learn → repeat"/>
+        <outline text="Rapid iteration replaces the fantasy of perfect first-pass requirements"/>
+      </outline>
+      <outline text="Taking back the software process">
+        <outline text="Not “replace every SaaS product”" _note="Buy commodity capability when it fits. Build where workflow, integration, data, control, or differentiation makes ownership worthwhile."/>
+        <outline text="Own the gaps that matter"/>
+        <outline text="Turn spreadsheet stopgaps into intentional systems"/>
+        <outline text="Keep code, decisions, skills, agents, and governance together"/>
+        <outline text="Make organizational learning compound in the repository"/>
+      </outline>
+      <outline text="The promise and the warning">
+        <outline text="Speed amplifies good definition—and bad assumptions"/>
+        <outline text="Parallel agents amplify capacity—and coordination risk"/>
+        <outline text="Large context helps—but does not guarantee understanding"/>
+        <outline text="Green tests are evidence—not proof of product value or safety"/>
+        <outline text="Governance must move at the new cadence"/>
+        <outline text="The winning capability is a trustworthy development system"/>
+      </outline>
+      <outline text="What this program teaches">
+        <outline text="Define well"/>
+        <outline text="Build fast"/>
+        <outline text="Verify hard"/>
+        <outline text="Understand before changing"/>
+        <outline text="Coordinate tools, agents, and counterparties"/>
+        <outline text="Govern reusable skills and agents"/>
+        <outline text="Evaluate models against your work"/>
+        <outline text="Maintain an agent-queryable organizational AI program"/>
+      </outline>
+      <outline text="Opening discussion">
+        <outline text="Where has SaaS forced your process to fit the tool?"/>
+        <outline text="Which spreadsheet or internal stopgap reveals an ownable gap?"/>
+        <outline text="Where is typing code still your real bottleneck?"/>
+        <outline text="What would faster cadence change about your meetings and handoffs?"/>
+        <outline text="Which decisions must never be delegated without human authority?"/>
+        <outline text="What evidence would make you trust an agent-produced change?"/>
+      </outline>
+      <outline text="The Great Convergence" _note="Capable models + operational harnesses + radically faster cadence + the need for software that fits. The opportunity is not just to generate more code. It is to redesign how an organization decides, builds, verifies, learns, and owns software.">
+        <outline text="This is not the end of software development"/>
+        <outline text="It is a new operating model for software development"/>
+        <outline text="The rest of the week is about learning to operate it responsibly"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

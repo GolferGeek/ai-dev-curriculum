@@ -9,7 +9,10 @@
 review, test, or maintain code
 **Format:** Instructor-led, hands-on labs, group review, final project  
 **Primary Outcome:** Participants leave with a repeatable AI-assisted software delivery workflow they can adapt inside their organization.  
-**Instructor:** Matthew Weber (GolferGeek) — 25 years working in large codebases, with emphasis on understanding existing systems before changing them. Builds production-scale AI platforms (OrchestratorAI, Divinr.ai) solo using the exact workflow this course teaches — most of it open source and inspectable.
+**Instructor:** Matt Weber (GolferGeek) — a senior developer for a few decades,
+most recently working with Angular frontends and C# backends. Matt built
+open-source platform tools to exercise his own AI-development learning and is
+now focused on teaching the resulting operating model.
 
 **Rhythm:** Two primary modules per day on Days 1–3, with Phase 05.5 completing
 the capability-registry story across the Day 3 close or Day 4 opening. Day 4

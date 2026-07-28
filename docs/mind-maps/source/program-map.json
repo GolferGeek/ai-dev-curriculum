@@ -1,9 +1,281 @@
 {
+  "intro": {
+    "file": "00-introduction-the-great-convergence.opml",
+    "title": "The Great Convergence — Why AI Software Development, Why Now",
+    "ownerName": "Matt Weber",
+    "ownerEmail": "golfergeek@gmail.com",
+    "note": "Opening teaching map for Matt Weber. “The Great Convergence” is Matt's framing for the forces changing software development: capable models, agent harnesses, faster development cadence, and organizations reclaiming software that fits how they actually work.",
+    "children": [
+      {
+        "title": "Welcome — I am Matt Weber",
+        "children": [
+          {
+            "title": "Senior software developer for a few decades",
+            "note": "Establish experience without turning the introduction into a résumé. The useful point is that this perspective comes from living through several generations of software practice."
+          },
+          {
+            "title": "Recent work — Angular frontends and C# backends"
+          },
+          {
+            "title": "Then I discovered AI software development",
+            "note": "Describe this as a change in the way software is conceived, delegated, built, tested, and maintained—not merely a faster autocomplete."
+          },
+          {
+            "title": "I built open-source platform tools to exercise what I was learning",
+            "note": "The tools were a laboratory: build real systems, expose weak assumptions, and turn discoveries into repeatable practices."
+          },
+          {
+            "title": "Now I am fascinated by how to teach it"
+          },
+          {
+            "title": "Contact — golfergeek@gmail.com"
+          }
+        ]
+      },
+      {
+        "title": "The opening premise",
+        "children": [
+          {
+            "title": "Software was the natural first proving ground for foundation models",
+            "note": "Code offers enormous training material, rapid feedback, executable tests, compilers, linters, and observable outputs. It is more verifiable than many knowledge-work domains, although production software is never perfectly deterministic."
+          },
+          {
+            "title": "Code is unusually testable—not magically simple",
+            "note": "A build can pass or fail and a test can pass or fail. Requirements, architecture, security, usability, and business fit still require judgment. This distinction keeps the argument credible."
+          },
+          {
+            "title": "The early road became visible very quickly"
+          }
+        ]
+      },
+      {
+        "title": "The road from suggestion to agency",
+        "children": [
+          {
+            "title": "1 — Code completion",
+            "children": [
+              { "title": "Predict the next line or block" },
+              { "title": "The developer remains the primary operator" },
+              { "title": "Useful acceleration, but still centered on typing code" }
+            ]
+          },
+          {
+            "title": "2 — Code generation",
+            "children": [
+              { "title": "Describe a function, test, component, or application slice" },
+              { "title": "The model produces larger coherent units of work" },
+              { "title": "The bottleneck starts moving from typing to definition and review" }
+            ]
+          },
+          {
+            "title": "3 — Agent harnesses",
+            "note": "Claude Code and the growing family of IDE, CLI, plugin, and agent-first environments made the model part of an operating loop.",
+            "children": [
+              { "title": "Prompt — the immediate request" },
+              { "title": "Context — repository, instructions, history, and retrieved knowledge" },
+              { "title": "Tools — files, terminal, browser, APIs, databases, and other agents" },
+              { "title": "LLM — reasoning and generation inside the loop" },
+              { "title": "Harness — assembles the loop, permissions, state, and interface" },
+              { "title": "Agent — pursues an outcome, observes evidence, and iterates" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "What changed when the harness arrived",
+        "children": [
+          {
+            "title": "The unit of work became an outcome, not a completion",
+            "note": "The developer can ask for a researched, implemented, tested, and explained change rather than accepting one suggestion at a time."
+          },
+          {
+            "title": "Context became an engineering discipline",
+            "children": [
+              { "title": "What must the agent know?" },
+              { "title": "What should remain durable project or organizational memory?" },
+              { "title": "What belongs in code, documentation, a skill, an agent, or the current task?" }
+            ]
+          },
+          {
+            "title": "Tools turned language into action"
+          },
+          {
+            "title": "Evidence allowed the loop to continue",
+            "children": [
+              { "title": "Build, lint, test, run, inspect, challenge, and revise" },
+              { "title": "Longer model runs matter only when feedback remains trustworthy" }
+            ]
+          },
+          {
+            "title": "Every week improves some part of the system",
+            "children": [
+              { "title": "Models become more capable" },
+              { "title": "Context windows and usable working memory grow" },
+              { "title": "Harnesses and IDEs improve orchestration and visibility" },
+              { "title": "Agents work longer and recover from more failures" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "The four forces converging",
+        "children": [
+          {
+            "title": "1 — Capable foundation models",
+            "note": "Models can understand and produce increasingly large, connected portions of a software system."
+          },
+          {
+            "title": "2 — Operational harnesses",
+            "note": "IDEs, CLIs, plugins, agent views, tools, context, skills, and sub-agents turn model capability into repeatable work."
+          },
+          {
+            "title": "3 — Radical development cadence",
+            "note": "Cadence means the rate at which a team can move from intention to evidence and then safely begin the next iteration."
+          },
+          {
+            "title": "4 — Companies need software that fits",
+            "children": [
+              { "title": "SaaS gives broad capability but rarely matches every workflow" },
+              { "title": "Spreadsheets and internal stopgaps expose the remaining gaps" },
+              { "title": "AI changes the build-versus-buy boundary" },
+              { "title": "Organizations can selectively reclaim differentiating software" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Cadence changes the developer's job",
+        "children": [
+          {
+            "title": "From writing every line to managing contracts",
+            "note": "The developer increasingly defines outcomes, boundaries, interfaces, invariants, evidence, and authority. “Contract manager” is a useful metaphor, but technical judgment and accountability stay with the developer."
+          },
+          {
+            "title": "One developer can coordinate parallel work",
+            "children": [
+              { "title": "Multiple sub-agents on one bounded issue" },
+              { "title": "Multiple tasks progressing across one codebase" },
+              { "title": "Multiple codebases open in one working environment" },
+              { "title": "Humans integrate decisions, conflicts, and proof" }
+            ]
+          },
+          {
+            "title": "Capable agents can implement many professional tasks",
+            "note": "Avoid the universal claim that an agent is simply “as good as most coders.” Performance varies by task, context, tools, model, and verification. The important change is useful implementation capacity under strong supervision."
+          },
+          {
+            "title": "The scarce work moves",
+            "children": [
+              { "title": "Choosing the right problem" },
+              { "title": "Defining boundaries and acceptance criteria" },
+              { "title": "Supplying trustworthy context" },
+              { "title": "Reviewing architecture, security, and product fit" },
+              { "title": "Verifying evidence and retaining organizational learning" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "The rhythm of software development changes",
+        "children": [
+          {
+            "title": "Specifications become living instruments",
+            "note": "Teams still need shared intent. The difference is that they can test an interpretation quickly, inspect working software, and revise the specification with evidence."
+          },
+          {
+            "title": "Fewer meetings devoted only to expensive handoffs"
+          },
+          {
+            "title": "More conversations about decisions, risks, and tradeoffs"
+          },
+          {
+            "title": "Shorter loop — define → delegate → inspect → learn → repeat"
+          },
+          {
+            "title": "Rapid iteration replaces the fantasy of perfect first-pass requirements"
+          }
+        ]
+      },
+      {
+        "title": "Taking back the software process",
+        "children": [
+          {
+            "title": "Not “replace every SaaS product”",
+            "note": "Buy commodity capability when it fits. Build where workflow, integration, data, control, or differentiation makes ownership worthwhile."
+          },
+          {
+            "title": "Own the gaps that matter"
+          },
+          {
+            "title": "Turn spreadsheet stopgaps into intentional systems"
+          },
+          {
+            "title": "Keep code, decisions, skills, agents, and governance together"
+          },
+          {
+            "title": "Make organizational learning compound in the repository"
+          }
+        ]
+      },
+      {
+        "title": "The promise and the warning",
+        "children": [
+          { "title": "Speed amplifies good definition—and bad assumptions" },
+          { "title": "Parallel agents amplify capacity—and coordination risk" },
+          { "title": "Large context helps—but does not guarantee understanding" },
+          { "title": "Green tests are evidence—not proof of product value or safety" },
+          { "title": "Governance must move at the new cadence" },
+          { "title": "The winning capability is a trustworthy development system" }
+        ]
+      },
+      {
+        "title": "What this program teaches",
+        "children": [
+          { "title": "Define well" },
+          { "title": "Build fast" },
+          { "title": "Verify hard" },
+          { "title": "Understand before changing" },
+          { "title": "Coordinate tools, agents, and counterparties" },
+          { "title": "Govern reusable skills and agents" },
+          { "title": "Evaluate models against your work" },
+          { "title": "Maintain an agent-queryable organizational AI program" }
+        ]
+      },
+      {
+        "title": "Opening discussion",
+        "children": [
+          { "title": "Where has SaaS forced your process to fit the tool?" },
+          { "title": "Which spreadsheet or internal stopgap reveals an ownable gap?" },
+          { "title": "Where is typing code still your real bottleneck?" },
+          { "title": "What would faster cadence change about your meetings and handoffs?" },
+          { "title": "Which decisions must never be delegated without human authority?" },
+          { "title": "What evidence would make you trust an agent-produced change?" }
+        ]
+      },
+      {
+        "title": "The Great Convergence",
+        "note": "Capable models + operational harnesses + radically faster cadence + the need for software that fits. The opportunity is not just to generate more code. It is to redesign how an organization decides, builds, verifies, learns, and owns software.",
+        "children": [
+          { "title": "This is not the end of software development" },
+          { "title": "It is a new operating model for software development" },
+          { "title": "The rest of the week is about learning to operate it responsibly" }
+        ]
+      }
+    ]
+  },
   "master": {
     "file": "ai-development-program.opml",
     "title": "AI-Accelerated Software Development — Five-Day Developer Program",
     "note": "Instructor master map. Canonical detail remains in the linked curriculum documents.",
     "children": [
+      {
+        "title": "Opening — The Great Convergence",
+        "children": [
+          { "title": "Capable models + operational harnesses + radical cadence + software ownership" },
+          { "title": "Intro map: 00-introduction-the-great-convergence.opml" },
+          { "title": "The opportunity is a new software-development operating model" }
+        ]
+      },
       {
         "title": "Promise and audience",
         "children": [

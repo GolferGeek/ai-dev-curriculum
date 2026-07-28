@@ -12,6 +12,21 @@
 
 This is the biggest talking block of the phase. Goal: give the room a correct, durable mental model before they touch anything, and make them care about the two or three ideas the whole course rests on.
 
+### Opening story — "The Great Convergence" (15–20 minutes)
+
+Teach this from the
+[Great Convergence MindNode map](../../docs/mind-maps/00-introduction-the-great-convergence.opml).
+Introduce Matt, then trace the road from code completion to code generation to
+agent harnesses. Bring the four converging forces together: capable foundation
+models, operational harnesses, radically faster development cadence, and
+companies' need for software that fits their work.
+
+Land on the balanced claim: code is unusually testable, but product fit,
+architecture, security, and authority still require human judgment. AI changes
+the build-versus-buy boundary without making every SaaS product obsolete. The
+opportunity is a new development operating model; the rest of the program
+teaches the room to operate it responsibly.
+
 ### 1a. The technology we're going to be using
 
 Name each piece, say what it is in a sentence, and say *why it's in the kit*:

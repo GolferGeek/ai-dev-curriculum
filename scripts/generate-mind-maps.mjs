@@ -53,22 +53,31 @@ function outline(node, indent = "    ") {
 }
 
 function opml(map) {
+  const ownerEmail = map.ownerEmail
+    ? `    <ownerEmail>${escapeXml(map.ownerEmail)}</ownerEmail>`
+    : null;
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<opml version="2.0">',
     "  <head>",
     `    <title>${escapeXml(map.title)}</title>`,
-    "    <ownerName>GolferGeek AI Development Curriculum</ownerName>",
+    `    <ownerName>${escapeXml(
+      map.ownerName ?? "GolferGeek AI Development Curriculum",
+    )}</ownerName>`,
+    ownerEmail,
     "  </head>",
     "  <body>",
     outline(map, "    "),
     "  </body>",
     "</opml>",
     "",
-  ].join("\n");
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
 }
 
 const maps = [
+  { ...data.intro, destination: path.join(outputRoot, data.intro.file) },
   { ...data.master, destination: path.join(outputRoot, data.master.file) },
   ...data.phases.map((map) => ({
     ...map,

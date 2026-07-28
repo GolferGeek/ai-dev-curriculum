@@ -42,7 +42,7 @@ that the three harnesses are identical.
 | Skills and agents | Ready | Function-organized canonical sources and deterministic projections for all three supported harnesses | Assign client owners and approval boundaries |
 | AI program | Ready | Seven queryable facets, program contract, coverage matrix, decisions, watchlist, query scenarios, and change rules | Populate the client's actual decisions and evidence |
 | Reference code | Ready for training | JavaScript builds, Next lint, Vite browser smoke tests, and Swift simulator builds pass | Rehearse service/provider paths; monitor the Next.js exception |
-| Mind maps | Structurally ready | Master plus eight phase OPML maps generate and validate | Instructor imports and calibrates visual conventions in MindNode |
+| Mind maps | Structurally ready | Introduction, master, and eight phase OPML maps generate and validate | Instructor imports and calibrates visual conventions in MindNode |
 | Remote delivery | Ready with preflight | Setup, recovery, client decisions, and day-level control are documented | Confirm cohort topology, access, accessibility, and support roles |
 | Maintenance | Ready | CI detects document, projection, AI-program, mind-map, root, and reference-app drift | Establish the client's review cadence and named stewards |
 

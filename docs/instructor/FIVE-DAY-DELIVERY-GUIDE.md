@@ -50,9 +50,16 @@ Send learners the setup checklist and require confirmation before Day 1.
 
 ### Morning: Phase 00
 
+Use the
+[Great Convergence introduction map](../mind-maps/00-introduction-the-great-convergence.opml)
+for the first 15–20 minutes of the opening block. It introduces Matt, traces
+completion → generation → agent harnesses, defines cadence, and frames the
+company's opportunity to reclaim software that should fit its work. This time
+is included in the 45-minute opening block below.
+
 | Block | Minutes | Purpose |
 |---|---:|---|
-| Opening deck and mental model | 45 | model, harness, context, tools, skills, agents |
+| Great Convergence, opening deck, and mental model | 45 | why now; model, harness, context, tools, skills, agents |
 | Repository and starter architecture | 25 | one branch, active/reference apps, canonical capability library |
 | Intention/PRD/plan challenge | 40 | define the product and acceptance criteria |
 | Build with teaching windows | 75 | first demo-grade product slice |

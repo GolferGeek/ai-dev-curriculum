@@ -11,6 +11,7 @@ docs/mind-maps/
   README.md
   source/
     program-map.json              # Curated source of truth
+  00-introduction-the-great-convergence.opml
   ai-development-program.opml    # Complete master teaching map
   phases/
     phase-*.opml                  # One detailed map per module
@@ -28,8 +29,14 @@ MindNode can import.
 
 ## Map requirements
 
-The master map provides the complete program story and navigation. Each phase
-map is detailed enough to teach from and includes:
+The introduction map opens the course with Matt Weber's “Great Convergence”
+story, introduces Matt, and establishes why the development operating model is
+changing. The master map then provides the complete program story and
+navigation. Each phase map is detailed enough to teach from and includes:
+
+- [Opening — The Great Convergence](00-introduction-the-great-convergence.opml)
+- [Master five-day program](ai-development-program.opml)
+- Phase maps begin with [Phase 00 — First AI Build](phases/phase-00-first-ai-build.opml)
 
 - Purpose and participant outcomes.
 - Timing and transitions.

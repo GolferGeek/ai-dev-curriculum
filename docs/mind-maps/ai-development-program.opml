@@ -6,6 +6,11 @@
   </head>
   <body>
     <outline text="AI-Accelerated Software Development — Five-Day Developer Program" _note="Instructor master map. Canonical detail remains in the linked curriculum documents.">
+      <outline text="Opening — The Great Convergence">
+        <outline text="Capable models + operational harnesses + radical cadence + software ownership"/>
+        <outline text="Intro map: 00-introduction-the-great-convergence.opml"/>
+        <outline text="The opportunity is a new software-development operating model"/>
+      </outline>
       <outline text="Promise and audience">
         <outline text="Developers and hands-on technical leads"/>
         <outline text="Define well → build fast → verify hard → decide consciously"/>
