@@ -6,7 +6,7 @@ import process from "node:process";
 import { execFileSync } from "node:child_process";
 
 const root = process.cwd();
-const files = execFileSync("rg", ["--files", "-g", "*.md"], {
+const files = execFileSync("git", ["ls-files", "*.md"], {
   cwd: root,
   encoding: "utf8",
 })
@@ -86,4 +86,6 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Markdown links verified across ${files.length} curriculum files.`);
+console.log(
+  `Markdown links verified across ${files.length} tracked curriculum files.`,
+);
