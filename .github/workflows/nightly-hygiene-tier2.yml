@@ -1,0 +1,47 @@
+name: Nightly hygiene (Tier 2 — agent)
+
+# Requires ANTHROPIC_API_KEY and filled kit-05 boundaries.
+# Rehearse locally with /nightly-hygiene before enabling schedule.
+on:
+  workflow_dispatch:
+  # Uncomment after secrets + two weeks of green Tier 1:
+  # schedule:
+  #   - cron: "0 12 * * 1-5"
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  agent-hygiene:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Mechanical pre-check (Tier 1 gate)
+        run: |
+          ./scripts/verify-curriculum-structure.sh
+          npm run build
+          npm test
+
+      - name: Run nightly hygiene skill
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: "/nightly-hygiene"
+          claude_args: |
+            --max-turns 30
+            --allowedTools "Read,Write,Edit,Bash(npm:*),Bash(gh:*),Bash(git:*),Bash(./scripts/*)"
+            --append-system-prompt "You are running scheduled repo hygiene. Read CLAUDE.md and .claude/skills/. Never push to main. If fixes are needed, use branch maintenance/YYYY-MM-DD-nightly and open a PR for human review. Write docs/artifacts/nightly-hygiene-report.md."

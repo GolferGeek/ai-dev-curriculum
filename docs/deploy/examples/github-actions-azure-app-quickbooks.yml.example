@@ -1,0 +1,55 @@
+# Copy to: .github/workflows/deploy-quickbooks-prod.yml
+# One workflow per app (or per app × environment). Adjust names, paths, secrets.
+
+name: Deploy quickbooks-killer (prod)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/quickbooks-killer/**"
+      - "packages/**"
+      - "package-lock.json"
+      - "turbo.json"
+      - ".github/workflows/deploy-quickbooks-prod.yml"
+  workflow_dispatch:
+
+env:
+  APP_NAME: quickbooks-killer
+  AZURE_WEBAPP_NAME: your-app-service-name-prod
+  ACR_NAME: yourregistry
+  IMAGE_NAME: quickbooks-killer
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Log in to Azure Container Registry
+        run: az acr login --name ${{ env.ACR_NAME }}
+
+      - name: Build and push image
+        run: |
+          IMAGE=${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker build -f apps/${{ env.APP_NAME }}/Dockerfile -t "$IMAGE" .
+          docker push "$IMAGE"
+          echo "IMAGE=$IMAGE" >> "$GITHUB_ENV"
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          images: ${{ env.IMAGE }}

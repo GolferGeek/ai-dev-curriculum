@@ -8,11 +8,12 @@
 
 | Gate | Command | Must pass before… |
 |------|---------|-------------------|
-| Build | `npm run build` | any commit |
-| Lint | `npm run lint` | any commit |
-| Tests | `npm run test` | any commit |
+| Build | `npm run build` | lint or tests |
+| Lint | `npm run lint` | tests (when configured) |
+| Tests | `npm run test` | verify or browser — on **first effort**, suite should include **unit**, **API/HTTP** (where the slice has routes), and **end-to-end** (e.g. Playwright), not a single smoke test |
+| Verify | Challenge pass vs intention / demo-grade bar | browser or merge |
+| Browser | Open the app, `/test-browser`, or computer use | any user-facing merge |
 | Human review of the diff | — | any merge |
-| Browser / flow verification | manual or Playwright | any user-facing change |
 
 ## Living standards
 
@@ -28,6 +29,7 @@ When a review finds a gap the gates missed, the finding gets **promoted into a w
 
 - The transcript is not the software: a green chat message proves nothing. Gates and a human review do.
 - No one merges code they can't explain. If you can't explain it in 60 seconds, read it or rewrite it.
+- **Scheduled runs:** same gates on cron — see [guardrails sheet G1 — Nightly hygiene](guardrails/01-nightly-hygiene-github-actions.md) (Tier 1 = build · lint · test; Tier 2 = agent PR, human merge).
 
 ## Owner
 

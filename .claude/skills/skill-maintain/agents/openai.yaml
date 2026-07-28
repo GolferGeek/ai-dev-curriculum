@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Maintain"
+  short_description: "Maintain the approved skill portfolio"
+  default_prompt: "Find upstream changes, stale approvals, ownerless skills, broken dependencies, and retirement candidates in the skill portfolio."

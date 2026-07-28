@@ -1,0 +1,91 @@
+# Copy after Nx migration — deploy only if this app is affected
+# Replace project name with output of: nx show projects
+
+name: Deploy quickbooks-killer (prod, Nx affected)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/**"
+      - "packages/**"
+      - "nx.json"
+      - "package-lock.json"
+      - ".github/workflows/deploy-quickbooks-prod-nx.yml"
+  workflow_dispatch:
+
+env:
+  NX_PROJECT: quickbooks-killer
+  AZURE_WEBAPP_NAME: your-app-service-name-prod
+  ACR_NAME: yourregistry
+  IMAGE_NAME: quickbooks-killer
+
+jobs:
+  affected:
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.check.outputs.should_deploy }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Is this project affected?
+        id: check
+        run: |
+          AFFECTED=$(npx nx show projects --affected --base=origin/main~1 --head=HEAD | grep -x "${{ env.NX_PROJECT }}" || true)
+          if [ -n "$AFFECTED" ]; then
+            echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  build-and-deploy:
+    needs: affected
+    if: needs.affected.outputs.should_deploy == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build and prune (Nx)
+        run: |
+          npx nx run ${{ env.NX_PROJECT }}:build
+          npx nx run ${{ env.NX_PROJECT }}:prune
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - run: az acr login --name ${{ env.ACR_NAME }}
+
+      - name: Build and push image
+        run: |
+          IMAGE=${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker build -f apps/${{ env.NX_PROJECT }}/Dockerfile -t "$IMAGE" .
+          docker push "$IMAGE"
+          echo "IMAGE=$IMAGE" >> "$GITHUB_ENV"
+
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          images: ${{ env.IMAGE }}

@@ -42,7 +42,7 @@ This course teaches a controlled, practical operating model for AI-assisted deve
 
 Traditional software delivery was never mostly about typing code. It was about *latency*: requirements meetings, a prototype, a review meeting, change requests, a wait for the next sprint, and around again — with days or weeks of coordination baked into every turn of the loop. That loop is why a modest internal tool could take a month, and why so many useful ideas sit permanently in the backlog.
 
-AI-assisted development collapses that loop. When an agent can build a working slice of an application in less than an hour, the expensive middle of the process disappears, and the work **barbells** to its two ends: **defining clearly what should exist**, and **validating that what got built is actually correct and safe**. A small group — a stakeholder, a couple of developers, and a tester — can sit in one room, define a capability, build it, react to it an hour later ("no, not that, more like this"), and iterate again before lunch. **A month of meetings and hand-offs becomes a morning.**
+AI-assisted development collapses that loop for **well-scoped work**. When an agent can build a **small, scoped slice** of an application in under an hour, the expensive middle of that iteration disappears, and **define** and **prove** bracket the build — **defining clearly what should exist**, and **validating that what got built is actually correct and safe**. A full product is many such bracketed iterations; each effort should be scoped so both brackets are appropriate. A small group — a stakeholder, a couple of developers, and a tester — can sit in one room, define a capability, build it, react when the slice is ready, and iterate again before lunch. **A month of meetings and hand-offs becomes a morning** — for scoped slices, not for every system they'll ever ship.
 
 That shift changes a company's whole relationship to its backlog. Work that used to be permanently postponed becomes realistic, and a business can responsibly test new products, revenue streams, and customer experiences without waiting months for a traditional software cycle to begin.
 
@@ -91,7 +91,7 @@ Any of the three can also be extended as a Day 5 final project for teams that wa
 
 A week-long course for technical staff who want to use AI coding agents in real development work. This is the strongest match for a $1,500-per-person workforce training product.
 
-The standard version uses curriculum projects and realistic business app examples. The suggested applications can be swapped for backlog-relevant apps when a company has a clear need. Every participant leaves with a started **adoption kit** — seven fill-in templates (tool and plan decisions, shared agent instructions, artifact conventions, quality gates, decision boundaries, model routing and spend policy, and safety rules for their real codebase) that become their organization's AI development operating model. For a private company cohort, the final day can be adapted into a supervised "bring your own codebase" setup day where participants configure the tools, document their workflow, and identify the first safe backlog items to attempt inside their own environment.
+The standard version uses curriculum projects and realistic business app examples. The suggested applications can be swapped for backlog-relevant apps when a company has a clear need. Every participant leaves with a started **adoption kit** — ten fill-in templates covering approved tools, shared agent instructions, artifact conventions, quality gates, decision boundaries, model routing and spend, brownfield safety, terrain review, context scope, and organizational ownership. On Day Five, teams apply it in a current repository, a new Nx monorepo, or a standalone AI program repository while completing one safe, verified change.
 
 **Length and scheduling (for discussion):** The course is about **30 contact hours** — five sessions of roughly six instructional hours each. Pulling a small team out for five consecutive business days is often impractical, so the same content can be delivered on whichever calendar fits the cohort:
 
@@ -105,13 +105,13 @@ We would recommend settling the format with Hennepin Tech per cohort. Once a for
 
 For owners, managers, and technical leads who need to understand the opportunity, risk, governance model, and ROI of AI-assisted software delivery.
 
-The centerpiece is a **live build loop**, not slides. With the room, we define a small internal tool, build it in about twenty minutes, take a change request live ("no, not that, more like this"), iterate, and finish before the break — so decision-makers *watch* a month of traditional meetings-and-hand-offs happen in an hour. The rest of the day covers where this fits, where it does not, and how to adopt it responsibly (data, security, review, and human judgment).
+The centerpiece is a **live build loop**, not slides. With the room, we define a small internal tool, build the scoped slice in about twenty minutes, take a change request live ("no, not that, more like this"), iterate, and finish before the break — so decision-makers *watch* a month of traditional meetings-and-hand-offs collapse into a single morning **for work scoped small enough to finish in the room**. The rest of the day covers where this fits, where it does not, and how to adopt it responsibly (data, security, review, and human judgment).
 
 ### Half-Day Executive Demonstration and Discovery
 
 A shorter session — roughly three hours, or half a day — that doubles as a working pitch meeting. It has two jobs at once: show decision-makers the live build loop on a problem drawn from *their* world, and preview exactly what the full course would build and teach for their development group. In practice we:
 
-- Run the live build loop on a small tool relevant to the company, so leaders see "a month in a morning" firsthand.
+- Run the live build loop on a small tool relevant to the company, so leaders see "a month in a morning" **for scoped work** firsthand.
 - Walk through what a cohort of their developers would build and learn across the five days.
 - Discuss where AI-assisted delivery fits their stack, their backlog, and their risk and governance needs.
 
@@ -175,7 +175,7 @@ By the end of the five-day course, participants will be able to:
 
 ## Sample Business Pitch
 
-A month of software delivery was never a month of typing — it was meetings, prototypes, review cycles, and hand-offs, with a wait baked into every turn. When an agent builds a working application slice in less than an hour, that loop collapses: a stakeholder, a couple of developers, and a tester can define a tool in one room, build it, react to it, and iterate before lunch. A month of work becomes a morning. Small teams are suddenly able to deliver software like much larger organizations — but only if they know how to steer the agents, verify the result, and keep humans in control.
+A month of software delivery was never a month of typing — it was meetings, prototypes, review cycles, and hand-offs, with a wait baked into every turn. When an agent builds a **well-scoped application slice** in under an hour, that loop collapses: a stakeholder, a couple of developers, and a tester can define a tool in one room, build it, react to it, and iterate before lunch. **For scoped work**, a month of coordination can become a morning. Larger systems still take longer — the acceleration is real, but **scoping** is part of the skill. Small teams are suddenly able to deliver software like much larger organizations — but only if they know how to steer the agents, verify the result, and keep humans in control.
 
 This course teaches that operating model. Participants learn a structured workflow for using the AI coding agent of their choice to plan features, build working applications, debug issues, test in a browser, and review changes before they ship. The result is practical AI leverage for teams that need more delivery capacity without immediately adding more headcount.
 

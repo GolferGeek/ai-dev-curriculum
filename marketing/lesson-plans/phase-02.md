@@ -1,8 +1,8 @@
 # Phase 02 — Lesson Plan
 
-*The **content** you deliver for Phase 02. Room mechanics are shared with [Phase 00's TEACHING.md](../../docs/phase-00/TEACHING.md); exact steps are in [docs/phase-02/README.md](../../docs/phase-02/README.md) and [RUN-ORDER.md](../../docs/phase-02/RUN-ORDER.md). This is what you **talk about**.*
+*The **content** you deliver for Phase 02. **Share at open:** [OVERVIEW.md](../../docs/phases/02/OVERVIEW.md). **Room mechanics:** [Phase 02 TEACHING.md](../../docs/phases/02/TEACHING.md) — shared predict-then-compare pattern from [Phase 00 TEACHING.md](../../docs/phases/00/TEACHING.md). Exact steps: [docs/phases/02/README.md](../../docs/phases/02/README.md) and [RUN-ORDER.md](../../docs/phases/02/RUN-ORDER.md). This document is what you **talk about**.*
 
-**Session arc:** Intro lecture → Walk-through of what we're checking → Run the quality pipeline (it runs) → Closing discussion. Phase 02 is the back end of the barbell made real: generation is cheap, so the whole phase is about *verifying and maintaining* what the agent produced.
+**Session arc:** Intro lecture → Walk-through of what we're checking → Run the quality pipeline (it runs) → Scheduled hygiene (optional) → Closing discussion. Phase 02 is the **closing bracket** made real: generation is cheap, so the whole phase is about *verifying and maintaining* what the agent produced.
 
 > **Instructor refresh:** anywhere this says *[refresh]*, pull the current link before the cohort. Citations are at the bottom, and several key figures come from *vendors* (GitClear, CodeRabbit, Greptile) — I've flagged those; lean on the neutral anchors (DORA, Thoughtworks/Böckeler, Fowler) for the load-bearing claims.
 
@@ -23,7 +23,7 @@ Six slash skills in three scanner→fixer pairs, plus the ship gate:
 
 ### 1b. The points we're trying to make
 
-1. **Generation got cheap, so the bottleneck moved to review.** The expensive, scarce work is now *verifying and understanding* the code — the barbell's back end.
+1. **Generation got cheap, so the bottleneck moved to review.** The expensive, scarce work is now *verifying and understanding* the code — the **closing bracket**.
 2. **AI code carries a measurable quality tax.** Independent and vendor data both point the same way: more duplication, less refactoring, more churn, lower delivery stability. You have to *actively* counter it — which is what scanners and monitors are for.
 3. **The discipline is automated gates + human judgment.** Scanners find, fixers fix, the gate blocks — but a human still owns "is this actually right and maintainable?" A green pipeline is necessary, not sufficient.
 
@@ -69,11 +69,44 @@ Have the room **predict** before running: "What will `/scan-errors` find in an a
 
 ## 3. Run the quality pipeline (it runs — keep teaching)
 
-Run `/scan-errors`, read the report, run `/fix-errors`; then `/monitor` → `/harden`; then the `/commit` gate. It's fast. **Nobody watches the scroll** — use the window for the 1e data, the "who reviews the AI's code" discussion, and Phase 02 talks in [discussion-topics.md](discussion-topics.md) (comprehension debt, living standards, observability). You can run a scan in one session while discussing in another. Steps: [RUN-ORDER.md](../../docs/phase-02/RUN-ORDER.md).
+Run `/scan-errors`, read the report, run `/fix-errors`; then `/monitor` → `/harden`; then the `/commit` gate. It's fast. **Nobody watches the scroll** — use the window for the 1e data and Phase 02 talks in [discussion-topics.md](discussion-topics.md). Full slotting guide: [TEACHING.md](../../docs/phases/02/TEACHING.md#run-the-quality-pipeline-teach-while-it-runs).
+
+| While this runs | Teach (discussion track) |
+|---|---|
+| `/scan-errors` + read report | **D02-1** — comprehension debt & review bottleneck |
+| `/fix-errors` | **D02-2** — living standards (`pr-requirements` compounds) |
+| `/monitor` / `/harden` | Architecture vs. tests — "green tests, wrong wiring" |
+| `/commit pr` | **D02-3** — observability (diffs, commits, tests — not chat) |
+| `/pr-eval` | Gate decision live; promote a new rule if a gap is found |
+
+You can run a scan in one session while discussing in another. Steps: [RUN-ORDER.md](../../docs/phases/02/RUN-ORDER.md) Part A.
 
 ---
 
-## 4. Closing discussion — "Would a reviewer approve this — and did you understand it?"
+## 4. Scheduled hygiene — closing bracket on a cron (optional, ~20–30 min)
+
+Interactive gates only run when someone invokes them. **Nightly hygiene** is the repo immune system — the same proof chain on a schedule, PR for human merge.
+
+**Land before demo:**
+
+- **Tier 1** — cron runs `build · lint · test` (no agent API key). Enable first.
+- **Tier 2** — scan → fix → monitor → harden → **`maintenance/*` branch + PR** (`/nightly-hygiene` via GitHub Actions). Humans merge; no auto-merge to `main` unless kit 05 documents an exception.
+
+**Teach [D02-4](discussion-topics.md)** (~15–20 min): what a nightly bot may fix vs. what is always human-only; who owns workflow YAML and API spend.
+
+**Demo (pick one):**
+
+1. Local `/nightly-hygiene` rehearsal (same chain, no GitHub).
+2. GitHub Actions → `nightly-hygiene-tier1.yml` → **Run workflow** manually; show the log.
+3. Walk the policy table in [G1 — Nightly hygiene](../adoption-kit/guardrails/01-nightly-hygiene-github-actions.md) + [docs/github/actions-and-agents.md](../../docs/github/actions-and-agents.md).
+
+**Do not enable Tier 2 in the room** without agreed decision boundaries and API budget — show the YAML and worksheets instead.
+
+Steps: [RUN-ORDER.md](../../docs/phases/02/RUN-ORDER.md) Part B.
+
+---
+
+## 5. Closing discussion — "Would a reviewer approve this — and did you understand it?"
 
 - **Prediction vs. reality.** What did the scanner find in yesterday's "finished" app? How much would you have shipped?
 - **Did fixing break anything?** This is why `/harden` re-runs the error scan. Show that a fix can introduce a regression — and that the gate is what catches it.
@@ -86,6 +119,7 @@ Run `/scan-errors`, read the report, run `/fix-errors`; then `/monitor` → `/ha
 2. AI code has a measurable quality tax — you counter it deliberately with scanners, monitors, and gates.
 3. Automated gates are necessary but **not sufficient** — a human owns "is this right and maintainable?"
 4. Standards should compound: every review that finds a gap should make the next one impossible.
+5. The **closing bracket runs on a schedule too** — Tier 1 cron + optional Tier 2 maintenance PRs; observability lives in GitHub, not chat.
 
 ---
 

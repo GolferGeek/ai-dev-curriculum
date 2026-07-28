@@ -10,7 +10,7 @@
 **Primary Outcome:** Participants leave with a repeatable AI-assisted software delivery workflow they can adapt inside their organization.  
 **Instructor:** Matthew Weber (GolferGeek) — 25 years working in large codebases, with emphasis on understanding existing systems before changing them. Builds production-scale AI platforms (OrchestratorAI, Divinr.ai) solo using the exact workflow this course teaches — most of it open source and inspectable.
 
-**Rhythm:** **Two curriculum phases per day** on Days 1–3; Day 4 deepens model choice and cost; Day 5 turns the week into their workplace operating model. Builds often finish in well under an hour — instructors teach (concepts, governance, harness setup) in a **secondary window** while agents generate.
+**Rhythm:** **Two curriculum phases per day** on Days 1–3; Day 4 deepens model choice and cost; Day 5 turns the week into their workplace operating model. **Well-scoped** class builds often finish in under an hour — larger work takes longer — so instructors teach (concepts, governance, harness setup) in a **secondary window** while agents generate.
 
 **Scheduling:** written here as five consecutive days, but the two-phases-per-day structure maps cleanly onto other calendars — one session per week for five weeks, or ten half-day sessions (one phase each) over two weeks. See the [course proposal](course-proposal.md) for format options.
 
@@ -28,10 +28,10 @@ The curriculum emphasizes disciplined human oversight. AI tools accelerate devel
 
 | Day | Morning | Afternoon | Theme |
 |-----|---------|-----------|--------|
-| **1** | [Phase 00](../docs/phase-00/README.md) — Pipeline & first build | [Phase 01](../docs/phase-01/README.md) — SaaS killer (auth + data) | Define well, build fast, verify the trust boundary |
-| **2** | [Phase 02](../docs/phase-02/README.md) — Quality gates | [Phase 03](../docs/phase-03/README.md) — Brownfield research | Review & understand before you change |
-| **3** | [Phase 04](../docs/phase-04/README.md) — Agent protocols | [Phase 05](../docs/phase-05/README.md) — Skills browser | Where software is going; encode org knowledge |
-| **4** | [Phase 06](../docs/phase-06/README.md) — Model eval lab | Routing, cost, procurement & adoption prep | Which model for which job — with evidence |
+| **1** | [Phase 00](../docs/phases/00/README.md) — Pipeline & first build | [Phase 01](../docs/phases/01/README.md) — SaaS killer (auth + data) | Define well, build fast, verify the trust boundary |
+| **2** | [Phase 02](../docs/phases/02/README.md) — Quality gates | [Phase 03](../docs/phases/03/README.md) — Brownfield research | Review & understand before you change |
+| **3** | [Phase 04](../docs/phases/04/README.md) — Agent protocols | [Phase 05](../docs/phases/05/README.md) — Skills browser | Where software is going; encode org knowledge |
+| **4** | [Phase 06](../docs/phases/06/README.md) — Model eval lab | Routing, cost, procurement & adoption prep | Which model for which job — with evidence |
 | **5** | Final project / their repo | SMB operating model & presentations | Take it home |
 
 Verification (in-app browser, Playwright, computer use) is **woven through Days 1–2** whenever an app is running — not a standalone day. Governance, harness memory, corporate context, and model routing are taught from [discussion-topics.md](lesson-plans/discussion-topics.md) during build windows.
@@ -117,12 +117,12 @@ Advanced builds scheduled in-week (not only as Day 5 options):
 ### Morning — Phase 00
 
 - What AI coding agents can and cannot do; harness vs model; chat vs agentic work.
-- The barbell thesis: define well, build in a blink, verify hard.
+- Bracket the work: define well, build the scoped slice fast, prove it hard — one iteration at a time.
 - Pipeline: intention → PRD → plan → build → challenge pass.
 - Harness memory / instruction passport (Claude / Cursor / Codex); shadow AI & plan tiers.
 - Seed idea: model routing (don’t leave every call on the frontier model).
 - Lab: monorepo + one track app (wiki / CRM / ops / API workspace); predict → build → verify.
-- Plant verification early: `npm run build` / `npm run test` / open the app; Playwright as “transcript ≠ software.”
+- Plant verification early: closing bracket **`build → lint → test → verify → browser`**; on first effort, steer for **unit + API/HTTP + e2e** tests, not one smoke test.
 
 **Deliverable:** Reviewed intention + PRD + plan; working Phase 00 app slice.
 
@@ -215,7 +215,7 @@ Advanced builds scheduled in-week (not only as Day 5 options):
 - **Model routing (deep):** cheap vs mid vs frontier; cascade vs classify; escalation metrics.
 - Eval-driven procurement; cost visibility; privacy–cost–quality triangle.
 - Fill gaps from earlier days (verification practice, passport polish, decision-boundary one-pager).
-- Prep Day 5: choose final project or private-repo path; draft the seven-piece SMB operating model.
+- Prep Day 5: choose a repository path; draft the ten-piece AI development operating model.
 
 **Deliverable:** Written route table + golden-prompt list for their org; Day 5 plan.
 
@@ -224,25 +224,31 @@ Advanced builds scheduled in-week (not only as Day 5 options):
 
 ---
 
-## Day 5: Final Project And Adoption Plan
+## Day 5: Build Your AI Development Operating System
 
 **Phases:** none new — **apply the week**  
-**Theme:** Turn the course into a workplace operating model.
+**Theme:** Build your AI development operating system in a repository you will keep.
 
-### Topics
+### Choose one repository path
 
-- Assemble the SMB AI development program using the [adoption kit](adoption-kit/README.md) (harness + plan tier, passport, artifacts, gates, decision boundaries, routing/spend, Day-2 safety).
-- Beyond engineering: same discipline for ops / marketing / finance intentions.
-- Tool comparison only as needed (Claude Code, Cursor, Codex, Claude Desktop) — workflow first, brand second.
-- What compounds (specs, rules, preference skills, evals) vs what expires (model fashion, chat Memories).
+- Harden the team's current repository.
+- Create or migrate a shared Nx monorepo and add one or two bounded applications.
+- Create a standalone AI program repository that distributes policy and skills to product repositories.
 
-### Final Project (pick one)
+### Hands-on work
 
-- Extend or harden an in-week app (Phase 01–05 slice).
-- Finish or demo Phase 04 / 05 / 06 capstone work.
-- Prototype a customer-facing tool or new product idea with the full pipeline.
-- Analyze and improve a small or sanitized company codebase (private cohort default).
-- Ship a team AI development checklist + live demo of the workflow.
+- Baseline the repository before changing it.
+- Make and document the Nx decision rather than forcing a migration.
+- Adapt `docs/ai-program/`, the root agent instructions, and a small set of owned skills.
+- Define Git branches, approvals, checks, review evidence, and rollback expectations.
+- Record approved LLM accounts, data boundaries, model routing, spend ownership, and human-only decisions.
+- Complete one real, low-risk change through intention, implementation, verification, and review.
+
+### Optional stretch: the room's agent network
+
+Participants without another project—or teams that finish early—can build narrowly authorized AI assistants for themselves, their teams, or fictional companies. They publish Agent Cards, declare bounded skills, exchange A2A tasks, and connect the room into a small observable agent network.
+
+The exercise is graded on enterprise control rather than conversational novelty: authenticated identity, least-privilege credentials, server-side authorization, disclosure boundaries, approval gates, rate and spending limits, audit events, prompt-injection handling, and tested revocation. Each assistant must demonstrate one allowed task and one task it correctly denies or escalates.
 
 ### Deliverable
 
@@ -253,11 +259,13 @@ Each participant or team presents:
 - What the agent built or changed.
 - How they verified it.
 - What risks remain.
-- How their organization will use the workflow after the course (seven-piece model filled in).
+- Their repository architecture and Nx decision.
+- Their adapted `docs/ai-program/`, agent instructions, skills, Git process, and LLM governance.
+- How their organization will use the workflow after the course (ten-piece model filled in).
 
 ### Private Cohort Option
 
-Day 5 becomes a supervised **their-repo** day: orientation, local startup, AI tool configuration and permission boundaries, first low-risk AI-assisted tasks, and a team checklist for reviewing agent output. Draws on Phase 03 research skills and Day-2 safety.
+Day 5 is designed as a supervised **their-repo** day: orientation, local startup, architecture work, AI tool configuration and permission boundaries, one low-risk AI-assisted change, and a review-ready operating model. Draws on every phase, especially Phase 03 research, Phase 02 quality, Phase 05 skills governance, and Phase 06 model routing.
 
 **Discussion track:** D-CLOSE-1 (required), D-CLOSE-2, D-CLOSE-3.  
 **Detail:** [week-close.md](lesson-plans/week-close.md) (full Day 5 lesson plan) and [adoption-kit/](adoption-kit/README.md).
@@ -279,7 +287,7 @@ Participants are assessed through practical completion rather than exams:
 
 ### Half-Day Executive Demonstration and Discovery
 
-Roughly three hours that double as a working pitch meeting: the live build loop on a problem from the company's own world ("a month in a morning," watched firsthand), a walk-through of what a cohort of their developers would build across the five days, and a governance/fit discussion. Functions as discovery — it produces a tailored recommendation and is the natural on-ramp to the full course.
+Roughly three hours that double as a working pitch meeting: the live build loop on a **well-scoped** problem from the company's own world ("a month in a morning" for that slice, watched firsthand), a walk-through of what a cohort of their developers would build across the five days, and a governance/fit discussion. Functions as discovery — it produces a tailored recommendation and is the natural on-ramp to the full course.
 
 ### One-Day Executive Workshop
 

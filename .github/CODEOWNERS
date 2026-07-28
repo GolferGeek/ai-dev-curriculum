@@ -1,0 +1,4 @@
+# Default branch — curriculum maintainers review workflow and guardrail doc changes
+/.github/ @GolferGeek
+/docs/github/ @GolferGeek
+/mkdocs.yml @GolferGeek

@@ -26,6 +26,7 @@ Blank rows to fill in from *your* business (refunds? discounts? vendor orders? c
 - Approvals are explicit and logged — a shrug in chat is not an authorization.
 - The accountable human for an agent's change is the person who merged it.
 - Revisit the columns quarterly: actions migrate left as trust and verification mature — deliberately, not by drift.
+- **Scheduled hygiene:** fill the bot-specific columns on [guardrails sheet G1 — Nightly hygiene](guardrails/01-nightly-hygiene-github-actions.md) before enabling Tier 2 cron jobs.
 
 ## Owner
 

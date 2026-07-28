@@ -21,7 +21,7 @@ Hold back the lesson plans, discussion topics, and adoption kit for the meeting 
 >
 > Good talking with you — here's the course material as promised.
 >
-> Attached are the **one-page flyer** (what a prospective student would see) and the **full proposal** (audience, offerings, formats, and pricing position). The headline hasn't changed since we spoke: AI coding agents can now build a working slice of a business application in under an hour, and small teams that learn to direct that — define clearly, let agents build, verify hard, keep humans in charge — deliver like teams several times their size. The course teaches that operating model with real builds every day, and every team leaves with a started adoption plan for their own shop.
+> Attached are the **one-page flyer** (what a prospective student would see) and the **full proposal** (audience, offerings, formats, and pricing position). The headline hasn't changed since we spoke: AI coding agents can now build a **well-scoped slice** of a business application in under an hour — not every project, only work scoped small enough to finish and verify in one sitting — and small teams that learn to direct that — define clearly, let agents build, verify hard, keep humans in charge — deliver like teams several times their size. The course teaches that operating model with real builds every day, and every team leaves with a started adoption plan for their own shop.
 >
 > A couple of things worth flagging as you read:
 >

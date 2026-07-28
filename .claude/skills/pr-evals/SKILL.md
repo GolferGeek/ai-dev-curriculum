@@ -24,7 +24,7 @@ Open PRs:
 
 1. #42 — fix: migrate to shared surrealdb layer (GolferGeek, feature/quickbooks-scan-fix, 2h ago)
 2. #38 — feat: add twitter-killer iOS app (GolferGeek, feature/twitter-ios, 1d ago)
-3. #35 — docs: phase-02 scaffolding (GolferGeek, docs/phase-02, 3d ago)
+3. #35 — docs: phase-02 scaffolding (GolferGeek, docs/phases/02, 3d ago)
 
 Pick a PR to evaluate:
 ```

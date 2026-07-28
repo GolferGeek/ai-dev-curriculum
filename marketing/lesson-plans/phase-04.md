@@ -1,8 +1,10 @@
 # Phase 04 — Lesson Plan
 
-*The **content** you deliver for Phase 04. Room mechanics are shared with [Phase 00's TEACHING.md](../../docs/phase-00/TEACHING.md); exact steps are in [docs/phase-04/README.md](../../docs/phase-04/README.md) and [RUN-ORDER.md](../../docs/phase-04/RUN-ORDER.md). This is what you **talk about**.*
+*The **content** you deliver for Phase 04. Room mechanics are shared with [Phase 00's TEACHING.md](../../docs/phases/00/TEACHING.md); exact steps are in [docs/phases/04/README.md](../../docs/phases/04/README.md) and [RUN-ORDER.md](../../docs/phases/04/RUN-ORDER.md). Use the new [Phase 04 teaching story](../../docs/phases/04/TEACHING.md) to understand the narrative and the [presenter guide](../../docs/phases/04/PRESENTER-GUIDE.md) while presenting the deck.*
 
-**Session arc:** Intro lecture → Intention walk-through → Build (it runs) → Closing discussion. Phase 04 is the forward-looking session: agents discovering each other, hiring each other, paying each other — on **open protocols**, not one vendor's private API. The closing discussion is *watch the wire* — Discover / Ask / Explore on the live dashboard.
+**Session arc:** A new visitor arrives → distinguish a tool from a counterparty → see agents on both sides of real markets → solve attention and trust → name the protocol layers → watch the demo → design one company interface. Phase 04 is the most future-consequential session: agents representing people and companies, discovering each other, maintaining business relationships, and transacting under policy.
+
+Do not open with the protocol acronyms. The deck deliberately waits until learners understand the business relationship. Slides 1–7 establish the change, 8–11 distinguish MCP and A2A, 12–21 make it real through Patron AI and vendor relationships, 22–29 name the protocol layers, 30–35 prove the flow in the demo, and 36–37 transfer the model to the learner's company.
 
 > **Instructor refresh:** anywhere this says *[refresh]*, pull the current link before the cohort. Partner counts and “v1.0” dates move; lean on the primary protocol sites and Linux Foundation / Google / Coinbase announcements for load-bearing claims. Citations are at the bottom.
 
@@ -12,6 +14,12 @@
 
 Phases 00–03 taught you to *build*, *harden*, and *understand* software with agents. This lecture is about where the industry is going next: **software that discovers, delegates, and transacts with strangers** — which only works if everyone speaks a shared language.
 
+Open more directly:
+
+> What happens when your next customer, candidate, supplier, or business partner arrives at your company as an agent?
+
+The first rung is a website that returns clean Markdown or structured content when an agent requests it. The consequential rung is a persistent company agent that can qualify a request, apply policy, negotiate within authority, maintain task state, present evidence, and escalate to a human. Every company will need to decide what that interface may discover, disclose, promise, buy, sell, and change.
+
 ### 1a. The technology we're going to be using
 
 Name each piece, say what it is in a sentence, and say *why it's in the kit*:
@@ -20,18 +28,21 @@ Name each piece, say what it is in a sentence, and say *why it's in the kit*:
 - **AP2 (Agent Payments Protocol)** — the *permission* layer. A human signs a **mandate** (“this agent may spend up to $X on Y”) so an agent can buy things without a blank check. Why it's here: without authorization, “agents that pay” is a liability nightmare.
 - **x402 (HTTP payments)** — the *execution* layer. A server answers **402 Payment Required**; the client attaches payment proof and retries. Why it's here: HTTP 402 sat unused for decades; Coinbase and partners revived it for machine-native micropayments (stablecoins over HTTP).
 - **AG-UI (Agent–User Interaction)** — how agent activity streams *to a human's screen* as live events (text chunks, tool progress, state updates). Why it's here: without it, the demo is a loading spinner; with it, you watch the negotiation.
-- **MCP (Model Context Protocol)** — how an agent plugs into tools and data (the vertical layer: agent ↔ tool). They already use it daily; here it sits *beside* A2A, not instead of it.
+- **MCP (Model Context Protocol)** — how an AI application plugs into tools, data, prompts, and resources. Do not call it literally one-directional: MCP supports notifications and client/server features. Teach the durable distinction—MCP equips an agent with capabilities; A2A connects independent actors that can accept goals and manage tasks.
 - **The stack they build** — NestJS specialist services (orchestrator + restaurant + booking + premium data), a Next.js dashboard, three buttons: **Discover / Ask / Explore**.
 
 ### 1b. The points we're trying to make
 
-1. **Protocols beat private APIs when strangers must collaborate.** An API is one service's front door; a protocol is a *shared language* any two parties can speak. Agents need protocols because they work with services they've never met.
-2. **Trust splits into layers — discovery, authorization, settlement, and human visibility.** A2A finds and hires; AP2 authorizes; x402 settles; AG-UI shows the human what happened. Confusing those layers is how demos become breaches.
-3. **This isn't sci-fi — the big players already donated the rails to neutral governance.** Linux Foundation AAIF (MCP, AGENTS.md, goose), A2A under LF with a multi-vendor TSC, AP2 with 60+ launch partners, x402 open from Coinbase. The skill is *reading the wire*, not memorizing one SDK.
+1. **Agent reachability becomes a required business interface.** A human-readable website will not be sufficient when customers and counterparties increasingly act through agents.
+2. **Protocols beat private APIs when strangers must collaborate.** An API is one service's front door; a protocol is a *shared language* any two parties can speak. Agents need protocols because they work with services they've never met.
+3. **Trust splits into layers — discovery, authorization, settlement, and human visibility.** A2A finds and delegates; AP2 authorizes; x402 can settle an HTTP-native payment; AG-UI shows the human what happened.
+4. **Cheap agent action creates an attention and accountability problem.** Agent-native markets need identity, mandates, reputation, rate limits, evidence, revocation, and appeals.
+5. **A2A is a rail, not a complete economy.** Contracts, privacy, tax, disputes, refunds, fulfillment, and liability remain business responsibilities.
 
 ### 1c. Why those points are important
 
 - For a **business**: the next integration problem isn't “our app talks to Stripe.” It's “our agent hires *someone else's* agent and pays under policy.” If you don't understand mandates and 402s, you can't write the policy — or audit the trail.
+- For a **marketplace**: if an agent can apply to 480 jobs or contact 480 vendors, sending becomes free and recipient attention becomes the scarce resource. Product design must reward relevance rather than fan-out.
 - For a **developer**: today's agents are mostly vertical (one agent + tools via MCP). The hard, scarce skill is *horizontal* — opaque agents coordinating across org boundaries. That's career-relevant for the next five years.
 - For the **course**: this is the payoff slide. Everything before was craft; this is *direction*. They leave able to explain the stack in two sentences at Monday's stand-up.
 
@@ -56,7 +67,53 @@ Use one or two live; paraphrase and cite on screen.
 
 ---
 
-## 2. The intention walk-through
+## 2. The strategic discussion — "From websites to represented businesses"
+
+Use [AGENT-TO-AGENT-FUTURE.md](../../docs/phases/04/AGENT-TO-AGENT-FUTURE.md) as the reading.
+
+### 2a. MCP versus A2A
+
+Use this sentence:
+
+> MCP gives an agent tools. A2A gives it colleagues, vendors, customers, and counterparties.
+
+MCP can be bidirectional. The distinction is not message direction or raw complexity. It is whether the remote system exposes a bounded capability to a controlling host or acts as an independent agent that accepts a goal, manages task state, asks questions, and returns artifacts without revealing its internal tools or reasoning.
+
+### 2b. Patron AI: agents on both sides
+
+Draw Candidate Agent ↔ Company Agent. The candidate agent holds goals, evidence, constraints, and a communication mandate. The company agent publishes opportunities and policies, requests evidence, protects sensitive information, and escalates good matches.
+
+The current job-platform restrictions are a useful tension: LinkedIn prohibits unauthorized bots, scraping, and automated messaging; Indeed restricts algorithmic API calls replacing human input and unauthorized scraping. These controls have privacy and anti-spam justifications, but they also illustrate why an agent-native market must be designed deliberately rather than reached through prohibited automation.
+
+Ask: **What makes a candidate agent a good market citizen?** Do not settle for application count. Discuss fit rate, evidence, specificity, recipient feedback, duplicate behavior, honoring declines, and whether the agent was authorized to represent the stated preferences.
+
+Separate reputation for:
+
+- the human or company,
+- the agent instance,
+- the agent provider,
+- the credentials and claims presented.
+
+### 2c. Vendor and customer agents
+
+Narrate an invoice-to-reorder relationship: invoice ready → reconcile against purchase order → authorize payment → settle → request ten widgets → quote options → approve → fulfillment update.
+
+Ask learners to label which steps are:
+
+- information retrieval,
+- delegated agent work,
+- authorization,
+- payment,
+- evidence,
+- human intervention.
+
+### 2d. Every company’s design problem
+
+Each learner chooses one narrow relationship and defines: discoverable capability, identity, authority, policy, task state, evidence, fan-out control, logs, intervention, and accountability.
+
+---
+
+## 3. The intention walk-through
 
 Open the provided intention: [intention-agent-to-agent.md](../../docs/artifacts/intention-agent-to-agent.md).
 
@@ -75,7 +132,7 @@ Same as earlier phases: tuned and working — **read and critique**, don't modif
 
 ---
 
-## 3. The build (it runs — keep teaching)
+## 4. The build (it runs — keep teaching)
 
 `/run-plan` orchestrates architect → service builders → dashboard. Budget longer than Phase 00 — multiple services. **Nobody watches the bar.** Use the window for the AAIF / AP2 / x402 material in 1e, Phase 04 talks in [discussion-topics.md](discussion-topics.md) (authorize-before-act, multi-agent coordination, wire observability), and for drawing the layer cake on a whiteboard:
 
@@ -89,11 +146,11 @@ Tools & data (MCP)
 Paywall (x402) under Mandate (AP2)
 ```
 
-Steps: [RUN-ORDER.md](../../docs/phase-04/RUN-ORDER.md). After build: start all ports, open the dashboard.
+Steps: [RUN-ORDER.md](../../docs/phases/04/RUN-ORDER.md). After build: start all ports, open the dashboard.
 
 ---
 
-## 4. Closing discussion — "Can you read the wire?"
+## 5. Closing discussion — "Can you read the wire?"
 
 Don't admire the topology — **prove the protocols fired.**
 
@@ -106,8 +163,10 @@ Don't admire the topology — **prove the protocols fired.**
 ### What they must leave Phase 04 believing
 1. Protocols are the shared language that lets stranger-agents collaborate; private APIs don't scale to that world.
 2. Trust is layered: discover (A2A) → authorize (AP2) → settle (x402) → watch (AG-UI) — with MCP vertical to tools.
-3. Reading the wire beats trusting the chat transcript — Explore is the barbell's back end for agent systems.
+3. Reading the wire beats trusting the chat transcript — Explore is the **closing bracket** for agent systems.
 4. This stack is shipping in the open under real governance; the scarce skill is fluency, not waiting for a single vendor's product.
+5. Every company needs a deliberate answer for outside agents—what they may discover, request, promise, and transact.
+6. Cheap fan-out makes recipient attention, relevance, and reputation first-class system concerns.
 
 ---
 
@@ -122,5 +181,7 @@ Don't admire the topology — **prove the protocols fired.**
 - x402 whitepaper / docs — https://www.x402.org/ *(and GitHub coinbase/x402)*
 - AG-UI Protocol (CopilotKit / ag-ui-protocol) — https://www.copilotkit.ai/ag-ui and https://github.com/ag-ui-protocol/ag-ui
 - Model Context Protocol (context for vertical vs horizontal) — https://modelcontextprotocol.io *[refresh]*
+- LinkedIn, “Prohibited software and extensions” — https://www.linkedin.com/help/linkedin/answer/a1341387
+- Indeed, Developer Agreement — https://docs.indeed.com/legal-terms/developer-agreement
 
 *Label partner-count headlines (“50+,” “60+,” “150+”) as time-stamped and *[refresh]* them from primary pages. Do not treat secondary roundups as primary sources for governance claims — prefer LF, a2a-protocol.org, Google Cloud, and Coinbase.*

@@ -1,6 +1,6 @@
 # `.claude/` — Claude Code project config
 
-**Human-readable map:** [docs/phase-00/STARTER-KIT.md](../docs/phase-00/STARTER-KIT.md) — what each **slash-invoked skill**, **background skill**, and **agent** is for.
+**Human-readable map:** [docs/phases/00/STARTER-KIT.md](../docs/phases/00/STARTER-KIT.md) — what each **slash-invoked skill**, **background skill**, and **agent** is for.
 
 ## Slash-invoked skills
 

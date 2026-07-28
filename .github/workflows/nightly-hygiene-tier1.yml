@@ -1,0 +1,30 @@
+name: Nightly hygiene (Tier 1)
+
+on:
+  schedule:
+    # 06:00 US Central (UTC-5) on weekdays — cron is UTC
+    - cron: "0 11 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Curriculum structure
+        run: ./scripts/verify-curriculum-structure.sh
+
+      - run: npm run build
+
+      - run: npm test

@@ -9,7 +9,7 @@ description: Review a provided intention file or create a new one — outputs a 
 
 When the user runs this command:
 
-1. **If they provide a file path** (e.g. `/intention docs/phase-01/intention-quickbooks-killer.md`):
+1. **If they provide a file path** (e.g. `/intention docs/phases/01/intention-quickbooks-killer.md`):
    - Read that file.
    - Walk through it with the user: Is the "Why" clear? Is "Who it's for" specific enough? Are the Demo-grade minimums achievable in the time budget? Are the out-of-scope items explicit enough?
    - Help them **restate, tighten, or extend** — not replace from scratch unless they ask.
@@ -26,24 +26,24 @@ When the user runs this command:
 
 ## Phase 00 intention files
 
-- `docs/phase-00/intention-monorepo.md` — Turbo monorepo
-- `docs/phase-00/intention-http-workspace.md` — Track A
-- `docs/phase-00/intention-team-wiki.md` — Track B
-- `docs/phase-00/intention-pipeline-crm.md` — Track C
-- `docs/phase-00/intention-ops-pulse.md` — Track D
+- `docs/phases/00/intention-monorepo.md` — Turbo monorepo
+- `docs/phases/00/intention-http-workspace.md` — Track A
+- `docs/phases/00/intention-team-wiki.md` — Track B
+- `docs/phases/00/intention-pipeline-crm.md` — Track C
+- `docs/phases/00/intention-ops-pulse.md` — Track D
 
 ## Phase 01 intention files
 
-- `docs/phase-01/intention-quickbooks-killer.md` — Web A
-- `docs/phase-01/intention-trello-killer.md` — Web B
-- `docs/phase-01/intention-twitter-killer.md` — iOS A
-- `docs/phase-01/intention-facebook-killer.md` — iOS B
+- `docs/phases/01/intention-quickbooks-killer.md` — Web A
+- `docs/phases/01/intention-trello-killer.md` — Web B
+- `docs/phases/01/intention-twitter-killer.md` — iOS A
+- `docs/phases/01/intention-facebook-killer.md` — iOS B
 
 ## Example usage
 
 ```
-/intention docs/phase-00/intention-monorepo.md
-/intention docs/phase-01/intention-quickbooks-killer.md
+/intention docs/phases/00/intention-monorepo.md
+/intention docs/phases/01/intention-quickbooks-killer.md
 /intention "a habit tracking app"
 ```
 

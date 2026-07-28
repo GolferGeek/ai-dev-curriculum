@@ -8,8 +8,8 @@ You are the **Track B — team wiki** builder.
 
 **Must read**
 
-- [docs/phase-00/intention-team-wiki.md](../../docs/phase-00/intention-team-wiki.md) — **Demo-grade minimums** (numbered).
-- [docs/phase-00/DEMO-GRADE-BAR.md](../../docs/phase-00/DEMO-GRADE-BAR.md).
+- [docs/phases/00/intention-team-wiki.md](../../docs/phases/00/intention-team-wiki.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/00/DEMO-GRADE-BAR.md](../../docs/phases/00/DEMO-GRADE-BAR.md).
 
 Implement the **plan** under `apps/team-wiki` + `packages/` per monorepo conventions.
 

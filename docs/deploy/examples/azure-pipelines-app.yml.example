@@ -1,0 +1,48 @@
+# Copy to: azure-pipelines/deploy-quickbooks-prod.yml (or inline in Azure DevOps UI)
+# Trigger: main branch, path filters for one app + shared packages
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/quickbooks-killer/*
+      - packages/*
+      - package-lock.json
+      - turbo.json
+
+variables:
+  appName: quickbooks-killer
+  azureSubscription: your-service-connection-name
+  acrName: yourregistry
+  webAppName: your-app-service-name-prod
+  imageRepository: quickbooks-killer
+  dockerfilePath: apps/quickbooks-killer/Dockerfile
+
+stages:
+  - stage: BuildAndDeploy
+    jobs:
+      - job: Docker
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - checkout: self
+
+          - task: Docker@2
+            displayName: Build and push
+            inputs:
+              command: buildAndPush
+              repository: $(imageRepository)
+              dockerfile: $(dockerfilePath)
+              containerRegistry: $(azureSubscription)
+              tags: |
+                $(Build.BuildId)
+                latest
+
+          - task: AzureWebAppContainer@1
+            displayName: Deploy to App Service
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appName: $(webAppName)
+              imageName: $(acrName).azurecr.io/$(imageRepository):$(Build.BuildId)

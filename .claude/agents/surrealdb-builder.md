@@ -9,7 +9,7 @@ You are the **SurrealDB builder** for this curriculum's SaaS apps.
 **Must read**
 
 - The active **intention** and **plan** for the SaaS killer being built.
-- [docs/phase-01/README.md](../../docs/phase-01/README.md) — phase-01 context.
+- [docs/phases/01/README.md](../../docs/phases/01/README.md) — phase-01 context.
 
 **Responsibilities**
 

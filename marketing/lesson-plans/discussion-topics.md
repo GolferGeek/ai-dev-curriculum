@@ -16,7 +16,7 @@
 
 | Phase | Primary discussions |
 |-------|---------------------|
-| **00** | Harness engineering · Memory / instruction passport · Shadow AI & plan tiers · Seed model routing · Parallel sessions & burn · SMB operating-model sketch |
+| **00** | Harness engineering · Memory / instruction passport · Shadow AI & plan tiers · Seed model routing · **New trade-off (plant)** · Parallel sessions & burn · SMB operating-model sketch |
 | **01** | Corporate context layers (incl. brand) · Human decision boundaries · Secrets & trust · Hooks / policy-as-code (intro) |
 | **02** | Comprehension debt & review economics · Living standards · Observability of agent work · Parallel cost discipline |
 | **03** | Spec as durable asset (brownfield) · Promote findings → rules · Day-2 safety for *their* repo |
@@ -61,7 +61,7 @@
 #### D00-2 — Where memory lives (instruction passport) (~20–25 min)
 **Land:** Two kinds of memory — **instructions you write** (shareable) vs **auto-memories the tool writes** (usually personal). Team truth lives in git or org-enforced policy.
 
-**Cheat sheet (refresh paths before class)**
+**Cheat sheet (refresh paths before class)** — full map: [Guardrails G2 — Harness instruction layers](../../docs/guardrails/02-harness-instruction-layers.md)
 
 | Harness | Team / shared instructions | Personal / auto |
 |---------|---------------------------|-----------------|
@@ -99,7 +99,7 @@
 - What % of agent actions this morning were “list files / read / lint” vs “design architecture”?
 - If the harness routed those for you tomorrow, what policy would you want written down *now*?
 
-**Defer deep dive to Phase 06** — here just plant the cost barbell.
+**Defer deep dive to Phase 06** — here just plant the routing / cost seed.
 
 ---
 
@@ -130,6 +130,19 @@
 
 **Revisit on Day 5** with their filled-in version.
 
+---
+
+#### D00-7 — The new trade-off (plant only) (~7–10 min)
+**Land:** **Nothing comes without a trade-off.** Build got fast on scoped slices; **staying current on harnesses and models is exhausting**, not merely tiring. The three guardrails that do not shrink: **standards** (stack, company, project), **correctness**, **proof** (tested). That work is **constant pruning** + **periodic upheaval** when the terrain jumps.
+
+**Do not deep-dive here.** Full script in [TEACHING.md](../../docs/phases/00/TEACHING.md) cadence conversation Beat B. The **guardrails module** (quality gates, decision boundaries, living standards in the repo, monitor/harden) is the next thread — Phase 02 and adoption kit 04–05.
+
+**Talk prompts**
+- What got cheaper for you this year? What got harder?
+- Which of the three guardrails is already written down where you work?
+
+**Hand off:** “We’ll bracket the work today. Guardrails — how you make pruning and upheaval survivable — is where we go next.”
+
 ### Optional (Phase 00)
 - Spec/intention as durable asset (preview — full weight in 03/05)
 - Extending agents beyond engineering (preview — Day 5)
@@ -138,9 +151,35 @@
 
 # Phase 01 — Real apps (auth + data)
 
-*Longer build (~45–60 min). Best day for **corporate context** and **decision boundaries**.*
+*Longer build (~60–90 min). Act I = SaaS Killers economics; Act II = vibe coding vs engineering + auth lab.*
 
 ### Primary
+
+#### D01-0 — SaaS Killers & the moving port (~20–25 min)
+**Land:** SaaS traded custom build for subscription; dev bench shrank; **scoped AI build reopens** narrow tools. David vs Goliath; **port keeps moving** — carriers can't turn. Not "SaaS is dead" — **buy vs build-for-fit** inverted for internal slices.
+
+**Talk prompts**
+- What subscription almost fits — but not quite?
+- What would you build if build cost were a morning, not a quarter?
+
+**Cite *(refresh)*:** Retool 35% replaced SaaS; Thomson Reuters / Claude Cowork Legal (Feb 2026).
+
+**Instructor script:** [TEACHING.md](../../docs/phases/01/TEACHING.md#act-i--saas-killers-deliver-from-lesson-plan-0) · [lesson plan §0](phase-01.md).
+
+---
+
+#### D01-0b — Vibe coding vs vibe engineering (~15–20 min)
+**Land:** Lovable/Replit path is **real** and platforms **add guardrails** — still not this course. We build **inspectable auth** + second-user proof in **your monorepo**.
+
+**Talk prompts**
+- Have you vibe-coded something that looked done but wasn't?
+- What's the difference between platform RLS and **your** SurrealDB scopes?
+
+**Tie to lab:** Predict auth weaknesses before `/run-plan`.
+
+**Cite:** Willison vibe engineering — https://simonwillison.net/2025/Oct/7/vibe-engineering/
+
+---
 
 #### D01-1 — Corporate context layers (~25–30 min)
 **Land:** Agents only behave like “your company” if company knowledge is structured and loadable. Brand and GTM are not decoration — they are **context**.
@@ -164,7 +203,20 @@
 
 ---
 
-#### D01-2 — Human decision boundaries (~20 min)
+#### D01-2 — Auth breach live (~20–25 min, closing)
+**Land:** Phase 01 **is** the auth-and-data chain. Create user A and B; try to break isolation. Base44/Lovable class failures — or relief when it holds.
+
+**Talk prompts**
+- What would you refuse to ship even if the UI looks fine?
+- Where is the trust boundary — middleware, server action, DB scope?
+
+**Tie to lab:** [RUN-ORDER.md](../../docs/phases/01/RUN-ORDER.md) Part B steps 9–12 · [VERIFY.md](../../docs/phases/01/VERIFY.md).
+
+**Instructor script:** [TEACHING.md](../../docs/phases/01/TEACHING.md#reflect--auth-breach-test-the-bulk-of-the-lesson)
+
+---
+
+#### D01-3 — Human decision boundaries (~20 min)
 **Land:** Autonomy is a ladder. Agents may explore; may edit under review; may **not** touch prod, spend money, or ship without a human. Same mental model as AP2 mandates (Phase 04) — **authorize before act**.
 
 **Talk prompts**
@@ -175,7 +227,7 @@
 
 ---
 
-#### D01-3 — Secrets, trust boundaries, and context hygiene (~15–20 min)
+#### D01-4 — Secrets, trust boundaries, and context hygiene (~15–20 min)
 **Land:** Speed ships breaches. Context windows are not vaults. `.env`, customer PII, and prod credentials never belong in Memories or casual chat.
 
 **Talk prompts**
@@ -224,6 +276,17 @@
 **Talk prompts**
 - What evidence would you show a customer or auditor that the change was reviewed?
 - Where does agent activity need to show up in *your* existing tools (GitHub, Linear, Slack)?
+
+#### D02-4 — Nightly hygiene (GitHub Actions + agents) (~15–20 min)
+**Land:** The **closing bracket** does not only run when a human is at the keyboard. Tier 1 cron proves build · lint · test; Tier 2 opens a **maintenance PR** after scan/fix/monitor/harden — humans still merge.
+
+**Talk prompts**
+- What would you let a nightly bot fix without asking? What is always human-only?
+- Who owns the workflow YAML and API spend when the cron runs headless?
+
+**Secondary-window:** Open [docs/github/README.md](../../docs/github/README.md); enable Pages; run Tier 1 workflow manually.
+
+**Skill:** `/nightly-hygiene` — local rehearsal before automation. **Handbook:** [docs/github/actions-and-agents.md](../../docs/github/actions-and-agents.md). **Instructor slotting:** [TEACHING.md](../../docs/phases/02/TEACHING.md#scheduled-hygiene--the-closing-bracket-on-a-cron-2030-min).
 
 ### Optional (Phase 02)
 - Parallel agents & burn (revisit with quality lens: “cheaper model for lint fixer?”)
@@ -284,17 +347,39 @@
 
 ---
 
-#### D04-2 — Multi-agent coordination (industry direction) (~15–20 min)
-**Land:** Single-agent demos → coordinated teams of agents (Anthropic agentic trends, Forrester agentic SDLC). Your dashboard is a miniature of that future. *[refresh trend report]*
+#### D04-2 — The next business interface (~25–35 min)
+**Land:** Every company will need to become deliberately reachable by agents representing customers, candidates, suppliers, and partners. Clean Markdown is the first rung; delegated business relationships are the destination.
 
 **Talk prompts**
 - Where would *your* company publish an Agent Card?
-- What must stay human-orchestrated for the next 12 months?
+- What could an outside agent discover without permission?
+- What could your company agent promise or purchase?
+- What must stay human-orchestrated?
 
 ---
 
-#### D04-3 — Observability on the wire (~10–15 min)
-**Land:** Explore mode = verification for agent systems. Same barbell back-end as Playwright for UIs.
+#### D04-3 — MCP tools versus A2A counterparties (~15–20 min)
+**Land:** MCP equips an agent; A2A connects independent actors. The distinction is delegated agency, not one-way versus two-way traffic.
+
+**Talk prompts**
+- Is the remote system a capability you invoke or a counterparty you engage?
+- When does a long-running tool call become delegated agent work?
+- What internal tools should an A2A agent keep opaque?
+
+---
+
+#### D04-4 — Reputation, fan-out, and recipient attention (~20–25 min)
+**Land:** Near-zero-cost outreach can destroy an agent-native market. Reward fit, evidence, consent, and respect for boundaries—not raw activity.
+
+**Talk prompts**
+- What should happen to an agent that submits 480 low-fit requests?
+- Which signals measure relevance without punishing people in difficult markets?
+- Should reputation belong to the principal, agent, provider, or credential?
+
+---
+
+#### D04-5 — Observability on the wire (~10–15 min)
+**Land:** Explore mode = verification for agent systems. Same **closing bracket** as Playwright for UIs.
 
 **Talk prompts**
 - Can someone narrate one JSON-RPC exchange without jargon?
@@ -401,7 +486,7 @@
 ### Primary
 
 #### D-CLOSE-1 — Assemble the SMB AI development program (~30–40 min)
-**Land:** Fill the seven-piece sketch from D00-6 with *their* names, tools, and owners. This is the course’s business deliverable. Use the [adoption kit](../adoption-kit/README.md) — one fill-in template per piece.
+**Land:** Fill the ten-piece operating model with *their* names, tools, paths, boundaries, and owners. This is the course’s business deliverable. Use the [adoption kit](../adoption-kit/README.md) — one fill-in template per piece.
 
 **Working agenda**
 1. Harness + plan tier decision  
@@ -433,7 +518,7 @@
 | Phase | While the machine runs, prefer… |
 |-------|----------------------------------|
 | 00 | D00-1, D00-2, D00-4 (seed), D00-5 |
-| 01 | D01-1, D01-2, D01-3 |
+| 01 | D01-0, D01-0b, D01-1, D01-2 (auth breach), D01-3, D01-4 |
 | 02 | D02-1, D02-2, D02-3 |
 | 03 | D03-1, D03-2, D03-3 |
 | 04 | D04-1, D04-2, D04-3 |
@@ -465,7 +550,7 @@ Pull current versions before teaching; themes are stable:
 | Doc | Role |
 |-----|------|
 | [phase-XX.md](./README.md) | What you **talk about** for that phase’s tech thesis |
-| [docs/phase-00/TEACHING.md](../../docs/phase-00/TEACHING.md) | Room mechanics, predict-then-compare |
+| [docs/phases/00/TEACHING.md](../../docs/phases/00/TEACHING.md) | Room mechanics, predict-then-compare |
 | **This file** | Cross-cutting **business / harness / org** discussions, slotted by phase |
 | Per-phase RUN-ORDER | What to type |
 

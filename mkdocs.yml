@@ -1,0 +1,57 @@
+site_name: AI Dev Curriculum
+site_description: GolferGeek AI development curriculum — phases, operating model, GitHub guardrails
+site_url: https://golfergeek.github.io/ai-dev-curriculum/
+repo_url: https://github.com/GolferGeek/ai-dev-curriculum
+repo_name: GolferGeek/ai-dev-curriculum
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: green
+      accent: green
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Phases:
+    - Overview: phases/README.md
+    - "00 — First build": phases/00/README.md
+    - "02 — Quality": phases/02/README.md
+  - Operating model: MONOREPO-OPERATING-MODEL.md
+  - Project portfolio: projects/README.md
+  - Deploy examples: deploy/README.md
+  - Checklists:
+    - Overview: checklists/README.md
+    - "00 — High-level": checklists/00-high-level.md
+    - "01 — Your monorepo": checklists/01-your-monorepo-on-github.md
+    - "02 — Actions + skills": checklists/02-github-actions-and-skills.md
+    - "03 — Turbo → Nx (optional)": checklists/03-turbo-to-nx.md
+    - "04 — Deploy apps (Docker + cloud)": checklists/04-deploy-apps-docker-cloud.md
+  - AI program: ai-program/README.md
+  - GitHub guardrails:
+    - Handbook: github/README.md
+    - Repo hardening: github/hardening.md
+    - GitHub Pages: github/pages.md
+    - Actions + agents: github/actions-and-agents.md
+  - Instruction guardrails:
+    - Overview: guardrails/README.md
+    - "G2 — Harness layers (Claude · Cursor · Codex)": guardrails/02-harness-instruction-layers.md
+  - Pre-class setup: pre-class-setup.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+plugins:
+  - search

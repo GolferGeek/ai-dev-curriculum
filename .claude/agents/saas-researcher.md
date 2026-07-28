@@ -23,5 +23,5 @@ You are the **SaaS research agent** for phase-01.
 
 **Output**
 
-- A draft or refined **intention file** ready for `docs/phase-01/` or `docs/artifacts/`.
+- A draft or refined **intention file** ready for `docs/phases/01/` or `docs/artifacts/`.
 - Scope risks or trade-offs the learner should consider before `/prd`.

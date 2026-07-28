@@ -13,13 +13,13 @@ agent() { need ".claude/agents/$1.md"; }
 
 # ---- Phase 00 (always required) ----
 for f in \
-  docs/phase-00/STARTER-KIT.md \
-  docs/phase-00/README.md \
-  docs/phase-00/intention-monorepo.md \
-  docs/phase-00/PREREQUISITES.md \
-  docs/phase-00/RUN-ORDER.md \
-  docs/phase-00/VERIFY.md \
-  docs/phase-00/DEMO-GRADE-BAR.md \
+  docs/phases/00/STARTER-KIT.md \
+  docs/phases/00/README.md \
+  docs/phases/00/intention-monorepo.md \
+  docs/phases/00/PREREQUISITES.md \
+  docs/phases/00/RUN-ORDER.md \
+  docs/phases/00/VERIFY.md \
+  docs/phases/00/DEMO-GRADE-BAR.md \
   CLAUDE.md \
   ; do need "$f"; done
 
@@ -29,25 +29,38 @@ for a in monorepo-builder app-builder-http-workspace app-builder-team-wiki \
          app-builder-pipeline-crm app-builder-ops-pulse; do agent "$a"; done
 
 # ---- Phase 01 (only if present at this checkout) ----
-if [[ -d docs/phase-01 ]]; then
+if [[ -d docs/phases/01 ]]; then
   for f in \
-    docs/phase-01/README.md docs/phase-01/DEMO-GRADE-BAR.md \
-    docs/phase-01/PREREQUISITES.md docs/phase-01/RUN-ORDER.md \
-    docs/phase-01/intention-quickbooks-killer.md docs/phase-01/intention-trello-killer.md \
-    docs/phase-01/intention-twitter-killer.md docs/phase-01/intention-facebook-killer.md \
+    docs/phases/01/README.md docs/phases/01/DEMO-GRADE-BAR.md \
+    docs/phases/01/PREREQUISITES.md docs/phases/01/RUN-ORDER.md \
+    docs/phases/01/intention-quickbooks-killer.md docs/phases/01/intention-trello-killer.md \
+    docs/phases/01/intention-twitter-killer.md docs/phases/01/intention-facebook-killer.md \
     ; do need "$f"; done
   for s in research test-browser surrealdb nextjs-saas ios-swiftui; do skill "$s"; done
   for a in surrealdb-builder nextjs-saas-builder ios-builder saas-researcher; do agent "$a"; done
 fi
 
 # ---- Phase 02 (only if present at this checkout) ----
-if [[ -d docs/phase-02 ]]; then
-  for f in docs/phase-02/README.md docs/phase-02/RUN-ORDER.md; do need "$f"; done
+if [[ -d docs/phases/02 ]]; then
+  for f in docs/phases/02/README.md docs/phases/02/RUN-ORDER.md; do need "$f"; done
   for s in scan-errors fix-errors monitor harden commit pr-eval \
            web-architecture ios-architecture data-architecture \
            pr-requirements quality-gates; do skill "$s"; done
   for a in error-scanner error-fixer arch-monitor arch-hardener \
            commit-agent pr-evaluator; do agent "$a"; done
+fi
+
+# ---- Phase 06 (only if present at this checkout) ----
+if [[ -d docs/phases/06 ]]; then
+  for f in \
+    docs/phases/06/README.md docs/phases/06/OVERVIEW.md \
+    docs/phases/06/PREREQUISITES.md docs/phases/06/COMMANDS.md \
+    docs/phases/06/STARTER-KIT.md docs/phases/06/RUN-ORDER.md \
+    docs/phases/06/TALKING-POINTS.md docs/phases/06/TEACHING.md \
+    docs/phases/06/DEMO-GRADE-BAR.md docs/phases/06/VERIFY.md \
+    marketing/lesson-plans/phase-06.md \
+    marketing/decks/phase-06-model-evaluation.pptx \
+    ; do need "$f"; done
 fi
 
 # Cursor alignment (only if this checkout ships .cursor/)

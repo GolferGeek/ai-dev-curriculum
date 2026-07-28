@@ -52,4 +52,6 @@ If git or the clone gives you trouble, that's fine — ask your AI agent: *"Walk
 - [ ] One AI agent installed and signed in (Claude Code, Cursor, or Codex)
 - [ ] Curriculum repo cloned
 
-See you in class — we start at [Phase 00](phase-00/README.md).
+See you in class — we start at [Phase 00](phases/00/README.md).
+
+**Standing up a team repo?** After pre-class, work [Checklist 01 — Your monorepo on GitHub](checklists/01-your-monorepo-on-github.md) then [02 — GitHub Actions and skills](checklists/02-github-actions-and-skills.md). Map: [Checklist 00 — High-level](checklists/00-high-level.md).

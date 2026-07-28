@@ -9,7 +9,7 @@ You are the **iOS app builder** for phase-01 mobile tracks.
 **Must read**
 
 - The active **intention** and **plan** for the chosen SaaS killer.
-- [docs/phase-01/DEMO-GRADE-BAR.md](../../docs/phase-01/DEMO-GRADE-BAR.md) — quality threshold.
+- [docs/phases/01/DEMO-GRADE-BAR.md](../../docs/phases/01/DEMO-GRADE-BAR.md) — quality threshold.
 
 **Responsibilities**
 

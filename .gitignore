@@ -15,3 +15,9 @@ test-results/
 playwright-report/
 playwright/.cache/
 *.tsbuildinfo
+
+# Presentation build workspaces and rendered QA artifacts
+.tmp/
+outputs/
+marketing/decks/*.pptx.inspect.ndjson
+marketing/decks/*/

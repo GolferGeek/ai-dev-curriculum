@@ -1,8 +1,8 @@
 # Phase 03 — Lesson Plan
 
-*The **content** you deliver for Phase 03. Room mechanics are shared with [Phase 00's TEACHING.md](../../docs/phase-00/TEACHING.md); exact steps are in [docs/phase-03/README.md](../../docs/phase-03/README.md) and [RUN-ORDER.md](../../docs/phase-03/RUN-ORDER.md). This is what you **talk about**.*
+*The **content** you deliver for Phase 03. Room mechanics are shared with [Phase 00's TEACHING.md](../../docs/phases/00/TEACHING.md); exact steps are in [docs/phases/03/README.md](../../docs/phases/03/README.md) and [RUN-ORDER.md](../../docs/phases/03/RUN-ORDER.md). This is what you **talk about**.*
 
-**Session arc:** Intro lecture → Choose the codebase & the questions → Run the research tools (they run) → Closing discussion. Phase 03 is the pivot from *greenfield* (building new) to *brownfield* (understanding what already exists) — and it's the bridge to Day 5, where the codebase is *theirs*.
+**Session arc:** Intro lecture → Connect investigation to Phase 02 guardrails → Choose the codebase and questions → Open investigation lab → Build project memory → Promote one finding → Return session. Phase 03 is the pivot from *greenfield* to *brownfield* and from one-time understanding to a self-improving development system.
 
 > **Instructor refresh:** *[refresh]* markers flag time-sensitive claims. Citations are at the bottom; vendor/consultancy claims (Sourcegraph, IBM, McKinsey) are labeled — lean on the practitioner anchors (Willison, Orosz, Böckeler/Thoughtworks, Cognition/Devin data).
 
@@ -29,6 +29,8 @@ The research toolkit — read-first skills that build understanding without touc
 1. **Brownfield is the real job, and it's a different skill.** Generating new code is easy; safely changing an existing system means *understanding it first* — and that's what these tools accelerate.
 2. **AI is senior at understanding, junior at execution.** Point the tools at comprehension (map it, explain it, find the risk) before you let them change anything.
 3. **Understand → then decide what *not* to touch.** The output of research isn't a change; it's judgment about where change is safe. This is the discipline that protects production code.
+4. **Understanding must become durable memory.** A report that disappears into chat helps once. A reviewed map, decision, skill, or risk note helps every future developer and agent.
+5. **Phase 02 and Phase 03 form a loop.** Guardrails encode known expectations. Investigation finds missing knowledge, verifies it, and promotes mature findings into better guardrails.
 
 ### 1c. Why those points are important
 
@@ -53,7 +55,36 @@ The research toolkit — read-first skills that build understanding without touc
 
 ---
 
-## 2. Choose the codebase & the questions (the walk-through)
+## 2. The reciprocal loop — guardrails need memory
+
+Phase 02 made proposed changes prove themselves. But a quality system can enforce only what the organization already knows how to express. Phase 03 discovers what the quality system does not yet know.
+
+Teach the cycle:
+
+1. Ask questions about the system.
+2. Select verified answers worth remembering.
+3. Update memory when new questions, changes, incidents, and decisions occur.
+4. Use Git history to confirm, qualify, or repair the memory.
+5. Promote mature findings into documentation, agent guidance, tests, CI, or merge policy.
+6. Let those improved guardrails evaluate future changes.
+7. Learn from the next surprise and begin again.
+
+**Land:** *The codebase should understand itself better after every investigation.*
+
+### Memory has maturity levels
+
+| Level | Meaning | Home |
+|---|---|---|
+| Observation | Evidence from this investigation | Research report |
+| Explanation | Durable account of how the system works | Architecture/onboarding/project memory |
+| Expectation | Practice the team wants future work to follow | Quality contract or PR requirements |
+| Enforcement | Mature rule that can safely block work | Test, CI, architecture rule, merge policy |
+
+Do not jump from one agent observation to a hard organizational gate. Promotion requires evidence, known scope, ownership, and an understanding of false-positive risk.
+
+---
+
+## 3. Choose the codebase and questions
 
 There's no app-intention here. The analog is **the codebase and the questions you bring to it.** Use the curriculum repo itself, or a sanitized real one.
 
@@ -61,22 +92,82 @@ There's no app-intention here. The analog is **the codebase and the questions yo
 - **Sequence the tools** the way you'd onboard: `/ingest` for the shape, `/map` for the flows and auth edges, `/security-scan` for the risks, `/git-story` for where the bodies are buried, `/improve` for the debt. Each answers a different onboarding question.
 - **Predict before you run:** "Which file will `/git-story` flag as the churn hotspot? Where will `/map` say the auth boundary is?" Write the guesses down.
 
-> **Day-2 safety note:** this is where [day2-prep](../../docs/phase-03/README.md) matters — on a *real* repo, these are read-first tools; you understand and propose before you touch. Say that out loud.
+Give learners question families, then require at least one repository-specific question:
+
+- **Architecture:** Where does execution begin? Where do business rules live? Which dependencies violate intended boundaries?
+- **Data and trust:** Where does customer data enter, persist, and leave? Where are user, role, and tenant checks enforced?
+- **Testing:** Which critical paths have meaningful behavioral proof? Is API/web/worker coverage consistent and complete?
+- **Git and process:** What process does history show? Which files churn or change together? Do documented standards match actual practice?
+- **Operations:** What fails silently? What is reversible? Which areas lack observability or ownership?
+- **Change safety:** What would you refuse to touch? What is the safest useful first assignment for a new contractor or agent?
+
+> **Day-2 safety note:** this is where [day2-prep](../../docs/phases/03/README.md) matters — on a *real* repo, these are read-first tools; you understand and propose before you touch. Say that out loud.
 
 ---
 
-## 3. Run the research tools (they run — keep teaching)
+## 4. Open Codebase Investigation Lab
 
-Run the skills against the target repo. They produce reports, not changes. **Nobody watches the scroll** — use the window for the brownfield material in 1e, the "senior at understanding, junior at execution" point, and Phase 03 talks in [discussion-topics.md](discussion-topics.md) (durable understanding, promote findings → rules, Day-2 safety). Steps: [RUN-ORDER.md](../../docs/phase-03/RUN-ORDER.md).
+Learners choose either mode.
+
+### Team mode
+
+Groups select one repository, agree on the questions, then divide architecture, data/security, testing, Git/process, and operations lenses. They work in parallel and rejoin to reconcile contradictions into one system story.
+
+### Individual mode
+
+Learners select an authorized internal, sanitized, public GitHub, or course-provided repository and own the investigation end-to-end.
+
+Both modes:
+
+1. Record five to ten questions and three predictions.
+2. Run the standard tools for orientation.
+3. Pursue one unique question.
+4. Challenge one confident AI conclusion manually.
+5. Select and classify findings worth remembering.
+6. Use `/author-agent` to create one investigation or memory skill.
+7. Update one durable memory artifact.
+8. Propose one finding for promotion into a Phase 02 guardrail.
+
+The custom skill should state its question, evidence, prohibited assumptions, uncertainty format, output, and verification method. Good candidates include Git-process audit, API consistency, coverage completeness, authorization mapping, migration risk, ownership, observability, business-rule location, documentation drift, project-memory refresh, or finding promotion.
+
+### Safety line
+
+Authorized repositories and approved services only. No secrets, customer data, or prohibited code in prompts. Research branch. Read-first. When policy is uncertain, use a public repository.
 
 ---
 
-## 4. Closing discussion — "Do we actually understand this system now?"
+## 5. Run the research tools (they run — keep teaching)
+
+Run the skills against the target repo. They produce reports, not changes. **Nobody watches the scroll** — use the window for the brownfield material in 1e, the "senior at understanding, junior at execution" point, and Phase 03 talks in [discussion-topics.md](discussion-topics.md) (durable understanding, promote findings → rules, Day-2 safety). Steps: [RUN-ORDER.md](../../docs/phases/03/RUN-ORDER.md).
+
+---
+
+## 6. Build memory and promote carefully
+
+Ask each learner or group:
+
+- What changed in our understanding?
+- What evidence supports it?
+- What prior statement did it confirm, qualify, or replace?
+- What remains uncertain?
+- What future change should trigger revalidation?
+- Who can confirm or own it?
+
+Then choose one finding and decide whether it should remain an observation, become an explanation, become an expectation, or mature into enforcement.
+
+**Example:** repeated authorization regressions → documented inconsistency → expectation that every tenant-data route proves ownership → authorization contract tests in the high-risk PR profile.
+
+---
+
+## 7. Return session — "Did the repository learn?"
 
 - **Prediction vs. reality.** Did the churn hotspot, the auth boundary, the riskiest file land where the room guessed? What surprised you?
 - **Read the map like a new hire.** Could someone who'd never seen this repo now explain how data flows through it? That's the deliverable — understanding, not a change.
 - **What would you *not* touch?** Push them to name the parts where change is risky. Judgment about safe entry points *is* the skill.
 - **Capture it (`/author-agent`).** Turn what you just learned about this codebase into a reusable custom agent/skill — Anthropic's own guidance is to have the agent capture its successful approaches and common mistakes into a skill. This is the literal Day-2 bridge: your team's knowledge, encoded and committed with the repo.
+- **Repair the memory.** What did Git history, a contradiction, or a manually checked claim force you to update?
+- **Improve the guardrails.** Which verified finding should feed Phase 02, and why is it mature enough—or not mature enough—to enforce?
+- **Name the next question.** Better memory should create better questions, not the illusion that investigation is finished.
 - **Business connection.** "Imagine this is your production system Monday morning." That's tomorrow.
 
 ### What they must leave Phase 03 believing
@@ -84,6 +175,8 @@ Run the skills against the target repo. They produce reports, not changes. **Nob
 2. AI is strong at *comprehension*, weaker at *execution*; aim it accordingly and keep humans on risky changes.
 3. The output of research is *judgment about where change is safe*, not a change.
 4. Captured knowledge (a committed skill/agent) is how a team's understanding compounds instead of walking out the door.
+5. Project memory is maintained, not completed; code, Git history, incidents, and new questions continuously correct it.
+6. Investigation and quality engineering form a cycle: Phase 03 discovers and explains; Phase 02 enforces what has earned enforcement.
 
 ---
 

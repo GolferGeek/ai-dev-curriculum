@@ -1,8 +1,8 @@
 # Phase 05 — Lesson Plan
 
-*The **content** you deliver for Phase 05. Room mechanics are shared with [Phase 00's TEACHING.md](../../docs/phase-00/TEACHING.md); exact steps are in [docs/phase-05/README.md](../../docs/phase-05/README.md) and [RUN-ORDER.md](../../docs/phase-05/RUN-ORDER.md). This is what you **talk about**.*
+*The **content** you deliver for Phase 05. Room mechanics are shared with [Phase 00's TEACHING.md](../../docs/phases/00/TEACHING.md); exact steps are in [docs/phases/05/README.md](../../docs/phases/05/README.md) and [RUN-ORDER.md](../../docs/phases/05/RUN-ORDER.md). This is what you **talk about**.*
 
-**Session arc:** Intro lecture → Intention walk-through → Build (it runs) → Closing discussion. Phase 05 connects the room to the **ecosystem**: the same `SKILL.md` format they've been using all week is now an open standard across competing tools — and they're going to build the “npm search” for it.
+**Session arc:** Intro lecture → Corporate skills program → Intention walk-through → Build and recurring scout → Evaluate candidates → Scope-policy discussion → Closing. Phase 05 turns ecosystem discovery into a repeatable scouting and governance practice.
 
 > **Instructor refresh:** skill counts, star counts, and “N tools adopt Skills” headlines go stale monthly. Prefer [agentskills.io](https://agentskills.io) and Anthropic's engineering post for load-bearing claims; re-count catalog sources before class. Citations at the bottom.
 
@@ -26,6 +26,8 @@ They've been *consuming* skills all week (architecture rules, protocol specs, qu
 1. **Skills are how expertise travels.** A good skill is an onboarding guide for an agent — procedural knowledge version-controlled next to the code, not trapped in one person's chat history.
 2. **Open format > proprietary prompt packs.** When Microsoft, OpenAI, Cursor, Copilot, Gemini CLI, and peers read the *same* `SKILL.md`, a skill you write once travels. That's the strategic bet — and it landed unusually fast.
 3. **Discovery and judgment are the missing products.** Thousands of skills exist; most teams can't search, preview, classify, or safely install them. The browser teaches the ecosystem *and* the review habit (don't install untrusted skills blindly).
+4. **A locator is not an approval system.** Discovery may be automatic; evaluation, scope, publication, maintenance, and retirement follow corporate policy.
+5. **Skills are behavioral dependencies.** Test triggers and collisions, pin reviewed revisions, preserve provenance, control authority, and measure outcomes.
 
 ### 1c. Why those points are important
 
@@ -55,6 +57,8 @@ Use one or two live; paraphrase and cite on screen.
 
 ## 2. The intention walk-through
 
+Before opening the intention, walk `docs/ai-program/skills/`: portfolio, scopes, scouting, evaluation, security, triggers/tests/context, provenance, publication, lifecycle, and outcomes. Show the paired `/skill-scout` and `/skill-evaluate` workflows.
+
 Open [intention-skills-browser.md](../../docs/artifacts/intention-skills-browser.md).
 
 ### What this app is
@@ -80,7 +84,7 @@ Read and critique. Predict: “How many sources will parse cleanly? Where will f
 - Drawing capability vs preference on the whiteboard
 - Security: “what would you check before installing a skill from a stranger?”
 
-Steps: [RUN-ORDER.md](../../docs/phase-05/RUN-ORDER.md).
+Steps: [RUN-ORDER.md](../../docs/phases/05/RUN-ORDER.md).
 
 ---
 
@@ -90,13 +94,17 @@ Steps: [RUN-ORDER.md](../../docs/phase-05/RUN-ORDER.md).
 - **Preview before copy.** Open full markdown. Any scripts? Any “call this URL”? Apply the Anthropic audit advice live.
 - **Maturity judgment.** Pick three skills and place them on the 1–5 ladder — disagreement is the lesson (judgment is the skill).
 - **Portability check.** “If your team switched from Claude Code to Cursor tomorrow, which of these still work?” (Answer: anything conforming to the open format.)
-- **Business connection.** “What preference skill would capture *your* team's standards by Friday?”
+- **Business connection.** "What preference skill would capture *your* team's standards by Friday?"
+- **Scope decision.** Personal experiment, project/team dependency, enterprise policy—or reject?
+- **Lifecycle.** Who owns it, what revision was reviewed, what triggers re-review, and how is it retired?
+- **Phase 05.5.** The static locator becomes a SurrealDB registry for shared evaluations, policy, installations, updates, and controlled publication.
 
 ### What they must leave Phase 05 believing
 1. Skills package procedural expertise so agents (and teams) can reuse it — onboarding guides for machines.
 2. An open `SKILL.md` standard means write-once, run-across-tools — vendor lock-in is optional.
 3. Discovery without judgment is how you import someone else's vulnerabilities; preview and audit before install.
 4. Preference skills are how institutional knowledge compounds inside the repo.
+5. A skills program scouts repeatedly, approves exact revisions, publishes at deliberate scopes, and keeps demanding evidence after adoption.
 
 ---
 

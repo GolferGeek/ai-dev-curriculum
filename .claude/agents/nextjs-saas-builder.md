@@ -9,7 +9,7 @@ You are the **Next.js SaaS app builder** for phase-01 web tracks.
 **Must read**
 
 - The active **intention** and **plan** for the chosen SaaS killer.
-- [docs/phase-01/DEMO-GRADE-BAR.md](../../docs/phase-01/DEMO-GRADE-BAR.md) — quality threshold.
+- [docs/phases/01/DEMO-GRADE-BAR.md](../../docs/phases/01/DEMO-GRADE-BAR.md) — quality threshold.
 - The SurrealDB package at `packages/surrealdb/` (or `packages/db/`) for connection and auth helpers.
 
 **Responsibilities**

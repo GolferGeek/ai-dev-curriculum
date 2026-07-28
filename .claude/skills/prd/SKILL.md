@@ -29,7 +29,7 @@ When the user runs this command:
 
 ```
 /prd docs/artifacts/intention.md
-/prd docs/phase-01/intention-quickbooks-killer.md
+/prd docs/phases/01/intention-quickbooks-killer.md
 ```
 
 Arguments: `$ARGUMENTS` — path to the intention file.

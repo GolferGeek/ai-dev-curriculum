@@ -8,8 +8,8 @@ You are the **Track C — pipeline CRM** builder.
 
 **Must read**
 
-- [docs/phase-00/intention-pipeline-crm.md](../../docs/phase-00/intention-pipeline-crm.md) — **Demo-grade minimums** (numbered).
-- [docs/phase-00/DEMO-GRADE-BAR.md](../../docs/phase-00/DEMO-GRADE-BAR.md).
+- [docs/phases/00/intention-pipeline-crm.md](../../docs/phases/00/intention-pipeline-crm.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/00/DEMO-GRADE-BAR.md](../../docs/phases/00/DEMO-GRADE-BAR.md).
 
 Implement the **plan**: enough **seed data**, **≥3 columns**, **move between stages** (drag preferred; document if you use a fallback), **record detail** with **appendable notes** and **filter/search**.
 

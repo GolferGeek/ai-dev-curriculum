@@ -1,6 +1,6 @@
 # Phase 00 — Lesson Plan
 
-*This is the **content** you deliver — the framing lecture, the industry context, the intention walk-through, and the closing synthesis. It pairs with two other docs: [TEACHING.md](../../docs/phase-00/TEACHING.md) is the room mechanics (timing, pause points, predict-then-compare), and [README.md](../../docs/phase-00/README.md)/[RUN-ORDER.md](../../docs/phase-00/RUN-ORDER.md) are the exact steps to type. This document is what you **talk about**.*
+*This is the **content** you deliver — the framing lecture, the industry context, the intention walk-through, and the closing synthesis. It pairs with: [OVERVIEW.md](../../docs/phases/00/OVERVIEW.md) (one-page learner anchor — share at open), [TEACHING.md](../../docs/phases/00/TEACHING.md) (room mechanics), and [README.md](../../docs/phases/00/README.md)/[RUN-ORDER.md](../../docs/phases/00/RUN-ORDER.md) (exact steps to type). This document is what you **talk about**.*
 
 **Session arc:** Intro lecture → Intention walk-through → Build (it runs) → Closing discussion. The build is short and mostly unattended; the intro and the closing discussion are where the hours go.
 
@@ -28,8 +28,8 @@ Name each piece, say what it is in a sentence, and say *why it's in the kit*:
 
 Three, in priority order:
 
-1. **The work barbells.** Building collapsed to under an hour, so effort moves to the two ends — **define well** and **verify hard**. The middle is now cheap.
-2. **The whole iteration loop collapses, not just the build.** A month of software was latency — meetings, prototypes, review cycles, hand-offs. Collapse the build and a stakeholder + two devs + a tester can define, build, react, and iterate *in one room, in a morning.*
+1. **Bracket the work.** For **small, well-scoped efforts**, the build middle collapsed from months to often under an hour — not every project, only work scoped small enough to finish and verify in one sitting. **Define** and **prove** bracket the build: `( intention ) · build · ( verify )`. A full application is many iterations of that pattern. The brackets didn't get lighter; the gap between them did.
+2. **The whole iteration loop collapses, not just the build — for scoped work.** A month of software was latency — meetings, prototypes, review cycles, hand-offs. Collapse the build on a **well-scoped slice** and a stakeholder + two devs + a tester can define, build, react, and iterate *in one room, in a morning* — not for every system they'll ever ship.
 3. **The model is fast, confident, and often wrong.** Your job for five days is to steer and verify, never to trust. Context is the game; bad output is almost always bad context, not a bad model.
 
 ### 1c. Why those points are important
@@ -63,7 +63,7 @@ Use one or two of these live; don't lecture the whole list. **Pull a current quo
 
 ## 2. The intention walk-through
 
-Now make it concrete. Open the phase's provided intention ([intention-monorepo.md](../../docs/phase-00/intention-monorepo.md) for Part A, then the chosen track's `intention-*.md` for Part B).
+Now make it concrete. Open the phase's provided intention ([intention-monorepo.md](../../docs/phases/00/intention-monorepo.md) for Part A, then the chosen track's `intention-*.md` for Part B).
 
 ### What this app is
 Say plainly what they're going to have at the end: a working monorepo, plus one real tool (mini-Postman, team wiki, pipeline CRM, or ops dashboard) — a credible product slice, not a hello-world.
@@ -75,18 +75,18 @@ This is the teaching payload of the section. Walk the intention and point at *wh
 - It defines **Demo-grade minimums** — an explicit contract for "done," which is what stops the agent from stopping at a single starter screen.
 - It scopes **data shapes, screens, and states** (including empty and error states) — so the agent doesn't guess and doesn't skip the unglamorous parts.
 
-The lesson to say out loud: **a good intention is the leverage.** The reason these builds come out well isn't a magic model — it's that someone did the upstream thinking. This is the barbell's front end, made visible.
+The lesson to say out loud: **a good intention is the leverage.** The reason these builds come out well isn't a magic model — it's that someone did the upstream thinking. This is the **opening bracket**, made visible.
 
 ### Why we don't rewrite the intentions
 Be explicit with the room: **these intentions are already tuned, and they work — so we read and critique them, we don't modify them.** In Phase 00 the intention is a "freebie" so they can focus on learning the pipeline and the judgment; they'll author their own starting in Phase 01. The exercise here is *reading an intention well enough to predict what it will produce* — which sets up the build.
 
-*(Hand off to the predict-then-compare mechanic in [TEACHING.md](../../docs/phase-00/TEACHING.md): before the build, have the room predict the screens, the data, and where it'll cut corners.)*
+*(Hand off to the predict-then-compare mechanic in [TEACHING.md](../../docs/phases/00/TEACHING.md): before the build, have the room predict the screens, the data, and where it'll cut corners.)*
 
 ---
 
 ## 3. The build (it runs — keep teaching)
 
-Kick off `/run-plan`. It finishes in well under an hour (a slice this size is often ~20 minutes). **Nobody watches the bar.** Because every tool in the kit runs more than one session at once, you can leave the build generating and keep teaching — or start a second track in parallel to contrast later. Use the window for leftover questions from the intro, and for Phase 00 talks in [discussion-topics.md](discussion-topics.md) (harness engineering, memory passport, shadow AI, seed model routing, SMB operating-model sketch). Steps to type: [RUN-ORDER.md](../../docs/phase-00/RUN-ORDER.md).
+Kick off `/run-plan`. For a **well-scoped slice** like this, it often finishes in under an hour (~20 minutes is common). **Nobody watches the bar.** Because every tool in the kit runs more than one session at once, you can leave the build generating and keep teaching — or start a second track in parallel to contrast later. Use the window for leftover questions from the intro, and for Phase 00 talks in [discussion-topics.md](discussion-topics.md) (harness engineering, memory passport, shadow AI, seed model routing, SMB operating-model sketch). Steps to type: [RUN-ORDER.md](../../docs/phases/00/RUN-ORDER.md).
 
 ---
 
@@ -96,15 +96,15 @@ The synthesis block. Every phase ends here, and it's where the learning consolid
 
 - **Prediction vs. reality.** Return to what the room predicted. What did the agent do that you called? Where did it cut exactly the corner you expected? What surprised you?
 - **The challenge pass, on real output.** Open the app. Does it meet each Demo-grade minimum? Make them point at the screen, not vibe it.
-- **Prove it runs** (`npm run build`, `npm run test`, then open it). Reinforce: a green chat message is not a passing test. This is the seed of Days 2–4.
+- **Prove it runs** — closing bracket in order: **`npm run build`** → lint → **`npm run test`** (unit + API/HTTP where applicable + Playwright e2e on first effort) → verify against demo-grade minimums → open in browser / `/test-browser`. A green chat message is still not a passing test.
 - **"Where was the leverage?"** Guide them to the answer: it was in the intention, not the prompt at build time. The fix for a weak build is upstream.
 - **"What does this change about how your team would work?"** Connect back to the month→morning thesis — now that they've felt it once, ask them to name a real backlog item this would unstick.
 
 ### What they must leave Phase 00 believing
 1. The pipeline — intention → PRD → plan → build — is the repeatable spine.
 2. Context is the game; the model is a fast, confident, unreliable engine.
-3. Verify the running software, never the transcript.
-4. The leverage is upstream, in defining the work well — that's the barbell's front end.
+3. Verify the running software, never the transcript — **build → lint → test → verify → browser**.
+4. The leverage is upstream, in defining the work well — that's the **opening bracket**.
 
 ---
 

@@ -4,7 +4,7 @@
 
 There are nearly 1,000 free Claude Code skills scattered across GitHub repos, community marketplaces, and Anthropic's own examples — but discovering them is painful. You have to browse multiple repos, read raw markdown files, and guess whether a skill is any good. The AI Daily Brief Skills Master Class defines 5 levels of skill maturity (Apprentice to Architect) and distinguishes capability skills (new functions) from preference skills (encoded workflows), but there's no tool that applies this framework to the ecosystem.
 
-We're building that tool. A browseable, searchable catalog of every free skill we can find — categorized, rated, and copyable.
+We're building that tool: a browseable, searchable, refreshable catalog from configured sources—categorized, provenance-aware, fully previewable, and ready for evidence-based evaluation.
 
 ## Who
 
@@ -26,7 +26,7 @@ A **Skills Browser** app (`apps/skills-browser/`) — a Next.js app that fetches
 | **anthropics/skills** | github.com/anthropics/skills | 17 | Official Anthropic skills with full SKILL.md content (skill-creator, pdf, docx, pptx, xlsx, algorithmic-art, mcp-builder, etc.) |
 | **AI Daily Brief master class** | play.aidailybrief.ai | 4 | researching-with-confidence, devils-advocate, morning-briefing, board-of-advisors |
 
-**Total: ~990+ skills from 5 sources**
+Counts are refreshed during each scouting run and displayed with source revision and timestamp; no total is treated as permanent.
 
 ### The catalog builder
 
@@ -35,7 +35,7 @@ A Node.js script (`scripts/fetch-skills.ts`) that:
 2. Parses YAML frontmatter from actual SKILL.md files where available
 3. Parses README markdown to extract skill entries from curated lists
 4. Auto-categorizes by level (1-5), category (15 categories), type (capability/preference), and coolness (1-5)
-5. Deduplicates, sorts, and produces `data/catalog.json`
+5. Deduplicates without erasing forks, diffs the prior run, and produces `data/catalog.json`
 6. Works offline after first fetch — cached data is sufficient
 
 ### The 5-level classification (from AI Daily Brief Skills Master Class)
@@ -71,7 +71,7 @@ A Node.js script (`scripts/fetch-skills.ts`) that:
 **Detail view (slide-over panel):**
 - Full SKILL.md rendered as formatted markdown with syntax-highlighted code blocks
 - File list if skill has supporting files
-- Copy SKILL.md button with clipboard toast
+- Evaluation action with personal/project/enterprise scope recommendation
 - View Source link to original GitHub URL
 - Install instructions
 
@@ -99,7 +99,7 @@ The catalog is **pre-built as static JSON** — no runtime API calls to GitHub. 
 - User accounts or saved favorites
 - Real-time GitHub API calls at runtime (use pre-built static catalog)
 - Skill installation automation (copy-paste is fine for the demo)
-- Rating/review system (coolness is auto-categorized, not user-generated)
+- Organizational publication and persistent shared policy (Phase 05.5)
 
 ## What we learned building this
 

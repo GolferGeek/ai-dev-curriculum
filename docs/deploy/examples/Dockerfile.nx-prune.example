@@ -1,0 +1,26 @@
+# Example: Next.js / Node app AFTER migrating to Nx (not Turbo prune)
+# Copy to: apps/quickbooks-killer/Dockerfile
+# Prereq: nx prune targets on project — see Nx "Deploying Node projects"
+#         https://nx.dev/docs/technologies/node/guides/deploying-node-projects
+#
+# CI should run BEFORE docker build:
+#   nx run quickbooks-killer:prune
+#   nx run quickbooks-killer:build
+# Or: nx run quickbooks-killer:prune --depends-on=build
+#
+# Build image from REPO ROOT:
+#   docker build -f apps/quickbooks-killer/Dockerfile .
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+
+# Nx prune output lives under the project's dist/ (package.json, lockfile, workspace_modules/)
+COPY apps/quickbooks-killer/dist/ ./
+
+RUN npm ci --omit=dev
+
+# Adjust for your framework output (Next standalone, etc.)
+EXPOSE 3100
+ENV PORT=3100
+CMD ["node", "server.js"]

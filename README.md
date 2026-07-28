@@ -17,10 +17,10 @@ After every phase checkout, open that phase's guide before doing anything else:
 ```bash
 # Example after starting Phase 01
 git checkout -b my-phase-01 phase-01
-# Then read docs/phase-01/README.md
+# Then read docs/phases/01/README.md
 ```
 
-The docs folders use zero-padded names: `docs/phase-00/README.md`, `docs/phase-01/README.md`, and so on. There is no `docs/phase1/` folder.
+The docs folders use zero-padded names: `docs/phases/00/README.md`, `docs/phases/01/README.md`, and so on. There is no `docs/phase1/` folder.
 
 ---
 
@@ -28,13 +28,13 @@ The docs folders use zero-padded names: `docs/phase-00/README.md`, `docs/phase-0
 
 | Phase | What you learn | Start branch | Then read |
 |-------|---------------|--------------|-----------|
-| **00 — Your first AI build** | The pipeline: intention → PRD → plan → build | `git checkout -b my-phase-00 phase-00` | [docs/phase-00/README.md](docs/phase-00/README.md) |
-| **01 — SaaS killers** | Real apps with auth, databases, and tests | `git checkout -b my-phase-01 phase-01` | [docs/phase-01/README.md](docs/phase-01/README.md) |
-| **02 — Quality engineering** | Scan, fix, monitor, harden, and ship | `git checkout -b my-phase-02 phase-02` | [docs/phase-02/README.md](docs/phase-02/README.md) |
-| **03 — Research** | Understand any codebase, create your own tools | `git checkout -b my-phase-03 phase-03` | [docs/phase-03/README.md](docs/phase-03/README.md) |
-| **04 — Protocols** | Agents talking to agents (and paying for things) | `git checkout -b my-phase-04 phase-04` | [docs/phase-04/README.md](docs/phase-04/README.md) |
-| **05 — Skills Browser** | Discover and explore the skill ecosystem | `git checkout -b my-phase-05 phase-05` | [docs/phase-05/README.md](docs/phase-05/README.md) |
-| **06 — Model Eval Lab** | Which model should you actually use? | `git checkout -b my-phase-06 phase-06` | [docs/phase-06/README.md](docs/phase-06/README.md) |
+| **00 — Your first AI build** | The pipeline: intention → PRD → plan → build | `git checkout -b my-phase-00 phase-00` | [docs/phases/00/README.md](docs/phases/00/README.md) |
+| **01 — SaaS killers** | Real apps with auth, databases, and tests | `git checkout -b my-phase-01 phase-01` | [docs/phases/01/README.md](docs/phases/01/README.md) |
+| **02 — Quality engineering** | Scan, fix, monitor, harden, and ship | `git checkout -b my-phase-02 phase-02` | [docs/phases/02/README.md](docs/phases/02/README.md) |
+| **03 — Research** | Understand any codebase, create your own tools | `git checkout -b my-phase-03 phase-03` | [docs/phases/03/README.md](docs/phases/03/README.md) |
+| **04 — Protocols** | Agents talking to agents (and paying for things) | `git checkout -b my-phase-04 phase-04` | [docs/phases/04/README.md](docs/phases/04/README.md) |
+| **05 — Skills Browser** | Discover and explore the skill ecosystem | `git checkout -b my-phase-05 phase-05` | [docs/phases/05/README.md](docs/phases/05/README.md) |
+| **06 — Model Eval Lab** | Which model should you actually use? | `git checkout -b my-phase-06 phase-06` | [docs/phases/06/README.md](docs/phases/06/README.md) |
 
 Each phase builds on the last. Start at 00 and work forward.
 
@@ -50,16 +50,18 @@ Each phase builds on the last. Start at 00 and work forward.
 
 ## Quick links
 
+- [GitHub guardrails handbook](docs/github/README.md) — Pages, repo hardening, Actions + agents (working workflows)
+- [Onboarding checklists](docs/checklists/README.md) — 00 roadmap, your monorepo on GitHub, Actions + skills
 - [Pre-class setup](docs/pre-class-setup.md) — for live cohorts: do this before the first session
 - [Accounts, subscriptions & API keys](docs/accounts-and-keys.md) — what you're paying for (often nothing)
-- [Phase 00 Guide](docs/phase-00/README.md)
-- [Phase 01 Guide](docs/phase-01/README.md)
-- [Phase 02 Guide](docs/phase-02/README.md)
-- [Phase 03 Guide](docs/phase-03/README.md)
-- [Phase 04 Guide](docs/phase-04/README.md)
-- [Phase 05 Guide](docs/phase-05/README.md)
-- [Phase 06 Guide](docs/phase-06/README.md)
-- [What's in `.claude/`](docs/phase-00/STARTER-KIT.md) — skills and agents, including the slash-invoked skills you type as `/name`
+- [Phase 00 Guide](docs/phases/00/README.md)
+- [Phase 01 Guide](docs/phases/01/README.md)
+- [Phase 02 Guide](docs/phases/02/README.md)
+- [Phase 03 Guide](docs/phases/03/README.md)
+- [Phase 04 Guide](docs/phases/04/README.md)
+- [Phase 05 Guide](docs/phases/05/README.md)
+- [Phase 06 Guide](docs/phases/06/README.md)
+- [What's in `.claude/`](docs/phases/00/STARTER-KIT.md) — skills and agents, including the slash-invoked skills you type as `/name`
 
 ---
 

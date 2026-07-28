@@ -42,10 +42,11 @@ ai-dev-curriculum/
 │   ├── config/               # Shared config (placeholder, no build)
 │   └── surrealdb/            # SurrealDB client library (shared by Next.js apps)
 ├── docs/                     # Curriculum documentation
-│   ├── phase-00/             # Monorepo + Vite app guides, intentions, demo bar
-│   ├── phase-01/             # SaaS killer guides, intentions, demo bar
-│   ├── phase-02/             # Quality engineering guides
-│   ├── phase-03/             # (future phase, has README + RUN-ORDER only)
+│   ├── phases/               # Curriculum phases 00–06 (README, RUN-ORDER, intentions)
+│   │   ├── 00/               # Monorepo + Vite app guides, intentions, demo bar
+│   │   ├── 01/               # SaaS killer guides, intentions, demo bar
+│   │   ├── 02/               # Quality engineering guides
+│   │   └── …                 # 03–06 (README + RUN-ORDER + phase-specific docs)
 │   └── artifacts/            # Generated artifacts: PRDs, plans, error/monitor reports
 ├── scripts/                  # Verification scripts
 │   └── verify-curriculum-structure.sh
@@ -132,7 +133,7 @@ No package.json (native iOS). Managed via XcodeGen (`project.yml`).
 - **Shared package:** `src/` directory, TypeScript source consumed directly (no dist)
 - **Agents:** `.claude/agents/<role>.md` (kebab-case, role-based naming: `error-scanner.md`, `nextjs-saas-builder.md`)
 - **Skills:** `.claude/skills/<topic>.md` (kebab-case, topic-based: `quality-gates.md`, `web-architecture.md`)
-- **Docs:** `docs/phase-NN/` structure, `intention-<app>.md`, `prd-<app>.md`, `plan-<app>.md` in artifacts
+- **Docs:** `docs/phases/NN/` structure, `intention-<app>.md`, `prd-<app>.md`, `plan-<app>.md` in artifacts
 - **iOS apps:** XcodeGen `project.yml`, Swift source in `<AppName>/` with `App/`, `Models/`, `Views/`, `Helpers/` subdirectories
 
 ## Statistics

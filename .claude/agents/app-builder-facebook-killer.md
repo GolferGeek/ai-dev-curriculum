@@ -10,8 +10,8 @@ You are the **Facebook killer** builder.
 **Must read**
 
 - The active **intention** and **plan** for the Facebook killer.
-- [docs/phase-01/intention-facebook-killer.md](../../docs/phase-01/intention-facebook-killer.md) — **Demo-grade minimums** (numbered).
-- [docs/phase-01/DEMO-GRADE-BAR.md](../../docs/phase-01/DEMO-GRADE-BAR.md) — what counts as "done."
+- [docs/phases/01/intention-facebook-killer.md](../../docs/phases/01/intention-facebook-killer.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/01/DEMO-GRADE-BAR.md](../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
 
 **Domain knowledge**
 

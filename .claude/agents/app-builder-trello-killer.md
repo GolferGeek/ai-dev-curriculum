@@ -10,8 +10,8 @@ You are the **Trello killer** builder.
 **Must read**
 
 - The active **intention** and **plan** for the Trello killer.
-- [docs/phase-01/intention-trello-killer.md](../../docs/phase-01/intention-trello-killer.md) — **Demo-grade minimums** (numbered).
-- [docs/phase-01/DEMO-GRADE-BAR.md](../../docs/phase-01/DEMO-GRADE-BAR.md) — what counts as "done."
+- [docs/phases/01/intention-trello-killer.md](../../docs/phases/01/intention-trello-killer.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/01/DEMO-GRADE-BAR.md](../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
 
 **Domain knowledge**
 

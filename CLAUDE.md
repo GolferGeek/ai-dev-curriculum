@@ -2,14 +2,15 @@
 
 This repository is the **GolferGeek AI development curriculum** and starter kit. Prefer **Turborepo** conventions once the monorepo exists: `apps/`, `packages/`, root `turbo.json`.
 
-**Start here (learners):** [docs/phase-00/README.md](docs/phase-00/README.md)  
-**Phase 01 (SaaS killers):** [docs/phase-01/README.md](docs/phase-01/README.md)  
-**Phase 02 (Quality engineering):** [docs/phase-02/README.md](docs/phase-02/README.md)  
-**Phase 03 (Research):** [docs/phase-03/README.md](docs/phase-03/README.md)  
-**Phase 04 (Protocols):** [docs/phase-04/README.md](docs/phase-04/README.md)  
-**Phase 05 (Skills Browser):** [docs/phase-05/README.md](docs/phase-05/README.md)  
-**Phase 06 (Model Eval Lab):** [docs/phase-06/README.md](docs/phase-06/README.md)  
-**What’s in `.claude/`:** [docs/phase-00/STARTER-KIT.md](docs/phase-00/STARTER-KIT.md)
+**Start here (learners):** [docs/phases/00/README.md](docs/phases/00/README.md)
+**Phase 01 (SaaS killers):** [docs/phases/01/README.md](docs/phases/01/README.md)
+**Phase 02 (Quality engineering):** [docs/phases/02/README.md](docs/phases/02/README.md)
+**Phase 03 (Research):** [docs/phases/03/README.md](docs/phases/03/README.md)
+**Phase 04 (Protocols):** [docs/phases/04/README.md](docs/phases/04/README.md)
+**Phase 05 (Skills Browser):** [docs/phases/05/README.md](docs/phases/05/README.md)
+**Phase 06 (Model Eval Lab):** [docs/phases/06/README.md](docs/phases/06/README.md)
+**What’s in `.claude/`:** [docs/phases/00/STARTER-KIT.md](docs/phases/00/STARTER-KIT.md)
+**Monorepo operating model (documents + skills):** [docs/MONOREPO-OPERATING-MODEL.md](docs/MONOREPO-OPERATING-MODEL.md)
 
 ## Skills & pipeline
 
@@ -36,6 +37,7 @@ Slash-invoked workflow skills live in `.claude/skills/`. The full development pi
 | `/fix-errors` | Fix errors from the report, iterate until clean |
 | `/monitor` | Scan for architecture violations |
 | `/harden` | Fix architecture violations |
+| `/nightly-hygiene` | Rehearse scheduled scan/fix/monitor/harden → PR; pairs with guardrails sheet G1 |
 
 ### Ship phase
 | Slash skill | What it does |
@@ -55,6 +57,7 @@ Slash-invoked workflow skills live in `.claude/skills/`. The full development pi
 | `/improve` | Dead code, missing tests, tech debt, performance |
 | `/deep-dive [area]` | Specialist focus: frontend, backend, data, or path |
 | `/author-agent` | Create custom agents/skills from observed patterns |
+| `/terrain-review` | ADAPT decision worksheet, watchlist hygiene, toolchain drift audit |
 
 ### Agents
 Delegate execution to the appropriate agent per the active plan:
@@ -63,6 +66,7 @@ Delegate execution to the appropriate agent per the active plan:
 - **Phase 02:** **error-scanner** / **error-fixer**, **arch-monitor** / **arch-hardener**, **commit-agent** / **pr-evaluator**.
 - **Phase 03:** **repo-researcher**, **security-researcher**, **git-historian**, **agent-author**.
 - **Phase 04:** **protocol-architect**, **agent-service-builder**, **dashboard-builder**.
+- **Ongoing:** **terrain-scout** — `/terrain-review`; reads `docs/ai-program/`, writes drift/ADAPT reports; does not auto-change policy.
 
 ## Quality bar
 

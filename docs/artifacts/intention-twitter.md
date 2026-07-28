@@ -1,6 +1,6 @@
 # Intention — Twitter Killer (iOS A) — Refined
 
-Source: `docs/phase-01/intention-twitter-killer.md`
+Source: `docs/phases/01/intention-twitter-killer.md`
 
 ## Why
 

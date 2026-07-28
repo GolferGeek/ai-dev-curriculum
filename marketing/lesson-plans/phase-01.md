@@ -1,20 +1,74 @@
 # Phase 01 — Lesson Plan
 
-*The **content** you deliver for Phase 01. Room mechanics (timing, predict-then-compare) are shared with [Phase 00's TEACHING.md](../../docs/phase-00/TEACHING.md); the exact steps are in [docs/phase-01/README.md](../../docs/phase-01/README.md) and [RUN-ORDER.md](../../docs/phase-01/RUN-ORDER.md). This document is what you **talk about**.*
+*The **content** you deliver for Phase 01. **Share at open:** [OVERVIEW.md](../../docs/phases/01/OVERVIEW.md). **Room mechanics:** [Phase 01 TEACHING.md](../../docs/phases/01/TEACHING.md) — shared predict-then-compare from [Phase 00 TEACHING.md](../../docs/phases/00/TEACHING.md). Exact steps: [docs/phases/01/README.md](../../docs/phases/01/README.md) and [RUN-ORDER.md](../../docs/phases/01/RUN-ORDER.md). This document is what you **talk about**.*
 
-**Session arc:** Intro lecture → Intention walk-through → Build (it runs) → Closing discussion. Phase 01 raises the stakes: the app now has real **auth** and a real **database**, which is exactly where AI-built apps fail in the wild. The closing discussion is a *live verification of the auth-and-data chain* — the most important thing in the phase.
+**Session arc:** **Act I — SaaS Killers** (economics + why build again) → **Act II — Real apps** (vibe coding vs what we do, auth + security, build, verify). Phase 01 raises the stakes: the app now has real **auth** and a real **database**, which is exactly where AI-built apps fail in the wild. The closing discussion is a *live verification of the auth-and-data chain* — the most important thing in the phase.
 
-> **Default to web.** In practice we build **every track as a web app** (Next.js + SurrealDB), including the Twitter and Facebook "killers" whose provided intentions describe them as iOS. One shared stack means **Windows, macOS, and Linux** all work the same for the class path — no one needs a Mac or Xcode, everyone can follow along, and the time goes to the concepts instead of platform setup. **SwiftUI / SwiftData / Xcode are macOS-only** (Apple provides no Windows/Linux Xcode); that path stays open only as an individual opt-in, never a cohort requirement. SurrealDB install one-liners (including Windows PowerShell) are in [PREREQUISITES.md](../../docs/phase-01/PREREQUISITES.md).
+> **Default to web.** In practice we build **every track as a web app** (Next.js + SurrealDB), including the Twitter and Facebook "killers" whose provided intentions describe them as iOS. One shared stack means **Windows, macOS, and Linux** all work the same for the class path — no one needs a Mac or Xcode, everyone can follow along, and the time goes to the concepts instead of platform setup. **SwiftUI / SwiftData / Xcode are macOS-only** (Apple provides no Windows/Linux Xcode); that path stays open only as an individual opt-in, never a cohort requirement. SurrealDB install one-liners (including Windows PowerShell) are in [PREREQUISITES.md](../../docs/phases/01/PREREQUISITES.md).
 
 > **Instructor refresh:** anywhere this plan says *[refresh]*, pull the current version of the link before the cohort. Security incidents and tool releases below are real and dated, but the space moves fast — check for something newer. Citations with URLs are at the bottom.
 
 ---
 
-## 1. Intro — "The State of the AI Union: Real Apps"
+## 0. Opening — "SaaS Killers" (Act I, ~25 min)
 
-Phase 00 proved the pipeline. Phase 01's lecture is about what changes when "real" enters the picture: persistence, identity, and the trust boundary — and why that's the exact place the industry is getting burned.
+Phase 00 taught **bracket the work**. Phase 01 asks: *what are we building, and why now?*
 
-### 1a. The technology we're going to be using
+### 0a. The SaaS bargain (short history — not a lecture course)
+
+For decades, custom software meant slow funding, per-machine installs, licensing, strong hardware, and someone running servers and databases. **SaaS was the gleeful trade:** pay a subscription, get a middle-of-the-road product, stop staffing a dev bench for every workflow problem. Real development shrank to ERP/CRM and integrations; everything else went to workarounds and spreadsheets.
+
+**Say it fairly:** SaaS didn't "kill" software — it became the **default answer** when build was too slow and too expensive.
+
+### 0b. The curve bends back (~2025–2026)
+
+For **well-scoped slices**, build cost collapsed again. Signals to cite *(verify before cohort)*:
+
+- **Retool Build vs. Buy 2026** *(vendor survey, directional):* **35%** of teams already replaced at least one SaaS tool with a custom build; **78%** expect to build more in 2026 — https://retool.com/blog/ai-build-vs-buy-report-2026
+- **Thomson Reuters / legal tech (Feb 2026):** Anthropic's **Claude Cowork Legal plugin** (packaged workflows + tools — the same *shape* as skills) helped trigger a sharp selloff in legal/data software names; Thomson Reuters down **~16–19%** in a day — https://www.reuters.com/business/media-telecom/global-software-stocks-hit-by-anthropic-wake-up-call-ai-disruption-2026-02-04/
+- **People you know:** "Wouldn't it be great if *this* information lived *here* for *these* people?" — narrow internal tools, not cloning Salesforce.
+
+**Land:** You're not replacing every subscription tomorrow. You're replacing **the tool that never fit** — with something **ownable**, scoped, and verifiable.
+
+### 0c. David, Goliath, and the moving port (two metaphors)
+
+- **David vs Goliath** — Goliath = incumbent SaaS (breadth, brand, sales machine). David = SMB with **intention + pipeline + agents**: faster, nimbler, scoped killers. When the terrain shifts (models, harnesses, guardrails), Goliath's roadmap wobbles; David re-aims the next slice.
+- **Ocean / moving port** — Big orgs **stake the ground** (LLM, harness, governance, procurement). AI keeps **moving the port**. Aircraft carriers can't turn on a quarter; small boats can say "port's changing — off we go." Waves are still hard (security, comprehension debt) — that's why guardrails come back in Phase 02.
+
+**Bridge to Act II:** Today we build **one credible killer** — real auth, real data — not a toy. Speed is back; **accountability** has to come back with it.
+
+---
+
+## 1. Intro — "Real Apps: Not Vibe Coding" (Act II, ~35 min)
+
+Phase 00 proved the pipeline. Act II is what changes when **"real"** enters: persistence, identity, the trust boundary — and why that's where the industry gets burned.
+
+### 1a. Vibe coding — name it for the room
+
+Many learners have already done this even if they haven't heard the term.
+
+**Define it (cite Willison, Oct 2025):**
+
+- **Vibe coding** — the fast, loose path: describe what you want, let the tool generate, ship when it *feels* done. Entirely prompt-driven; little attention to how the code works or whether auth holds. Karpathy named the vibe; Willison named the failure mode.
+- **The familiar path:** talk to [Lovable](https://lovable.dev), Replit Agent, Bolt, v0 — "I need an app" → generated UI + backend + deploy, often in an afternoon. That story is **true**. Many teams start there.
+
+**Be fair — they're improving:**
+
+- Lovable, Replit, and peers are **adding guardrails**, secure Next.js patterns, RLS templates, and pre-ship checks. They're not standing still. *[refresh: current marketing vs. what you can verify in a test app.]*
+- That progress is real — and it still isn't what **this course** teaches. Platform guardrails help **their** hosted path. **Your** repo, **your** auth chain, **your** verification — that's on you.
+
+**The contrast to land:**
+
+| Vibe coding | What we do in Phase 01 *(vibe **engineering**)* |
+|---|---|
+| Prompt until it looks done | **Intention** demands signup → sign-in → protected routes → **per-user data** |
+| Trust the platform's defaults | **`surrealdb-builder` first**, then app — data layer before UI |
+| Green preview = ship | **Closing bracket:** build · test · `/test-browser` · **second-user breach attempt** |
+| Speed without ownership | **Pipeline + demo-grade bar** — you can explain and defend every link |
+
+**Say it out loud:** *You can absolutely spin up something on Lovable in an hour. Phase 01 is how you build the same class of app **in your monorepo**, with auth you can **inspect**, and proof that user B cannot see user A's data. That's not vibe coding — that's the job.*
+
+### 1b. The technology we're going to be using
 
 - **SurrealDB** — the database. Multi-model (document + graph + relational + vector) with **auth scopes and JWT built in**, so identity lives *in the data layer*, not bolted on. Schemas are written contracts, version-controlled like code.
 - **Next.js (App Router)** — the web framework. Some code runs on the **server** (safe, near the data), some in the **browser**. **Server actions** are how a form posts straight to server code — which makes them a *trust boundary*, a point we'll return to hard.
@@ -22,26 +76,26 @@ Phase 00 proved the pipeline. Phase 01's lecture is about what changes when "rea
 - **SwiftUI + SwiftData** — *optional iOS path only.* By default all four products are built as web apps; this stack comes into play only if a learner specifically asks to try native iOS.
 - **`/test-browser`** — an agent drives a real Chrome session and reports what a human would see. Visual QA, on top of Playwright.
 
-### 1b. The points we're trying to make
+### 1c. The points we're trying to make
 
 1. **"Real" moves the demo-grade bar up.** Credible now means a working chain: **signup → sign-in → protected page → per-user persisted data.** If any link is faked, it isn't demo-grade.
 2. **The pipeline scales to a team of agents.** Same `/intention → /prd → /plan → /run-plan`, but `/run-plan` now orchestrates a *sequence*: `surrealdb-builder` lays the data layer and auth first, then the app builder builds on top. You're directing a small team now, not one worker.
-3. **Auth and data isolation are where AI-built apps fail — so that's what we verify hardest.** This isn't hypothetical; it's the dominant real-world failure mode (Section 1e). The barbell's back end has a name in this phase: *prove a second user cannot see the first user's data.*
+3. **Auth and data isolation are where AI-built apps fail — so that's what we verify hardest.** This isn't hypothetical; it's the dominant real-world failure mode (Section 1e). The **closing bracket** has a name in this phase: *prove a second user cannot see the first user's data.*
 
-### 1c. Why those points are important
+### 1d. Why those points are important
 
 - A broken build in Phase 00 was an embarrassment. A broken **auth** in Phase 01 is a **data breach** — the difference between "ugly demo" and "customer records on the open internet."
 - The speed that makes agents amazing is the same speed that ships an exposed database before anyone looks. The discipline — *verify the auth-and-data chain every time* — is the price of using this speed on anything real.
 - For a business audience: this is the slide that earns trust. You are the instructor who says "here's the fast way, AND here's how the fast way leaks data, AND here's how we stop it." That credibility is the product.
 
-### 1d. How this area is changing
+### 1e. How this area is changing
 
-- **App-builders went full-stack — unevenly.** Lovable, Replit Agent, and Bolt now generate auth + database + deploy; v0 stays frontend-first. The consistent weak spot across all of them is the backend — auth and data — which is precisely what this phase teaches you to inspect. *[refresh: current capabilities move monthly.]*
+- **App-builders went full-stack — and added guardrails.** Lovable, Replit Agent, and Bolt now generate auth + database + deploy; many ship RLS templates and pre-flight checks. **Credit that.** The question for *your* company is still: can **you** verify the auth-and-data chain in **your** repo when the platform isn't in the loop? *[refresh.]*
 - **Databases are going "AI-native."** SurrealDB shipped 3.0 and raised a $23M Series A extension (Feb 2026), repositioning around agent memory and vector search. Treat the AI-native framing as a claim to examine, not gospel — independent benchmarks are mixed (Section 1e). *[refresh.]*
 - **The framework layer itself became an attack surface.** React Server Components are now the default in Next.js — and in Dec 2025 the React team disclosed **CVE-2025-55182 ("React2Shell"), a CVSS 10.0 unauthenticated RCE** via server-function deserialization. Server actions are power *and* a trust boundary. *[refresh.]*
 - **Apple went official** (relevant mainly to the optional iOS path). Xcode 26.3 added Intelligence agents, and Claude Code / Codex drive Xcode via MCP (Apple's `xcrun mcpbridge`). Agents are strong at SwiftUI views and SwiftData models, weak at project-file edits and code signing. *[refresh — very recent.]*
 
-### 1e. What interesting people are saying about the direction
+### 1f. What interesting people are saying about the direction
 
 Use one or two live. **Paraphrase and cite on screen; these are real and dated.**
 
@@ -53,13 +107,13 @@ Use one or two live. **Paraphrase and cite on screen; these are real and dated.*
   - Academic backup, if you want numbers: Georgetown CSET found 86% of AI-generated code failed to defend against XSS; Carnegie Mellon found only ~10.5% of generated functions passed security review. *(Avoid the "62%" headline floating around — it's marketing, not a study.)*
 - **The SurrealDB skeptics.** Balance the AI-native marketing with the Hacker News benchmark thread questioning its numbers and maturity vs. Postgres — a healthy "don't bet the company on an unproven DB" counterweight. *[refresh.]*
 
-**Land the lecture:** the tools got fast enough to ship a real app in an afternoon — and fast enough to ship a *breach* in an afternoon. The skill that separates the two is verifying the auth-and-data chain. That's what we're about to do.
+**Land Act II:** the tools got fast enough to ship a real app in an afternoon — Lovable proves it — and fast enough to ship a *breach* in an afternoon if you vibe-code past auth. **We build auth in on purpose** and **prove** the chain. That's vibe *engineering*.
 
 ---
 
 ## 2. The intention walk-through
 
-Open the provided intention for the chosen track — [QuickBooks](../../docs/phase-01/intention-quickbooks-killer.md), [Trello](../../docs/phase-01/intention-trello-killer.md), [Twitter](../../docs/phase-01/intention-twitter-killer.md), or [Facebook](../../docs/phase-01/intention-facebook-killer.md) killer.
+Open the provided intention for the chosen track — [QuickBooks](../../docs/phases/01/intention-quickbooks-killer.md), [Trello](../../docs/phases/01/intention-trello-killer.md), [Twitter](../../docs/phases/01/intention-twitter-killer.md), or [Facebook](../../docs/phases/01/intention-facebook-killer.md) killer.
 
 ### What this app is
 A credible "ownable" version of a SaaS product — invoices/expenses, a kanban board, a personal feed, or a friend circle — with **real signup, real sign-in, and per-user data** in SurrealDB. Not localStorage. Not a starter screen.
@@ -79,7 +133,7 @@ Same as Phase 00: these are tuned and they work — we **read and critique**, we
 
 ## 3. The build (it runs — keep teaching)
 
-`/run-plan` now runs agents in sequence: SurrealDB + auth, then the app — the Next.js builder by default (the iOS builder only on the opt-in path). Budget ~60 minutes — longer than Phase 00 because there's a real backend. **Nobody watches the bar.** Use the window for the security material in 1e, and for Phase 01 talks in [discussion-topics.md](discussion-topics.md) (corporate context layers / brand, human decision boundaries, secrets hygiene). Remember every tool runs more than one session at once — you can have a second track generating in parallel to compare later. Steps: [RUN-ORDER.md](../../docs/phase-01/RUN-ORDER.md).
+`/run-plan` now runs agents in sequence: SurrealDB + auth, then the app — the Next.js builder by default (the iOS builder only on the opt-in path). Budget ~60 minutes — longer than Phase 00 because there's a real backend. **Nobody watches the bar.** Use the window for the security material in 1e, and for Phase 01 talks in [discussion-topics.md](discussion-topics.md) (corporate context layers / brand, human decision boundaries, secrets hygiene). Remember every tool runs more than one session at once — you can have a second track generating in parallel to compare later. Steps: [RUN-ORDER.md](../../docs/phases/01/RUN-ORDER.md).
 
 ---
 
@@ -94,15 +148,19 @@ This is the highest-value discussion in the phase. Don't just admire the app —
 - **"What would you refuse to ship?"** Connect to the business: at this speed you *could* ship this today. What has to be true first? That question is the whole back half of the course (Days 3–4).
 
 ### What they must leave Phase 01 believing
-1. "Real" means the whole chain — auth + per-user data — not a pretty screen.
-2. The pipeline scales: you now direct a *sequence of agents*, and the intention is what lets it split correctly.
-3. AI builds auth and data fast **and wrong** by default — verifying that chain is non-negotiable, and it's the difference between a demo and a breach.
-4. The leverage is still upstream, in an intention that demands security as a first-class requirement.
+1. **SaaS was the bargain; scoped AI build is the reopening** — David can own narrow fit; guardrails have to come back in-house.
+2. **Vibe coding ≠ this course** — prompt-to-preview is real; **vibe engineering** is intention + auth + proof you can defend.
+3. "Real" means the whole chain — auth + per-user data — not a pretty screen.
+4. The pipeline scales: you now direct a *sequence of agents*, and the intention is what lets it split correctly.
+5. AI builds auth and data fast **and wrong** by default — verifying that chain is non-negotiable; it's the difference between a demo and a breach.
 
 ---
 
 ## Citations (verify/refresh before teaching)
 
+- Retool, "The Build vs. Buy Shift" (2026 report) — https://retool.com/blog/ai-build-vs-buy-report-2026 *(vendor — 35% replaced SaaS / 78% building more)*
+- Reuters, "Global software stocks hit by Anthropic wake-up call on AI disruption," 4 Feb 2026 — https://www.reuters.com/business/media-telecom/global-software-stocks-hit-by-anthropic-wake-up-call-ai-disruption-2026-02-04/
+- Law.com, "Anthropic Releases Legal Plugin for Claude Cowork," 2 Feb 2026 — https://www.law.com/legaltechnews/2026/02/02/anthropic-releases-legal-plugin-in-cowork-among-other-extensions-for-enterprise-work/
 - Simon Willison, "Vibe engineering," 7 Oct 2025 — https://simonwillison.net/2025/Oct/7/vibe-engineering/
 - Gal Nagli / Wiz Research, "Critical Vulnerability in AI Vibe Coding Platform Base44," 29 Jul 2025 — https://www.wiz.io/blog/critical-vulnerability-base44
 - Escape.tech, "How we discovered 2k+ vulnerabilities in apps built with vibe coding," 2025 — https://escape.tech/blog/methodology-how-we-discovered-vulnerabilities-apps-built-with-vibe-coding/
