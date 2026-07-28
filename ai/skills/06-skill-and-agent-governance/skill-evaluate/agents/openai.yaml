@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Evaluate"
+  short_description: "Evaluate skill trust and fit"
+  default_prompt: "Evaluate one skill revision for provenance, security, triggers, compatibility, maturity, and appropriate organizational scope."

@@ -1,0 +1,25 @@
+{
+  "name": "app-builder-facebook-killer",
+  "description": "Builds the Facebook killer — private circle with profiles, friends, feed. SwiftUI + SwiftData. Use with /run-plan for phase-01 iOS B.",
+  "skills": {
+    "required": [
+      "ios-swiftui",
+      "ios-architecture"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

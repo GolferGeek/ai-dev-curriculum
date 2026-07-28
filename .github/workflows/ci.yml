@@ -30,6 +30,23 @@ jobs:
       - name: Curriculum structure
         run: ./scripts/verify-curriculum-structure.sh
 
+      - name: Canonical AI tooling projections
+        run: npm run ai:check
+
+      - name: AI program decision system
+        run: npm run ai:program:check
+
+      - name: Markdown links
+        run: npm run docs:links
+
+      - name: Teaching mind maps
+        run: npm run mindmaps:check
+
+      - name: Documentation site
+        run: |
+          python -m pip install -r docs/requirements.txt
+          python -m mkdocs build --strict
+
   build-test:
     name: build-test
     runs-on: ubuntu-latest
@@ -46,3 +63,6 @@ jobs:
       - run: npm run build
 
       - run: npm test
+
+      - name: Completed reference applications
+        run: npm run completed:check

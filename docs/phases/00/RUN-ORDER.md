@@ -3,16 +3,18 @@
 ## Before you start
 
 1. Read [PREREQUISITES.md](./PREREQUISITES.md).
-2. Clone the repo and start a work branch from the phase tag (phases are git **tags** — snapshots; your own branch avoids detached-HEAD confusion):
+2. Clone the repo and create one work branch from the immutable starter-kit tag. Keep this branch for the entire program:
 
    ```bash
    git clone https://github.com/GolferGeek/ai-dev-curriculum.git
    cd ai-dev-curriculum
-   git checkout -b my-phase-00 phase-00
+   git switch -c learner/my-work starter-kit-v1
    ```
 
 3. Open this phase's guide: [docs/phases/00/README.md](./README.md). Every phase has its own `docs/phases/XX/README.md`; use the zero-padded folder name (`00`, `01`, …).
-4. Open the folder in **Claude Code**.
+4. Open the repository in Cursor, Claude Code, or Codex. Cursor is the
+   recommended common IDE; the course capability library is generated for all
+   three harnesses.
 
 ## Part A — Monorepo shell
 
@@ -40,7 +42,7 @@ mv docs/artifacts/intention.md docs/artifacts/prd.md docs/artifacts/plan.md docs
 
 | Step | What to type | What happens |
 |------|-------------|-------------|
-| 1 | Choose a track from the [README](./README.md#part-b--your-first-app-pick-one). | Pick what interests you. |
+| 1 | Choose a track from the [README](./README.md#part-b-your-first-app-pick-one). | Pick what interests you. |
 | 2 | `/intention docs/phases/00/intention-<track>.md` | Reviews the track intention. Outputs `docs/artifacts/intention.md`. |
 | 3 | `/prd docs/artifacts/intention.md` | Builds PRD. Outputs `docs/artifacts/prd.md`. |
 | 4 | Review PRD — does it cover all Demo-grade minimums? | Challenge pass. |
@@ -60,4 +62,6 @@ Replace `<track>` with: `http-workspace`, `team-wiki`, `pipeline-crm`, or `ops-p
 
 1. Capture the error (build, test, or verify script).
 2. Fix forward **or** reset uncommitted app work and re-run `/run-plan docs/artifacts/plan.md` from a clean plan.
-3. Keep `.claude/`, `docs/phases/00/`, `CLAUDE.md` — wipe generated **app** code only if you need a clean retry.
+3. Keep `ai/`, all generated harness folders, `docs/phases/00/`, `AGENTS.md`,
+   and `CLAUDE.md` — wipe generated **app** code only if you need a clean
+   retry. Finished comparisons remain in `completed/apps/`.

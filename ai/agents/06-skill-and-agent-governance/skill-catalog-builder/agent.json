@@ -1,0 +1,27 @@
+{
+  "name": "skill-catalog-builder",
+  "description": "Fetches skills from GitHub repos and marketplaces, parses SKILL.md files, extracts metadata, categorizes by level/type/category, builds the JSON catalog index.",
+  "skills": {
+    "required": [
+      "skill-anatomy",
+      "skill-sources",
+      "skill-catalog-design",
+      "terminal-reporting"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

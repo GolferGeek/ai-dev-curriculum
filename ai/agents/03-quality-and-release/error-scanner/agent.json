@@ -1,0 +1,31 @@
+{
+  "name": "error-scanner",
+  "description": "Scans one app or all apps for build, lint, and test errors. Produces an error report — does not fix anything.",
+  "skills": {
+    "required": [
+      "quality-gates",
+      "terminal-reporting"
+    ],
+    "optional": [
+      "web-architecture",
+      "ios-architecture",
+      "data-architecture"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {
+      "readonly": true
+    },
+    "codex": {
+      "sandbox_mode": "read-only"
+    }
+  }
+}

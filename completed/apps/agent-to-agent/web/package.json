@@ -1,0 +1,25 @@
+{
+  "name": "@agent-to-agent/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000"
+  },
+  "dependencies": {
+    "next": "^16.2.12",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "@agent-to-agent/shared": "file:../shared"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/node": "^24.0.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.5.24",
+    "autoprefixer": "^10.4.0"
+  }
+}

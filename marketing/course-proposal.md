@@ -16,19 +16,22 @@ That workflow gives small teams a disciplined way to use AI tools without turnin
 
 ## Audience
 
-This course is designed for:
+This flagship course is designed for:
 
-- Small business development teams
-- IT and product teams responsible for business applications
-- Business analysts who work closely with software teams
-- Technical leads and engineering managers
-- Operations teams building dashboards, automations, or lightweight apps
-- Teams exploring new products, customer-facing tools, or revenue-generating applications
-- Developers who want a practical, structured way to use AI coding agents
+- Software developers who build or maintain applications.
+- Senior developers and technical leads responsible for review and delivery.
+- Engineering managers who remain hands-on in code and technical decisions.
+- Platform, QA-automation, and DevOps engineers who can work in the repository.
 
-Participants should be comfortable using a computer and reading technical instructions. The full hands-on version is best for people with some exposure to code, Git, command-line tools, or software projects. A manager-friendly version can be offered separately with less coding depth.
+Participants must be able to read and modify code, use Git and a terminal, and
+understand tests, dependencies, pull requests, and debugging. A separate
+one- or two-day offering can be developed for managers, analysts, operations,
+and other non-developer staff; they are not the audience for this five-day lab.
 
-Each participant needs a paid subscription to any capable AI coding agent — Claude Code, Cursor, Codex, or Claude Desktop — for enough model bandwidth to complete the labs (about $20/month minimum). The course is tool-agnostic; the workflow is the same regardless of which tool a participant brings.
+Each participant needs client-approved access to Cursor, Claude Code, or Codex
+with enough model capacity for the labs. Cursor is the recommended common IDE;
+Claude Code and Codex are fully supported. Exact plans, pricing, model access,
+and data terms are confirmed before each cohort.
 
 ## Business Problem
 
@@ -54,7 +57,11 @@ This course teaches teams how to turn that speed into a repeatable, disciplined 
 - **Application capability, not coding trivia:** Traditional coding education still matters. This course has a different emphasis: creating and modifying business applications with AI, where success is measured by useful capability rather than lines of code.
 - **A different relationship to the backlog:** Faster delivery makes previously unreachable software ideas — new services, internal capabilities, and revenue experiments — practical enough to prototype and learn from.
 - **Agentic workflow:** Students learn how to direct coding agents through scoped tasks, review loops, and verification steps.
-- **Tool-agnostic:** The course works with whatever AI coding agent participants already use — Claude Code, Cursor, Codex, or Claude Desktop — including browser-based verification and computer-use workflows where the tool supports them. Every one of these tools also runs more than one session at once, so a build can generate in one terminal while participants keep learning — or advance a second task — in another; the generation time is never dead time.
+- **Harness-portable:** Cursor is the recommended common IDE; Claude Code and
+  Codex are fully supported. The course preserves one canonical knowledge and
+  capability system while teaching native invocation, permissions, models,
+  browser verification, and parallel work where each approved tool supports
+  them.
 - **Quality and governance:** Students learn how to scan for errors, test with browser automation, review code changes, and keep humans responsible for decisions.
 - **Business relevance:** The labs map to realistic small-team needs: internal apps, external tools, customer-facing products, dashboards, SaaS-style workflows, QA, documentation, and model evaluation.
 
@@ -168,7 +175,10 @@ By the end of the five-day course, participants will be able to:
 - Run build, lint, and test checks before accepting changes, and grow living review standards that prevent repeat mistakes.
 - Research an unfamiliar or existing codebase (orientation, mapping, security scan, git history) before changing it.
 - Describe agent-to-agent protocols at a high level: how agents discover, authorize, pay, and report to each other.
-- Package organizational knowledge — brand, standards, workflows — as reusable skills that work across AI tools.
+- Package organizational knowledge as canonical skills and specialized agents,
+  organized by function and generated for Claude Code, Cursor, and Codex.
+- Query and maintain an agent-readable AI program covering models/harnesses,
+  coding governance, protocols, security/data, delivery/quality, and adoption.
 - Choose models empirically by evaluating them against the organization's own prompts, and draft a routing policy that matches model cost to task difficulty.
 - Identify common AI-assisted development risks around data privacy, security, dependencies, and over-trusting generated code.
 - Leave with a started adoption kit: a repeatable workflow and operating-model templates their organization can fill in and use after the course.
@@ -191,4 +201,7 @@ The five-day intensive can be positioned competitively against week-long technic
 
 ## Publication Note
 
-Tool names, plans, and availability should be checked before each cohort. The course is tool-agnostic, but specific browser-control and computer-use features change quickly across Claude Code, Cursor, Codex, and Claude Desktop.
+Tool names, plans, availability, provider access, and data terms should be
+checked before each cohort. Cursor is recommended and Claude Code/Codex are
+supported, but native agent, browser-control, computer-use, and model-routing
+features change quickly.

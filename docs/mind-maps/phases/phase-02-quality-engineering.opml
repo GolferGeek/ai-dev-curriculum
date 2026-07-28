@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 02 — Quality Engineering</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 02 — Quality Engineering" _note="Authoritative package: docs/phases/02; lecture: marketing/lesson-plans/phase-02.md.">
+      <outline text="Instructor intent">
+        <outline text="Generation is cheap; comprehension and review are scarce"/>
+        <outline text="Scanners find, fixers fix—never the same step"/>
+        <outline text="Standards compound when review findings become future gates"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Phase 01 app runs from a known commit"/>
+        <outline text="Prepare real, ambiguous, and false-positive findings"/>
+        <outline text="Show CI/protected-branch expectations"/>
+      </outline>
+      <outline text="Teach">
+        <outline text="Build/test, architecture, and severity are different failure classes"/>
+        <outline text="Finding confidence is not evidence"/>
+        <outline text="Scanner → fixer; monitor → hardener; commit gate → PR evaluator"/>
+        <outline text="Observability lives in diffs, checks, and review records"/>
+      </outline>
+      <outline text="Lab">
+        <outline text="Scan and prioritize"/>
+        <outline text="Challenge or reject at least one finding"/>
+        <outline text="Fix approved issues with regression tests"/>
+        <outline text="Monitor and harden an architecture boundary"/>
+        <outline text="Run commit gate and independent PR evaluation"/>
+        <outline text="Verify affected flow in running software"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Promote one repeated lesson into test, rule, skill, or program doc"/>
+        <outline text="Explain where human judgment entered"/>
+        <outline text="Next: understand unfamiliar code before changing it"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

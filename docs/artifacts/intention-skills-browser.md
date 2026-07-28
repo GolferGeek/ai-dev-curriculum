@@ -2,9 +2,16 @@
 
 ## Why
 
-There are nearly 1,000 free Claude Code skills scattered across GitHub repos, community marketplaces, and Anthropic's own examples — but discovering them is painful. You have to browse multiple repos, read raw markdown files, and guess whether a skill is any good. The AI Daily Brief Skills Master Class defines 5 levels of skill maturity (Apprentice to Architect) and distinguishes capability skills (new functions) from preference skills (encoded workflows), but there's no tool that applies this framework to the ecosystem.
+Reusable skills and specialized agents are scattered across public
+repositories, community catalogs, vendor examples, and internal projects.
+Counts and formats change continuously. Discovering them requires browsing
+multiple sources, inspecting complete folders, comparing revisions, and
+judging whether a behavioral dependency is appropriate for a real
+organization.
 
-We're building that tool: a browseable, searchable, refreshable catalog from configured sources—categorized, provenance-aware, fully previewable, and ready for evidence-based evaluation.
+We're building that tool: a browseable, searchable, refreshable capability
+catalog from configured sources—functionally organized, provenance-aware,
+fully previewable, revision-specific, and ready for evidence-based evaluation.
 
 ## Who
 
@@ -14,17 +21,19 @@ We're building that tool: a browseable, searchable, refreshable catalog from con
 
 ## What we're building
 
-A **Skills Browser** app (`apps/skills-browser/`) — a Next.js app that fetches real skills from across the ecosystem, catalogs them, and lets anyone browse, search, filter, preview, and copy them.
+A **Capability Browser** app (`apps/skills-browser/`) — a Next.js app that
+fetches skills and specialized agent definitions from configured sources,
+catalogs exact revisions, and lets developers browse, search, filter, preview,
+compare, and evaluate them.
 
 ### Data sources (all free, open source)
 
-| Source | URL | Skills | What's in it |
-|--------|-----|--------|-------------|
-| **VoltAgent/awesome-agent-skills** | github.com/VoltAgent/awesome-agent-skills | ~750 | Official skills from 40+ vendor teams: Microsoft, Trail of Bits, Hugging Face, Firecrawl, HashiCorp, Stripe, Cloudflare, Supabase, and more |
-| **awesome-claude-code** | github.com/hesreallyhim/awesome-claude-code | ~190 | Community-curated ecosystem catalog — skills, workflows, tools, hooks, slash commands |
-| **This curriculum** | .claude/skills/ in this repo | 32 | Battle-tested skills from phases 00-05 |
-| **anthropics/skills** | github.com/anthropics/skills | 17 | Official Anthropic skills with full SKILL.md content (skill-creator, pdf, docx, pptx, xlsx, algorithmic-art, mcp-builder, etc.) |
-| **AI Daily Brief master class** | play.aidailybrief.ai | 4 | researching-with-confidence, devils-advocate, morning-briefing, board-of-advisors |
+| Source type | Example | What's retained |
+|--------|-----|-------------|
+| **Canonical internal library** | `ai/` in this repository | Skills, agents, function membership, ownership, and generated projections |
+| **Official examples/specifications** | Configured vendor or standard repositories | Exact revision, license, complete folders, and format metadata |
+| **Curated public catalogs** | Approved GitHub sources | Candidate links, source signals, and parse status |
+| **Client/internal repositories** | Approved organization sources | Private capabilities subject to client access and data policy |
 
 Counts are refreshed during each scouting run and displayed with source revision and timestamp; no total is treated as permanent.
 
@@ -36,7 +45,10 @@ A Node.js script (`scripts/fetch-skills.ts`) that:
 3. Parses README markdown to extract skill entries from curated lists
 4. Auto-categorizes by level (1-5), category (15 categories), type (capability/preference), and coolness (1-5)
 5. Deduplicates without erasing forks, diffs the prior run, and produces `data/catalog.json`
-6. Works offline after first fetch — cached data is sufficient
+6. Works offline after first fetch — dated cached snapshots remain visibly
+   distinct from a current refresh
+7. Parses both skill folders and supported native agent formats without
+   discarding unknown metadata
 
 ### The 5-level classification (from AI Daily Brief Skills Master Class)
 
@@ -56,14 +68,14 @@ A Node.js script (`scripts/fetch-skills.ts`) that:
 ### The UI
 
 **Browse view:**
-- Card grid showing all skills (paginated or virtual-scrolled for 990+ entries)
+- Card grid showing skills and agents (paginated or virtual-scrolled)
 - Each card: name, source badge (colored by source), level dots (1-5), category tag, type badge (CAP/PREF), coolness stars, description preview
 - Responsive grid (1-4 columns)
 
 **Filter sidebar:**
 - Search bar: instant full-text across name + description + content
 - Level checkboxes (Apprentice through Architect)
-- Source checkboxes with counts (voltagent 747, community 192, curriculum 32, anthropic 17, masterclass 4)
+- Source checkboxes with counts from the selected scouting run
 - Category checkboxes (15 categories: development, design, devops, testing, documentation, security, etc.)
 - Type toggle (all/capability/preference)
 - Sort: name, level, coolness
@@ -73,45 +85,49 @@ A Node.js script (`scripts/fetch-skills.ts`) that:
 - File list if skill has supporting files
 - Evaluation action with personal/project/enterprise scope recommendation
 - View Source link to original GitHub URL
-- Install instructions
+- Evaluation and export actions clearly labeled as unapproved
 
 ### How the catalog is built
 
 The catalog is **pre-built as static JSON** — no runtime API calls to GitHub. The fetch script can be re-run to refresh. This means:
 - The app works offline once built
 - No GitHub API rate limit issues at runtime
-- Fast client-side filtering across 990+ entries
+- Fast client-side filtering across the full current catalog, with the displayed total computed from data
 
 ## Demo-grade minimums
 
-- [x] Catalog contains skills from at least 3 different sources — **5 sources**
-- [x] Browse view shows a card grid with at least 50 skills — **992 skills**
-- [x] Filter by level, source, and category works
-- [x] Search finds skills by name and description
-- [x] Click a skill → see full SKILL.md rendered as markdown
-- [x] Copy button copies skill content to clipboard
-- [x] The app looks good — clean, modern, dark theme, enjoyable to browse
-- [x] Each skill links back to its original source
+- [ ] Catalog refreshes from at least three configured sources or dated caches
+- [ ] Skills and specialized agents are represented
+- [ ] Source snapshots preserve exact revisions and file hashes
+- [ ] Search and function/kind/source/harness/risk/trust filters work
+- [ ] Click a capability to preview every file and requested authority
+- [ ] Compare revisions and scouting runs
+- [ ] Complete three evidence-backed evaluations including one rejection
+- [ ] Every capability links to its original source and revision
 
 ## Out of scope
 
 - Skill creation/editing (Anthropic's `skill-creator` handles this)
 - User accounts or saved favorites
 - Real-time GitHub API calls at runtime (use pre-built static catalog)
-- Skill installation automation (copy-paste is fine for the demo)
+- Skill or agent installation automation
 - Organizational publication and persistent shared policy (Phase 05.5)
 
 ## What we learned building this
 
-1. **The Agent Skills open standard** (agentskills.io) makes skills portable across 44+ tools — Claude Code, Codex, Cursor, Gemini CLI, and more
-2. **VoltAgent's awesome-agent-skills** is the richest single source (750+ from real vendor teams)
-3. **GitHub API caching** is essential — 60 requests/hour limit means you need local caching
-4. **Auto-categorization** works surprisingly well with keyword matching against skill descriptions
-5. **Tailwind in a monorepo workspace** requires the CSS to be processed correctly — stale `.next` cache can cause styling failures
+1. Skill-folder conventions can be portable, while specialized agent formats
+   still require native projections.
+2. Canonical function groups improve organizational browsing without forcing
+   runtime directories to be nested.
+3. Source counts and adoption claims decay; snapshots, timestamps, and diffs
+   matter more than headline totals.
+4. Caching is operationally necessary, but stale data must remain visible.
+5. Classification helps discovery; human review of complete content and
+   authority remains necessary.
 
 ## Success criteria
 
 1. A developer can find a useful skill they didn't know existed within 30 seconds of opening the app
 2. They can read the full skill content and understand what it does
-3. They can copy it and add it to their own project
-4. Browsing is genuinely fun — you want to keep scrolling to see what else is out there
+3. They can explain the evidence, authority, and revision behind a recommendation
+4. They can reject or restrict a candidate without pressure to install it

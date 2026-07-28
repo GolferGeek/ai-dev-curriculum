@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 06 — Model Evaluation and Routing</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 06 — Model Evaluation and Routing" _note="Authoritative package: docs/phases/06; lecture: marketing/lesson-plans/phase-06.md.">
+      <outline text="Instructor intent">
+        <outline text="Ask which model is good enough for this work—and prove it"/>
+        <outline text="A subscription is purchasing, not architecture"/>
+        <outline text="Name work roles, not permanent model winners"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Refresh model names, APIs, prices, and local tags"/>
+        <outline text="Confirm keys, budgets, rate limits, and data policy"/>
+        <outline text="Prepare offline or reduced-run fallback"/>
+        <outline text="Define prompts and rubric before results"/>
+      </outline>
+      <outline text="Teach">
+        <outline text="Model versus harness/system"/>
+        <outline text="Capability, thought, speed, cost, and control"/>
+        <outline text="Utility, workhorse, specialist, deep thinker"/>
+        <outline text="Local versus hosted and quantization tradeoffs"/>
+        <outline text="Rules, classifiers, cascades, and agentic routing"/>
+        <outline text="Multiple judges reduce one bias; agreement is not truth"/>
+      </outline>
+      <outline text="Lab">
+        <outline text="Configure contestants, judges, prompts, repetitions, timeouts"/>
+        <outline text="Run quick, tools/vision, and analyst work categories"/>
+        <outline text="Preserve partial results; pause/resume/subset"/>
+        <outline text="Inspect raw responses and judge commentary"/>
+        <outline text="Human spot-check disagreements and top/bottom results"/>
+      </outline>
+      <outline text="Interpret">
+        <outline text="Best-of-N ceiling"/>
+        <outline text="Average expected performance"/>
+        <outline text="Consistency and reliability"/>
+        <outline text="Quality-speed-cost frontier"/>
+        <outline text="Uncertainty, rubric sensitivity, and contamination"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Produce role-based route table and fallback"/>
+        <outline text="Record data, spend, and procurement implications"/>
+        <outline text="Schedule next evaluation on workload or terrain change"/>
+        <outline text="Next: install the client&apos;s operating model on Day 5"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

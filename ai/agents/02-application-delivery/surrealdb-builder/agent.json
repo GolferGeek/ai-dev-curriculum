@@ -1,0 +1,22 @@
+{
+  "name": "surrealdb-builder",
+  "description": "Sets up and configures SurrealDB for SaaS apps — local install, schema, auth, seed data, queries. Use with /run-plan for phase-01 database layer.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

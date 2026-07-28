@@ -1,0 +1,25 @@
+{
+  "name": "app-builder-twitter-killer",
+  "description": "Builds the Twitter killer — personal micro-blog with feed, posts, follows. SwiftUI + SwiftData. Use with /run-plan for phase-01 iOS A.",
+  "skills": {
+    "required": [
+      "ios-swiftui",
+      "ios-architecture"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

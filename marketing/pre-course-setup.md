@@ -4,9 +4,12 @@
 
 ## 1. Your AI coding agent (required)
 
-- [ ] Choose one: **Claude Code**, **Cursor**, **Codex**, or **Claude Desktop**. Any works; the workflow is the same.
-- [ ] Get a **paid subscription** (~$20/month minimum) — free tiers do not have enough model bandwidth for the labs.
+- [ ] Confirm the client's approved harness: **Cursor**, **Claude Code**, or
+      **Codex**. Cursor is the recommended common IDE.
+- [ ] Confirm your plan has enough model capacity for the labs; pricing and plan
+      names change, so use the cohort-specific requirement.
 - [ ] Install it, sign in, and confirm you can ask it a question and get an answer.
+- [ ] Clone the course repository and run `npm run ai:check`.
 - [ ] **If you'll use it for employer work:** check the plan's data terms (training opt-out / Privacy Mode). We discuss this on Day 1, but know what plan you're on.
 
 ## 2. Core tools (required)

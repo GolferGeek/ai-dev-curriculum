@@ -1,6 +1,12 @@
-# Skills program
+# Skills and specialized agents program
 
-Corporate memory and policy for agent skills. Skills are behavioral dependencies: discover broadly, evaluate exact revisions, publish deliberately, measure outcomes, and retire what no longer earns trust.
+Corporate memory and policy for reusable skills and specialized agents. Both
+are behavioral dependencies: discover broadly, evaluate exact revisions,
+publish deliberately, measure outcomes, and retire what no longer earns trust.
+
+A skill packages a repeatable procedure and its supporting resources. A
+specialized agent packages a delegated role, operating instructions, tools,
+and authority boundaries. They share governance but are not interchangeable.
 
 ## Program flow
 
@@ -21,17 +27,23 @@ Scout → triage → inspect → sandbox → approve/modify/reject
 8. [Approval and publication](08-approval-and-publication.md)
 9. [Ownership and lifecycle](09-ownership-and-lifecycle.md)
 10. [Outcomes and review](10-outcomes-and-review.md)
+11. [Functional organization](11-functional-organization.md)
+12. [Agent portability](12-agent-portability.md)
 
-Operational skills: `/skill-scout`, `/skill-evaluate`, `/skill-publish`, `/skill-maintain`.
+Operational capabilities: `skill-scout`, `skill-evaluate`, `skill-publish`,
+`skill-maintain`, and `ai-program-advisor`.
 
 ## Roles
 
 | Role | Accountability |
 |---|---|
-| Scout | Finds candidates; cannot approve or install |
+| Scout | Finds skill and agent candidates; cannot approve or install |
 | Evaluator | Produces evidence and recommendation |
 | Policy owner | Approves scope and exceptions |
 | Publisher | Publishes exact approved revision |
 | Maintainer | Owns updates, outcomes, and retirement |
 
 Discovery may be automatic. Approval and publication follow policy.
+
+Canonical source lives in [`ai/`](../../../ai/README.md), organized by
+function. Claude Code, Cursor, and Codex files are generated projections.

@@ -1,5 +1,7 @@
 # AI Dev Curriculum — project context for Claude
 
+@AGENTS.md
+
 This repository is the **GolferGeek AI development curriculum** and starter kit. Prefer **Turborepo** conventions once the monorepo exists: `apps/`, `packages/`, root `turbo.json`.
 
 **Start here (learners):** [docs/phases/00/README.md](docs/phases/00/README.md)
@@ -14,7 +16,8 @@ This repository is the **GolferGeek AI development curriculum** and starter kit.
 
 ## Skills & pipeline
 
-Slash-invoked workflow skills live in `.claude/skills/`. The full development pipeline:
+Canonical workflow skills live in `ai/skills/`; generated Claude Code
+projections live in `.claude/skills/`. The full development pipeline:
 
 ```
 /intention → /prd → /plan → /run-plan → /scan-errors → /fix-errors → /monitor → /harden → /commit pr → /pr-evals → /pr-eval → /ingest → /map → /security-scan → /git-story → /improve → /deep-dive → /author-agent

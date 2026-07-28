@@ -46,7 +46,7 @@ Replace `quickbooks` with your app name: `trello`, `twitter`, `facebook`, or omi
 
 ## Part B — Scheduled hygiene (optional, recommended for instructors)
 
-Interactive gates only run when invoked. **Nightly hygiene** runs the closing bracket on a cron — see [README.md](./README.md#scheduled-hygiene--the-closing-bracket-on-a-cron) and [TEACHING.md](./TEACHING.md#scheduled-hygiene--the-closing-bracket-on-a-cron-2030-min).
+Interactive gates only run when invoked. **Nightly hygiene** runs the closing bracket on a cron — see [README.md](./README.md#scheduled-hygiene-the-closing-bracket-on-a-cron) and [TEACHING.md](./TEACHING.md#scheduled-hygiene-the-closing-bracket-on-a-cron-2030-min).
 
 | Step | What to do | What happens |
 |------|-----------|-------------|

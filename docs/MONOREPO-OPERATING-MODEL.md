@@ -11,7 +11,7 @@ Scouting new AI tools is **one job** this model supports. So are defining produc
 | Layer | What it is | Where it lives | Human role |
 |-------|------------|----------------|------------|
 | **Documents** | Intentions, policy, decisions, reports — *what we believe and what we decided* | `docs/ai-program/`, `docs/artifacts/`, track intentions | Author, review, merge via PR |
-| **Skills & agents** | Repeatable workflows — *how the agent helps* | `.claude/skills/`, `.claude/agents/`, `AGENTS.md` / `CLAUDE.md` | Invoke, refine with `/author-agent` when a pattern repeats |
+| **Skills & agents** | Repeatable workflows — *how the agent helps* | Canonical `ai/`; generated Claude Code, Cursor, and Codex projections | Invoke, refine with `author-agent` when a pattern repeats |
 
 **Chat is not the system of record.** A decision in Slack is decoration. A decision in `docs/ai-program/decisions/` with an owner is real.
 
@@ -32,15 +32,20 @@ docs/
   projects/<name>/             # portfolio context per app (README, pitch, status)
     _template/                 # copy when starting a new app
   artifacts/                   # active build artifacts; promote to projects/ when stable
-.claude/
-  skills/                      # slash workflows + background conventions
-  agents/                      # specialized executors
+ai/
+  skills/<function>/           # canonical reusable workflows
+  agents/<function>/           # canonical specialized executors
+.claude/                       # generated Claude Code projection
+.cursor/                       # generated Cursor projection
+.agents/ + .codex/             # generated Codex projections
 AGENTS.md                      # corporate context passport (loaded every session)
 .cursor/rules/                 # scoped context by path
 turbo.json                     # build/test/lint orchestration
 ```
 
-After Part A, **`docs/ai-program/`** and **`.claude/`** are as important as **`apps/`**. Copy this layout into your own monorepo when you leave the course.
+After Part A, **`docs/ai-program/`** and **`ai/`** are as important as
+**`apps/`**. Keep generated harness projections in git so each supported tool
+loads the same reviewed capability library.
 
 ---
 
@@ -100,7 +105,7 @@ The monorepo is how a **practice** compounds — not only shipping apps, but enc
 
 | Scope | **Memory** (keep) | **Context** (load) | Typical paths |
 |-------|-------------------|--------------------|---------------|
-| **Corporate** | Company-wide policy, vendor terms, compliance, program decisions, ADRs | Stack conventions, boundaries, domain basics, shared skills | `docs/ai-program/`, `decisions/`, `AGENTS.md`, `.claude/skills/` |
+| **Corporate** | Company-wide policy, vendor terms, compliance, program decisions, ADRs | Stack conventions, boundaries, domain basics, shared capabilities | `docs/ai-program/`, `decisions/`, `AGENTS.md`, canonical `ai/` |
 | **Group** | Squad, product-line, or client-specific decisions and conventions | Group README, scoped rules when working in that area | `docs/groups/<name>/`, optional group skills |
 | **Project** | Intentions, PRDs, plans, scan reports, feature decisions | Active intention + plan, app README, path-scoped rules | `docs/artifacts/` or **`docs/projects/<name>/`** (portfolio), `apps/<app>/` |
 
@@ -120,7 +125,8 @@ The monorepo is how a **practice** compounds — not only shipping apps, but enc
 **Context — what every agent session should inherit**
 
 - **`AGENTS.md`** — instruction passport ([kit 02](../marketing/adoption-kit/02-instruction-passport.md))
-- **`.claude/skills/`** — shared workflows and conventions (Phase 05 deepens this)
+- **`ai/`** — canonical shared skills and specialized agents, organized by
+  function (Phases 05 and 05.5 deepen this)
 - **Harness policy** — approved tools and data terms ([kit 01](../marketing/adoption-kit/01-harness-and-plan.md))
 
 Corporate context is **stable-ish**; refresh on ADAPT Integrate or quarterly terrain review — not on every hype cycle.
@@ -162,7 +168,7 @@ When the project ends, **promote** durable lessons to group or corporate memory;
 |-----|----------------|----------------|
 | **Leadership** | North star, budget, approved tools, adoption **pace** (tempering org-wide), executive sponsorship | Kit [10](../marketing/adoption-kit/10-leadership-and-org-engagement.md), kits 01 & 06, `decisions/` |
 | **AI program owner** | Keeps `docs/ai-program/` current; rituals on calendar; blockers escalated | Kit 10; `docs/ai-program/README.md` |
-| **Skill steward** | Merges `.claude/skills/`; `/author-agent` discipline; shared workflows | Kit 02, `.claude/skills/` |
+| **Capability steward** | Reviews canonical `ai/`; `author-agent` discipline; generation and recertification | Kit 02, `ai/README.md` |
 | **Every developer** | Pipeline on real work; challenge pass; verify before merge | Kits 03–05, 04 |
 | **Coaches / reviewers** | Intention and PR review; skeptics onboarded to first safe task | Kit 03, 10 |
 
@@ -192,7 +198,7 @@ Fill in: [kit 10 — Leadership & organizational engagement](../marketing/adopti
 | **Authorize** | Approved harness, plan tier, data terms | Kit 01; corporate memory |
 | **Scope** | Written intention; explicit non-goals | Kit 03; `/intention` |
 | **Bound** | Agent may / must ask / human only | Kit 05 |
-| **Execute** | Skills and agents on loaded context | `.claude/`; `@` project files |
+| **Execute** | Skills and agents on loaded context | Generated harness projection; project files |
 | **Challenge** | Human reads output against intent | Pipeline habit; `/prd-alignment` |
 | **Verify** | Running software, not transcript | Kit 04; `/scan-errors`, tests |
 | **Ship** | Merge with gates; accountable human | `/commit`, `/pr-eval` |
@@ -217,7 +223,8 @@ Fill your scope map: [kit 09](../marketing/adoption-kit/09-memory-context-map.md
 1. **Spot** a question (new harness, spend limit, agent boundary, architecture rule).
 2. **Write** it down — ADAPT worksheet, decision file, or adoption-kit template section.
 3. **Review** like code — PR, named owner, challenge pass ("does this match what we meant?").
-4. **Integrate** — merge updates to `docs/ai-program/` and, if needed, `.claude/skills/`.
+4. **Integrate** — merge updates to `docs/ai-program/` and, if needed, canonical
+   `ai/`; regenerate all supported harness projections.
 5. **Run** the matching skill next time — don't re-debate from memory.
 
 **Tempering rule:** scout signal → ADAPT **Price** → Integrate, Track, or Reject. See [AI-CHANGE-PROCESS.md](./AI-CHANGE-PROCESS.md).
@@ -238,7 +245,12 @@ The monorepo **compounds**: documents get richer, skills get sharper, apps share
 
 ## Mixed-tool teams (Cursor + Claude Code + Codex)
 
-Documents are harness-agnostic. **`AGENTS.md`** at the root is the passport; **`CLAUDE.md`** points at it; **`.cursor/rules/`** adds scoped detail. Skills in `.claude/skills/` are **prompt recipes** in Cursor — same files, same artifact paths, same decisions.
+Documents and canonical capabilities are harness-agnostic.
+**`AGENTS.md`** is the shared passport. `CLAUDE.md` and Cursor rules add only
+harness-specific loading guidance. `npm run ai:generate` publishes reviewed
+interpretations to `.claude/skills/` and `.claude/agents/`,
+`.cursor/skills/` and `.cursor/agents/`, and `.agents/skills/` plus
+`.codex/agents/`. Never hand-maintain a projection.
 
 ---
 
@@ -260,6 +272,6 @@ Documents are harness-agnostic. **`AGENTS.md`** at the root is the passport; **`
 
 - [AI-CHANGE-PROCESS.md](./AI-CHANGE-PROCESS.md) — ADAPT, watchlist, terrain review (one workflow)
 - [Adoption kit](../marketing/adoption-kit/README.md) — fill-in policy templates
-- [Phase 00 STARTER-KIT](./phases/00/STARTER-KIT.md) — `.claude/` tour
+- [Phase 00 STARTER-KIT](./phases/00/STARTER-KIT.md) — canonical library and harness projections
 - [Instruction passport](../marketing/adoption-kit/02-instruction-passport.md) — `AGENTS.md` pattern
 - [Leadership & org engagement](../marketing/adoption-kit/10-leadership-and-org-engagement.md) — personnel adoption, dev-group source of truth

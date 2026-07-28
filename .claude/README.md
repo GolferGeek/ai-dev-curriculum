@@ -1,4 +1,8 @@
-# `.claude/` — Claude Code project config
+# `.claude/` — generated Claude Code project config
+
+Canonical skills and agents live in [`ai/`](../ai/README.md). Do not edit the
+generated files here directly. Run `npm run ai:generate` after changing the
+canonical source and `npm run ai:check` to detect drift.
 
 **Human-readable map:** [docs/phases/00/STARTER-KIT.md](../docs/phases/00/STARTER-KIT.md) — what each **slash-invoked skill**, **background skill**, and **agent** is for.
 

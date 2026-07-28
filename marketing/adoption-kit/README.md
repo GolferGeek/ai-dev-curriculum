@@ -39,7 +39,7 @@ Index: [guardrails/README.md](guardrails/README.md)
 
 1. **During the course:** each template names the phase and discussion talk that teaches it. Fill in what you can while the material is fresh — the secondary-window activities in the discussion track map directly onto these files.
 2. **Week close (Day 5):** work through D-CLOSE-1 and fill in all **ten** templates with *your* names, tools, paths, and owners.
-3. **Back at work:** commit the finished kit to `docs/ai-program/` ([README](../../docs/ai-program/README.md)) in a repo your team can see. Review changes like code — pull requests, not silent edits. Add `.claude/skills/` as you codify workflows with `/author-agent`.
+3. **Back at work:** commit the finished kit to `docs/ai-program/` ([README](../../docs/ai-program/README.md)) in a repo your team can see. Review changes like code — pull requests, not silent edits. Add canonical skills and specialized agents under `ai/`, then run `npm run ai:generate` to publish the supported harness projections.
 4. **Quarterly:** revisit pieces 1, 6, and 8 — plans, models, and the watchlist rotate fast. Everything else compounds.
 
 ## Ground rules baked into every template

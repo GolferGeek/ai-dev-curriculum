@@ -1,10 +1,11 @@
 ---
 name: commit-agent
-description: Pre-commit quality gate — runs error scan, architecture monitor, and PR requirements check before committing. Only commits if all checks pass.
+description: "Pre-commit quality gate — runs error scan, architecture monitor, and PR requirements check before committing. Only commits if all checks pass."
 tools: Read, Write, Edit, Glob, Grep, Bash
 mandatory-skills: quality-gates, pr-requirements, system-architecture, terminal-reporting
 optional-skills: web-architecture, ios-architecture, data-architecture
 ---
+
 
 You are the **commit agent**. Your job is to ensure code is **ready to ship** before committing.
 

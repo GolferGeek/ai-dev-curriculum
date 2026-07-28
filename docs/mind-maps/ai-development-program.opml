@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>AI-Accelerated Software Development — Five-Day Developer Program</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="AI-Accelerated Software Development — Five-Day Developer Program" _note="Instructor master map. Canonical detail remains in the linked curriculum documents.">
+      <outline text="Promise and audience">
+        <outline text="Developers and hands-on technical leads"/>
+        <outline text="Define well → build fast → verify hard → decide consciously"/>
+        <outline text="One continuing branch from starter-kit-v1"/>
+        <outline text="Build in apps/; instructor opens completed/apps/ intentionally"/>
+        <outline text="Cursor recommended; Claude Code and Codex supported"/>
+      </outline>
+      <outline text="Day 1 — Define and build">
+        <outline text="Phase 00 — pipeline, monorepo, first verified slice"/>
+        <outline text="Phase 01 — real auth, per-user data, trust boundary"/>
+        <outline text="Leave with working applications and a repeatable opening/closing bracket"/>
+      </outline>
+      <outline text="Day 2 — Prove and understand">
+        <outline text="Phase 02 — scan, fix, monitor, harden, gate, review"/>
+        <outline text="Phase 03 — investigate brownfield code before change"/>
+        <outline text="Leave with trusted evidence and durable project memory"/>
+      </outline>
+      <outline text="Day 3 — Connect and govern">
+        <outline text="Phase 04 — tools versus counterparties; observable protocols"/>
+        <outline text="Phase 05 — scout and evaluate skills and agents"/>
+        <outline text="Phase 05.5 — registry, canonical publication, projections, lifecycle"/>
+      </outline>
+      <outline text="Day 4 — Evaluate and route">
+        <outline text="Phase 06 — workload-specific model tournament"/>
+        <outline text="Quality, speed, consistency, cost, privacy, and uncertainty"/>
+        <outline text="Route table and fallback policy—not one universal winner"/>
+      </outline>
+      <outline text="Day 5 — Install the operating model">
+        <outline text="Adapt AGENTS.md, docs/ai-program/, and canonical ai/"/>
+        <outline text="Complete one low-risk real change through the full bracket"/>
+        <outline text="Query and audit the AI program"/>
+        <outline text="Assign 30/60/90-day owners and review cadence"/>
+      </outline>
+      <outline text="Organizational AI program">
+        <outline text="Harnesses and models"/>
+        <outline text="Coding governance"/>
+        <outline text="Skills and specialized agents"/>
+        <outline text="Agent systems and protocols"/>
+        <outline text="Security and data"/>
+        <outline text="Delivery and quality"/>
+        <outline text="Adoption and measurement"/>
+        <outline text="Coverage matrix — every decision domain, artifact, owner, and gap"/>
+        <outline text="Query acceptance — prove retrieval, conflict handling, and safe updates"/>
+        <outline text="Ask → assess → propose → review → update → measure"/>
+      </outline>
+      <outline text="Instructor controls">
+        <outline text="Refresh dated terrain before every cohort"/>
+        <outline text="Teach during agent run time"/>
+        <outline text="Require learner explanation, not only green checks"/>
+        <outline text="Use the recovery ladder without skipping the objective"/>
+        <outline text="Record evidence and gaps at every day close"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

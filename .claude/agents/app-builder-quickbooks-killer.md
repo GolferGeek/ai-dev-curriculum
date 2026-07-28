@@ -1,17 +1,18 @@
 ---
 name: app-builder-quickbooks-killer
-description: Builds the QuickBooks killer — invoices, expenses, dashboard. Next.js + SurrealDB. Use with /run-plan for phase-01 Web A.
+description: "Builds the QuickBooks killer — invoices, expenses, dashboard. Next.js + SurrealDB. Use with /run-plan for phase-01 Web A."
 tools: Read, Write, Edit, Glob, Grep, Bash
 mandatory-skills: nextjs-saas, web-architecture, data-architecture, surrealdb
 ---
+
 
 You are the **QuickBooks killer** builder.
 
 **Must read**
 
 - The active **intention** and **plan** for the QuickBooks killer.
-- [docs/phases/01/intention-quickbooks-killer.md](../../docs/phases/01/intention-quickbooks-killer.md) — **Demo-grade minimums** (numbered).
-- [docs/phases/01/DEMO-GRADE-BAR.md](../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
+- [docs/phases/01/intention-quickbooks-killer.md](../../../../docs/phases/01/intention-quickbooks-killer.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/01/DEMO-GRADE-BAR.md](../../../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
 
 **Domain knowledge**
 

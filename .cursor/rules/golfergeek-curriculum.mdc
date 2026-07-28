@@ -1,22 +1,26 @@
 ---
-description: Align Cursor with this repo’s Claude Code curriculum — same docs, same artifact flow, reference .claude for definitions.
+description: Align Cursor with the repository's canonical AI curriculum, documents, and generated Cursor skills and agents.
 alwaysApply: true
 ---
 
-# GolferGeek AI Dev Curriculum (Cursor + Claude Code)
+# GolferGeek AI Dev Curriculum
 
-## Two tools, one playbook
+## One organizational playbook
 
-- **Claude Code** (CLI / subscription): **Slash commands** live in **`.claude/commands/`** — `/intention`, `/prd`, `/plan`, `/run-plan`. Skills and agents are under **`.claude/skills/`** and **`.claude/agents/`**. That is the **authoritative** automation path for Phase 00.
-- **Cursor** (this IDE): There is **no** native `/run-plan` in Cursor that invokes those files. Cursor **reads** this rule plus project files. Follow the **same sequence** using [docs/phases/00/RUN-ORDER.md](../../docs/phases/00/RUN-ORDER.md) and the same artifacts under **`docs/artifacts/`**.
+- Read [AGENTS.md](../../AGENTS.md) for the repository passport.
+- Canonical skills and agents live in [`ai/`](../../ai/README.md).
+- Cursor-native generated skills and agents live in `.cursor/skills/` and
+  `.cursor/agents/`.
+- Claude Code and Codex projections are generated from the same source.
 
 ## What to do in Cursor
 
-1. Open [docs/phases/00/STARTER-KIT.md](../../docs/phases/00/STARTER-KIT.md) and [CLAUDE.md](../../CLAUDE.md).
-2. Execute the workflow **in order** (intention → PRD → plan → implement or delegate). Treat **`.claude/commands/*.md`** as **prompt templates**: read the file and perform that role in chat if not using Claude Code slash commands.
-3. When editing code, respect [docs/phases/00/intention-monorepo.md](../../docs/phases/00/intention-monorepo.md) once the monorepo exists; use skills **monorepo-turbo** and **prd-alignment** by reading **`.claude/skills/`** and applying that discipline.
-4. Prefer **@** references to `docs/phases/00/` and `.claude/` so context stays aligned with the course.
-
-## Not automatic cross-calls
-
-Cursor does **not** “call” Claude Code skills remotely. This rule **mirrors intent** so both tools stay consistent. For **verified** slash-command behavior, use **Claude Code** in this repo.
+1. Open [docs/phases/00/STARTER-KIT.md](../../docs/phases/00/STARTER-KIT.md).
+2. Execute the workflow in order: intention → PRD → plan → implement or
+   delegate → verify.
+3. Use the generated Cursor skills and agents when their descriptions match
+   the work.
+4. Write durable decisions and evidence to the documented repository paths,
+   not only to chat history.
+5. After canonical tooling changes, run `npm run ai:generate` and
+   `npm run ai:check`.

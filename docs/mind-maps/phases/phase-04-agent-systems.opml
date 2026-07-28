@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 04 — Agent Systems and Protocols</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 04 — Agent Systems and Protocols" _note="Authoritative package: docs/phases/04; use presenter guide and phase-04 deck.">
+      <outline text="Instructor intent">
+        <outline text="MCP equips an agent; A2A connects it to a counterparty"/>
+        <outline text="Protocols are rails—not identity, trust, contract, or accountability"/>
+        <outline text="Observable task state and human intervention are product requirements"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Verify five services/ports or reference implementation"/>
+        <outline text="Refresh protocol versions and claims"/>
+        <outline text="Prepare one success, one denial, and one failure trace"/>
+      </outline>
+      <outline text="Teach">
+        <outline text="Agent-readable company surfaces"/>
+        <outline text="MCP: tools/resources inside an agent&apos;s workflow"/>
+        <outline text="A2A: discovery, delegated task, state, artifact"/>
+        <outline text="AP2-style mandate: is spending allowed?"/>
+        <outline text="x402-style rail: how does payment settle?"/>
+        <outline text="AG-UI-style events: how does the human watch/intervene?"/>
+      </outline>
+      <outline text="Lab">
+        <outline text="Discover agent cards"/>
+        <outline text="Delegate restaurant and booking goals"/>
+        <outline text="Encounter paid-resource challenge"/>
+        <outline text="Authorize under a bounded mandate"/>
+        <outline text="Stream and inspect every exchange"/>
+        <outline text="Narrate source, target, method, state, authority, and artifact"/>
+      </outline>
+      <outline text="Company questions">
+        <outline text="Surface, identity, authority, policy"/>
+        <outline text="Evidence, attention, intervention, accountability"/>
+        <outline text="Timeout, cancellation, revocation, dispute, and audit"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Learner explains capability versus counterparty accurately"/>
+        <outline text="No claim of production payment security from the demo"/>
+        <outline text="Next: govern the instructions and roles agents use"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

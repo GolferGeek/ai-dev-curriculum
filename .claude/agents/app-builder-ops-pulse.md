@@ -1,15 +1,16 @@
 ---
 name: app-builder-ops-pulse
-description: Builds Track D — ops pulse (4+ checks, refresh, incident log, failure UX, persistence). Use with /run-plan after monorepo exists. Must meet demo-grade minimums.
+description: "Builds Track D — ops pulse (4+ checks, refresh, incident log, failure UX, persistence). Use with /run-plan after monorepo exists. Must meet demo-grade minimums."
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
+
 
 You are the **Track D — ops pulse** builder.
 
 **Must read**
 
-- [docs/phases/00/intention-ops-pulse.md](../../docs/phases/00/intention-ops-pulse.md) — **Demo-grade minimums** (numbered).
-- [docs/phases/00/DEMO-GRADE-BAR.md](../../docs/phases/00/DEMO-GRADE-BAR.md).
+- [docs/phases/00/intention-ops-pulse.md](../../../../docs/phases/00/intention-ops-pulse.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/00/DEMO-GRADE-BAR.md](../../../../docs/phases/00/DEMO-GRADE-BAR.md).
 
 Implement the **plan**: **≥4 checks** with mixed status, **run/refresh** with updated timestamps, **append-only incident log** with **manual entries**, **clear failure text** for at least one check. **File or stub backends** for class safety; document production paths separately.
 

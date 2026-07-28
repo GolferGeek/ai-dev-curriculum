@@ -11,19 +11,21 @@ Two different things both get called "my AI account":
 
 Your subscription does not give your code an API key, and an API key does not power your coding agent. Different doors, different billing. Most "why doesn't this work / why am I being charged" moments trace back to mixing these up.
 
-## The two ways to pay
+## The two common ways access is funded
 
-- **Subscription** — a flat monthly fee for the tool with generous usage. Simple and predictable; the right choice for your daily coding agent.
-- **API, pay-per-token** — you pre-load credits (or attach billing) and each call costs fractions of a cent to cents. For light student use this is often the *cheapest* path — a few dollars can last weeks. The right choice for apps you build that call models.
+- **Seat or subscription** — access to an interactive coding product, normally with usage limits that vary by plan. This is the common path for a daily coding harness.
+- **API, usage-based** — credentials that let software call a model. Billing, limits, and data terms are controlled separately from an interactive product.
 
-Prices and free tiers change monthly. **Check the provider's pricing page; don't trust any number written in a doc** (including this one).
+Prices, included usage, plan names, model access, and data terms change frequently. The client must confirm approved products and current terms before each cohort; this document deliberately promises no free tier or fixed monthly price.
 
-## Tool by tool
+## Course position
 
-- **Claude Code** — sign in with a Claude subscription (the smooth path for this curriculum), or use API credits from [platform.claude.com](https://platform.claude.com/) (a small starter amount is typically free, no card). The bare free claude.ai account is too limited for real working sessions.
-- **Cursor** — the free Hobby tier is enough to start (no card); Pro removes the caps, and verified university students can currently get [a year of Pro free](https://cursor.com/students).
-- **Codex** — sign in with a ChatGPT account; paid tiers raise the limits.
-- **Gemini** — Google's coding-assistant lineup is mid-transition as of mid-2026, so we don't teach a Gemini setup path; it would be stale in weeks. The Gemini API works fine as a *model* option for apps you build, if you want it.
+- **Cursor IDE is the recommended common classroom environment.** It keeps code, terminals, multiple projects, and agent sessions in one visual workspace.
+- **Claude Code and Codex are supported harnesses.** Learners can run them from Cursor's terminal or use their supported editor/desktop surfaces.
+- **The client may standardize access.** If it does, use the client-approved account, model, retention, and data-handling configuration.
+- **The course does not depend on one provider.** The canonical skills, specialized agents, and program decisions live in the monorepo and are projected into each supported harness.
+
+Before class, the instructor records the cohort's approved access choices in `docs/ai-program/decisions/` and refreshes any time-sensitive claims in `docs/ai-program/watchlist.md`.
 
 ## API key hygiene (non-negotiable)
 
@@ -34,8 +36,8 @@ Prices and free tiers change monthly. **Check the provider's pricing page; don't
 
 ## What each phase actually needs
 
-- **Phases 00–05:** just your coding agent. No API keys at all.
+- **Phases 00–05.5:** just your approved coding harness. No model API keys are required by the default labs.
 - **Phase 06 (Model Eval Lab):** [Ollama](https://ollama.com/) — free and local — for the local contestants; an Anthropic API key only if you include the hosted Claude contestants.
 - **Phase 04 (Protocols):** runs with mocks by default; keys only if you wire real hosted models in.
 
-If you're unsure, start with zero keys and your coding agent's free tier — you can complete most of the curriculum before spending a dollar.
+If you're unsure, start with zero application API keys. Confirm interactive-tool access with the instructor or your employer before class rather than creating unapproved accounts.

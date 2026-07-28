@@ -236,7 +236,10 @@ The evaluator reads every changed file, checks it against all architecture rules
 - **If the PR is clean:** it runs `gh pr review --approve` — the PR is approved on GitHub.
 - **If there are must-fix issues:** it runs `gh pr review --request-changes` with the list of what needs fixing.
 
-**The feedback loop:** If the evaluator finds a violation that the current rules don't cover, it adds a new rule to `.claude/skills/pr-requirements/SKILL.md`. Next time anyone runs `/commit`, that rule is part of the checklist. The system gets smarter every time.
+**The feedback loop:** If the evaluator finds a violation that current rules do
+not cover, it proposes a change to the canonical
+`ai/skills/03-quality-and-release/pr-requirements/SKILL.md`. After review,
+regeneration, and merge, every supported harness receives the updated rule.
 
 ---
 
@@ -247,7 +250,9 @@ Developer builds → /commit pr → gates pass → PR created on GitHub
                                                      ↓
                    /pr-evals → pick PR → /pr-eval → approved (or changes requested)
                                               ↓
-                   Finds new pattern → adds to pr-requirements → /commit catches it next time
+             Finds new pattern → proposes canonical rule → review/generate
+                                           ↓
+                                  commit catches it next time
 ```
 
 Your quality rules **evolve with your codebase**. Every code review makes future commits better. This is how professional teams scale quality without slowing down — the rules remember what humans discovered.
@@ -272,10 +277,15 @@ SaaS product code and hygiene workflows can have different owners. Auto-merge to
 ## Quick reference
 
 - **One-page summary:** [OVERVIEW.md](./OVERVIEW.md) — today · learn · leave with (share at open)
+- **Prerequisites:** [PREREQUISITES.md](./PREREQUISITES.md)
+- **Command reference:** [COMMANDS.md](./COMMANDS.md)
+- **Starter kit:** [STARTER-KIT.md](./STARTER-KIT.md)
 - **Instructor guide:** [TEACHING.md](./TEACHING.md) — timing, pause points, discussion slotting during scans
 - **Step-by-step checklist:** [RUN-ORDER.md](./RUN-ORDER.md)
-- **Architecture skills:** `.claude/skills/system-architecture/`, `web-architecture/`, `ios-architecture/`, `data-architecture/`
-- **PR requirements:** `.claude/skills/pr-requirements/SKILL.md`
+- **Demo-grade bar:** [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md)
+- **Verification:** [VERIFY.md](./VERIFY.md)
+- **Canonical architecture skills:** `ai/skills/02-application-delivery/`
+- **Canonical PR requirements:** `ai/skills/03-quality-and-release/pr-requirements/SKILL.md`
 - **Error report:** `docs/artifacts/error-report.md` (created by `/scan-errors`)
 - **Monitor report:** `docs/artifacts/monitor-report.md` (created by `/monitor`)
 

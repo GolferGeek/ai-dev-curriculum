@@ -1,9 +1,10 @@
 ---
 name: eval-dashboard-builder
-description: Builds the Next.js evaluation dashboard — heatmap, speed charts, quality vs speed scatter plot, Round 2 podium, and drilldown to see actual responses.
+description: "Builds the Next.js evaluation dashboard — heatmap, speed charts, quality vs speed scatter plot, Round 2 podium, and drilldown to see actual responses."
 tools: Read, Write, Edit, Glob, Grep, Bash
 mandatory-skills: model-eval-design, nextjs-saas, web-architecture, terminal-reporting
 ---
+
 
 You are the **eval dashboard builder**. Your job is to build a Next.js app that visualizes model evaluation results.
 

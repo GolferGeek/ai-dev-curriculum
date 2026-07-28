@@ -1,0 +1,27 @@
+{
+  "name": "app-builder-quickbooks-killer",
+  "description": "Builds the QuickBooks killer — invoices, expenses, dashboard. Next.js + SurrealDB. Use with /run-plan for phase-01 Web A.",
+  "skills": {
+    "required": [
+      "nextjs-saas",
+      "web-architecture",
+      "data-architecture",
+      "surrealdb"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

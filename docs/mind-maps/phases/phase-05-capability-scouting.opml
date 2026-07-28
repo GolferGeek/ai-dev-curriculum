@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 05 — Capability Scouting</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 05 — Capability Scouting" _note="Authoritative package: docs/phases/05; lecture: marketing/lesson-plans/phase-05.md.">
+      <outline text="Instructor intent">
+        <outline text="Skills and agents are behavioral dependencies"/>
+        <outline text="Discovery is not installation or approval"/>
+        <outline text="Trust applies to exact revisions, scope, evidence, and owner"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Refresh configured sources and preserve dated cache"/>
+        <outline text="Prepare skill, agent, malformed, changed, and risky fixtures"/>
+        <outline text="Open canonical ai/ and all three projections"/>
+      </outline>
+      <outline text="Teach">
+        <outline text="Skill versus agent versus rule/tool/memory/code"/>
+        <outline text="Seven functional groups"/>
+        <outline text="Canonical nested source; flat native projections"/>
+        <outline text="Purpose, provenance, behavior, authority, evidence, ownership"/>
+        <outline text="Personal, project/team, and organizational scope"/>
+      </outline>
+      <outline text="Lab">
+        <outline text="Snapshot sources and show fetch/parse failures"/>
+        <outline text="Normalize identity separately from revisions"/>
+        <outline text="Diff added, changed, removed, unchanged, failed"/>
+        <outline text="Search, matrix, full package preview, revision compare"/>
+        <outline text="Evaluate one skill, one agent, and one difficult candidate"/>
+        <outline text="Run trigger, non-trigger, collision, safety, and outcome tests"/>
+      </outline>
+      <outline text="Evaluation board">
+        <outline text="State exact revision and intended job"/>
+        <outline text="Show strongest evidence and requested authority"/>
+        <outline text="Recommend scope, restriction, owner, and re-review trigger"/>
+        <outline text="Defend one rejection"/>
+      </outline>
+      <outline text="Close">
+        <outline text="No unauthorized installation or publication"/>
+        <outline text="Next: registry, canonical PR, generation, and lifecycle"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

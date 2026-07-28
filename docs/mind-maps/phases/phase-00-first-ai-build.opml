@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 00 — First AI Build</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 00 — First AI Build" _note="Authoritative package: docs/phases/00; lecture: marketing/lesson-plans/phase-00.md.">
+      <outline text="Instructor intent">
+        <outline text="Models predict; harnesses supply context, tools, and action"/>
+        <outline text="The durable skill is the pipeline—not a vendor interface"/>
+        <outline text="Definition and proof bracket a fast, scoped build"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Verify setup, account, Git, Node, browser, and ai:check"/>
+        <outline text="Create learner/my-work from starter-kit-v1"/>
+        <outline text="Show ai/ canonical source and three generated projections"/>
+        <outline text="Explain apps/ versus completed/apps/"/>
+      </outline>
+      <outline text="Teach before the lab">
+        <outline text="LLM → prompt → context → tools → harness → skill → agent"/>
+        <outline text="Memory versus context"/>
+        <outline text="Intention → PRD → plan → run plan"/>
+        <outline text="Challenge pass at every artifact boundary"/>
+        <outline text="Monorepo: apps, packages, docs, canonical capabilities"/>
+      </outline>
+      <outline text="Lab">
+        <outline text="Inspect the supplied monorepo shell"/>
+        <outline text="Choose HTTP workspace, team wiki, pipeline CRM, or ops pulse"/>
+        <outline text="Critique intention; generate and review PRD and plan"/>
+        <outline text="Build one demo-grade product slice in apps/"/>
+        <outline text="Build → lint → test → verify → browser"/>
+      </outline>
+      <outline text="Pause points">
+        <outline text="After intention — does it say what and why?"/>
+        <outline text="After PRD — are goals testable and traced?"/>
+        <outline text="After plan — does every goal have work and proof?"/>
+        <outline text="After build — inspect running software, not transcript"/>
+      </outline>
+      <outline text="Common failures and recovery">
+        <outline text="Starter-screen drift → return to demo-grade contract"/>
+        <outline text="Network failure → documented deterministic mock"/>
+        <outline text="Broken generation → preserve error, narrow, retry from clean plan"/>
+        <outline text="Tool syntax confusion → use equivalent canonical workflow"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Learner explains the full pipeline and closing bracket"/>
+        <outline text="Commit a working checkpoint on the continuing branch"/>
+        <outline text="Name what belongs in docs, a skill, an agent, code, or chat"/>
+        <outline text="Next: raise the stakes with auth and data"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

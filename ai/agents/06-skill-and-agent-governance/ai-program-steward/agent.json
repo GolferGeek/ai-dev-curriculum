@@ -1,0 +1,29 @@
+{
+  "name": "ai-program-steward",
+  "description": "Answers questions from the organizational AI program, audits all facets, and prepares or applies reviewable modernization proposals without silently changing policy.",
+  "skills": {
+    "required": [
+      "ai-program-advisor",
+      "research-patterns",
+      "prd-alignment"
+    ],
+    "optional": [
+      "terrain-review",
+      "skill-maintain"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

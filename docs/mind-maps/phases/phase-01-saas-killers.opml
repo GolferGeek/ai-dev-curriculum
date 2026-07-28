@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 01 — SaaS Killers</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 01 — SaaS Killers" _note="Authoritative package: docs/phases/01; lecture: marketing/lesson-plans/phase-01.md.">
+      <outline text="Instructor intent">
+        <outline text="AI makes a narrow product slice economically possible"/>
+        <outline text="Real means identity, protected routes, persisted data, and isolation"/>
+        <outline text="The browser may ask; server and database must decide"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Phase 00 checkpoint is green"/>
+        <outline text="SurrealDB and test credentials work"/>
+        <outline text="Choose web default or Mac-only iOS option"/>
+        <outline text="Select QuickBooks, Trello, Twitter, or Facebook slice"/>
+      </outline>
+      <outline text="Teach">
+        <outline text="SaaS bargain and the newly ownable misfit"/>
+        <outline text="Vibe coding versus vibe engineering"/>
+        <outline text="Auth/data chain: signup → sign in → protect → persist → isolate"/>
+        <outline text="Secrets and authorization stay server-side"/>
+        <outline text="Data contract before UI"/>
+      </outline>
+      <outline text="Lab">
+        <outline text="Challenge intention, PRD, and plan"/>
+        <outline text="Build schema/migration and authentication first"/>
+        <outline text="Build one credible workflow on persisted per-user data"/>
+        <outline text="Create user A and user B"/>
+        <outline text="Prove B cannot read or mutate A"/>
+        <outline text="Test signed-out and error states"/>
+      </outline>
+      <outline text="Demo-grade evidence">
+        <outline text="Real signup/sign-in and protected routes"/>
+        <outline text="No client-side admin secrets"/>
+        <outline text="Per-user records and server-side authorization"/>
+        <outline text="Second-user isolation proof"/>
+        <outline text="Build/tests/browser all green"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Explain every link in the trust chain"/>
+        <outline text="Record gaps honestly if hardware/time limits completion"/>
+        <outline text="Next: turn one successful build into repeatable quality"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

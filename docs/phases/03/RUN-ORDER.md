@@ -5,7 +5,7 @@
 - [ ] Phase 02 complete, including a known quality contract or PR requirements
 - [ ] Choose team mode or individual mode
 - [ ] Select an authorized internal, sanitized, public GitHub, or course-provided repository
-- [ ] Create a research branch; the lab is read-first and report-first
+- [ ] Confirm the continuing learner branch is clean; the lab is read-first and report-first
 - [ ] Confirm no secrets, customer data, or prohibited code will be sent to an unapproved service
 
 ## The investigation-and-memory cycle

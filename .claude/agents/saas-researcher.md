@@ -1,8 +1,9 @@
 ---
 name: saas-researcher
-description: Researches SaaS products to define killer app intentions — competitive analysis, core features, scope for a 2-hour build. Use before /intention for phase-01.
+description: "Researches SaaS products to define killer app intentions — competitive analysis, core features, scope for a 2-hour build. Use before /intention for phase-01."
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
+
 
 You are the **SaaS research agent** for phase-01.
 

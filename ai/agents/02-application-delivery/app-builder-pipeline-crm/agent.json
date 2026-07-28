@@ -1,0 +1,22 @@
+{
+  "name": "app-builder-pipeline-crm",
+  "description": "Builds Track C — pipeline CRM (board, records, detail, notes, filters, persistence). Use with /run-plan after monorepo exists. Must meet demo-grade minimums.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

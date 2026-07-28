@@ -16,7 +16,7 @@
 
 | Scope | Memory paths | Context paths (what agents load) |
 |-------|--------------|----------------------------------|
-| **Corporate** | `docs/ai-program/`, `decisions/` | `AGENTS.md`, `.claude/skills/` (shared) |
+| **Corporate** | `docs/ai-program/`, `decisions/`, canonical `ai/` | `AGENTS.md` + generated harness projection |
 | **Group** | `docs/groups/<name>/`, `…/decisions/` | `docs/groups/<name>/README.md`, group rules |
 | **Project** | `docs/projects/<name>/` (portfolio), `docs/artifacts/` (active build) | `@docs/projects/<name>/`; intention + plan; `apps/<name>/`; scoped rules |
 

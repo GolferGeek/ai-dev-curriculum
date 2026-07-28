@@ -1,89 +1,115 @@
-# The Claude starter kit — what this repo intends, what you start with, what each item does
+# Starter kit — one capability library, three coding harnesses
 
-This document is the **map** for the **`.claude/`** directory in this project. In live sessions we **walk this tree** so you see **slash-invoked workflow skills** (what you type as `/name`), **background skills** (what the model auto-applies), and **agents** (who executes **`/run-plan`** for monorepo vs each product track).
+The starter kit is the complete course repository at the immutable
+`starter-kit-v1` tag. Create one learner branch from that tag and keep it for
+the entire program. There are no phase branches or phase tags.
 
----
+## What learners receive
 
-## What we intend to do
+| Area | Purpose |
+|---|---|
+| `docs/` | Course material, intentions, artifacts, decisions, and the organizational AI program |
+| `ai/` | Canonical skills and specialized agents, organized by business function |
+| `.claude/` | Generated Claude Code skills and agents |
+| `.cursor/` | Generated Cursor skills, agents, and project rules |
+| `.agents/skills/` | Generated Codex skills |
+| `.codex/agents/` | Generated Codex agent roles |
+| `apps/` | Empty active workspace where learners build |
+| `completed/apps/` | Finished reference implementations for instructor-directed comparison and recovery |
+| `packages/` | Shared code used by learner applications |
 
-1. **Part A — House:** Establish a **Turbo monorepo** (`apps/`, `packages/`, `turbo.json`) using a **provided** [intention for the monorepo](./intention-monorepo.md), then **PRD → plan → `/run-plan`** with the **monorepo builder** agent.
-2. **Part B — First app:** Pick **one** of four [product tracks](./README.md); use the **given** app intention (**Demo-grade minimums** inside each `intention-*.md`), plus the cross-cutting [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md), then **PRD → plan → `/run-plan`** with the matching **track builder** agent.
-3. **Same vocabulary everywhere:** `/intention`, `/prd`, `/plan`, `/run-plan` — see [COMMANDS.md](./COMMANDS.md).
+The generated harness directories are committed so a learner can start
+immediately. The canonical source remains `ai/`; do not hand-edit a generated
+copy.
 
-Artifacts (intention / PRD / plan markdown) usually live under **`docs/artifacts/`** unless you choose another path and tell the slash skill.
+## Why the canonical library is organized by function
 
-4. **Operating model:** Policy and decisions live in **`docs/ai-program/`** ([index](../../ai-program/README.md)); workflows live in **`.claude/skills/`**. Memory (corporate / group / project) + context (`AGENTS.md`, intentions) + AI engagement boundaries — see [MONOREPO-OPERATING-MODEL.md](../../MONOREPO-OPERATING-MODEL.md).
+A growing organization should not browse one enormous alphabetical list.
+Skills and agents are grouped by the work they support:
 
----
+1. Foundation and planning.
+2. Application delivery.
+3. Quality and release.
+4. Research and understanding.
+5. Protocols and agent systems.
+6. Skill and agent governance.
+7. Model and tool evaluation.
 
-## What you’re starting with
+Each canonical skill lives at
+`ai/skills/<function>/<skill>/SKILL.md`. Each canonical agent lives at
+`ai/agents/<function>/<agent>/AGENT.md` with an adjacent `agent.json` metadata
+file. Stable names let the generator create the layouts each harness expects
+without changing what the capability means.
 
-| Piece | Role |
-|--------|------|
-| **This repo** | Curriculum + starter **Claude Code** layout; not a finished production system until you run the plans. |
-| **`docs/phases/00/`** | Intentions (monorepo + four apps), skill workflow, this starter-kit explainer. |
-| **`.claude/`** | Skills and agents you use with Claude Code in this project. |
-| **`CLAUDE.md`** (repo root) | Short project rules for the assistant—points here and to `docs/`. |
+## Choose a working interface
 
----
+Cursor is the recommended common IDE because it keeps code, terminals, source
+control, and agent conversations in one environment. Learners may use Cursor's
+agent interface, launch Claude Code or Codex from its terminal, or use the
+Claude Code and Codex editor integrations.
 
-## Pipeline skills (`.claude/skills/`) — you invoke these
+Claude Code and Codex are also fully supported as primary harnesses. The
+client's security, procurement, and model-provider policy controls which tools
+and models are allowed. The curriculum teaches the same durable workflow in
+all three.
 
-| File | Invoke as | What it does |
-|------|----------------|---------------|
-| `intention.md` | `/intention` | Shape or update an **intention** artifact; works for monorepo or a product track; points at provided intention files in `docs/phases/00/`. |
-| `prd.md` | `/prd` | Build or refresh a **PRD** from the active intention. |
-| `plan.md` | `/plan` | Build an implementation **plan** from intention + PRD (milestones, risks, `apps/` / `packages/` touchpoints). |
-| `run-plan.md` | `/run-plan` | **Execute** the plan by delegating to the **monorepo-builder** agent or one of the **four track** app builders. |
+## Generate and verify projections
 
----
+Run these commands after changing canonical capabilities:
 
-## Convention skills (`.claude/skills/`) — model applies when relevant
+```bash
+npm run ai:generate
+npm run ai:check
+```
 
-| File | Skill | What it does |
-|------|--------|---------------|
-| `monorepo-turbo.md` | **monorepo-turbo** | Keeps Turbo layout disciplined: `apps/` vs `packages/`, `turbo.json`, root scripts, package-manager consistency. |
-| `prd-alignment.md` | **prd-alignment** | Keeps PRDs and plans **aligned** with intention—traceability, non-goals, drift checks. |
+`ai:generate` rebuilds all three harness projections. `ai:check` generates into
+a temporary location and fails if a committed projection is missing, stale, or
+hand-edited.
 
-Skills are **not** a separate chat; they guide behavior when Claude is editing or reviewing artifacts in scope.
+## The Phase 00 workflow
 
----
+Phase 00 uses the same pipeline learners will repeat all week:
 
-## `.claude/agents/` — specialized executors for `/run-plan`
+```text
+intention → PRD → plan → run the plan → build → lint → test → verify → browser
+```
 
-| File | Agent | When `/run-plan` uses it |
-|------|--------|---------------------------|
-| `monorepo-builder.md` | **monorepo-builder** | Part A only: create/extend the **Turbo shell**, not full product features. |
-| `app-builder-http-workspace.md` | **app-builder-http-workspace** | Track A — HTTP workspace (mini Postman style). |
-| `app-builder-team-wiki.md` | **app-builder-team-wiki** | Track B — wiki / runbooks. |
-| `app-builder-pipeline-crm.md` | **app-builder-pipeline-crm** | Track C — CRM / pipeline board. |
-| `app-builder-ops-pulse.md` | **app-builder-ops-pulse** | Track D — ops pulse dashboard. |
+Part A examines the monorepo and capability library. Part B builds one
+demo-grade application in `apps/`. The intentions and cross-cutting grade bar
+define the result before an agent writes code.
 
-Each agent file embeds a **pointer** to the matching **intention** under `docs/phases/00/`.
+Pipeline capabilities include `intention`, `prd`, `plan`, and `run-plan`.
+Specialized builders include the monorepo and Phase 00 application builders.
+The exact invocation syntax can differ by harness; the artifact contract and
+quality gates do not.
 
----
+## Instructor walkthrough
 
-## How to use this in teaching
+Before the first lab:
 
-1. Open **this document** and the **`.claude/`** folder side by side.
-2. Read **slash-invoked skills** aloud as “what humans type”; read **background skills** as “how we keep quality”; read **agents** as “who runs the plan.”
-3. Run **`/run-plan`** only after a **plan** exists—otherwise send learners back to **`/plan`**.
+1. Show the one learner branch and explain why work accumulates rather than
+   resetting at each phase.
+2. Open `ai/` and one generated projection side by side.
+3. Trace one canonical skill and one canonical agent into all three harnesses.
+4. Run `npm run ai:check`.
+5. Open `apps/` and `completed/apps/`; explain when reference code may be used.
+6. Demonstrate intention → PRD → plan without beginning the build.
 
----
+During the lab, make learners inspect the artifact produced at every boundary.
+After the lab, ask them to name which knowledge belongs in documents, a skill,
+an agent, code, or a temporary conversation.
 
-## Cursor vs Claude Code (important)
+## Guardrails
 
-- **Claude Code** runs the pipeline skills from **`.claude/skills/`** — invoked by typing `/intention`, `/prd`, `/plan`, `/run-plan`. (Slash workflows migrated into the skills format; typing `/name` still works.) Agents live under **`.claude/agents/`**.
-- **Cursor** does **not** execute those as native `/` entries. The project includes **`.cursor/rules/golfergeek-curriculum.mdc`** so Cursor’s agent follows the **same docs and artifact flow**. In Cursor, treat each pipeline skill file as a **prompt recipe** or use **@** to attach `docs/phases/00/` and `.claude/skills/`.
-- **Not automatic:** Cursor is **not** “calling Claude skills” remotely—both tools share **files and rules**; Claude Code is where slash-invoked skills are **guaranteed** to bind.
+- Do not edit generated harness folders directly.
+- Do not copy finished applications back into `apps/` as a substitute for the
+  lab.
+- Do not let a tool-specific invocation become the learning objective.
+- Do not grant an agent publication, credential, or production authority just
+  because it can generate code.
+- Keep stable organizational knowledge in Git; treat personal tool memory as a
+  convenience, not the source of truth.
 
-Self-serve checklist: [RUN-ORDER.md](./RUN-ORDER.md) · Prerequisites: [PREREQUISITES.md](./PREREQUISITES.md) · Verification: [VERIFY.md](./VERIFY.md).
-
-## See also
-
-- [Phase 00 README](./README.md) — Part A / Part B flow  
-- [COMMANDS.md](./COMMANDS.md) — order of operations for slash-invoked skills
-- [intention-monorepo.md](./intention-monorepo.md) — monorepo intention  
-- [MONOREPO-OPERATING-MODEL.md](../../MONOREPO-OPERATING-MODEL.md) — documents + skills; memory, context, engagement
-- [docs/ai-program/README.md](../../ai-program/README.md) — corporate / group / project document index
-- [AI-CHANGE-PROCESS.md](../../AI-CHANGE-PROCESS.md) — ADAPT + `/terrain-review` (one workflow)
+See [the canonical AI library](../../../ai/README.md), the
+[monorepo operating model](../../MONOREPO-OPERATING-MODEL.md), and the
+[harness instruction map](../../guardrails/02-harness-instruction-layers.md).

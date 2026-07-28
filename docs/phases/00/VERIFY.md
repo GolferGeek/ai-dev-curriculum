@@ -15,7 +15,8 @@ From repo root:
 
 Checks (non-exhaustive; extend as the repo grows):
 
-- Required **`.claude/`** files exist (skills and agents).
+- Canonical `ai/` files and the generated Claude Code, Cursor, and Codex
+  projections exist.
 - **`docs/phases/00/`** starter docs exist.
 - If **`turbo.json`** exists, basic keys are present.
 
@@ -37,9 +38,14 @@ Keep **curriculum tests** separate from product tests if useful, e.g. **`tests/c
 
 ### README-driven validation
 
-If a maintainer cannot get from **clone + README + `docs/phases/00/`** to a green build **without extra chat**, **reset** to the phase tag you started from (e.g. `git checkout -b retry phase-00`), **fix the docs or scripts**, **commit + push**, and run the flow again.
+If a maintainer cannot get from **clone + README + `docs/phases/00/`** to a
+green build **without extra chat**, create a clean retry branch from
+`starter-kit-v1`, fix the docs or scripts on the maintainer branch, commit and
+push, and run the flow again.
 
 ## “Wipe and retry”
 
 Safe to delete: **generated app folders** under `apps/*` and temporary artifacts if you need a clean **`/run-plan`**.  
-Do **not** delete: **`.claude/`**, **`docs/phases/00/`**, **`CLAUDE.md`**, **`.cursor/rules/`**, **`scripts/verify-curriculum-structure.sh`**.
+Do **not** delete: **`ai/`**, generated harness directories, **`docs/phases/00/`**,
+**`AGENTS.md`**, **`CLAUDE.md`**, **`.cursor/rules/`**, or
+**`scripts/verify-curriculum-structure.sh`**.

@@ -1,26 +1,30 @@
 # Teaching Mind Maps
 
-This directory is reserved for the instructor's MindNode teaching maps and
-their maintainable source.
+This directory contains MindNode-compatible teaching maps and their
+maintainable source. The maps summarize the finished curriculum; authoritative
+detail remains in the phase packages and lesson plans.
 
-The maps are created after the curriculum hardening pass so they reflect
-finished, authoritative teaching material rather than copying incomplete
-outlines into a new format.
-
-## Planned deliverables
+## Deliverables
 
 ```text
 docs/mind-maps/
   README.md
   source/
-    program-map.*                 # Curated source of truth
+    program-map.json              # Curated source of truth
   ai-development-program.opml    # Complete master teaching map
   phases/
-    phase-*.opml                  # One map per finalized teaching block
+    phase-*.opml                  # One detailed map per module
 ```
 
-The exact source format and phase filenames will be selected when the program
-structure is finalized.
+Generate and verify:
+
+```bash
+npm run mindmaps:generate
+npm run mindmaps:check
+```
+
+The generator validates the hierarchy and creates OPML 2.0 with notes that
+MindNode can import.
 
 ## Map requirements
 
@@ -36,9 +40,10 @@ map is detailed enough to teach from and includes:
 - After-lab discussion and follow-through.
 - References to the authoritative documents and deliverables.
 
-OPML is the portable generated format for MindNode. The curriculum repository,
-not an imported MindNode document, remains the content source of truth. Visual
-styling and MindNode-specific features are verified after import.
+OPML is the portable generated format for MindNode. The JSON source and
+curriculum repository—not an imported MindNode document—remain the content
+source of truth until the instructor calibration workflow intentionally folds
+MindNode edits back into the source.
 
 ## Instructor calibration workflow
 

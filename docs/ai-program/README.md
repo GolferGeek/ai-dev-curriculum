@@ -1,121 +1,122 @@
-# AI program — document home
+# AI program — the organization's agentic development memory
 
-*Starter index for the **document half** of your [monorepo operating model](../MONOREPO-OPERATING-MODEL.md). Adapt this tree in the repository that will own your AI program; fill templates from the [adoption kit](../../marketing/adoption-kit/README.md). Review changes like code — PRs, not silent edits.*
+`docs/ai-program/` is the durable, agent-readable account of how an
+organization develops software with AI. It is not a pile of course templates
+and it is not vendor documentation. It records the organization's current
+decisions, rationale, boundaries, evidence, owners, exceptions, and review
+triggers.
 
-## Choose its home
+An authorized developer should be able to ask an agent:
 
-There is no single required adoption shape:
+- Which coding harnesses and models may I use for this repository?
+- What data may leave our environment?
+- What may an agent change without asking?
+- Which quality gates block a merge?
+- When should we use a skill, specialized agent, MCP tool, or A2A service?
+- Which protocols have we adopted, rejected, or placed on the watchlist?
+- How do we publish and maintain skills and agents across tools?
+- What changed recently, what is stale, and who owns the decision?
 
-1. **Current product repository:** add `docs/ai-program/` when one team or platform repository can own the company practice.
-2. **New Nx monorepo:** use it as the corporate policy home as applications and libraries move into the shared platform.
-3. **Standalone AI program repository:** use this when policy spans many repositories or product code cannot be changed during the course. Document how approved instructions and skills are versioned and distributed downstream.
+The answer should cite files in this directory, identify uncertainty or stale
+evidence, and distinguish **current policy** from a **proposed change**.
 
-Do not copy the curriculum unchanged. Remove phase-specific teaching material, replace examples with the company's real commands and paths, name owners, and retain only policies and skills the team intends to operate.
+## Program facets
 
-The document set is ready only when a new developer can answer: which tools are approved, what data may be shared, what an agent may change, which checks must pass, how model cost is governed, where decisions live, and who owns the program.
+| Facet | Decisions it owns | Start here |
+|---|---|---|
+| Harnesses and models | Approved interfaces, providers, routing, spend, portability | [harnesses-and-models](harnesses-and-models/README.md) |
+| Coding governance | agent authority, review, Git, architecture, testing, release | [coding-governance](coding-governance/README.md) |
+| Skills and agents | portfolio, functions, trust, publication, projections, lifecycle | [skills](skills/README.md) |
+| Agent systems and protocols | MCP, A2A, identity, payments, observability, counterparties | [agent-systems](agent-systems/README.md) |
+| Security and data | classification, secrets, tools, network, supply chain, incidents | [security-and-data](security-and-data/README.md) |
+| Delivery and quality | artifact pipeline, gates, evidence, brownfield work, operations | [delivery-and-quality](delivery-and-quality/README.md) |
+| Adoption and measurement | roles, training, outcomes, review cadence, exceptions | [adoption-and-measurement](adoption-and-measurement/README.md) |
+| Guardrails | scheduled and automated enforcement patterns | [guardrails](guardrails/README.md) |
+| Decisions | dated decision records and supersession history | [decisions](decisions/README.md) |
+| Terrain watchlist | deferred candidates and dated re-evaluation | [watchlist](watchlist.md) |
 
----
+Cross-cutting rules live in:
 
-## Memory vs context (quick distinction)
+- [Program contract](PROGRAM-CONTRACT.md) — document schema, authority, and
+  definition of ready.
+- [Coverage matrix](COVERAGE-MATRIX.md) — the complete decision surface and
+  required client artifacts.
+- [How to ask the program](HOW-TO-ASK.md) — question patterns and answer
+  requirements.
+- [Query acceptance](QUERY-ACCEPTANCE.md) — scenarios that prove agents can
+  retrieve, qualify, and safely update the program.
+- [Change and freshness](CHANGE-AND-FRESHNESS.md) — assess, propose, review,
+  publish, and modernize.
 
-| | **Memory** | **Context** |
-|---|------------|-------------|
-| **What** | Durable record — what we decided, built, learned | What the harness loads *this session* to do work |
-| **Analogy** | Company filing cabinet | The advisor's desk |
-| **Lives in** | Git markdown, decisions, artifacts | Assembled from memory + code + open files + skills |
+## Memory and context
 
-**Team truth is memory you wrote on purpose.** Tool auto-memories are personal — never the corporate system of record.
+| | Memory | Context |
+|---|---|---|
+| Meaning | Durable record of what was decided and learned | What a harness loads for this task |
+| Home | Git documents, decisions, evidence, canonical capabilities | `AGENTS.md`, relevant program files, code, active artifacts |
+| Ownership | Organization | Current session |
 
----
+Team truth is memory written and reviewed on purpose. Tool auto-memory may help
+an individual, but it is never the organizational system of record.
 
-## Scope map — where each layer lives
+Root `AGENTS.md` is the short passport that tells every agent to consult this
+program. It should link here rather than copy policies that could drift.
 
+## Operating loop
+
+```text
+ask → retrieve current facet + decisions → answer with citations and freshness
+    → identify gap or changed terrain → assess evidence
+    → propose document and capability changes → human review
+    → merge → regenerate projections → measure → scheduled review
 ```
-docs/
-  ai-program/                 ← you are here — corporate memory & policy
-    README.md
-    01-harness-and-plan.md … 10-leadership-and-org-engagement.md
-    guardrails/               scheduled & automated guardrail patterns (see below)
-    skills/                   skill scouting, trust, scope, publication, lifecycle
-    decisions/                corporate & program decisions (ADRs)
-    watchlist.md              deferred toolchain candidates
-  corporate/                  optional — deep corporate context ( glossary, compliance )
-  groups/                       group / squad / client overlays
-    <group-name>/
-      README.md               group context loaded when @ this folder
-      decisions/
-  projects/                   portfolio context — one folder per app (pitch, status, links)
-    <project-name>/
-      README.md               load with @ when working that app
-    _template/                copy to start a new portfolio entry
-  artifacts/                  active work + generated reports (promote to projects/ when stable)
-AGENTS.md                     corporate **context** passport (every session)
-apps/<app>/                   project code + optional app-level NOTES.md
-.claude/skills/               workflows + background conventions
-.cursor/rules/                scoped context by path
+
+Use the `ai-program-advisor` skill to query or assess the program. Use the
+`ai-program-steward` agent to perform a cross-facet audit and prepare a
+reviewable modernization proposal. Neither may silently change policy.
+
+## Scope
+
+The same pattern works at three layers:
+
+- **Organization:** this directory and root `AGENTS.md`.
+- **Group/client:** `docs/groups/<name>/`, which may add stricter or
+  domain-specific requirements.
+- **Project:** `docs/projects/<name>/`, active artifacts, and app-level context.
+
+Default precedence:
+
+```text
+law and contractual limits
+  > organizational prohibitions
+  > project requirements
+  > group and personal preferences
 ```
 
-Soledevelopreneur mapping: **corporate** = your company; **group** = product line or client; **project** = one app or engagement.
+Lower scopes may specialize policy but cannot silently weaken a higher-scope
+boundary. Record approved exceptions with owner and expiration.
 
----
+## Ready-to-operate standard
 
-## Templates in this folder
+This program is ready when every facet:
 
-Copy from [`marketing/adoption-kit/`](../../marketing/adoption-kit/README.md):
+- states the current baseline and explicit non-decisions;
+- links its active decisions and evidence;
+- names an accountable owner and backup;
+- lists required controls and exception paths;
+- includes questions an agent must answer;
+- has a last-reviewed date, next review, and event triggers;
+- separates normative policy from examples and time-sensitive terrain; and
+- can be changed through a reviewable proposal with supersession history.
 
-| File | Scope | Covers |
-|------|-------|--------|
-| [01-harness-and-plan](../../marketing/adoption-kit/01-harness-and-plan.md) | Corporate | Approved tools, plan tiers, data terms |
-| [02-instruction-passport](../../marketing/adoption-kit/02-instruction-passport.md) | Corporate context | `AGENTS.md` pattern |
-| [03-artifact-pipeline](../../marketing/adoption-kit/03-artifact-pipeline.md) | Project | Intention → PRD → plan homes |
-| [04-quality-gates](../../marketing/adoption-kit/04-quality-gates.md) | Corporate + project | What must pass before ship |
-| [05-decision-boundaries](../../marketing/adoption-kit/05-decision-boundaries.md) | AI engagement | Agent may / must ask / human only |
-| [06-routing-and-spend](../../marketing/adoption-kit/06-routing-and-spend.md) | Corporate | Models, budgets |
-| [07-day2-safety](../../marketing/adoption-kit/07-day2-safety.md) | Project + engagement | Brownfield rules |
-| [08-terrain-review](../../marketing/adoption-kit/08-terrain-review.md) | Corporate | ADAPT, watchlist, change ritual |
-| [09-memory-context-map](../../marketing/adoption-kit/09-memory-context-map.md) | All scopes | Your folder map + owners |
-| [10-leadership-and-org-engagement](../../marketing/adoption-kit/10-leadership-and-org-engagement.md) | Corporate + dev group | Personnel engagement, leadership guidance, source-of-truth roles |
+Blank owner fields are a deployment blocker, not harmless placeholders. During
+the course, learners replace training defaults with the client's actual names,
+systems, commands, and constraints.
 
-**Guardrails sheets** (copy into [`guardrails/`](guardrails/README.md)):
+## Relationship to canonical capabilities
 
-| Sheet | Scope | Skill |
-|-------|-------|-------|
-| [G1 — Nightly hygiene (GitHub Actions + agents)](../../marketing/adoption-kit/guardrails/01-nightly-hygiene-github-actions.md) | Corporate + repo | `/nightly-hygiene` |
-
-**GitHub platform handbook** (hardening, Pages, Actions — lives in repo with working YAML): [docs/github/README.md](../github/README.md)
-
-**Skills program handbook:** [skills/README.md](skills/README.md) — corporate policy for scouting, evaluating, publishing, maintaining, and retiring agent skills.
-
----
-
-## Two kinds of AI engagement
-
-| | **Organizational** (kit 10) | **Agent / workflow** (kits 03–05, pipeline) |
-|---|-----------------------------|---------------------------------------------|
-| **Scope** | Company practice — leadership, dev group, adoption ladder | One task — what the agent may do now |
-| **Documents** | North star, program owner, rituals, coaches | Intentions, boundaries, gates |
-| **Skills** | Shared workflows everyone runs | `/intention` → `/commit`, `/terrain-review` |
-
-Full write-up: [Organizational AI engagement](../MONOREPO-OPERATING-MODEL.md#organizational-ai-engagement--people-leadership-and-practice) in the operating model.
-
----
-
-## Agent session engagement (tactical pointers)
-
-- **Before:** written intention exists; harness is approved; context is `@` files not vibes ([03-artifact-pipeline](../../marketing/adoption-kit/03-artifact-pipeline.md))
-- **During:** stay inside decision boundaries ([05-decision-boundaries](../../marketing/adoption-kit/05-decision-boundaries.md)); challenge pass at each artifact step
-- **After:** verify running software; merge through quality gates ([04-quality-gates](../../marketing/adoption-kit/04-quality-gates.md)); never ship from chat transcript alone
-
-Full framework: [Memory, context & AI engagement](../MONOREPO-OPERATING-MODEL.md#memory-context-and-ai-engagement) in the operating model.
-
----
-
-## Owners (fill in)
-
-| Scope | Memory owner | Context owner |
-|-------|--------------|---------------|
-| Corporate / ai-program | | |
-| Group(s) | | |
-| Project / artifacts | | |
-
-Unowned folders become stale within a quarter.
+Documents define what the organization believes and requires. Canonical
+skills and agents in [`ai/`](../../ai/README.md) encode repeatable workflows.
+Claude Code, Cursor, and Codex projections are generated from that source.
+When policy changes, update the governing document first or in the same PR as
+the capability; run `npm run ai:generate` and `npm run ai:check`.

@@ -1,17 +1,18 @@
 ---
 name: app-builder-facebook-killer
-description: Builds the Facebook killer — private circle with profiles, friends, feed. SwiftUI + SwiftData. Use with /run-plan for phase-01 iOS B.
+description: "Builds the Facebook killer — private circle with profiles, friends, feed. SwiftUI + SwiftData. Use with /run-plan for phase-01 iOS B."
 tools: Read, Write, Edit, Glob, Grep, Bash
 mandatory-skills: ios-swiftui, ios-architecture
 ---
+
 
 You are the **Facebook killer** builder.
 
 **Must read**
 
 - The active **intention** and **plan** for the Facebook killer.
-- [docs/phases/01/intention-facebook-killer.md](../../docs/phases/01/intention-facebook-killer.md) — **Demo-grade minimums** (numbered).
-- [docs/phases/01/DEMO-GRADE-BAR.md](../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
+- [docs/phases/01/intention-facebook-killer.md](../../../../docs/phases/01/intention-facebook-killer.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/01/DEMO-GRADE-BAR.md](../../../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
 
 **Domain knowledge**
 

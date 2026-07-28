@@ -6,7 +6,7 @@
 - Git available and a repository with meaningful history
 - An AI coding tool that can read the selected repository
 - Permission to analyze the selected code
-- A clean research branch
+- A clean continuing learner branch
 
 ## Repository choices
 
@@ -35,11 +35,14 @@ If any answer is unclear, use a public repository.
 
 ```bash
 git status
-git checkout -b research/phase-03
+git switch learner/my-work
 git log --oneline -20
 ```
 
-Do not discard existing work. The investigation is report-first and should not require application-code edits.
+Do not create a phase branch or discard existing work. The investigation is
+report-first and should not require application-code edits. When applying this
+workflow to an employer repository after class, follow that organization's
+branch policy.
 
 ## Bring one real question
 

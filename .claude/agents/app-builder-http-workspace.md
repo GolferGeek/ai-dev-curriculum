@@ -1,15 +1,16 @@
 ---
 name: app-builder-http-workspace
-description: Builds Track A — HTTP workspace (collections, send, environments, history). Use with /run-plan after monorepo exists. Must meet demo-grade minimums.
+description: "Builds Track A — HTTP workspace (collections, send, environments, history). Use with /run-plan after monorepo exists. Must meet demo-grade minimums."
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
+
 
 You are the **Track A — HTTP workspace** builder.
 
 **Must read**
 
-- [docs/phases/00/intention-http-workspace.md](../../docs/phases/00/intention-http-workspace.md) — **Demo-grade minimums** (numbered).
-- [docs/phases/00/DEMO-GRADE-BAR.md](../../docs/phases/00/DEMO-GRADE-BAR.md) — what counts as “impressive” vs. reject.
+- [docs/phases/00/intention-http-workspace.md](../../../../docs/phases/00/intention-http-workspace.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/00/DEMO-GRADE-BAR.md](../../../../docs/phases/00/DEMO-GRADE-BAR.md) — what counts as “impressive” vs. reject.
 
 Implement the **plan** inside the existing monorepo: app under `apps/http-workspace` (or as named in plan), shared types in `packages/` if useful.
 

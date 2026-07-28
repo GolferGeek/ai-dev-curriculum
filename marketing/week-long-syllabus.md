@@ -5,12 +5,17 @@
 ## Course Format
 
 **Length:** ~30 contact hours — 5 sessions of about 6 instructional hours each (with breaks and lunch)  
-**Audience:** Developers, technical analysts, IT staff, engineering managers, and technically curious business staff  
+**Audience:** Software developers and hands-on technical leads who write,
+review, test, or maintain code
 **Format:** Instructor-led, hands-on labs, group review, final project  
 **Primary Outcome:** Participants leave with a repeatable AI-assisted software delivery workflow they can adapt inside their organization.  
 **Instructor:** Matthew Weber (GolferGeek) — 25 years working in large codebases, with emphasis on understanding existing systems before changing them. Builds production-scale AI platforms (OrchestratorAI, Divinr.ai) solo using the exact workflow this course teaches — most of it open source and inspectable.
 
-**Rhythm:** **Two curriculum phases per day** on Days 1–3; Day 4 deepens model choice and cost; Day 5 turns the week into their workplace operating model. **Well-scoped** class builds often finish in under an hour — larger work takes longer — so instructors teach (concepts, governance, harness setup) in a **secondary window** while agents generate.
+**Rhythm:** Two primary modules per day on Days 1–3, with Phase 05.5 completing
+the capability-registry story across the Day 3 close or Day 4 opening. Day 4
+deepens model choice and cost; Day 5 turns the week into the client's
+developer operating model. Well-scoped class builds can finish quickly, so
+instructors use agent run time for teaching, review, and governance.
 
 **Scheduling:** written here as five consecutive days, but the two-phases-per-day structure maps cleanly onto other calendars — one session per week for five weeks, or ten half-day sessions (one phase each) over two weeks. See the [course proposal](course-proposal.md) for format options.
 
@@ -30,7 +35,7 @@ The curriculum emphasizes disciplined human oversight. AI tools accelerate devel
 |-----|---------|-----------|--------|
 | **1** | [Phase 00](../docs/phases/00/README.md) — Pipeline & first build | [Phase 01](../docs/phases/01/README.md) — SaaS killer (auth + data) | Define well, build fast, verify the trust boundary |
 | **2** | [Phase 02](../docs/phases/02/README.md) — Quality gates | [Phase 03](../docs/phases/03/README.md) — Brownfield research | Review & understand before you change |
-| **3** | [Phase 04](../docs/phases/04/README.md) — Agent protocols | [Phase 05](../docs/phases/05/README.md) — Skills browser | Where software is going; encode org knowledge |
+| **3** | [Phase 04](../docs/phases/04/README.md) — Agent protocols | [Phase 05](../docs/phases/05/README.md) + [05.5](../docs/phases/05.5/README.md) — capability locator and registry | Where software is going; encode and govern org knowledge |
 | **4** | [Phase 06](../docs/phases/06/README.md) — Model eval lab | Routing, cost, procurement & adoption prep | Which model for which job — with evidence |
 | **5** | Final project / their repo | SMB operating model & presentations | Take it home |
 
@@ -38,21 +43,27 @@ Verification (in-app browser, Playwright, computer use) is **woven through Days 
 
 ## Prerequisites
 
-Recommended:
+Required:
 
-- Basic familiarity with software projects, websites, or internal business applications.
-- Interest in building or modifying internal tools, external products, customer-facing apps, or workflow software.
-- Comfort using a computer and following technical setup instructions.
-- For the most technical labs: basic Git, command-line, and code editor familiarity.
+- Professional or substantial practical software-development experience.
+- Ability to read and modify code, use Git, run terminal commands, and work in
+  an IDE.
+- Familiarity with tests, pull requests, dependencies, and application
+  debugging.
 
-Helpful but not required for all participants:
-
-- JavaScript, TypeScript, React, or web development exposure.
-- Experience with QA, IT support, business analysis, or product management.
+JavaScript/TypeScript and React experience helps with the default web labs, but
+experienced developers from other stacks can use the supplied intentions and
+reference implementations. This five-day course is not the one- or two-day
+non-developer AI orientation.
 
 ## Tools And Accounts
 
-**Required of every participant:** a paid subscription to any capable AI coding agent, for enough model bandwidth to work through the labs. The course is tool-agnostic — Claude Code, Cursor, Codex, and Claude Desktop all work, and the workflow is the same across them. A roughly $20/month plan on one of these is the minimum; participants may bring any mix of tools they already use.
+**Required of every participant:** access to an approved capable AI coding
+agent with enough model bandwidth for the labs. Cursor is the recommended
+common IDE; Claude Code and Codex are fully supported. Developers may use
+Cursor's agent interface or launch Claude Code/Codex from its terminal or
+supported editor integration. Exact plans, prices, providers, and approved
+models are confirmed with the client before each cohort.
 
 Final tool requirements should be confirmed before each cohort. The course can be adapted based on available subscriptions and school lab constraints. Participants should complete the [pre-course setup checklist](pre-course-setup.md) before Day 1 so the first morning goes to concepts, not installs.
 
@@ -60,8 +71,8 @@ Supporting tools include:
 
 - Git and GitHub (on Windows: [Git for Windows](https://git-scm.com/download/win) recommended)
 - Node.js and npm
-- VS Code or another code editor
-- An AI coding agent of the participant's choice (Claude Code, Cursor, Codex, or Claude Desktop) — all run on **Windows, macOS, and Linux**
+- Cursor IDE (recommended) or another client-approved development environment
+- Claude Code, Cursor, or Codex as the coding harness
 - Browser automation or in-app browser tools
 - Playwright
 - SurrealDB (Phase 01+; native install on Windows/macOS/Linux, or Docker)
@@ -82,7 +93,10 @@ Participants will be able to:
 - Run quality scanners, architecture monitors, and a pre-ship gate; grow living review standards.
 - Research an unfamiliar codebase (ingest, map, security, git story) before changing it.
 - Describe agent protocols at a high level (discover, authorize, settle, watch the wire).
-- Treat skills and rules as organizational IP; distinguish capability vs preference skills.
+- Treat skills and specialized agents as organizational dependencies; maintain
+  a canonical function-based library and generate native harness projections.
+- Query and modernize an agent-readable AI program covering harnesses/models,
+  coding governance, protocols, security/data, delivery/quality, and adoption.
 - Choose models empirically (evals + routing policy), including local vs hosted tradeoffs.
 - Draft an SMB-scale AI development operating model for their workplace, using the take-home [adoption kit](adoption-kit/README.md).
 
@@ -184,16 +198,22 @@ Advanced builds scheduled in-week (not only as Day 5 options):
 
 **Deliverable:** Running protocol demo (or partial) with at least one inspectable exchange narrated by the room.
 
-### Afternoon — Phase 05
+### Afternoon — Phases 05 and 05.5
 
-- Agent Skills open standard; capability vs preference; maturity levels.
-- Skills as org IP; brand/GTM as preference skills; skills vs rules vs memories.
-- Lab: Skills Browser — fetch, catalog, preview, copy; audit before install.
+- Skills, specialized agents, rules, tools, memory, and code.
+- Functional organization, canonical source, and three native projections.
+- Lab: capability locator — snapshot, diff, catalog, full preview, and evaluate.
+- Registry extension — persist revisions and policy, publish one canonical
+  capability by PR, generate projections, and trigger re-review on drift.
 
-**Deliverable:** Working browser over a skill catalog; at least one draft preference skill for their company.
+**Deliverable:** Working capability locator/registry, three evidence-backed
+evaluations including one rejection, and one reviewable canonical publication
+with Claude Code, Cursor, and Codex projections.
 
 **Discussion track:** D04-* and D05-*.  
-**Detail:** [phase-04.md](lesson-plans/phase-04.md), [phase-05.md](lesson-plans/phase-05.md).
+**Detail:** [phase-04.md](lesson-plans/phase-04.md),
+[phase-05.md](lesson-plans/phase-05.md), and
+[phase-05.5.md](lesson-plans/phase-05.5.md).
 
 ---
 
@@ -239,7 +259,8 @@ Advanced builds scheduled in-week (not only as Day 5 options):
 
 - Baseline the repository before changing it.
 - Make and document the Nx decision rather than forcing a migration.
-- Adapt `docs/ai-program/`, the root agent instructions, and a small set of owned skills.
+- Adapt the queryable `docs/ai-program/`, root agent instructions, and a small
+  set of owned canonical skills and agents.
 - Define Git branches, approvals, checks, review evidence, and rollback expectations.
 - Record approved LLM accounts, data boundaries, model routing, spend ownership, and human-only decisions.
 - Complete one real, low-risk change through intention, implementation, verification, and review.

@@ -78,7 +78,8 @@ Both modes create the same investigation packet. See [RUN-ORDER.md](./RUN-ORDER.
 - Use only repositories you are authorized to access.
 - Use only AI services approved for the code and data involved.
 - Do not place secrets, customer information, credentials, or prohibited code in prompts.
-- Work on a research branch.
+- Stay on the continuing learner branch for the course; use the target
+  organization's branch policy when repeating the investigation at work.
 - Begin read-only and report-first.
 - Propose changes; do not modify production systems during this lab.
 - If policy is unclear, use a public or course-provided repository.

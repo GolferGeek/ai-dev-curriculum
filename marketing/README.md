@@ -7,7 +7,10 @@ This folder contains draft proposal, marketing, and syllabus material for packag
 **AI-Accelerated Software Development**  
 *Helping small teams build like big teams.*
 
-The course is designed for local businesses with small development teams, IT staff, technical analysts, or operations teams who need to deliver more software capability without immediately adding headcount.
+The flagship five-day course is strictly for software developers and hands-on
+technical leads who need to deliver more software capability without
+immediately adding headcount. A separate one- or two-day offering can serve
+non-developer staff.
 
 ## Files
 
@@ -27,4 +30,8 @@ The course is designed for local businesses with small development teams, IT sta
 
 ## Notes To Confirm Before Publication
 
-AI development tools change quickly. The course is tool-agnostic — participants use any capable AI coding agent (Claude Code, Cursor, Codex, or Claude Desktop) with a paid subscription for enough model bandwidth. Before sending public copy, confirm current availability, pricing, and plan requirements, plus the current state of browser and computer-use features across those tools.
+AI development tools change quickly. Cursor is the recommended common IDE;
+Claude Code and Codex are fully supported. Before publication, confirm current
+availability, pricing, data terms, model access, editor/terminal integrations,
+and browser/computer-use features. Present vendor strategy and model-provider
+access as dated terrain, not permanent fact.

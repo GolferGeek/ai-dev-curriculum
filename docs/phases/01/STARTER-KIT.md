@@ -1,6 +1,8 @@
 # Phase 01 starter kit — agents, skills, and the SaaS killer build
 
-This document is the **map** for what Phase 01 adds on top of Phase 00. Walk **`.claude/`** alongside this file: new **agents**, new **background skills**, same **pipeline slash skills** — plus **`/research`** and **`/test-browser`**.
+This document is the **map** for what Phase 01 adds on top of Phase 00. Walk
+canonical **`ai/`** alongside this file: new **agents**, new **background
+skills**, the same pipeline skills, plus `research` and `test-browser`.
 
 ---
 
@@ -23,7 +25,7 @@ Artifacts live under **`docs/artifacts/`** unless you choose another path and te
 | **Turbo monorepo** | `apps/`, `packages/`, `turbo.json` — from Phase 00 Part A |
 | **Pipeline habit** | Challenge passes, predict-then-compare — [Phase 00 OVERVIEW](../00/OVERVIEW.md) |
 | **This phase folder** | Killer intentions, demo-grade bar, verify checklist |
-| **`.claude/`** | Extended agents + skills for full-stack SaaS |
+| **`ai/` + generated projections** | Extended agents and skills for full-stack SaaS in all supported harnesses |
 
 ---
 
@@ -56,10 +58,10 @@ Artifacts live under **`docs/artifacts/`** unless you choose another path and te
 
 | Agent | File | When |
 |-------|------|------|
-| **saas-researcher** | `.claude/agents/saas-researcher.md` | `/research` — before intention for custom ideas |
-| **surrealdb-builder** | `.claude/agents/surrealdb-builder.md` | **First** in plan — DB + auth + seed |
-| **nextjs-saas-builder** | `.claude/agents/nextjs-saas-builder.md` | **Second** — web killer apps (class default) |
-| **ios-builder** | `.claude/agents/ios-builder.md` | Opt-in Mac path for Twitter/Facebook intentions |
+| **saas-researcher** | canonical function `02-research-and-discovery` | `research` — before intention for custom ideas |
+| **surrealdb-builder** | canonical function `04-application-delivery` | **First** in plan — DB + auth + seed |
+| **nextjs-saas-builder** | canonical function `04-application-delivery` | **Second** — web killer apps (class default) |
+| **ios-builder** | canonical function `04-application-delivery` | Opt-in Mac path for Twitter/Facebook intentions |
 
 Each killer **intention** names Demo-grade minimums the agents must not shortcut.
 
@@ -87,10 +89,13 @@ Each killer **intention** names Demo-grade minimums the agents must not shortcut
 
 ---
 
-## Cursor vs Claude Code
+## Harness use
 
-- **Claude Code:** type `/research`, `/intention`, … as listed in [COMMANDS.md](./COMMANDS.md).
-- **Cursor:** no native slash binding — `@` this folder and `.claude/skills/`; follow the same artifact chain per [Phase 00 STARTER-KIT](../00/STARTER-KIT.md#cursor-vs-claude-code-important).
+- Use the generated projection for Cursor, Claude Code, or Codex.
+- Invoke or request `research`, `intention`, and the remaining capabilities as
+  supported by the selected interface.
+- Follow [COMMANDS.md](./COMMANDS.md) and the same artifact chain in every
+  harness; command syntax is an interface detail, not a learning objective.
 
 ---
 

@@ -1,0 +1,27 @@
+{
+  "name": "eval-harness-builder",
+  "description": "Builds the model evaluation test harness — sends analyst prompts to Ollama and Anthropic models, collects responses with timing, runs judge evaluations, produces results JSON.",
+  "skills": {
+    "required": [
+      "analyst-prompts",
+      "ollama-integration",
+      "model-eval-design",
+      "terminal-reporting"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

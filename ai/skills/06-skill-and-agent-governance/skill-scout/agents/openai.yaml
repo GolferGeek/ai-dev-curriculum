@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Scout"
+  short_description: "Scout and diff skill sources"
+  default_prompt: "Scout configured skill sources, deduplicate discoveries, and produce an evidence-backed catalog diff without installing anything."

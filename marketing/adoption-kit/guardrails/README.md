@@ -1,18 +1,21 @@
 # Guardrails sheets
 
-Companion to the [ten adoption-kit templates](../README.md) and `.claude/skills/`. Each sheet is **one guardrail pattern** your team copies into `docs/ai-program/guardrails/` and wires in the repo.
+Companion to the [ten adoption-kit templates](../README.md) and canonical `ai/`
+library. Each sheet is one guardrail pattern your team copies into
+`docs/ai-program/guardrails/` and wires into its approved harness projections.
 
 **Document half** — fill-in policy + copy-paste examples (this folder).  
-**Skill half** — slash workflow in `.claude/skills/` that implements the same pattern locally before you automate it.
+**Capability half** — canonical skill or agent under `ai/` that implements the
+same pattern locally before you automate it.
 
 | # | Sheet | Skill | Taught in |
 |---|-------|-------|-----------|
 | 1 | [01 — Nightly hygiene (GitHub Actions + agents)](01-nightly-hygiene-github-actions.md) | `/nightly-hygiene` | Phase 02 |
 | 2 | [02 — Harness instruction layers](02-harness-instruction-layers.md) | — (passport + D00-2) | Phase 00 |
-| — | **[GitHub handbook](../../docs/github/README.md)** (Pages, hardening, Actions) | — | Phase 02 |
-| — | **[Harness map (full)](../../docs/guardrails/02-harness-instruction-layers.md)** | — | Phase 00 |
+| — | **[GitHub handbook](../../../docs/github/README.md)** (Pages, hardening, Actions) | — | Phase 02 |
+| — | **[Harness map (full)](../../../docs/guardrails/02-harness-instruction-layers.md)** | — | Phase 00 |
 
-Index: [guardrails/README.md](README.md) · Implementation: [`docs/github/`](../../docs/github/)
+Index: [guardrails/README.md](README.md) · Implementation: [`docs/github/`](../../../docs/github/)
 
 **Ground rules**
 

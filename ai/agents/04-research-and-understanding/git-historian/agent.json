@@ -1,0 +1,26 @@
+{
+  "name": "git-historian",
+  "description": "Analyzes git history to reveal contributor patterns, file hotspots, churn, coupling, and commit quality.",
+  "skills": {
+    "required": [
+      "research-patterns",
+      "terminal-reporting"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {
+      "readonly": true
+    },
+    "codex": {
+      "sandbox_mode": "read-only"
+    }
+  }
+}

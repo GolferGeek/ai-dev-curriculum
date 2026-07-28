@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 03 — Brownfield Understanding</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 03 — Brownfield Understanding" _note="Authoritative package: docs/phases/03; lecture: marketing/lesson-plans/phase-03.md.">
+      <outline text="Instructor intent">
+        <outline text="AI can accelerate comprehension; evidence must remain visible"/>
+        <outline text="Observe → infer → question; confidence is not evidence"/>
+        <outline text="Every investigation should improve repository memory"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Authorized sanitized repository or curriculum target"/>
+        <outline text="No production secrets or uncontrolled writes"/>
+        <outline text="Choose team or individual investigation mode"/>
+      </outline>
+      <outline text="Teach">
+        <outline text="Ingest, map, security scan, git story, improve, deep dive"/>
+        <outline text="Current code says what; history often explains why"/>
+        <outline text="Facts, hypotheses, contradictions, and unknowns"/>
+        <outline text="Memory maturity: observation → explanation → expectation → enforcement"/>
+      </outline>
+      <outline text="Lab">
+        <outline text="Frame questions and predict likely findings"/>
+        <outline text="Trace entry points, data flow, boundaries, tests, and operations"/>
+        <outline text="Reconcile parallel reports into one story"/>
+        <outline text="Produce research packet with evidence and uncertainty"/>
+        <outline text="Make only a bounded improvement with explicit verification"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Report one fact, hypothesis, risk, non-change, and improved guardrail"/>
+        <outline text="Promote durable findings no farther than evidence earns"/>
+        <outline text="Next: independent agents and company-facing protocols"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

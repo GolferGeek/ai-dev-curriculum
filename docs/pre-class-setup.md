@@ -2,7 +2,7 @@
 
 *Do this before our first session — roughly 20–30 minutes. Then class time goes to building, not installing. If anything gets stuck, come 30 minutes early on day one and we'll sort it out together.*
 
-> **One requirement:** a **Mac, Windows, or Linux laptop you can install software on.** A locked-down machine, Chromebook, or tablet won't work for this course.
+> **Two requirements:** professional software-development experience and a **Mac, Windows, or Linux laptop you can install software on.** This is a developer course, not an introduction to programming. A locked-down machine, Chromebook, or tablet will not support the labs.
 
 ## 1. Make a GitHub account (~2 min)
 
@@ -19,17 +19,17 @@ Sign up free at [github.com](https://github.com/). We'll use it from day one.
 
 Download the **LTS** version from [nodejs.org](https://nodejs.org/) and run the installer (defaults are fine).
 
-**Check it worked:** `node --version` prints a version number (v24 or higher is current).
+**Check it worked:** `node --version` prints a version number. Use the currently supported LTS release approved by your organization.
 
 ## 4. Pick your AI coding agent (~10 min)
 
-This curriculum is driven by an AI agent — you direct it; it builds. Its skills and agents live in this repo's `.claude/` folder, and they work with several tools. **Bring whichever you already have a relationship with:**
+This curriculum is driven by AI coding agents: you frame the work, the agent helps build it, and you remain accountable for the result. The canonical skills and specialized agents live in `ai/`; generated projections support all three classroom harnesses.
 
-- **Claude Code (CLI)** — if you have a Claude subscription (or API credits): `npm install -g @anthropic-ai/claude-code`, then run `claude` and sign in. *Note: a bare free Claude account is too limited for class — you'll want a subscription or starter API credits from [platform.claude.com](https://platform.claude.com/).*
-- **Cursor** — free tier, no card: download at [cursor.com](https://www.cursor.com/), open it once and sign in. A visual editor with the agent built in.
-- **Codex** — if you have a ChatGPT account: see [chatgpt.com/codex](https://chatgpt.com/codex/).
+- **Recommended: Cursor IDE** — use it as the common visual workspace, with Cursor Agent or a supported CLI in its terminal.
+- **Supported: Claude Code** — use its CLI or supported editor integration.
+- **Supported: Codex** — use its app, CLI, editor integration, or a terminal inside Cursor.
 
-Not sure? Install **Cursor** — it's the easiest free start, and we'll compare tools in class.
+Install only the product and account approved by your organization. Current installation links, plan terms, and client decisions belong in the cohort setup packet because they can change faster than the curriculum.
 
 Confused about subscriptions vs. API keys, or what any of this costs? See **[Accounts, subscriptions & API keys](accounts-and-keys.md)** — five minutes, saves an hour. (The deeper lesson of this whole curriculum: the skill transfers; the tool doesn't matter much.)
 
@@ -40,6 +40,9 @@ In Terminal (Mac) or Command Prompt (Windows):
 ```bash
 git clone https://github.com/GolferGeek/ai-dev-curriculum.git
 cd ai-dev-curriculum
+npm install
+npm run ai:check
+npm run ai:program:check
 ```
 
 If git or the clone gives you trouble, that's fine — ask your AI agent: *"Walk me through cloning https://github.com/GolferGeek/ai-dev-curriculum.git, one step at a time, and tell me how to check it worked."* Getting the agent to dig you out is the first lesson anyway.
@@ -49,8 +52,9 @@ If git or the clone gives you trouble, that's fine — ask your AI agent: *"Walk
 - [ ] GitHub account created
 - [ ] `git --version` works
 - [ ] `node --version` works
-- [ ] One AI agent installed and signed in (Claude Code, Cursor, or Codex)
+- [ ] Client-approved AI coding harness installed and signed in
 - [ ] Curriculum repo cloned
+- [ ] `npm run ai:check` and `npm run ai:program:check` pass
 
 See you in class — we start at [Phase 00](phases/00/README.md).
 

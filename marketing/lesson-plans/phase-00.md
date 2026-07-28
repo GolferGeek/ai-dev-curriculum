@@ -16,7 +16,11 @@ This is the biggest talking block of the phase. Goal: give the room a correct, d
 
 Name each piece, say what it is in a sentence, and say *why it's in the kit*:
 
-- **The AI coding agent + its harness** — the model predicts text; the *harness* (Cursor, Claude Code, Codex, Claude Desktop) runs the loop, feeds it context, and executes tools. The harness is the product you actually drive. *(This is where you teach the LLM / prompt / context / tools / harness / skill / agent taxonomy — full script in TEACHING.md.)*
+- **The AI coding agent + its harness** — the model predicts text; the
+  *harness* (Cursor, Claude Code, or Codex) runs the loop, feeds it context, and
+  executes tools. Cursor is the recommended common IDE; native surfaces and
+  provider access differ. *(Teach the LLM / prompt / context / tools / harness
+  / skill / agent taxonomy — full script in TEACHING.md.)*
 - **The pipeline: intention → PRD → plan → build** — the disciplined path from "what I want" to "working software," with a human challenge pass at each seam.
 - **The monorepo + Turborepo** — one repo holding many apps and shared packages, built and cached together. Why it's here: every app the cohort builds lands in a known place with shared tooling, so nobody fights structure later.
 - **React + Vite** — Phase 00's app stack: components that re-render on data change, wrapped in a fast dev server.
@@ -43,7 +47,11 @@ Three, in priority order:
 Trace the arc so they see where they're standing:
 
 - **Autocomplete → chat → agentic → intention/spec-driven.** We moved from "finish my line" to "hold a conversation" to "an agent that plans and executes multi-step work" to "describe the outcome and let the agent drive." Each step moved the human up the ladder of abstraction.
-- **Harnesses are proliferating and converging.** Cursor, Claude Code, Codex, Claude Desktop — different dashboards over similar engines, which is exactly why this course is tool-agnostic. *[refresh: whichever harness shipped something notable this month.]*
+- **Harnesses are proliferating and converging.** Cursor, Claude Code, and
+  Codex increasingly offer overlapping agent workflows while retaining
+  different models, integrations, permissions, and business incentives. That
+  is why the course separates canonical organizational knowledge from native
+  projections. *[refresh current product and provider facts before class.]*
 - **Parallelism is arriving.** Every tool now runs more than one session at once — you can have several builds generating while you think. Work is starting to look like *managing a team of agents*, not typing at one. *[refresh]*
 - **Verification is the new frontier.** As generation gets trivial, the industry's attention is shifting to evals, tests, and review — proving the output is right. That's the whole back half of this course. *[refresh]*
 
@@ -86,7 +94,7 @@ Be explicit with the room: **these intentions are already tuned, and they work �
 
 ## 3. The build (it runs — keep teaching)
 
-Kick off `/run-plan`. For a **well-scoped slice** like this, it often finishes in under an hour (~20 minutes is common). **Nobody watches the bar.** Because every tool in the kit runs more than one session at once, you can leave the build generating and keep teaching — or start a second track in parallel to contrast later. Use the window for leftover questions from the intro, and for Phase 00 talks in [discussion-topics.md](discussion-topics.md) (harness engineering, memory passport, shadow AI, seed model routing, SMB operating-model sketch). Steps to type: [RUN-ORDER.md](../../docs/phases/00/RUN-ORDER.md).
+Kick off `/run-plan`. For a **well-scoped slice** like this, it often finishes in under an hour (~20 minutes is common). **Nobody watches the bar.** Leave the build generating and keep teaching. Where the selected harness and client policy support parallel sessions, a second comparison track is optional; it is never a lab dependency. Use the window for leftover questions from the intro, and for Phase 00 talks in [discussion-topics.md](discussion-topics.md) (harness engineering, memory passport, shadow AI, seed model routing, SMB operating-model sketch). Steps to type: [RUN-ORDER.md](../../docs/phases/00/RUN-ORDER.md).
 
 ---
 

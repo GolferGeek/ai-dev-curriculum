@@ -28,10 +28,11 @@
 
 | Item | Path in your repo |
 |------|-------------------|
-| Shared skills (curriculum default) | `.claude/skills/` |
-| Agents | `.claude/agents/` |
+| Canonical skills and agents | `ai/skills/<function>/`, `ai/agents/<function>/` |
+| Generated Claude Code projection | `.claude/skills/`, `.claude/agents/` |
+| Generated Cursor projection | `.cursor/skills/`, `.cursor/agents/` |
 | **Portfolio context (per app)** | **`docs/projects/<name>/`** — pitch, status, `@` load for agents |
-| Codex skills (if used) | `.agents/skills/` |
+| Generated Codex projection | `.agents/skills/`, `.codex/agents/` |
 | Cursor scoped rules | `.cursor/rules/` |
 | Active intention / PRD / plan (in flight) | `docs/artifacts/` → promote to `docs/projects/` when stable |
 
@@ -45,6 +46,8 @@
 
 ## Policy line
 
-Team truth in **git** (`docs/ai-program/`, `AGENTS.md`, `.claude/skills/`). GitHub Actions reads committed skills only.
+Team truth lives in **git** (`docs/ai-program/`, `AGENTS.md`, canonical `ai/`).
+Generated projections are committed and verified so every supported harness reads
+the same reviewed source.
 
 **Owner:** ___________________ · **Review cadence:** ☐ quarterly with kit 08 terrain review

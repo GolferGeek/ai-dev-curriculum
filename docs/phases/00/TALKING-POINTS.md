@@ -13,7 +13,7 @@
 
 ## Monorepo operating model (documents + skills)
 
-- **Two layers** — **documents** (`docs/ai-program/`, `docs/artifacts/`, decisions) hold *what you believe and decided*; **skills & agents** (`.claude/`) hold *how the agent helps* — reviewed and merged like code, not lost in chat.
+- **Two layers** — **documents** (`docs/ai-program/`, `docs/artifacts/`, decisions) hold *what you believe and decided*; canonical **skills and agents** (`ai/`) hold *how the agent helps* — reviewed and merged like code, not lost in chat.
 - **Memory vs context** — **memory** is the filing cabinet (decisions, artifacts, history); **context** is the desk (what the harness loads this session from memory + code + `@` files). Team truth is memory you wrote on purpose — not personal tool Memories.
 - **Three scopes** — **corporate** (`docs/ai-program/`, `AGENTS.md`), **group** (`docs/groups/<name>/`), **project** (`docs/artifacts/` or `docs/projects/<name>/`, app code). Promote durable lessons up; archive stale project context.
 - **AI engagement (two layers)** — **organizational:** leadership guardrails, program owner, skill steward, adoption ladder (aware → coach), planning/building culture — kit 10; **agent session:** boundaries and pipeline on each task — kits 03–05.
@@ -33,8 +33,10 @@
 ## Git (the self-paced survival kit)
 
 - **Repository / clone** — the project and your personal copy of it.
-- **Branch** — your own line of work; you build on `my-phase-00`, never directly on a tag.
-- **Tag** — a frozen snapshot; the phase tags are known-good starting states you branch *from*.
+- **Branch** — your own continuing line of work; create it once from
+  `starter-kit-v1` and use it all week.
+- **Tag** — a frozen snapshot; this course has one immutable starter-kit tag,
+  not a separate tag for each phase.
 - **Commit** — a saved checkpoint with a message; commit when something works.
 
 ## The build

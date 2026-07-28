@@ -1,0 +1,27 @@
+{
+  "name": "app-builder-trello-killer",
+  "description": "Builds the Trello killer — kanban boards, lists, cards. Next.js + SurrealDB. Use with /run-plan for phase-01 Web B.",
+  "skills": {
+    "required": [
+      "nextjs-saas",
+      "web-architecture",
+      "data-architecture",
+      "surrealdb"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

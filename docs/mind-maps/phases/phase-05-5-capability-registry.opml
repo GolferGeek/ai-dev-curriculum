@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 05.5 — Organizational Capability Registry</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 05.5 — Organizational Capability Registry" _note="Authoritative package: docs/phases/05.5; lecture: marketing/lesson-plans/phase-05.5.md.">
+      <outline text="Instructor intent">
+        <outline text="Evolve the working locator—do not start over"/>
+        <outline text="Registry is control plane; Git is execution contract"/>
+        <outline text="One canonical capability generates three native forms"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Working Phase 05 app, tests, and backup"/>
+        <outline text="SurrealDB, safe credentials, reset/restore"/>
+        <outline text="Named evaluator, approver, publisher, and owner roles"/>
+      </outline>
+      <outline text="Teach">
+        <outline text="Upstream ≠ reviewed ≠ approved ≠ canonical ≠ generated ≠ used"/>
+        <outline text="Evaluation, approval, publication, generation, and use are separate"/>
+        <outline text="Stable name does not inherit trust"/>
+        <outline text="Functional ownership and globally stable names"/>
+      </outline>
+      <outline text="Lab — migration">
+        <outline text="Map static boundaries and recovery point"/>
+        <outline text="Apply schema twice"/>
+        <outline text="Import snapshot twice without duplicates"/>
+        <outline text="Reconcile counts, IDs, revisions, files, and hashes"/>
+        <outline text="Restore backup once"/>
+      </outline>
+      <outline text="Lab — governance and publication">
+        <outline text="Persist evidence, policy, scope, owner, expiration, use"/>
+        <outline text="Approve one exact revision for project scope"/>
+        <outline text="Publish canonical ai/ change through branch and PR"/>
+        <outline text="Generate Claude Code, Cursor, and Codex projections"/>
+        <outline text="Inspect canonical and native diffs"/>
+      </outline>
+      <outline text="Lab — drift and lifecycle">
+        <outline text="Detect changed upstream revision"/>
+        <outline text="Keep existing approval pinned"/>
+        <outline text="Mark new revision re-review-required"/>
+        <outline text="Supersede, restrict, revoke, or retire with evidence"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Explain what registry knows and what Git proves"/>
+        <outline text="Demonstrate owner, maintenance, and recovery"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

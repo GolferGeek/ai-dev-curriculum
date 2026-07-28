@@ -8,7 +8,17 @@ We need a **single repository** that can hold **multiple apps and shared package
 
 **Industry precedent — at scale.** Google stores the vast majority of its software in a **single monolithic repository** (internally called **Piper**). As of their widely cited 2016 analysis, roughly **95% of Google developers** worked from that one repo—on the order of **billions of lines of code** and **tens of thousands of engineers**—because **extensive code sharing**, **simplified dependency management**, and **atomic cross-project changes** outweighed the tooling cost. Chrome, Search, Gmail, and internal services all live in the same tree; **each product still builds and deploys on its own schedule** to its own targets (web services, containers, release branches). **One repo does not mean one deployment.**
 
-**What this course hands you.** Learners do not leave Phase 00 with checklists alone—they leave with a **working Turbo monorepo shell**: `apps/`, `packages/`, `turbo.json`, root scripts, and the same pipeline the curriculum uses. They also get the seed of a **[monorepo operating model](../../MONOREPO-OPERATING-MODEL.md)**: **`docs/ai-program/`** for policy and decisions, **`.claude/skills/`** for repeatable agent workflows, and **`docs/projects/`** for **portfolio context** — one folder per app they build (SaaS killers and their own ideas). Scouting is one skill (`/terrain-review`), not the whole idea. Treat it as a **starter asset**: run the course here, then **copy the layout, conventions, and skills** into your own monorepo if that model fits your team.
+**What this course hands you.** Learners do not leave Phase 00 with checklists
+alone—they leave with a **working Turbo monorepo shell**: an empty active
+`apps/` workspace, `packages/`, `turbo.json`, root scripts, and the same
+pipeline the curriculum uses. They also receive the
+**[monorepo operating model](../../MONOREPO-OPERATING-MODEL.md)**:
+`docs/ai-program/` for agent-readable policy and decisions, canonical `ai/`
+skills and agents organized by function, generated Claude Code/Cursor/Codex
+projections, and `docs/projects/` for portfolio context. Finished comparisons
+live in `completed/apps/`. Scouting is one capability, not the whole idea.
+Treat the repository as a starter asset the organization adapts and continues
+to operate.
 
 **The portfolio effect.** Once the first app works, teams often realize they can build **the next thing they've always wanted** in the same repo — shared packages, same gates, same skills. The monorepo is where that ambition lives: **`apps/<name>`** for code, **`docs/projects/<name>/`** for each product's portfolio context files.
 

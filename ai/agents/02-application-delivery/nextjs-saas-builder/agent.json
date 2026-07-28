@@ -1,0 +1,22 @@
+{
+  "name": "nextjs-saas-builder",
+  "description": "Builds Next.js SaaS apps — pages, API routes, auth flows, dashboards, SurrealDB integration. Use with /run-plan for phase-01 web tracks.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

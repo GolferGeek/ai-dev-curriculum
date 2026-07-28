@@ -1,0 +1,22 @@
+{
+  "name": "ios-builder",
+  "description": "Builds SwiftUI iOS apps — Xcode project, views, SwiftData models, SurrealDB client, xcodebuild. Use with /run-plan for phase-01 iOS tracks.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

@@ -88,7 +88,11 @@ Teach these seven terms in this order. Each gets a sentence and one analogy — 
 - **Prompt** — what you say right now. One turn of the conversation.
 - **Context** — everything the model can currently *see*: your prompt **plus** the files, the conversation so far, and any skills that got loaded. This is the whole game. Bad output is usually bad context, not a bad model. *(Analogy: the advisor's desk — they can only reason about what's on it.)*
 - **Tools** — the actions the model is allowed to take: read a file, run a command, edit code. Words become work here. *(Analogy: you finally slide a phone and a keyboard under the door.)*
-- **Harness** — the program running the loop: it fills the context, executes the tools, shows you the output. **Cursor, Claude Code, and Codex are harnesses.** The model is the engine; the harness is the car. This is why the course is tool-agnostic — same engine, different dashboards.
+- **Harness** — the program running the loop: it fills the context, executes
+  tools, and shows the output. **Cursor, Claude Code, and Codex are harnesses.**
+  The model is the engine; the harness is the car. Harnesses can use different
+  engines, controls, permissions, and provider policies, so the course keeps
+  the operating method portable while teaching native differences.
 - **Skill** — a packaged set of instructions the harness loads *on demand* when it's relevant, so the model behaves like it read the manual. You'll type `/intention` in a minute — that's a skill.
 - **Agent** — a scoped worker you hand a job to, with its own instructions and tools. `/run-plan` dispatches one. *(Analogy: a subcontractor you brief and turn loose on one room.)*
 
@@ -196,7 +200,7 @@ That guardrail work is not a one-time setup. It is **constant pruning** — skil
 
 **Hand off:** "We bracket the work this afternoon. Next we go deep on **guardrails** — how standards, gates, and skills live in the repo so pruning and upheaval are manageable, not heroic."
 
-See also [D00-7 — The new trade-off (plant only)](../../marketing/lesson-plans/discussion-topics.md#d00-7--the-new-trade-off-plant-only-710-min) in the discussion track.
+See also [D00-7 — The new trade-off (plant only)](../../../marketing/lesson-plans/discussion-topics.md#d00-7--the-new-trade-off-plant-only-710-min) in the discussion track.
 
 ### 4. Reflect (the bulk of the time)
 This is the actual lesson. Work through, in order:

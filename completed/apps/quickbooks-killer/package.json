@@ -1,0 +1,30 @@
+{
+  "name": "@curriculum/quickbooks-killer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3100",
+    "build": "next build",
+    "start": "next start -p 3100",
+    "test": "playwright test",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@curriculum/surrealdb": "file:../../../packages/surrealdb",
+    "next": "^16.2.12",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.12",
+    "postcss": "^8.5.24",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}

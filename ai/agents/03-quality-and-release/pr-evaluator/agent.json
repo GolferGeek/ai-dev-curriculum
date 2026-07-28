@@ -1,0 +1,31 @@
+{
+  "name": "pr-evaluator",
+  "description": "Evaluates a PR against architecture rules and PR requirements. When it finds new violation patterns, adds them to the pr-requirements skill so they can't escape again.",
+  "skills": {
+    "required": [
+      "pr-requirements",
+      "quality-gates",
+      "system-architecture",
+      "terminal-reporting"
+    ],
+    "optional": [
+      "web-architecture",
+      "ios-architecture",
+      "data-architecture"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

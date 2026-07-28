@@ -1,0 +1,22 @@
+{
+  "name": "app-builder-http-workspace",
+  "description": "Builds Track A — HTTP workspace (collections, send, environments, history). Use with /run-plan after monorepo exists. Must meet demo-grade minimums.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

@@ -1,6 +1,9 @@
-# Slash skills (Claude Code) — Phase 01 workflow
+# Named skills — Phase 01 workflow
 
-Phase 01 uses the **same pipeline spine** as Phase 00, plus **`/research`** (optional) and **`/test-browser`** (verification). Agents and background skills expand for SurrealDB, Next.js SaaS, and optional iOS.
+Phase 01 uses the same cross-harness pipeline spine as Phase 00, plus
+`research` (optional) and `test-browser` (verification). The slash examples are
+shorthand; invoke, select, or explicitly request the generated capability in
+your supported interface.
 
 ```
 /research "QuickBooks"          →  draft intention (optional — custom or explore)
@@ -75,9 +78,11 @@ Skills flag drift; **you** own the judgment.
 
 Background skills that apply automatically: **surrealdb**, **nextjs-saas**, **ios-swiftui**, **monorepo-turbo**, **prd-alignment**.
 
-## Cursor vs Claude Code
+## Supported harnesses
 
-Same as Phase 00: slash skills bind in **Claude Code**; in **Cursor**, read `.claude/skills/` and `@` the phase docs — follow the same artifact chain. See [STARTER-KIT.md](./STARTER-KIT.md).
+Use the generated Claude Code, Cursor, or Codex projection and follow the same
+artifact chain. Harness syntax may differ; outputs and verification do not. See
+[STARTER-KIT.md](./STARTER-KIT.md).
 
 ## See also
 

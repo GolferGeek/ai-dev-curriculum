@@ -2,7 +2,7 @@
 
 *How does a small or mid-sized company build **personnel engagement** with AI — not just "who may click what in the agent," but how leadership steers adoption and how the development group maintains a **source of truth** for planning, building, and verifying with agents? Companion to [MONOREPO-OPERATING-MODEL.md](../../docs/MONOREPO-OPERATING-MODEL.md#organizational-ai-engagement).*
 
-**Why this matters:** tool installs fail when leadership treats AI as a personal productivity hack. Wins come when **leadership publishes guardrails**, **the dev group owns the repo of truth** (`docs/ai-program/` + `.claude/skills/`), and **everyone** knows how planning and building with agents is supposed to feel — intention first, verify hard, humans accountable.
+**Why this matters:** tool installs fail when leadership treats AI as a personal productivity hack. Wins come when **leadership publishes guardrails**, **the dev group owns the repo of truth** (`docs/ai-program/` + canonical `ai/`), and **everyone** knows how planning and building with agents is supposed to feel — intention first, verify hard, humans accountable.
 
 ---
 
@@ -65,7 +65,7 @@ The **dev group** (or platform team) maintains what everyone loads — not leade
 |-------|------------|----------------|
 | `AGENTS.md` / instruction passport | | |
 | `docs/ai-program/` (kits 01–10) | | |
-| `.claude/skills/` (shared workflows) | | |
+| `ai/` (canonical skills and agents) + generated projections | | |
 | Artifact pipeline convention | | |
 | Quality gate commands | | |
 | Group overlays `docs/groups/<name>/` | | |
@@ -86,7 +86,7 @@ Engagement is a **ladder**, not a mandate. Track where your team is; don't skip 
 | **Experimenting** | Personal tasks, not team workflow | Sandbox repo; no prod |
 | **Pipeline** | Uses intention → PRD → plan → build on real work | Kit 03; `/intention` ritual |
 | **Verify habit** | Runs gates; challenge pass; browser/tests | Kit 04; Phase 02 culture |
-| **Contributor** | Updates passport or adds a skill | `/author-agent`; PR to `.claude/` |
+| **Contributor** | Updates passport or adds a capability | `author-agent`; PR to canonical `ai/` |
 | **Coach** | Reviews others' intentions/PRs | Named reviewer in kit 03 |
 
 | Question | Your answer |
@@ -155,5 +155,5 @@ Add your own when a ritual repeats — e.g. `/onboard-dev`, `/intention-review`,
 |------|------|
 | Executive sponsor (guardrails, pace, budget) | |
 | AI program owner (`docs/ai-program/`) | |
-| Skill steward (`.claude/skills/`) | |
+| Capability steward (canonical `ai/` and projections) | |
 | Security / data terms verifier | |

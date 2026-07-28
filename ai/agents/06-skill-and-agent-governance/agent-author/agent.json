@@ -1,0 +1,26 @@
+{
+  "name": "agent-author",
+  "description": "Helps learners create custom agents, skills, and commands from patterns they observe. The Day 2 bridge tool.",
+  "skills": {
+    "required": [
+      "research-patterns",
+      "day2-prep",
+      "terminal-reporting"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

@@ -1,7 +1,8 @@
 # Curriculum Hardening Plan
 
-Status: planning and audit only. Implementation work begins after the current
-Git changes are classified, committed, and verified.
+Status: implementation complete; final validation and release recorded
+2026-07-28. Client-specific preflight and an instructor rehearsal remain
+delivery gates for each scheduled cohort, not unfinished curriculum work.
 
 ## Outcome
 
@@ -131,3 +132,33 @@ Store all maintained map sources and generated maps in
 - Resolve all release-blocking findings.
 - Produce a final readiness report with remaining risks and maintenance needs.
 - Make the marketability decision only from the validated finished program.
+
+## Completion record
+
+The implementation outcome is documented in the
+[Curriculum Readiness Assessment](CURRICULUM-READINESS-ASSESSMENT.md) and the
+[Teaching Artifact Readiness matrix](instructor/ARTIFACT-READINESS.md).
+
+Completed:
+
+- one continuing learner branch and one `starter-kit-v1` release model;
+- learner `apps/` separated from `completed/apps/` reference implementations;
+- fully developed ten-document packages for all eight modules;
+- a five-day developer-only delivery guide, syllabus, lesson plans, decks, and
+  recovery model;
+- function-organized canonical skills and agents with generated Claude Code,
+  Cursor, and Codex interpretations;
+- an agent-queryable AI-program operating memory with ownership, evidence,
+  freshness, conflict, and modernization rules;
+- master and per-phase MindNode-compatible OPML maps;
+- automated checks for structure, links, canonical projections, AI-program
+  coverage, mind-map drift, documentation, root code, and reference builds.
+
+Required for each client delivery:
+
+- fill client decisions, owners, accounts, access, and policy constraints;
+- refresh dated terrain and open dependency advisories;
+- rehearse service-backed and provider-backed exercises in the client-approved
+  environment;
+- conduct the instructor timing rehearsal; and
+- calibrate the maps in MindNode to the instructor's preferred teaching style.

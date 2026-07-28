@@ -4,17 +4,18 @@
 
 | Requirement | Why |
 |-------------|-----|
-| **Claude Code** (CLI) installed and signed in | The pipeline **skills** in `.claude/skills/` (`/intention`, `/prd`, `/plan`, `/run-plan` — invoked by typing `/name`) are the primary automation path. |
-| **Anthropic subscription** (or org billing) that covers Claude Code usage | Model calls for agents and long sessions are not free. |
+| **Client-approved coding harness** installed and signed in | Cursor IDE is the recommended common environment; Claude Code and Codex are supported. |
+| **Approved account and model access** for the selected harness | Product plans, limits, model access, and data terms must be confirmed for the cohort. |
 | **Node.js** LTS with **npm** (the curriculum's scripts, docs, and agents all standardize on npm) | Monorepo scripts and Turbo. |
 
 **Windows:** Install [Git for Windows](https://git-scm.com/download/win) so Claude Code can use its Bash tool (PowerShell alone works, but Git Bash is smoother). Repo verify scripts under `scripts/*.sh` need Git Bash or WSL. Cursor and Codex also run natively on Windows — same workflow as macOS.
 
-## Cursor (optional but common)
+## Harness verification
 
-| Requirement | Why |
-|-------------|-----|
-| **Cursor** + subscription if your workflow uses Cursor | Cursor **does not** execute `.claude` slash skills natively. Use [RUN-ORDER.md](./RUN-ORDER.md) and project [`.cursor/rules/`](../../../.cursor/rules/) so the **same curriculum** applies; use **Claude Code** when you need verified `/name` invocation. |
+Run `npm run ai:check` before class. It verifies that the canonical `ai/`
+library and the Claude Code, Cursor, and Codex projections match. Learners follow
+[RUN-ORDER.md](./RUN-ORDER.md) regardless of which supported interface invokes
+the named capability.
 
 ## What we verify in-repo
 

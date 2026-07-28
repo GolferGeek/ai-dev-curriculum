@@ -22,7 +22,13 @@ nav:
   - Phases:
     - Overview: phases/README.md
     - "00 — First build": phases/00/README.md
+    - "01 — SaaS killers": phases/01/README.md
     - "02 — Quality": phases/02/README.md
+    - "03 — Brownfield understanding": phases/03/README.md
+    - "04 — Agent systems": phases/04/README.md
+    - "05 — Capability scouting": phases/05/README.md
+    - "05.5 — Capability registry": phases/05.5/README.md
+    - "06 — Model evaluation": phases/06/README.md
   - Operating model: MONOREPO-OPERATING-MODEL.md
   - Project portfolio: projects/README.md
   - Deploy examples: deploy/README.md
@@ -33,7 +39,28 @@ nav:
     - "02 — Actions + skills": checklists/02-github-actions-and-skills.md
     - "03 — Turbo → Nx (optional)": checklists/03-turbo-to-nx.md
     - "04 — Deploy apps (Docker + cloud)": checklists/04-deploy-apps-docker-cloud.md
-  - AI program: ai-program/README.md
+  - AI program:
+    - Program index: ai-program/README.md
+    - Program contract: ai-program/PROGRAM-CONTRACT.md
+    - Coverage matrix: ai-program/COVERAGE-MATRIX.md
+    - How to ask: ai-program/HOW-TO-ASK.md
+    - Query acceptance: ai-program/QUERY-ACCEPTANCE.md
+    - Change and freshness: ai-program/CHANGE-AND-FRESHNESS.md
+    - Harnesses and models: ai-program/harnesses-and-models/README.md
+    - Coding governance: ai-program/coding-governance/README.md
+    - Skills and agents: ai-program/skills/README.md
+    - Agent systems: ai-program/agent-systems/README.md
+    - Security and data: ai-program/security-and-data/README.md
+    - Delivery and quality: ai-program/delivery-and-quality/README.md
+    - Adoption and measurement: ai-program/adoption-and-measurement/README.md
+    - Decisions: ai-program/decisions/README.md
+    - Watchlist: ai-program/watchlist.md
+  - Instructor:
+    - Five-day delivery: instructor/FIVE-DAY-DELIVERY-GUIDE.md
+    - Artifact readiness: instructor/ARTIFACT-READINESS.md
+    - Readiness assessment: CURRICULUM-READINESS-ASSESSMENT.md
+    - Deck QA: instructor/DECK-QA.md
+    - Teaching mind maps: mind-maps/README.md
   - GitHub guardrails:
     - Handbook: github/README.md
     - Repo hardening: github/hardening.md
@@ -55,3 +82,10 @@ markdown_extensions:
 
 plugins:
   - search
+
+# Repository-relative links may intentionally point outside docs/. The
+# repository-wide Markdown link check validates those files directly.
+validation:
+  links:
+    not_found: ignore
+    anchors: warn

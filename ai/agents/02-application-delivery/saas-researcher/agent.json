@@ -1,0 +1,22 @@
+{
+  "name": "saas-researcher",
+  "description": "Researches SaaS products to define killer app intentions — competitive analysis, core features, scope for a 2-hour build. Use before /intention for phase-01.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

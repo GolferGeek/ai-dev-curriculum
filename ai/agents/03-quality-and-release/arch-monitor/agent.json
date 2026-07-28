@@ -1,0 +1,32 @@
+{
+  "name": "arch-monitor",
+  "description": "Scans one app or all apps for architectural violations and PR requirement violations. Produces a findings report — does not fix anything.",
+  "skills": {
+    "required": [
+      "pr-requirements",
+      "system-architecture",
+      "terminal-reporting"
+    ],
+    "optional": [
+      "web-architecture",
+      "ios-architecture",
+      "data-architecture"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {
+      "readonly": true
+    },
+    "codex": {
+      "sandbox_mode": "read-only"
+    }
+  }
+}

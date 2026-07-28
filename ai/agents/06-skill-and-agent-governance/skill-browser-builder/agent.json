@@ -1,0 +1,27 @@
+{
+  "name": "skill-browser-builder",
+  "description": "Builds the Next.js skills browser app — card grid with filters, detail view with markdown rendering, copy-to-clipboard, search across the catalog.",
+  "skills": {
+    "required": [
+      "skill-catalog-design",
+      "nextjs-saas",
+      "web-architecture",
+      "terminal-reporting"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

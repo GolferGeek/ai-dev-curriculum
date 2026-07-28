@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# Curriculum structure checks — safe to run at ANY phase tag, before/after scaffold.
-# Phase-specific checks only run if that phase's docs exist at the current checkout.
 set -euo pipefail
+
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 ERR=0
@@ -11,64 +10,74 @@ need()  { [[ -f "$1" ]] || fail "missing $1"; }
 skill() { need ".claude/skills/$1/SKILL.md"; }
 agent() { need ".claude/agents/$1.md"; }
 
-# ---- Phase 00 (always required) ----
-for f in \
-  docs/phases/00/STARTER-KIT.md \
-  docs/phases/00/README.md \
-  docs/phases/00/intention-monorepo.md \
-  docs/phases/00/PREREQUISITES.md \
-  docs/phases/00/RUN-ORDER.md \
-  docs/phases/00/VERIFY.md \
-  docs/phases/00/DEMO-GRADE-BAR.md \
-  CLAUDE.md \
-  ; do need "$f"; done
+need AGENTS.md
+need CLAUDE.md
+need ai/functions.json
+need ai/README.md
+need apps/README.md
+need completed/apps/README.md
+need docs/ai-program/README.md
+need scripts/generate-ai-tooling.mjs
+need scripts/verify-ai-program.mjs
 
-# Pipeline + convention skills (slash-invoked workflows live at .claude/skills/<name>/SKILL.md)
-for s in intention prd plan run-plan monorepo-turbo prd-alignment; do skill "$s"; done
-for a in monorepo-builder app-builder-http-workspace app-builder-team-wiki \
-         app-builder-pipeline-crm app-builder-ops-pulse; do agent "$a"; done
+phase_documents=(
+  README.md
+  OVERVIEW.md
+  PREREQUISITES.md
+  COMMANDS.md
+  STARTER-KIT.md
+  RUN-ORDER.md
+  TALKING-POINTS.md
+  TEACHING.md
+  DEMO-GRADE-BAR.md
+  VERIFY.md
+)
 
-# ---- Phase 01 (only if present at this checkout) ----
-if [[ -d docs/phases/01 ]]; then
-  for f in \
-    docs/phases/01/README.md docs/phases/01/DEMO-GRADE-BAR.md \
-    docs/phases/01/PREREQUISITES.md docs/phases/01/RUN-ORDER.md \
-    docs/phases/01/intention-quickbooks-killer.md docs/phases/01/intention-trello-killer.md \
-    docs/phases/01/intention-twitter-killer.md docs/phases/01/intention-facebook-killer.md \
-    ; do need "$f"; done
-  for s in research test-browser surrealdb nextjs-saas ios-swiftui; do skill "$s"; done
-  for a in surrealdb-builder nextjs-saas-builder ios-builder saas-researcher; do agent "$a"; done
-fi
+for phase in 00 01 02 03 04 05 05.5 06; do
+  for document in "${phase_documents[@]}"; do
+    need "docs/phases/$phase/$document"
+  done
+done
 
-# ---- Phase 02 (only if present at this checkout) ----
-if [[ -d docs/phases/02 ]]; then
-  for f in docs/phases/02/README.md docs/phases/02/RUN-ORDER.md; do need "$f"; done
-  for s in scan-errors fix-errors monitor harden commit pr-eval \
-           web-architecture ios-architecture data-architecture \
-           pr-requirements quality-gates; do skill "$s"; done
-  for a in error-scanner error-fixer arch-monitor arch-hardener \
-           commit-agent pr-evaluator; do agent "$a"; done
-fi
+for deck in \
+  phase-00-opening-ai-dev.pptx \
+  phase-01-saas-killers.pptx \
+  phase-02-quality-engineering.pptx \
+  phase-03-project-memory.pptx \
+  phase-04-agent-to-agent-future.pptx \
+  phase-05-skill-scouting.pptx \
+  phase-05-5-skills-registry.pptx \
+  phase-06-model-evaluation.pptx; do
+  need "marketing/decks/$deck"
+done
 
-# ---- Phase 06 (only if present at this checkout) ----
-if [[ -d docs/phases/06 ]]; then
-  for f in \
-    docs/phases/06/README.md docs/phases/06/OVERVIEW.md \
-    docs/phases/06/PREREQUISITES.md docs/phases/06/COMMANDS.md \
-    docs/phases/06/STARTER-KIT.md docs/phases/06/RUN-ORDER.md \
-    docs/phases/06/TALKING-POINTS.md docs/phases/06/TEACHING.md \
-    docs/phases/06/DEMO-GRADE-BAR.md docs/phases/06/VERIFY.md \
-    marketing/lesson-plans/phase-06.md \
-    marketing/decks/phase-06-model-evaluation.pptx \
-    ; do need "$f"; done
-fi
+for lesson in 00 01 02 03 04 05 05.5 06; do
+  need "marketing/lesson-plans/phase-$lesson.md"
+done
 
-# Cursor alignment (only if this checkout ships .cursor/)
-if [[ -d .cursor ]]; then
-  need .cursor/rules/golfergeek-curriculum.mdc
-fi
+for capability in intention prd plan run-plan scan-errors fix-errors monitor \
+  harden commit pr-eval research test-browser skill-scout skill-evaluate \
+  skill-publish skill-maintain ai-program-advisor; do
+  skill "$capability"
+done
 
-# If monorepo already scaffolded, expect node
+for role in monorepo-builder error-scanner error-fixer arch-monitor \
+  arch-hardener commit-agent pr-evaluator terrain-scout ai-program-steward; do
+  agent "$role"
+done
+
+for projection in \
+  .claude/skills/.generated.json \
+  .claude/agents/.generated.json \
+  .cursor/skills/.generated.json \
+  .cursor/agents/.generated.json \
+  .agents/skills/.generated.json \
+  .codex/agents/.generated.json; do
+  need "$projection"
+done
+
+need .cursor/rules/golfergeek-curriculum.mdc
+
 if [[ -f turbo.json ]]; then
   command -v node >/dev/null 2>&1 || fail "turbo.json present but node not in PATH"
 fi
@@ -77,4 +86,5 @@ if [[ $ERR -ne 0 ]]; then
   echo "Verify finished with errors." >&2
   exit 1
 fi
+
 echo "OK: curriculum structure checks passed."

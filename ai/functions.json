@@ -1,0 +1,137 @@
+{
+  "01-foundation-and-planning": {
+    "description": "Turn intent into an aligned plan and establish the monorepo working environment.",
+    "skills": [
+      "day2-prep",
+      "intention",
+      "monorepo-turbo",
+      "plan",
+      "prd",
+      "prd-alignment",
+      "quick-tasks",
+      "run-plan"
+    ],
+    "agents": [
+      "monorepo-builder"
+    ]
+  },
+  "02-application-delivery": {
+    "description": "Design and build web, data, and iOS applications from approved plans.",
+    "skills": [
+      "data-architecture",
+      "ios-architecture",
+      "ios-swiftui",
+      "nextjs-saas",
+      "surrealdb",
+      "system-architecture",
+      "web-architecture"
+    ],
+    "agents": [
+      "app-builder-facebook-killer",
+      "app-builder-http-workspace",
+      "app-builder-ops-pulse",
+      "app-builder-pipeline-crm",
+      "app-builder-quickbooks-killer",
+      "app-builder-team-wiki",
+      "app-builder-trello-killer",
+      "app-builder-twitter-killer",
+      "ios-builder",
+      "nextjs-saas-builder",
+      "saas-researcher",
+      "surrealdb-builder"
+    ]
+  },
+  "03-quality-and-release": {
+    "description": "Verify behavior, repair failures, enforce architecture, and make changes releasable.",
+    "skills": [
+      "commit",
+      "fix-errors",
+      "harden",
+      "monitor",
+      "nightly-hygiene",
+      "pr-eval",
+      "pr-evals",
+      "pr-requirements",
+      "quality-gates",
+      "scan-errors",
+      "test-browser"
+    ],
+    "agents": [
+      "arch-hardener",
+      "arch-monitor",
+      "commit-agent",
+      "error-fixer",
+      "error-scanner",
+      "pr-evaluator"
+    ]
+  },
+  "04-research-and-understanding": {
+    "description": "Orient on unfamiliar systems, trace behavior, assess security, and produce durable findings.",
+    "skills": [
+      "deep-dive",
+      "git-story",
+      "improve",
+      "ingest",
+      "map",
+      "research",
+      "research-patterns",
+      "security-scan",
+      "terminal-reporting"
+    ],
+    "agents": [
+      "git-historian",
+      "repo-researcher",
+      "security-researcher"
+    ]
+  },
+  "05-protocols-and-agent-systems": {
+    "description": "Build and explain multi-agent systems, protocols, services, and observable dashboards.",
+    "skills": [
+      "a2a-protocol",
+      "a2p-protocol",
+      "ag-ui-protocol",
+      "protocol-dashboard"
+    ],
+    "agents": [
+      "agent-service-builder",
+      "dashboard-builder",
+      "protocol-architect"
+    ]
+  },
+  "06-skill-and-agent-governance": {
+    "description": "Discover, evaluate, author, publish, maintain, and retire organizational AI capabilities.",
+    "skills": [
+      "author-agent",
+      "ai-program-advisor",
+      "skill-anatomy",
+      "skill-catalog-design",
+      "skill-evaluate",
+      "skill-maintain",
+      "skill-publish",
+      "skill-scout",
+      "skill-sources",
+      "terrain-review"
+    ],
+    "agents": [
+      "agent-author",
+      "ai-program-steward",
+      "skill-browser-builder",
+      "skill-catalog-builder",
+      "terrain-scout"
+    ]
+  },
+  "07-model-and-tool-evaluation": {
+    "description": "Evaluate models, tools, multimodal behavior, local inference, and task-specific routing.",
+    "skills": [
+      "analyst-prompts",
+      "model-eval-design",
+      "multimodal-tests",
+      "ollama-integration",
+      "tool-calling-tests"
+    ],
+    "agents": [
+      "eval-dashboard-builder",
+      "eval-harness-builder"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "security-researcher",
+  "description": "Scans codebases for security vulnerabilities, auth gaps, exposed secrets, and injection risks.",
+  "skills": {
+    "required": [
+      "research-patterns",
+      "terminal-reporting"
+    ],
+    "optional": [
+      "web-architecture",
+      "data-architecture",
+      "pr-requirements"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {
+      "readonly": true
+    },
+    "codex": {
+      "sandbox_mode": "read-only"
+    }
+  }
+}

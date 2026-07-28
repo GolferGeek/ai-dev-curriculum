@@ -43,11 +43,11 @@ Hold back the lesson plans, discussion topics, and adoption kit for the meeting 
    - Do these formats fit their catalog (5-day / 5-weekly / ten half-days; the shorter offerings)?
    - Pricing validation (~$1,500/person positioning) and how they handle course revenue splits.
    - A **founding cohort** path: first run at reduced price in exchange for structured feedback and quotable outcomes.
-   - Lab logistics: BYO laptop + $20/month AI subscription per student — any constraints?
+   - Lab logistics: BYO developer laptop + client-approved AI coding access per student — any procurement, security, or account constraints?
 4. **Close** (5 min): schedule the demo before leaving the call.
 
 ## Notes
 
 - Fill the bracketed contact lines in the email before sending; add your GitHub/portfolio URL — the open-source claim should be one click away.
 - The proposal's "To be determined with Hennepin Tech" section (formats, shorter-offering pricing) is intentionally open — it gives Joe decisions to own, which pulls him into the design.
-- If they ask for evidence of demand: the audience framing (SMB dev teams, IT, analysts) matches workforce-training buyers they already serve; the demo converts skeptics better than any stat you could cite.
+- If they ask for evidence of demand: the audience is working software developers and technical leads adopting agentic delivery. The separate one- or two-day offering is the better fit for non-developer staff. The live demo converts skeptics better than a generic adoption statistic.

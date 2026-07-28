@@ -1,6 +1,9 @@
-# Slash Skills (Claude Code) — Phase 00 workflow
+# Named skills — Phase 00 workflow
 
-These are the pipeline **skills** you invoke by typing `/name` (Claude Code migrated slash workflows into the skills format — same flow, current home in `.claude/skills/`). Each one takes a file as input and produces a file as output. The chain looks like this:
+These canonical pipeline skills live under `ai/skills/` and are generated for
+Claude Code, Cursor, and Codex. The examples use concise `/name` notation;
+invoke, select, or explicitly request the named skill as supported by your
+interface. Each skill takes an artifact as input and produces the next artifact.
 
 ```
 /intention <intention-file>  →  docs/artifacts/intention.md

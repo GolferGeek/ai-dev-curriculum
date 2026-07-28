@@ -1,0 +1,22 @@
+{
+  "name": "app-builder-ops-pulse",
+  "description": "Builds Track D — ops pulse (4+ checks, refresh, incident log, failure UX, persistence). Use with /run-plan after monorepo exists. Must meet demo-grade minimums.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "eval-dashboard-builder",
+  "description": "Builds the Next.js evaluation dashboard — heatmap, speed charts, quality vs speed scatter plot, Round 2 podium, and drilldown to see actual responses.",
+  "skills": {
+    "required": [
+      "model-eval-design",
+      "nextjs-saas",
+      "web-architecture",
+      "terminal-reporting"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

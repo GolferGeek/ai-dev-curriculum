@@ -1,0 +1,575 @@
+{
+  "master": {
+    "file": "ai-development-program.opml",
+    "title": "AI-Accelerated Software Development — Five-Day Developer Program",
+    "note": "Instructor master map. Canonical detail remains in the linked curriculum documents.",
+    "children": [
+      {
+        "title": "Promise and audience",
+        "children": [
+          { "title": "Developers and hands-on technical leads" },
+          { "title": "Define well → build fast → verify hard → decide consciously" },
+          { "title": "One continuing branch from starter-kit-v1" },
+          { "title": "Build in apps/; instructor opens completed/apps/ intentionally" },
+          { "title": "Cursor recommended; Claude Code and Codex supported" }
+        ]
+      },
+      {
+        "title": "Day 1 — Define and build",
+        "children": [
+          { "title": "Phase 00 — pipeline, monorepo, first verified slice" },
+          { "title": "Phase 01 — real auth, per-user data, trust boundary" },
+          { "title": "Leave with working applications and a repeatable opening/closing bracket" }
+        ]
+      },
+      {
+        "title": "Day 2 — Prove and understand",
+        "children": [
+          { "title": "Phase 02 — scan, fix, monitor, harden, gate, review" },
+          { "title": "Phase 03 — investigate brownfield code before change" },
+          { "title": "Leave with trusted evidence and durable project memory" }
+        ]
+      },
+      {
+        "title": "Day 3 — Connect and govern",
+        "children": [
+          { "title": "Phase 04 — tools versus counterparties; observable protocols" },
+          { "title": "Phase 05 — scout and evaluate skills and agents" },
+          { "title": "Phase 05.5 — registry, canonical publication, projections, lifecycle" }
+        ]
+      },
+      {
+        "title": "Day 4 — Evaluate and route",
+        "children": [
+          { "title": "Phase 06 — workload-specific model tournament" },
+          { "title": "Quality, speed, consistency, cost, privacy, and uncertainty" },
+          { "title": "Route table and fallback policy—not one universal winner" }
+        ]
+      },
+      {
+        "title": "Day 5 — Install the operating model",
+        "children": [
+          { "title": "Adapt AGENTS.md, docs/ai-program/, and canonical ai/" },
+          { "title": "Complete one low-risk real change through the full bracket" },
+          { "title": "Query and audit the AI program" },
+          { "title": "Assign 30/60/90-day owners and review cadence" }
+        ]
+      },
+      {
+        "title": "Organizational AI program",
+        "children": [
+          { "title": "Harnesses and models" },
+          { "title": "Coding governance" },
+          { "title": "Skills and specialized agents" },
+          { "title": "Agent systems and protocols" },
+          { "title": "Security and data" },
+          { "title": "Delivery and quality" },
+          { "title": "Adoption and measurement" },
+          { "title": "Coverage matrix — every decision domain, artifact, owner, and gap" },
+          { "title": "Query acceptance — prove retrieval, conflict handling, and safe updates" },
+          { "title": "Ask → assess → propose → review → update → measure" }
+        ]
+      },
+      {
+        "title": "Instructor controls",
+        "children": [
+          { "title": "Refresh dated terrain before every cohort" },
+          { "title": "Teach during agent run time" },
+          { "title": "Require learner explanation, not only green checks" },
+          { "title": "Use the recovery ladder without skipping the objective" },
+          { "title": "Record evidence and gaps at every day close" }
+        ]
+      }
+    ]
+  },
+  "phases": [
+    {
+      "file": "phase-00-first-ai-build.opml",
+      "title": "Phase 00 — First AI Build",
+      "note": "Authoritative package: docs/phases/00; lecture: marketing/lesson-plans/phase-00.md.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "Models predict; harnesses supply context, tools, and action" },
+            { "title": "The durable skill is the pipeline—not a vendor interface" },
+            { "title": "Definition and proof bracket a fast, scoped build" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Verify setup, account, Git, Node, browser, and ai:check" },
+            { "title": "Create learner/my-work from starter-kit-v1" },
+            { "title": "Show ai/ canonical source and three generated projections" },
+            { "title": "Explain apps/ versus completed/apps/" }
+          ]
+        },
+        {
+          "title": "Teach before the lab",
+          "children": [
+            { "title": "LLM → prompt → context → tools → harness → skill → agent" },
+            { "title": "Memory versus context" },
+            { "title": "Intention → PRD → plan → run plan" },
+            { "title": "Challenge pass at every artifact boundary" },
+            { "title": "Monorepo: apps, packages, docs, canonical capabilities" }
+          ]
+        },
+        {
+          "title": "Lab",
+          "children": [
+            { "title": "Inspect the supplied monorepo shell" },
+            { "title": "Choose HTTP workspace, team wiki, pipeline CRM, or ops pulse" },
+            { "title": "Critique intention; generate and review PRD and plan" },
+            { "title": "Build one demo-grade product slice in apps/" },
+            { "title": "Build → lint → test → verify → browser" }
+          ]
+        },
+        {
+          "title": "Pause points",
+          "children": [
+            { "title": "After intention — does it say what and why?" },
+            { "title": "After PRD — are goals testable and traced?" },
+            { "title": "After plan — does every goal have work and proof?" },
+            { "title": "After build — inspect running software, not transcript" }
+          ]
+        },
+        {
+          "title": "Common failures and recovery",
+          "children": [
+            { "title": "Starter-screen drift → return to demo-grade contract" },
+            { "title": "Network failure → documented deterministic mock" },
+            { "title": "Broken generation → preserve error, narrow, retry from clean plan" },
+            { "title": "Tool syntax confusion → use equivalent canonical workflow" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Learner explains the full pipeline and closing bracket" },
+            { "title": "Commit a working checkpoint on the continuing branch" },
+            { "title": "Name what belongs in docs, a skill, an agent, code, or chat" },
+            { "title": "Next: raise the stakes with auth and data" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-01-saas-killers.opml",
+      "title": "Phase 01 — SaaS Killers",
+      "note": "Authoritative package: docs/phases/01; lecture: marketing/lesson-plans/phase-01.md.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "AI makes a narrow product slice economically possible" },
+            { "title": "Real means identity, protected routes, persisted data, and isolation" },
+            { "title": "The browser may ask; server and database must decide" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Phase 00 checkpoint is green" },
+            { "title": "SurrealDB and test credentials work" },
+            { "title": "Choose web default or Mac-only iOS option" },
+            { "title": "Select QuickBooks, Trello, Twitter, or Facebook slice" }
+          ]
+        },
+        {
+          "title": "Teach",
+          "children": [
+            { "title": "SaaS bargain and the newly ownable misfit" },
+            { "title": "Vibe coding versus vibe engineering" },
+            { "title": "Auth/data chain: signup → sign in → protect → persist → isolate" },
+            { "title": "Secrets and authorization stay server-side" },
+            { "title": "Data contract before UI" }
+          ]
+        },
+        {
+          "title": "Lab",
+          "children": [
+            { "title": "Challenge intention, PRD, and plan" },
+            { "title": "Build schema/migration and authentication first" },
+            { "title": "Build one credible workflow on persisted per-user data" },
+            { "title": "Create user A and user B" },
+            { "title": "Prove B cannot read or mutate A" },
+            { "title": "Test signed-out and error states" }
+          ]
+        },
+        {
+          "title": "Demo-grade evidence",
+          "children": [
+            { "title": "Real signup/sign-in and protected routes" },
+            { "title": "No client-side admin secrets" },
+            { "title": "Per-user records and server-side authorization" },
+            { "title": "Second-user isolation proof" },
+            { "title": "Build/tests/browser all green" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Explain every link in the trust chain" },
+            { "title": "Record gaps honestly if hardware/time limits completion" },
+            { "title": "Next: turn one successful build into repeatable quality" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-02-quality-engineering.opml",
+      "title": "Phase 02 — Quality Engineering",
+      "note": "Authoritative package: docs/phases/02; lecture: marketing/lesson-plans/phase-02.md.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "Generation is cheap; comprehension and review are scarce" },
+            { "title": "Scanners find, fixers fix—never the same step" },
+            { "title": "Standards compound when review findings become future gates" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Phase 01 app runs from a known commit" },
+            { "title": "Prepare real, ambiguous, and false-positive findings" },
+            { "title": "Show CI/protected-branch expectations" }
+          ]
+        },
+        {
+          "title": "Teach",
+          "children": [
+            { "title": "Build/test, architecture, and severity are different failure classes" },
+            { "title": "Finding confidence is not evidence" },
+            { "title": "Scanner → fixer; monitor → hardener; commit gate → PR evaluator" },
+            { "title": "Observability lives in diffs, checks, and review records" }
+          ]
+        },
+        {
+          "title": "Lab",
+          "children": [
+            { "title": "Scan and prioritize" },
+            { "title": "Challenge or reject at least one finding" },
+            { "title": "Fix approved issues with regression tests" },
+            { "title": "Monitor and harden an architecture boundary" },
+            { "title": "Run commit gate and independent PR evaluation" },
+            { "title": "Verify affected flow in running software" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Promote one repeated lesson into test, rule, skill, or program doc" },
+            { "title": "Explain where human judgment entered" },
+            { "title": "Next: understand unfamiliar code before changing it" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-03-brownfield-understanding.opml",
+      "title": "Phase 03 — Brownfield Understanding",
+      "note": "Authoritative package: docs/phases/03; lecture: marketing/lesson-plans/phase-03.md.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "AI can accelerate comprehension; evidence must remain visible" },
+            { "title": "Observe → infer → question; confidence is not evidence" },
+            { "title": "Every investigation should improve repository memory" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Authorized sanitized repository or curriculum target" },
+            { "title": "No production secrets or uncontrolled writes" },
+            { "title": "Choose team or individual investigation mode" }
+          ]
+        },
+        {
+          "title": "Teach",
+          "children": [
+            { "title": "Ingest, map, security scan, git story, improve, deep dive" },
+            { "title": "Current code says what; history often explains why" },
+            { "title": "Facts, hypotheses, contradictions, and unknowns" },
+            { "title": "Memory maturity: observation → explanation → expectation → enforcement" }
+          ]
+        },
+        {
+          "title": "Lab",
+          "children": [
+            { "title": "Frame questions and predict likely findings" },
+            { "title": "Trace entry points, data flow, boundaries, tests, and operations" },
+            { "title": "Reconcile parallel reports into one story" },
+            { "title": "Produce research packet with evidence and uncertainty" },
+            { "title": "Make only a bounded improvement with explicit verification" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Report one fact, hypothesis, risk, non-change, and improved guardrail" },
+            { "title": "Promote durable findings no farther than evidence earns" },
+            { "title": "Next: independent agents and company-facing protocols" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-04-agent-systems.opml",
+      "title": "Phase 04 — Agent Systems and Protocols",
+      "note": "Authoritative package: docs/phases/04; use presenter guide and phase-04 deck.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "MCP equips an agent; A2A connects it to a counterparty" },
+            { "title": "Protocols are rails—not identity, trust, contract, or accountability" },
+            { "title": "Observable task state and human intervention are product requirements" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Verify five services/ports or reference implementation" },
+            { "title": "Refresh protocol versions and claims" },
+            { "title": "Prepare one success, one denial, and one failure trace" }
+          ]
+        },
+        {
+          "title": "Teach",
+          "children": [
+            { "title": "Agent-readable company surfaces" },
+            { "title": "MCP: tools/resources inside an agent's workflow" },
+            { "title": "A2A: discovery, delegated task, state, artifact" },
+            { "title": "AP2-style mandate: is spending allowed?" },
+            { "title": "x402-style rail: how does payment settle?" },
+            { "title": "AG-UI-style events: how does the human watch/intervene?" }
+          ]
+        },
+        {
+          "title": "Lab",
+          "children": [
+            { "title": "Discover agent cards" },
+            { "title": "Delegate restaurant and booking goals" },
+            { "title": "Encounter paid-resource challenge" },
+            { "title": "Authorize under a bounded mandate" },
+            { "title": "Stream and inspect every exchange" },
+            { "title": "Narrate source, target, method, state, authority, and artifact" }
+          ]
+        },
+        {
+          "title": "Company questions",
+          "children": [
+            { "title": "Surface, identity, authority, policy" },
+            { "title": "Evidence, attention, intervention, accountability" },
+            { "title": "Timeout, cancellation, revocation, dispute, and audit" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Learner explains capability versus counterparty accurately" },
+            { "title": "No claim of production payment security from the demo" },
+            { "title": "Next: govern the instructions and roles agents use" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-05-capability-scouting.opml",
+      "title": "Phase 05 — Capability Scouting",
+      "note": "Authoritative package: docs/phases/05; lecture: marketing/lesson-plans/phase-05.md.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "Skills and agents are behavioral dependencies" },
+            { "title": "Discovery is not installation or approval" },
+            { "title": "Trust applies to exact revisions, scope, evidence, and owner" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Refresh configured sources and preserve dated cache" },
+            { "title": "Prepare skill, agent, malformed, changed, and risky fixtures" },
+            { "title": "Open canonical ai/ and all three projections" }
+          ]
+        },
+        {
+          "title": "Teach",
+          "children": [
+            { "title": "Skill versus agent versus rule/tool/memory/code" },
+            { "title": "Seven functional groups" },
+            { "title": "Canonical nested source; flat native projections" },
+            { "title": "Purpose, provenance, behavior, authority, evidence, ownership" },
+            { "title": "Personal, project/team, and organizational scope" }
+          ]
+        },
+        {
+          "title": "Lab",
+          "children": [
+            { "title": "Snapshot sources and show fetch/parse failures" },
+            { "title": "Normalize identity separately from revisions" },
+            { "title": "Diff added, changed, removed, unchanged, failed" },
+            { "title": "Search, matrix, full package preview, revision compare" },
+            { "title": "Evaluate one skill, one agent, and one difficult candidate" },
+            { "title": "Run trigger, non-trigger, collision, safety, and outcome tests" }
+          ]
+        },
+        {
+          "title": "Evaluation board",
+          "children": [
+            { "title": "State exact revision and intended job" },
+            { "title": "Show strongest evidence and requested authority" },
+            { "title": "Recommend scope, restriction, owner, and re-review trigger" },
+            { "title": "Defend one rejection" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "No unauthorized installation or publication" },
+            { "title": "Next: registry, canonical PR, generation, and lifecycle" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-05-5-capability-registry.opml",
+      "title": "Phase 05.5 — Organizational Capability Registry",
+      "note": "Authoritative package: docs/phases/05.5; lecture: marketing/lesson-plans/phase-05.5.md.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "Evolve the working locator—do not start over" },
+            { "title": "Registry is control plane; Git is execution contract" },
+            { "title": "One canonical capability generates three native forms" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Working Phase 05 app, tests, and backup" },
+            { "title": "SurrealDB, safe credentials, reset/restore" },
+            { "title": "Named evaluator, approver, publisher, and owner roles" }
+          ]
+        },
+        {
+          "title": "Teach",
+          "children": [
+            { "title": "Upstream ≠ reviewed ≠ approved ≠ canonical ≠ generated ≠ used" },
+            { "title": "Evaluation, approval, publication, generation, and use are separate" },
+            { "title": "Stable name does not inherit trust" },
+            { "title": "Functional ownership and globally stable names" }
+          ]
+        },
+        {
+          "title": "Lab — migration",
+          "children": [
+            { "title": "Map static boundaries and recovery point" },
+            { "title": "Apply schema twice" },
+            { "title": "Import snapshot twice without duplicates" },
+            { "title": "Reconcile counts, IDs, revisions, files, and hashes" },
+            { "title": "Restore backup once" }
+          ]
+        },
+        {
+          "title": "Lab — governance and publication",
+          "children": [
+            { "title": "Persist evidence, policy, scope, owner, expiration, use" },
+            { "title": "Approve one exact revision for project scope" },
+            { "title": "Publish canonical ai/ change through branch and PR" },
+            { "title": "Generate Claude Code, Cursor, and Codex projections" },
+            { "title": "Inspect canonical and native diffs" }
+          ]
+        },
+        {
+          "title": "Lab — drift and lifecycle",
+          "children": [
+            { "title": "Detect changed upstream revision" },
+            { "title": "Keep existing approval pinned" },
+            { "title": "Mark new revision re-review-required" },
+            { "title": "Supersede, restrict, revoke, or retire with evidence" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Explain what registry knows and what Git proves" },
+            { "title": "Demonstrate owner, maintenance, and recovery" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-06-model-evaluation.opml",
+      "title": "Phase 06 — Model Evaluation and Routing",
+      "note": "Authoritative package: docs/phases/06; lecture: marketing/lesson-plans/phase-06.md.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "Ask which model is good enough for this work—and prove it" },
+            { "title": "A subscription is purchasing, not architecture" },
+            { "title": "Name work roles, not permanent model winners" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Refresh model names, APIs, prices, and local tags" },
+            { "title": "Confirm keys, budgets, rate limits, and data policy" },
+            { "title": "Prepare offline or reduced-run fallback" },
+            { "title": "Define prompts and rubric before results" }
+          ]
+        },
+        {
+          "title": "Teach",
+          "children": [
+            { "title": "Model versus harness/system" },
+            { "title": "Capability, thought, speed, cost, and control" },
+            { "title": "Utility, workhorse, specialist, deep thinker" },
+            { "title": "Local versus hosted and quantization tradeoffs" },
+            { "title": "Rules, classifiers, cascades, and agentic routing" },
+            { "title": "Multiple judges reduce one bias; agreement is not truth" }
+          ]
+        },
+        {
+          "title": "Lab",
+          "children": [
+            { "title": "Configure contestants, judges, prompts, repetitions, timeouts" },
+            { "title": "Run quick, tools/vision, and analyst work categories" },
+            { "title": "Preserve partial results; pause/resume/subset" },
+            { "title": "Inspect raw responses and judge commentary" },
+            { "title": "Human spot-check disagreements and top/bottom results" }
+          ]
+        },
+        {
+          "title": "Interpret",
+          "children": [
+            { "title": "Best-of-N ceiling" },
+            { "title": "Average expected performance" },
+            { "title": "Consistency and reliability" },
+            { "title": "Quality-speed-cost frontier" },
+            { "title": "Uncertainty, rubric sensitivity, and contamination" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Produce role-based route table and fallback" },
+            { "title": "Record data, spend, and procurement implications" },
+            { "title": "Schedule next evaluation on workload or terrain change" },
+            { "title": "Next: install the client's operating model on Day 5" }
+          ]
+        }
+      ]
+    }
+  ]
+}

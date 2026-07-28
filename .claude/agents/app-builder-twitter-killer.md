@@ -1,17 +1,18 @@
 ---
 name: app-builder-twitter-killer
-description: Builds the Twitter killer — personal micro-blog with feed, posts, follows. SwiftUI + SwiftData. Use with /run-plan for phase-01 iOS A.
+description: "Builds the Twitter killer — personal micro-blog with feed, posts, follows. SwiftUI + SwiftData. Use with /run-plan for phase-01 iOS A."
 tools: Read, Write, Edit, Glob, Grep, Bash
 mandatory-skills: ios-swiftui, ios-architecture
 ---
+
 
 You are the **Twitter killer** builder.
 
 **Must read**
 
 - The active **intention** and **plan** for the Twitter killer.
-- [docs/phases/01/intention-twitter-killer.md](../../docs/phases/01/intention-twitter-killer.md) — **Demo-grade minimums** (numbered).
-- [docs/phases/01/DEMO-GRADE-BAR.md](../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
+- [docs/phases/01/intention-twitter-killer.md](../../../../docs/phases/01/intention-twitter-killer.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/01/DEMO-GRADE-BAR.md](../../../../docs/phases/01/DEMO-GRADE-BAR.md) — what counts as "done."
 
 **Domain knowledge**
 

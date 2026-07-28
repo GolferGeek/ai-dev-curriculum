@@ -1,0 +1,22 @@
+{
+  "name": "app-builder-team-wiki",
+  "description": "Builds Track B — team wiki (spaces, markdown edit/preview, search, persistence). Use with /run-plan after monorepo exists. Must meet demo-grade minimums.",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

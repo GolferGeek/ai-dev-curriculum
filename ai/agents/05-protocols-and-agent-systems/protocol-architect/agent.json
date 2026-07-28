@@ -1,0 +1,28 @@
+{
+  "name": "protocol-architect",
+  "description": "Designs multi-agent systems with A2A, AP2, x402, AG-UI, and MCP protocols. Creates the system architecture and agent specifications.",
+  "skills": {
+    "required": [
+      "a2a-protocol",
+      "a2p-protocol",
+      "ag-ui-protocol",
+      "protocol-dashboard",
+      "system-architecture"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

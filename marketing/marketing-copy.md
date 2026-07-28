@@ -58,9 +58,14 @@ This course teaches participants how to:
 - Build a repeatable workflow for small-team software delivery.
 - Leave with a started adoption kit: fill-in templates for the team's AI development operating model.
 
-Ideal for developers, IT teams, product teams, technical analysts, and managers responsible for internal tools, customer-facing applications, dashboards, automations, product prototypes, or custom software.
+Ideal for software developers and hands-on technical leads responsible for
+internal tools, customer-facing applications, dashboards, automations, product
+prototypes, or custom software.
 
-**What each participant needs:** a laptop and a paid subscription to any capable AI coding agent — Claude Code, Cursor, Codex, or Claude Desktop (about $20/month minimum, for enough model bandwidth). The workflow is the same regardless of which tool you choose.
+**What each participant needs:** a development laptop, professional coding
+experience, and client-approved access to Cursor, Claude Code, or Codex with
+enough model capacity for the labs. Cursor is the recommended common IDE;
+Claude Code and Codex are fully supported.
 
 Private company cohorts can optionally use the final day, or add one to two follow-up days, to set up these workflows against the company's own codebase.
 
@@ -72,9 +77,17 @@ Subject: New AI software development training for small teams
 
 Hennepin Tech is offering a hands-on course for local businesses that want to use AI coding agents responsibly and effectively.
 
-**AI-Accelerated Software Development: Helping Small Teams Build Like Big Teams** teaches participants how to use modern AI development tools to plan, build, test, debug, and review real software. The course is designed for small development teams, IT staff, product teams, technical analysts, and business teams responsible for internal tools, customer-facing applications, product prototypes, or software-enabled workflows.
+**AI-Accelerated Software Development: Helping Small Teams Build Like Big
+Teams** teaches experienced developers how to use modern AI development tools
+to plan, build, test, debug, and review real software. It is designed for
+software teams responsible for internal tools, customer-facing applications,
+product prototypes, or software-enabled workflows.
 
-Participants will learn a structured workflow for using AI agents without losing control of quality, security, or business intent. The course includes browser-based testing, local development workflows, and code review. It is tool-agnostic: participants can use whichever AI coding agent they prefer — Claude Code, Cursor, Codex, or Claude Desktop — as long as they bring a paid subscription (about $20/month minimum) for enough model bandwidth.
+Participants learn a structured workflow for using AI agents without losing
+control of quality, security, or business intent. The course includes local
+development, browser testing, code review, canonical skills and agents, and an
+agent-readable organizational AI program. Cursor is recommended; Claude Code
+and Codex are supported according to client policy.
 
 The course is led by Matthew Weber (GolferGeek), who has 25 years of experience working in large codebases and who builds production-scale AI platforms as a solo developer using the same agent-driven workflow the course teaches — real systems with thousands of source files, most of them open source, not isolated toy examples.
 
@@ -119,7 +132,10 @@ After the course, organizations should be better prepared to:
 
 Use this language when the audience is technical:
 
-The course is tool-agnostic. Participants use whichever AI coding agent they already pay for — Claude Code, Cursor, Codex, or Claude Desktop — and the workflow is the same across all of them; the tool matters less than the discipline.
+The durable workflow is harness-portable. Cursor is the recommended common
+IDE; Claude Code and Codex are fully supported. Native invocation, model
+access, permissions, and integrations differ, so the course generates
+tool-specific skills and agents from one canonical source.
 
 Participants will use modern AI coding agents to work with local repositories, edit files, run commands, inspect rendered web apps, test user flows in a browser, and review implementation changes. The course covers three complementary ways to verify running software — in-app browsers, Playwright for automated tests, and computer use — including emerging workflows such as Codex in-app browser testing, Codex computer use, Claude Code browser automation, and Claude computer-use workflows where available. Specific browser and computer-use features vary by tool.
 

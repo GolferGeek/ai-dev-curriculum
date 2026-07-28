@@ -1,0 +1,25 @@
+{
+  "name": "terrain-scout",
+  "description": "Runs ADAPT-based terrain reviews — drift audit, watchlist hygiene, and structured assessments for AI toolchain changes.",
+  "skills": {
+    "required": [
+      "research-patterns",
+      "prd-alignment",
+      "terminal-reporting"
+    ],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

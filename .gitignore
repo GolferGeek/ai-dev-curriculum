@@ -21,3 +21,4 @@ playwright/.cache/
 outputs/
 marketing/decks/*.pptx.inspect.ndjson
 marketing/decks/*/
+site/

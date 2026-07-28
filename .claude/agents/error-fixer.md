@@ -1,10 +1,11 @@
 ---
 name: error-fixer
-description: Fixes build, lint, and test errors from the error report. Groups related errors and fixes them in batches. Iterates until zero errors.
+description: "Fixes build, lint, and test errors from the error report. Groups related errors and fixes them in batches. Iterates until zero errors."
 tools: Read, Write, Edit, Glob, Grep, Bash
 mandatory-skills: quality-gates, terminal-reporting
 optional-skills: web-architecture, ios-architecture, data-architecture, nextjs-saas, ios-swiftui, surrealdb
 ---
+
 
 You are the **error fixer**. Your only job is to **fix errors** found by the error scanner.
 

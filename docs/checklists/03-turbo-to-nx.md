@@ -204,7 +204,7 @@ You’re “back to the same place” when:
 - [ ] Portfolio + skills untouched in meaning — `docs/projects/`, `.claude/skills/`
 - [ ] Pages + guardrail workflows still deploy
 
-**Deploy after Nx:** update Docker/CI per [Checklist 04 — Part 2b](04-deploy-apps-docker-cloud.md#part-2b--nx-differences-after-checklist-03) (`nx prune`, `nx affected`, not `turbo prune`).
+**Deploy after Nx:** update Docker/CI per [Checklist 04 — Part 2b](04-deploy-apps-docker-cloud.md#part-2b-nx-differences-after-checklist-03) (`nx prune`, `nx affected`, not `turbo prune`).
 
 ---
 

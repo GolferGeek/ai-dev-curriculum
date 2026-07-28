@@ -1,6 +1,10 @@
 # Curriculum phases
 
-Phase guides live here as zero-padded folders (`00` … `06`). Each phase has its own **README** (what you learn), **RUN-ORDER** (exact steps), and phase-specific intentions, demo bars, and teaching notes.
+Phase guides live here as zero-padded folders (`00` … `06`, including
+`05.5`). Every phase has the same ten-document teaching package: README,
+overview, prerequisites, commands, starter kit, run order, talking points,
+teaching guide, demo-grade bar, and verification. Phase-specific intentions
+and presenter guides supplement that package.
 
 | Phase | Folder | Start here |
 |-------|--------|------------|
@@ -10,8 +14,13 @@ Phase guides live here as zero-padded folders (`00` … `06`). Each phase has it
 | **03 — Research** | [03/](03/) | [README](03/README.md) |
 | **04 — Protocols** | [04/](04/) | [README](04/README.md) |
 | **05 — Skills Browser** | [05/](05/) | [README](05/README.md) |
+| **05.5 — Capability Registry** | [05.5/](05.5/) | [README](05.5/README.md) |
 | **06 — Model Eval Lab** | [06/](06/) | [README](06/README.md) |
 
 **Learners:** follow the [root README](../../README.md) for checkout and branch flow. **Instructors:** pair these folders with [marketing/lesson-plans/](../../marketing/lesson-plans/) and per-phase `TEACHING.md` where present.
 
-**Team platform export:** when a company copies this repo as their operating platform, remove `docs/phases/` and keep `.claude/skills/` plus `docs/ai-program/` — see [MONOREPO-OPERATING-MODEL.md](../MONOREPO-OPERATING-MODEL.md).
+**Team platform export:** when a company copies this repo as its operating
+platform, remove course-only phase material after the rollout and keep
+canonical `ai/`, generated harness projections, and the adapted
+`docs/ai-program/` — see
+[MONOREPO-OPERATING-MODEL.md](../MONOREPO-OPERATING-MODEL.md).

@@ -1,16 +1,50 @@
 # Commands — Phase 05.5
 
+Use the equivalent capability invocation for the selected harness:
+
 ```text
-/intention docs/artifacts/intention-skills-registry.md
-/prd docs/artifacts/intention-skills-registry.md
-/plan docs/artifacts/prd-skills-registry.md
-/run-plan docs/artifacts/plan-skills-registry.md
-/skill-publish
-/skill-maintain
-/scan-errors skills-browser
-/monitor skills-browser
-/commit pr
-/pr-eval
+intention → PRD → plan → run-plan
+skill-publish <evaluation>
+skill-maintain
+scan-errors skills-browser
+monitor skills-browser
+commit pr
+pr-eval
 ```
 
-The build should add a repeatable `setup-skill-registry` or equivalent schema/migration command.
+Suggested repository and data commands:
+
+```bash
+npm run ai:generate
+npm run ai:check
+npm run build
+npm test
+bash scripts/verify-curriculum-structure.sh
+```
+
+The implementation must expose documented equivalents for:
+
+```text
+registry schema apply
+registry migrate-static
+registry verify-parity
+registry refresh
+registry maintenance-report
+registry backup
+registry restore
+```
+
+Schema apply and migration must be idempotent. Publication produces a branch
+and reviewable diff; it must not write directly to a protected branch.
+
+## Authority by command
+
+| Action | Expected authority |
+|---|---|
+| Scout and inspect | Read configured sources |
+| Evaluate | Create an evidence record |
+| Approve | Bind a decision to revision and scope |
+| Publish | Propose canonical Git changes |
+| Generate | Rebuild native projections from canonical source |
+| Install | Separate project or user authorization |
+| Revoke/retire | Policy owner plus review trail |

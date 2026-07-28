@@ -1,0 +1,31 @@
+{
+  "name": "commit-agent",
+  "description": "Pre-commit quality gate — runs error scan, architecture monitor, and PR requirements check before committing. Only commits if all checks pass.",
+  "skills": {
+    "required": [
+      "quality-gates",
+      "pr-requirements",
+      "system-architecture",
+      "terminal-reporting"
+    ],
+    "optional": [
+      "web-architecture",
+      "ios-architecture",
+      "data-architecture"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

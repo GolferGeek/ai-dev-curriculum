@@ -1,0 +1,22 @@
+{
+  "name": "monorepo-builder",
+  "description": "Builds or extends the Turbo monorepo shell — apps/, packages/, turbo.json, workspace config. Use with /run-plan for Part A (monorepo).",
+  "skills": {
+    "required": [],
+    "optional": []
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

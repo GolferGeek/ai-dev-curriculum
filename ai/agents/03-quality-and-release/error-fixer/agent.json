@@ -1,0 +1,32 @@
+{
+  "name": "error-fixer",
+  "description": "Fixes build, lint, and test errors from the error report. Groups related errors and fixes them in batches. Iterates until zero errors.",
+  "skills": {
+    "required": [
+      "quality-gates",
+      "terminal-reporting"
+    ],
+    "optional": [
+      "web-architecture",
+      "ios-architecture",
+      "data-architecture",
+      "nextjs-saas",
+      "ios-swiftui",
+      "surrealdb"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}

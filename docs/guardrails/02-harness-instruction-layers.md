@@ -12,7 +12,7 @@ Taught with D00-2 ([instruction passport](../../marketing/lesson-plans/discussio
 
 | Scope | What it is | **Team truth belongs in git** |
 |-------|------------|--------------------------------|
-| **Corporate** | Company-wide policy, approved stack, boundaries | `docs/ai-program/`, root `AGENTS.md`, shared `.claude/skills/` |
+| **Corporate** | Company-wide policy, approved stack, boundaries | `docs/ai-program/`, root `AGENTS.md`, canonical `ai/` |
 | **Group** | Squad, product line, or client overlay | `docs/groups/<name>/`, scoped rules |
 | **Project** | One app or engagement | `docs/artifacts/` or `docs/projects/<name>/`, `apps/<app>/`, path-scoped rules |
 | **Individual** | One developer's machine | Personal harness settings — **not** the system of record |
@@ -30,9 +30,11 @@ This monorepo is **tool-agnostic** but **git-specific**:
 | Corporate context passport | `AGENTS.md` (root) | Cursor, Codex, many agents |
 | Claude project instructions | `CLAUDE.md` (root) — often `@AGENTS.md` + phase pointers | Claude Code |
 | Cursor scoped rules | `.cursor/rules/*.mdc` | Cursor Agent |
-| Shared workflows | `.claude/skills/` | Claude Code, **`claude-code-action` in GitHub Actions** |
-| Specialized executors | `.claude/agents/` | Claude Code (invoked by skills) |
-| Codex repo skills (optional) | `.agents/skills/` | Codex — mirror or symlink critical skills if Codex-heavy |
+| Canonical workflows | `ai/skills/` | Humans, generators, and review |
+| Canonical specialized agents | `ai/agents/` | Humans, generators, and review |
+| Claude Code projection | `.claude/skills/`, `.claude/agents/` | Claude Code |
+| Cursor projection | `.cursor/skills/`, `.cursor/agents/` | Cursor editor and CLI |
+| Codex projection | `.agents/skills/`, `.codex/agents/` | Codex app, CLI, and IDE extension |
 | Corporate memory | `docs/ai-program/` | Humans + agents via `@` |
 
 **Passport pattern (mixed teams):**
@@ -67,7 +69,10 @@ CLAUDE.md          ← @AGENTS.md + Claude-specific notes
 | **Group / project** | Same repo tree — scope by skill design + `@` docs | `.cursor/skills` or repo skill folders (see Cursor docs); rules for when to load | `.agents/skills/` per repo; nested discovery walking up from cwd |
 | **Individual** | `~/.claude/skills/` (personal) | User-level skill config | `~/.agents/skills` or user skill paths in `~/.codex/` |
 
-**Curriculum skills** live in **`.claude/skills/`** — that is intentional. Cursor users **read and follow** the same files in chat (prompt with `@.claude/skills/...`); Codex teams may **copy** critical skills to `.agents/skills/` or document `$skill-name` equivalents.
+**Curriculum skills** are authored in `ai/skills/`. Running
+`npm run ai:generate` publishes identical skill folders to `.claude/skills/`,
+`.cursor/skills/`, and `.agents/skills/`. Running `npm run ai:check` detects
+missing, stale, or edited projections.
 
 **GitHub Actions:** only **committed** `.claude/skills/` + `prompt: "/skill-name"` via [`anthropics/claude-code-action`](https://github.com/anthropics/claude-code-action) — see [Actions + agents](../github/actions-and-agents.md).
 
@@ -75,10 +80,13 @@ CLAUDE.md          ← @AGENTS.md + Claude-specific notes
 
 | Scope | Claude Code | Cursor | Codex |
 |-------|-------------|--------|-------|
-| **Corporate / project** | `.claude/agents/*.md` in repo | No first-class `.cursor/agents/` mirror — use **rules + skills + hooks** for specialization | **Subagents** via product features; not the same as Claude's agent markdown files |
-| **Individual** | `~/.claude/agents/` | User-defined modes / preferences | User config |
+| **Corporate / project** | `.claude/agents/*.md` | `.cursor/agents/*.md` | `.codex/agents/*.toml` |
+| **Individual** | `~/.claude/agents/` | `~/.cursor/agents/` | `~/.codex/agents/` |
 
-**Curriculum agents** (e.g. `error-scanner`, `monorepo-builder`) are **`.claude/agents/`** — invoked by slash skills, not typed directly in class.
+**Curriculum agents** are authored as a portable body plus metadata under
+`ai/agents/`. The generator writes Claude Code and Cursor Markdown definitions
+and Codex TOML definitions. Harness-specific model, permission, sandbox, and
+tool settings belong in overlays rather than the portable body.
 
 ### Settings & enforcement (hard guardrails)
 
@@ -111,12 +119,15 @@ Official: [Settings](https://code.claude.com/docs/en/settings) · [Skills](https
 |------|------------------------|----------------------|----------------------------|
 | Instructions | `.cursor/rules/*.mdc`, `AGENTS.md` (root + nested) | **User Rules** in Settings | [**Team Rules**](https://cursor.com/docs/rules) (dashboard; enforceable) |
 | Skills | Project skill folders / `@` skills (see Cursor docs) | User scope | Team-distributed where enabled |
-| “Agents” | Rules + skills + [**hooks**](https://cursor.com/docs/agent/hooks) (deterministic) | Memories, custom modes | Team policy |
+| Agents | `.cursor/agents/*.md`; compatibility reads for Claude and Codex agent folders | `~/.cursor/agents/` | Team policy and plugins |
 | Legacy | `.cursorrules` (deprecated — migrate to `.cursor/rules/`) | — | — |
 
 **Precedence:** Team Rules → Project Rules → User Rules ([Cursor rules docs](https://cursor.com/docs/rules)).
 
-**Note:** `CLAUDE.md` in a Cursor workspace is often loaded broadly for compatibility — prefer **`.cursor/rules/`** when you need conditional/glob-scoped rules.
+**Note:** use `.cursor/rules/` for conditional or glob-scoped instructions and
+`.cursor/agents/` for specialized delegated roles. Cursor also documents
+compatibility with `.claude/agents/` and `.codex/agents/`, but this curriculum
+generates a native Cursor projection so support is explicit.
 
 ### Codex (OpenAI CLI / ChatGPT coding agent)
 
@@ -124,10 +135,11 @@ Official: [Settings](https://code.claude.com/docs/en/settings) · [Skills](https
 |------|------------------------|----------------------|-------------------|
 | Instructions | `AGENTS.md` (root → cwd chain), `AGENTS.override.md` | `~/.codex/AGENTS.md` | `requirements.toml` policy floor |
 | Skills | `.agents/skills/<skill>/SKILL.md` | `~/.agents/skills` | System/admin skill paths |
+| Agents | `.codex/agents/*.toml` | `~/.codex/agents/*.toml` | Managed policy can constrain settings |
 | Config (not prose) | `.codex/config.toml` | `~/.codex/config.toml` | `/etc/codex/config.toml`, managed requirements |
 | Memories | — | Opt-in Memories | Admin controls |
 
-Official: [AGENTS.md guide](https://developers.openai.com/codex/guides/agents-md) · [Customization](https://developers.openai.com/codex/concepts/customization) · [Build skills](https://developers.openai.com/codex/skills)
+Official: [AGENTS.md guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md) · [Skills](https://learn.chatgpt.com/docs/agent-configuration/skills) · [Subagents and custom agents](https://learn.chatgpt.com/docs/agent-configuration/subagents)
 
 **Size limit:** combined `AGENTS.md` chain defaults to **32 KiB** — split across nested dirs or raise `project_doc_max_bytes` in config.
 
@@ -139,7 +151,7 @@ Official: [AGENTS.md guide](https://developers.openai.com/codex/guides/agents-md
 |--------------|-----|----------------|
 | Secrets, API keys, customer PII | Scanning + leak risk | GitHub Secrets, vault, `.env` (gitignored) |
 | “Team policy” only in Memories | New hire's laptop won't have it | `AGENTS.md` or `docs/ai-program/` |
-| Sole copy of a workflow in chat | Not repeatable | `.claude/skills/` + PR |
+| Sole copy of a workflow in chat | Not repeatable | Canonical `ai/skills/` + PR |
 | Duplicated conflicting passports | Tools merge unpredictably | One `AGENTS.md`; thin overlays per harness |
 
 ---
@@ -148,7 +160,7 @@ Official: [AGENTS.md guide](https://developers.openai.com/codex/guides/agents-md
 
 | Scope | Memory path (decisions) | Context path (agents load) | Owner |
 |-------|-------------------------|----------------------------|-------|
-| Corporate | | `AGENTS.md`, `.claude/skills/` | |
+| Corporate | | `AGENTS.md`, canonical `ai/`, generated harness projections | |
 | Group | `docs/groups/<name>/` | | |
 | Project | `docs/artifacts/` | Scoped rules / nested AGENTS | |
 | Individual | *(none in git)* | Personal Rules / `~/.claude/` | Each dev |
@@ -163,8 +175,8 @@ Official: [AGENTS.md guide](https://developers.openai.com/codex/guides/agents-md
 
 | Tool | Instructions | Skills | Admin / corporate |
 |------|--------------|--------|-------------------|
-| Claude Code | [code.claude.com/docs](https://code.claude.com/docs/en/settings) | [Skills](https://code.claude.com/docs/en/skills) | [Admin setup](https://code.claude.com/docs/en/admin-setup) |
-| Cursor | [Rules](https://cursor.com/docs/rules) | [Agent Skills](https://cursor.com/docs/context/skills) | Team dashboard |
-| Codex | [AGENTS.md](https://developers.openai.com/codex/guides/agents-md) | [Build skills](https://developers.openai.com/codex/skills) | `requirements.toml` / enterprise docs |
+| Claude Code | [Settings](https://code.claude.com/docs/en/settings) | [Skills](https://code.claude.com/docs/en/skills) · [Agents](https://code.claude.com/docs/en/sub-agents) | [Admin setup](https://code.claude.com/docs/en/admin-setup) |
+| Cursor | [Rules](https://cursor.com/docs/rules) | [Skills](https://cursor.com/docs/skills) · [Agents](https://cursor.com/docs/subagents) | Team dashboard |
+| Codex | [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) | [Skills](https://learn.chatgpt.com/docs/agent-configuration/skills) · [Agents](https://learn.chatgpt.com/docs/agent-configuration/subagents) | `requirements.toml` / enterprise docs |
 
 **Next:** [Checklist 02 — GitHub Actions and skills](../checklists/02-github-actions-and-skills.md) · [GitHub hardening](../github/hardening.md)

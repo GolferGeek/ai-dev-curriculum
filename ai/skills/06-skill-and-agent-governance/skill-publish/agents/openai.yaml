@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Publish"
+  short_description: "Publish an approved skill safely"
+  default_prompt: "Publish an exact approved skill revision to a personal or repository scope with provenance, validation, and required review."

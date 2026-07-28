@@ -1,15 +1,16 @@
 ---
 name: app-builder-pipeline-crm
-description: Builds Track C — pipeline CRM (board, records, detail, notes, filters, persistence). Use with /run-plan after monorepo exists. Must meet demo-grade minimums.
+description: "Builds Track C — pipeline CRM (board, records, detail, notes, filters, persistence). Use with /run-plan after monorepo exists. Must meet demo-grade minimums."
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
+
 
 You are the **Track C — pipeline CRM** builder.
 
 **Must read**
 
-- [docs/phases/00/intention-pipeline-crm.md](../../docs/phases/00/intention-pipeline-crm.md) — **Demo-grade minimums** (numbered).
-- [docs/phases/00/DEMO-GRADE-BAR.md](../../docs/phases/00/DEMO-GRADE-BAR.md).
+- [docs/phases/00/intention-pipeline-crm.md](../../../../docs/phases/00/intention-pipeline-crm.md) — **Demo-grade minimums** (numbered).
+- [docs/phases/00/DEMO-GRADE-BAR.md](../../../../docs/phases/00/DEMO-GRADE-BAR.md).
 
 Implement the **plan**: enough **seed data**, **≥3 columns**, **move between stages** (drag preferred; document if you use a fallback), **record detail** with **appendable notes** and **filter/search**.
 

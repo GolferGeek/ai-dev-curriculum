@@ -133,7 +133,7 @@ Same as Phase 00: these are tuned and they work — we **read and critique**, we
 
 ## 3. The build (it runs — keep teaching)
 
-`/run-plan` now runs agents in sequence: SurrealDB + auth, then the app — the Next.js builder by default (the iOS builder only on the opt-in path). Budget ~60 minutes — longer than Phase 00 because there's a real backend. **Nobody watches the bar.** Use the window for the security material in 1e, and for Phase 01 talks in [discussion-topics.md](discussion-topics.md) (corporate context layers / brand, human decision boundaries, secrets hygiene). Remember every tool runs more than one session at once — you can have a second track generating in parallel to compare later. Steps: [RUN-ORDER.md](../../docs/phases/01/RUN-ORDER.md).
+`/run-plan` now runs agents in sequence: SurrealDB + auth, then the app — the Next.js builder by default (the iOS builder only on the opt-in path). Budget ~60 minutes — longer than Phase 00 because there's a real backend. **Nobody watches the bar.** Use the window for the security material in 1e, and for Phase 01 talks in [discussion-topics.md](discussion-topics.md) (corporate context layers / brand, human decision boundaries, secrets hygiene). Where the selected harness and client policy support parallel sessions, a second comparison track is optional; it is never a lab dependency. Steps: [RUN-ORDER.md](../../docs/phases/01/RUN-ORDER.md).
 
 ---
 

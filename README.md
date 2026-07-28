@@ -1,68 +1,129 @@
 # AI Development Curriculum
 
-A hands-on, phased curriculum for learning **AI-assisted development** — building real software by directing AI agents.
+A five-day, developer-only program for learning AI-assisted software
+development by building, verifying, governing, and maintaining real software
+with coding agents.
 
-This repo contains the **complete curriculum** with all phases, apps, tools, and documentation. To follow along step by step, start at Phase 00 **on your own branch** (phases are git tags — reference snapshots):
+The repository is both the course and the operating model:
+
+- `docs/` holds teaching material, decisions, and organizational memory.
+- `ai/` holds canonical skills and specialized agents.
+- Claude Code, Cursor, and Codex projections are generated and committed.
+- `apps/` is the learner's active workspace.
+- `completed/apps/` contains finished reference implementations.
+
+## Start once, continue all week
+
+There are no phase branches and no phase tags. Create one learner branch from
+the immutable starter-kit tag and keep adding work to it:
 
 ```bash
 git clone https://github.com/GolferGeek/ai-dev-curriculum.git
 cd ai-dev-curriculum
-git checkout -b my-phase-00 phase-00
+git switch -c learner/my-work starter-kit-v1
+npm install
 ```
 
-When you finish a phase: commit your work on your branch, then start the next phase from its tag (`git checkout -b my-phase-01 phase-01`). Each phase tag contains the **reference implementation** of everything before it, so you always begin the next phase from a known-good state — your own version stays safe on your previous branch.
+The complete documentation and reference implementations remain available
+throughout the program. Learners build in `apps/` and compare against
+`completed/apps/` when the instructor directs them to do so. Reference
+applications are evidence and recovery aids, not hidden answers.
 
-After every phase checkout, open that phase's guide before doing anything else:
+Before class, complete [the pre-class setup](docs/pre-class-setup.md) and verify
+one supported harness:
+
+- Cursor is the recommended common development environment.
+- Claude Code is fully supported.
+- Codex is fully supported.
+
+The client chooses policy. The curriculum does not require one vendor.
+
+## Program progression
+
+| Module | What developers learn | Start here |
+|---|---|---|
+| **00 — First AI build** | Intention → PRD → plan → agent-assisted build → verification | [Phase 00](docs/phases/00/README.md) |
+| **01 — Product delivery** | Build credible product slices with auth, data, and tests | [Phase 01](docs/phases/01/README.md) |
+| **02 — Quality engineering** | Scan, fix, monitor, harden, and ship | [Phase 02](docs/phases/02/README.md) |
+| **03 — Brownfield understanding** | Investigate unfamiliar code before changing it | [Phase 03](docs/phases/03/README.md) |
+| **04 — Agent systems** | Build observable agent-to-agent workflows and boundaries | [Phase 04](docs/phases/04/README.md) |
+| **05 — Capability scouting** | Discover and evaluate skills and agents safely | [Phase 05](docs/phases/05/README.md) |
+| **05.5 — Organizational registry** | Publish, maintain, update, and retire trusted capability | [Phase 05.5](docs/phases/05.5/README.md) |
+| **06 — Model evaluation** | Test models on your workload and route work using evidence | [Phase 06](docs/phases/06/README.md) |
+
+The instructor schedule combines modules into five teachable days. Learners use
+the same repository, branch, documents, and AI operating layer from beginning
+to end.
+
+## Working directories
+
+```text
+ai/                       canonical skills and agents by function
+apps/                     learner-built applications
+completed/apps/           finished reference implementations
+docs/phases/              learner and instructor phase packages
+docs/ai-program/          organizational AI operating model
+marketing/lesson-plans/   expanded lectures and facilitation
+marketing/decks/          PowerPoint teaching decks
+packages/                 active shared packages
+```
+
+See [the completed-app index](completed/apps/README.md) before running a
+reference implementation.
+
+## Canonical skills and agents
+
+Capabilities are organized by function in `ai/`:
+
+1. Foundation and planning.
+2. Application delivery.
+3. Quality and release.
+4. Research and understanding.
+5. Protocols and agent systems.
+6. Skill and agent governance.
+7. Model and tool evaluation.
+
+Generate and validate the harness projections:
 
 ```bash
-# Example after starting Phase 01
-git checkout -b my-phase-01 phase-01
-# Then read docs/phases/01/README.md
+npm run ai:generate
+npm run ai:check
 ```
 
-The docs folders use zero-padded names: `docs/phases/00/README.md`, `docs/phases/01/README.md`, and so on. There is no `docs/phase1/` folder.
+Do not edit `.claude/skills/`, `.claude/agents/`, `.cursor/skills/`,
+`.cursor/agents/`, `.agents/skills/`, or `.codex/agents/` directly. Their
+source is [`ai/`](ai/README.md).
+
+## Repository checks
+
+```bash
+./scripts/verify-curriculum-structure.sh
+npm run ai:check
+npm run ai:program:check
+npm run docs:links
+npm run mindmaps:check
+npm run build
+npm test
+npm run completed:check
+```
+
+Documentation and presentation artifacts have additional validation described
+in [the curriculum hardening plan](docs/CURRICULUM-HARDENING-PLAN.md). The
+[readiness assessment](docs/CURRICULUM-READINESS-ASSESSMENT.md) records the
+marketability decision, evidence, known limits, and cohort release gate.
+
+## Useful entry points
+
+- [Curriculum index](docs/index.md)
+- [Five-day syllabus](marketing/week-long-syllabus.md)
+- [Curriculum readiness assessment](docs/CURRICULUM-READINESS-ASSESSMENT.md)
+- [Instructor lesson plans](marketing/lesson-plans/README.md)
+- [AI program](docs/ai-program/README.md)
+- [Monorepo operating model](docs/MONOREPO-OPERATING-MODEL.md)
+- [Harness instruction map](docs/guardrails/02-harness-instruction-layers.md)
+- [Pre-class setup](docs/pre-class-setup.md)
+- [Accounts, subscriptions, and keys](docs/accounts-and-keys.md)
 
 ---
 
-## Phases
-
-| Phase | What you learn | Start branch | Then read |
-|-------|---------------|--------------|-----------|
-| **00 — Your first AI build** | The pipeline: intention → PRD → plan → build | `git checkout -b my-phase-00 phase-00` | [docs/phases/00/README.md](docs/phases/00/README.md) |
-| **01 — SaaS killers** | Real apps with auth, databases, and tests | `git checkout -b my-phase-01 phase-01` | [docs/phases/01/README.md](docs/phases/01/README.md) |
-| **02 — Quality engineering** | Scan, fix, monitor, harden, and ship | `git checkout -b my-phase-02 phase-02` | [docs/phases/02/README.md](docs/phases/02/README.md) |
-| **03 — Research** | Understand any codebase, create your own tools | `git checkout -b my-phase-03 phase-03` | [docs/phases/03/README.md](docs/phases/03/README.md) |
-| **04 — Protocols** | Agents talking to agents (and paying for things) | `git checkout -b my-phase-04 phase-04` | [docs/phases/04/README.md](docs/phases/04/README.md) |
-| **05 — Skills Browser** | Discover and explore the skill ecosystem | `git checkout -b my-phase-05 phase-05` | [docs/phases/05/README.md](docs/phases/05/README.md) |
-| **06 — Model Eval Lab** | Which model should you actually use? | `git checkout -b my-phase-06 phase-06` | [docs/phases/06/README.md](docs/phases/06/README.md) |
-
-Each phase builds on the last. Start at 00 and work forward.
-
-## What's in each phase
-
-- **Phase 00:** 4 slash-invoked pipeline skills (`/intention`, `/prd`, `/plan`, `/run-plan`), 5 agents, 2 background skills. You build a Turborepo monorepo with 4 demo apps.
-- **Phase 01:** Adds `/research`, `/test-browser`, SaaS-focused agents, and skills. You build 4 SaaS killer apps (QuickBooks, Trello, Twitter, Facebook clones) with SurrealDB and auth.
-- **Phase 02:** Adds `/scan-errors`, `/fix-errors`, `/monitor`, `/harden`, `/commit`, `/pr-eval`, `/pr-evals`. Quality engineering pipeline with zero-tolerance gates.
-- **Phase 03:** Adds `/ingest`, `/map`, `/security-scan`, `/git-story`, `/improve`, `/deep-dive`, `/author-agent`. Research skills and custom agent creation.
-- **Phase 04:** Protocol skills and specialized agents. You build a multi-agent demo with A2A discovery, task delegation, x402 payment gates, AP2 mandates, and a real-time protocol dashboard.
-- **Phase 05:** Skill ecosystem knowledge and catalog agents. You build a Skills Browser — search, filter, and preview 1,000+ free skills from across the ecosystem.
-- **Phase 06:** Analyst prompts and evaluation agents. You build a Model Eval Lab — test 13 models with 10 real analyst prompts, judged by 4 AI judges, with speed metrics and a tournament dashboard.
-
-## Quick links
-
-- [GitHub guardrails handbook](docs/github/README.md) — Pages, repo hardening, Actions + agents (working workflows)
-- [Onboarding checklists](docs/checklists/README.md) — 00 roadmap, your monorepo on GitHub, Actions + skills
-- [Pre-class setup](docs/pre-class-setup.md) — for live cohorts: do this before the first session
-- [Accounts, subscriptions & API keys](docs/accounts-and-keys.md) — what you're paying for (often nothing)
-- [Phase 00 Guide](docs/phases/00/README.md)
-- [Phase 01 Guide](docs/phases/01/README.md)
-- [Phase 02 Guide](docs/phases/02/README.md)
-- [Phase 03 Guide](docs/phases/03/README.md)
-- [Phase 04 Guide](docs/phases/04/README.md)
-- [Phase 05 Guide](docs/phases/05/README.md)
-- [Phase 06 Guide](docs/phases/06/README.md)
-- [What's in `.claude/`](docs/phases/00/STARTER-KIT.md) — skills and agents, including the slash-invoked skills you type as `/name`
-
----
-
-*Built with [Claude Code](https://claude.com/claude-code). Maintained by [GolferGeek](https://github.com/GolferGeek).*
+Maintained by [GolferGeek](https://github.com/GolferGeek).

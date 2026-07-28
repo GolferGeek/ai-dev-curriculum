@@ -6,17 +6,21 @@
 
 Welcome! In this session you're going to build real, working software using **AI agents** — not by writing every line yourself, but by learning to **direct** the AI with the right instructions. By the end, you'll have a monorepo with a working app that you built by having a conversation.
 
-Before we start building, let's understand the three tools in your toolkit.
+Before we start building, understand the three capability types in the toolkit.
 
 ---
 
 ## The toolkit: slash skills, background skills, and agents
 
-Open the `.claude/` folder in this repo. Everything the AI needs to help you is in there, organized into skills and agents. Here's what each one is and why it matters.
+Open `ai/README.md`. Canonical skills and specialized agents are organized by
+function under `ai/`; generated projections make the same reviewed library
+available to Claude Code, Cursor, and Codex. Never edit a generated projection.
 
 ### Slash-invoked skills — what you type
 
-The pipeline is made of **skills** stored in `.claude/skills/`. In Claude Code you invoke the workflow skills by typing `/name`; each one kicks off a specific step in the process.
+The pipeline is made of canonical **skills** under `ai/skills/`. Invoke the
+named skill through your selected harness; the exact UI may be slash invocation,
+agent selection, or an explicit request to use the skill.
 
 | Slash skill | What it does | When you use it |
 |---------|-------------|-----------------|

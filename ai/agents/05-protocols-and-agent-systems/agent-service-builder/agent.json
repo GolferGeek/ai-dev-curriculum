@@ -1,0 +1,31 @@
+{
+  "name": "agent-service-builder",
+  "description": "Builds individual agent API services — NestJS with A2A Agent Cards, JSON-RPC handlers, x402 payment gates, and AP2 mandate verification.",
+  "skills": {
+    "required": [
+      "a2a-protocol",
+      "a2p-protocol",
+      "system-architecture",
+      "terminal-reporting"
+    ],
+    "optional": [
+      "nextjs-saas",
+      "surrealdb",
+      "data-architecture"
+    ]
+  },
+  "overlays": {
+    "claude": {
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Bash"
+      ]
+    },
+    "cursor": {},
+    "codex": {}
+  }
+}
