@@ -38,6 +38,7 @@ All eight modules—00, 01, 02, 03, 04, 05, 05.5, and 06—have this package.
 ## Week-level artifacts
 
 - [Five-day delivery guide](FIVE-DAY-DELIVERY-GUIDE.md)
+- [Cohort discovery guide](COHORT-DISCOVERY.md)
 - [Presentation deck QA](DECK-QA.md)
 - [Five-day syllabus](../../marketing/week-long-syllabus.md)
 - [Discussion scripts](../../marketing/lesson-plans/discussion-topics.md)

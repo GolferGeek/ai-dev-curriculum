@@ -49,6 +49,158 @@
         ]
       },
       {
+        "title": "The adoption boundary — this is not for everybody",
+        "note": "The Great Convergence creates an opportunity, not an obligation. “Not now” can be a responsible decision when the organization, codebase, evidence system, or risk tolerance is not ready.",
+        "children": [
+          {
+            "title": "This requires a real mind shift",
+            "children": [
+              { "title": "From code production to outcome definition and evidence" },
+              { "title": "From individual typing to delegated, parallel work" },
+              { "title": "From static process to a maintained development system" },
+              { "title": "From avoiding change to managing change deliberately" }
+            ]
+          },
+          {
+            "title": "Some companies should not walk this path right now",
+            "children": [
+              { "title": "No owner for AI risk, quality, or operating policy" },
+              { "title": "No reliable test or review system" },
+              { "title": "No capacity to maintain tools, context, and standards" },
+              { "title": "The business value does not justify the transition cost" }
+            ]
+          },
+          {
+            "title": "Some codebases demand exceptionally high assurance",
+            "note": "Safety-critical, regulated, security-sensitive, and foundational systems may require justified confidence that each line and every interaction is appropriate.",
+            "children": [
+              { "title": "AI assistance does not remove accountability" },
+              { "title": "Generated code may require line-by-line human review" },
+              { "title": "Formal controls, traceability, and independent evidence still govern" }
+            ]
+          },
+          {
+            "title": "AI can still strengthen high-assurance codebases",
+            "children": [
+              { "title": "Research and explain unfamiliar behavior" },
+              { "title": "Generate candidate tests and adversarial cases" },
+              { "title": "Find inconsistencies, risks, and missing documentation" },
+              { "title": "Propose constrained changes for rigorous human review" },
+              { "title": "Automate evidence collection without automating final authority" }
+            ]
+          },
+          {
+            "title": "Adoption is a continuum—not an on/off switch",
+            "children": [
+              { "title": "Explain and research" },
+              { "title": "Suggest and review" },
+              { "title": "Implement inside narrow boundaries" },
+              { "title": "Run verified workflows" },
+              { "title": "Expand authority only when evidence supports it" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Learn the room before teaching the room",
+        "note": "Use the opening to discover what the customer or customers actually need and what the developers can responsibly do. Full worksheet: docs/instructor/COHORT-DISCOVERY.md. In a mixed-client room, invite categories and sanitized examples—never confidential architecture, incidents, code, customers, or data.",
+        "children": [
+          {
+            "title": "What kind of organization are you?",
+            "children": [
+              { "title": "Software product or software services shop?" },
+              { "title": "Manufacturer looking beyond ERP gaps and workarounds?" },
+              { "title": "Healthcare, finance, government, education, nonprofit, or another domain?" },
+              { "title": "Building for employees, customers, partners, or all three?" },
+              { "title": "One client in the room or several organizations learning together?" }
+            ]
+          },
+          {
+            "title": "Who builds and owns software today?",
+            "children": [
+              { "title": "How many developers are there?" },
+              { "title": "What roles and experience levels are represented?" },
+              { "title": "Who covers product, architecture, QA, security, data, platform, and operations?" },
+              { "title": "Who can approve a tool, merge code, deploy, and accept risk?" },
+              { "title": "Who will own these practices after the course?" }
+            ]
+          },
+          {
+            "title": "What is the room's current AI posture?",
+            "children": [
+              { "title": "Excited, curious, skeptical, anxious, or mandated?" },
+              { "title": "Who already uses completion, chat, or coding agents?" },
+              { "title": "Which harnesses and models have people tried?" },
+              { "title": "What has worked surprisingly well?" },
+              { "title": "What failure or concern has reduced trust?" },
+              { "title": "Does anyone feel forced down this path?" }
+            ]
+          },
+          {
+            "title": "What software reality do you live in?",
+            "children": [
+              { "title": "Primary languages, frameworks, platforms, and deployment environments?" },
+              { "title": "Mostly new products, brownfield systems, vendor platforms, or integrations?" },
+              { "title": "How often can you safely release?" },
+              { "title": "Where does work wait—definition, access, implementation, review, testing, or deployment?" },
+              { "title": "What is your current automated-testing and CI/CD maturity?" }
+            ]
+          },
+          {
+            "title": "Where is the business opportunity?",
+            "children": [
+              { "title": "Which ERP, CRM, SaaS, spreadsheet, or manual-process gaps keep recurring?" },
+              { "title": "What backlog item has waited because it was never economical to build?" },
+              { "title": "Which internal workflow would save measurable time or errors?" },
+              { "title": "Which customer-facing improvement could change service or retention?" },
+              { "title": "Which expansion idea could create a new capability or revenue?" },
+              { "title": "What is one low-risk slice we could prove quickly?" }
+            ]
+          },
+          {
+            "title": "What boundaries must the course respect?",
+            "children": [
+              { "title": "Regulation, privacy, security, intellectual-property, or residency constraints?" },
+              { "title": "What source code or data may never enter a hosted model?" },
+              { "title": "Approved and prohibited providers, models, tools, and integrations?" },
+              { "title": "Cloud, on-premises, network, device, and procurement constraints?" },
+              { "title": "Which systems require high-assurance or line-by-line review?" }
+            ]
+          },
+          {
+            "title": "What can the room do comfortably?",
+            "children": [
+              { "title": "Git branches, pull requests, terminal, package managers, and IDEs?" },
+              { "title": "Read unfamiliar code and trace an application boundary?" },
+              { "title": "Write and interpret unit, integration, and browser tests?" },
+              { "title": "Debug build, environment, network, and dependency failures?" },
+              { "title": "Work independently, in pairs, or with instructor checkpoints?" }
+            ]
+          },
+          {
+            "title": "What would make this week successful?",
+            "children": [
+              { "title": "What must participants understand by Friday?" },
+              { "title": "What must they be able to demonstrate?" },
+              { "title": "What decision should leadership be able to make afterward?" },
+              { "title": "What measurable 30-, 60-, or 90-day outcome should follow?" },
+              { "title": "What would make the course feel irrelevant or unsafe?" }
+            ]
+          },
+          {
+            "title": "How the instructor adapts",
+            "children": [
+              { "title": "Choose examples that match the room's business and stack" },
+              { "title": "Adjust grouping and checkpoints—not the evidence bar" },
+              { "title": "Use reference apps when client systems are unavailable or too sensitive" },
+              { "title": "Spend more time on testing when the organization has lost that muscle" },
+              { "title": "Use constrained research/review patterns for high-assurance teams" },
+              { "title": "Record decisions and gaps in the AI program instead of inventing policy live" }
+            ]
+          }
+        ]
+      },
+      {
         "title": "The road from suggestion to agency",
         "children": [
           {
@@ -218,6 +370,146 @@
         ]
       },
       {
+        "title": "For now — business-centered development",
+        "note": "This program concentrates on software where rapid, verified iteration can resolve concrete business friction or create measurable value. It does not use the lowest-risk business case to justify uncontrolled use everywhere.",
+        "children": [
+          {
+            "title": "Maintain cadence against the long-neglected backlog",
+            "children": [
+              { "title": "Small internal workflows that never justified a traditional project" },
+              { "title": "Spreadsheet and manual-process gaps" },
+              { "title": "Integrations and reporting that SaaS does not quite provide" },
+              { "title": "Iterate from one verified slice instead of waiting for a grand rewrite" }
+            ]
+          },
+          {
+            "title": "Then pursue genuinely new company value",
+            "children": [
+              { "title": "Internal projects — efficiency, insight, and operational fit" },
+              { "title": "Customer-facing projects — service, experience, and retention" },
+              { "title": "Expansion projects — new products, capabilities, and revenue" }
+            ]
+          },
+          {
+            "title": "Cadence is not raw output",
+            "note": "Useful cadence is the sustained rate of moving from business intention to trustworthy evidence. More generated code without verification is inventory, not value."
+          }
+        ]
+      },
+      {
+        "title": "Faster development requires a stronger system",
+        "note": "When implementation accelerates, weak assumptions and weak controls also propagate faster. Guardrails, governance, and process become more important, not less.",
+        "children": [
+          {
+            "title": "Guardrails",
+            "children": [
+              { "title": "Permissions and authority boundaries" },
+              { "title": "Protected data, secrets, environments, and deployment paths" },
+              { "title": "Stop conditions and required human decisions" }
+            ]
+          },
+          {
+            "title": "Governance",
+            "children": [
+              { "title": "Approved models, harnesses, tools, skills, and agents" },
+              { "title": "Ownership, evidence, decisions, exceptions, and review dates" },
+              { "title": "Traceability from intention through implementation and proof" }
+            ]
+          },
+          {
+            "title": "Process",
+            "children": [
+              { "title": "Define → challenge → delegate → inspect → verify → learn" },
+              { "title": "Independent review for consequential changes" },
+              { "title": "Rollback, incident learning, and durable updates" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Agent training is a maintained organizational capability",
+        "note": "“Training” here usually means shaping the agent's operating environment rather than training a foundation model: clear roles, durable context, tools, permissions, examples, standards, and evaluation.",
+        "children": [
+          { "title": "Each agent knows its role, outcome, boundaries, and stop conditions" },
+          { "title": "Project memory explains architecture, decisions, and current constraints" },
+          { "title": "Company memory explains policies, terminology, risks, and priorities" },
+          { "title": "Coding standards and quality bars are explicit and testable" },
+          { "title": "Skills package repeatable methods; specialized agents package responsibility" },
+          { "title": "Tests and evaluations prove that instructions still work" },
+          { "title": "Owners maintain the system as code, policy, and tools change" }
+        ]
+      },
+      {
+        "title": "Adoption requires comfort with continuing change",
+        "children": [
+          {
+            "title": "AI capability and interfaces change rapidly",
+            "children": [
+              { "title": "Models, context, tools, and agent behavior improve" },
+              { "title": "Harnesses, providers, pricing, and vendor incentives move" },
+              { "title": "Yesterday's workaround can become tomorrow's liability" }
+            ]
+          },
+          {
+            "title": "Separate durable principles from changing terrain",
+            "children": [
+              { "title": "Durable — intent, evidence, authority, security, ownership" },
+              { "title": "Terrain — products, models, interfaces, limits, and tactics" }
+            ]
+          },
+          {
+            "title": "An organization may freeze a good-enough system",
+            "note": "That is a valid choice, but it should be conscious: stability trades away some future capability, efficiency, and safety improvements."
+          },
+          {
+            "title": "To benefit next week, next month, and next year",
+            "children": [
+              { "title": "Budget for review, experiments, upgrades, and retirement" },
+              { "title": "Introduce change through evidence and controlled rollout" },
+              { "title": "Protect teams from novelty churn while avoiding permanent stagnation" }
+            ]
+          },
+          {
+            "title": "This commitment is genuinely challenging"
+          }
+        ]
+      },
+      {
+        "title": "The organization must learn to build software again",
+        "note": "Reclaiming software means reclaiming the responsibilities that SaaS vendors had absorbed. Generation capacity without product ownership, testing, operations, and maintenance creates a fragile portfolio.",
+        "children": [
+          {
+            "title": "Manage a real project portfolio",
+            "children": [
+              { "title": "Internal projects" },
+              { "title": "Customer-facing projects" },
+              { "title": "Expansion projects" },
+              { "title": "Prioritize by value, risk, ownership, and maintenance cost" }
+            ]
+          },
+          {
+            "title": "Restore the testing habit",
+            "note": "Many organizations stopped exercising this muscle when vendors owned most application behavior. Owning software again means proving it continuously.",
+            "children": [
+              { "title": "Acceptance tests — does it solve the intended business problem?" },
+              { "title": "Unit and component tests — do local rules hold?" },
+              { "title": "Integration and contract tests — do boundaries agree?" },
+              { "title": "Browser and workflow tests — can a user complete the real journey?" },
+              { "title": "Security and isolation tests — who can do what to whose data?" },
+              { "title": "Regression tests — did new cadence break old value?" }
+            ]
+          },
+          {
+            "title": "Own operation after generation",
+            "children": [
+              { "title": "Deployment, observability, support, incident response, and rollback" },
+              { "title": "Maintenance owners and lifecycle funding" },
+              { "title": "Retire software that no longer earns its cost" }
+            ]
+          }
+        ]
+      },
+      {
         "title": "The promise and the warning",
         "children": [
           { "title": "Speed amplifies good definition—and bad assumptions" },
@@ -248,6 +540,10 @@
           { "title": "Which spreadsheet or internal stopgap reveals an ownable gap?" },
           { "title": "Where is typing code still your real bottleneck?" },
           { "title": "What would faster cadence change about your meetings and handoffs?" },
+          { "title": "Is your organization ready for the mind shift—or is “not now” correct?" },
+          { "title": "Which codebases require a higher-assurance adoption boundary?" },
+          { "title": "What testing capability would your organization need to rebuild?" },
+          { "title": "How much continuing tool and process change can your team absorb?" },
           { "title": "Which decisions must never be delegated without human authority?" },
           { "title": "What evidence would make you trust an agent-produced change?" }
         ]

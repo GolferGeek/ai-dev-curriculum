@@ -32,6 +32,8 @@ indicator in silence.
 
 Complete at least three business days before delivery:
 
+- Complete the [cohort discovery guide](COHORT-DISCOVERY.md) with the sponsor
+  and a technical representative.
 - Confirm developer audience, cohort size, remote/in-person format, and
   accessibility needs.
 - Confirm approved harnesses, providers, accounts, data terms, source access,
@@ -55,7 +57,9 @@ Use the
 for the first 15–20 minutes of the opening block. It introduces Matt, traces
 completion → generation → agent harnesses, defines cadence, and frames the
 company's opportunity to reclaim software that should fit its work. This time
-is included in the 45-minute opening block below.
+is included in the 45-minute opening block below. Use the map's room-discovery
+branch to hear the developers directly; detailed intake belongs in the
+[cohort discovery guide](COHORT-DISCOVERY.md), not in class.
 
 | Block | Minutes | Purpose |
 |---|---:|---|

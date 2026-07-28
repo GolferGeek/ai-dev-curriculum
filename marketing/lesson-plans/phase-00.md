@@ -27,6 +27,27 @@ the build-versus-buy boundary without making every SaaS product obsolete. The
 opportunity is a new development operating model; the rest of the program
 teaches the room to operate it responsibly.
 
+Name the adoption boundary explicitly: this requires a mind shift, and it is
+not right for every company or codebase today. High-assurance codebases can
+still use AI for research, tests, review, and constrained proposals without
+delegating final authority. For the course, focus on business-centered
+development: long-neglected backlog work followed by internal,
+customer-facing, and expansion projects that create measurable value.
+
+Close the story with the obligation created by speed. Faster implementation
+requires stronger guardrails, governance, process, maintained agent
+instructions and memory, and a renewed organizational testing habit. Teams
+that want continuing AI improvements must also budget for controlled change
+rather than treating the initial setup as permanent.
+
+Before moving into the technology taxonomy, learn the room. Use the short live
+questions in the map: organization type, developer count and roles, AI
+experience and sentiment, current delivery/testing maturity, opportunity
+themes, constraints, and what success means by Friday. Use the full
+[cohort discovery guide](../../docs/instructor/COHORT-DISCOVERY.md) before
+class. In a mixed-client cohort, ask only for categories and sanitized
+examples.
+
 ### 1a. The technology we're going to be using
 
 Name each piece, say what it is in a sentence, and say *why it's in the kit*:
