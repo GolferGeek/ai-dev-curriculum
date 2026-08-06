@@ -47,6 +47,7 @@ Fill this in **with leadership names** — even a short section beats an implici
 | Spend & model routing | [06-routing-and-spend](06-routing-and-spend.md) | |
 | Agent autonomy boundaries | [05-decision-boundaries](05-decision-boundaries.md) | |
 | Change adoption (ADAPT) | [08-terrain-review](08-terrain-review.md) | |
+| Governance, risk, compliance & exceptions | [11-grc-control-map](11-grc-control-map.md) | |
 
 ### What leadership communicates to the company
 
@@ -64,7 +65,7 @@ The **dev group** (or platform team) maintains what everyone loads — not leade
 | Asset | Maintainer | Review cadence |
 |-------|------------|----------------|
 | `AGENTS.md` / instruction passport | | |
-| `docs/ai-program/` (kits 01–10) | | |
+| `docs/ai-program/` (kits 01–11) | | |
 | `ai/` (canonical skills and agents) + generated projections | | |
 | Artifact pipeline convention | | |
 | Quality gate commands | | |

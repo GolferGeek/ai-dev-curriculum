@@ -737,7 +737,7 @@
         "children": [
           { "title": "Phase 04 — tools versus counterparties; observable protocols" },
           { "title": "Phase 05 — scout and evaluate skills and agents" },
-          { "title": "Phase 05.5 — registry, canonical publication, projections, lifecycle" }
+          { "title": "Phase 05 Part B — registry, canonical publication, projections, lifecycle" }
         ]
       },
       {
@@ -751,6 +751,7 @@
       {
         "title": "Day 5 — Install the operating model",
         "children": [
+          { "title": "Phase 07 — AI Program Governance & GRC capstone" },
           { "title": "Adapt AGENTS.md, docs/ai-program/, and canonical ai/" },
           { "title": "Complete one low-risk real change through the full bracket" },
           { "title": "Query and audit the AI program" },
@@ -760,13 +761,14 @@
       {
         "title": "Organizational AI program",
         "children": [
-          { "title": "Harnesses and models" },
-          { "title": "Coding governance" },
-          { "title": "Skills and specialized agents" },
-          { "title": "Agent systems and protocols" },
-          { "title": "Security and data" },
-          { "title": "Delivery and quality" },
-          { "title": "Adoption and measurement" },
+          { "title": "01 Direction and governance" },
+          { "title": "02 Technology governance" },
+          { "title": "03 Risk management" },
+          { "title": "04 Compliance and obligations" },
+          { "title": "05 Controls and assurance" },
+          { "title": "06 Delivery and operations" },
+          { "title": "07 Program evolution" },
+          { "title": "08 Program intelligence" },
           { "title": "Coverage matrix — every decision domain, artifact, owner, and gap" },
           { "title": "Query acceptance — prove retrieval, conflict handling, and safe updates" },
           { "title": "Ask → assess → propose → review → update → measure" }
@@ -1143,7 +1145,7 @@
     },
     {
       "file": "phase-05-5-capability-registry.opml",
-      "title": "Phase 05.5 — Organizational Capability Registry",
+      "title": "Phase 05 Part B — Organizational Capability Registry",
       "note": "Authoritative package: docs/phases/05.5; lecture: marketing/lesson-plans/phase-05.5.md.",
       "children": [
         {
@@ -1269,6 +1271,80 @@
             { "title": "Record data, spend, and procurement implications" },
             { "title": "Schedule next evaluation on workload or terrain change" },
             { "title": "Next: install the client's operating model on Day 5" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "phase-07-ai-program-capstone.opml",
+      "title": "Phase 07 — AI Program Governance & GRC",
+      "note": "Authoritative package: docs/phases/07; lecture: marketing/lesson-plans/phase-07.md; reference: completed/apps/ai-program.",
+      "children": [
+        {
+          "title": "Instructor intent",
+          "children": [
+            { "title": "Make the organization's AI Program the durable take-home product" },
+            { "title": "Treat the application as a projection, not a second policy store" },
+            { "title": "Connect technical direction, governance, risk, controls, and evidence" }
+          ]
+        },
+        {
+          "title": "Before",
+          "children": [
+            { "title": "Complete Phases 00–06 and preserve the repository baseline" },
+            { "title": "Review PROGRAM-CONTRACT.md and the eight-category map" },
+            { "title": "Name cohort scope, approvers, and prohibited evidence" }
+          ]
+        },
+        {
+          "title": "Browse",
+          "children": [
+            { "title": "Derive navigation from folders and README.md files" },
+            { "title": "Filter one canonical hierarchy through Full, Essential, or Light" },
+            { "title": "Read category purpose, stance, owner, freshness, and gaps" },
+            { "title": "Treat draft, UNASSIGNED, stale, and missing evidence as findings" }
+          ]
+        },
+        {
+          "title": "Culture and sentiment",
+          "children": [
+            { "title": "Culture = principles, workforce experience, learning, safety, communication, and outcomes" },
+            { "title": "Sentiment = privacy-bounded aggregate evidence, not individual performance data" },
+            { "title": "Preserve minority safety signals, uncertainty, and visible follow-through" }
+          ]
+        },
+        {
+          "title": "Ask",
+          "children": [
+            { "title": "How is our governance?" },
+            { "title": "What are we lacking, missing, or doing wrong?" },
+            { "title": "What changed, and what is old?" },
+            { "title": "How is our AI culture, and which profile is active?" },
+            { "title": "Return scope, citations, authority, freshness, uncertainty, and next action" }
+          ]
+        },
+        {
+          "title": "Trace",
+          "children": [
+            { "title": "Requirement → interpretation → scope → risk → control" },
+            { "title": "Control → enforcement → owner → evidence → review" },
+            { "title": "Missing links remain visible blockers" }
+          ]
+        },
+        {
+          "title": "Propose and govern",
+          "children": [
+            { "title": "Prepare a bounded Markdown proposal without activating policy" },
+            { "title": "Govern one low-risk change through approval and verification" },
+            { "title": "Record one owner, one next action, and one review date" }
+          ]
+        },
+        {
+          "title": "Close",
+          "children": [
+            { "title": "Hand off the canonical record, application, skills, and operating cadence" },
+            { "title": "Explain why citation is not certification" },
+            { "title": "Schedule the first 30-day program review" }
           ]
         }
       ]

@@ -1,4 +1,4 @@
-# Starter kit — Phase 05.5
+# Starter kit — Phase 05 Part B
 
 ## Core records
 

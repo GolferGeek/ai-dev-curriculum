@@ -75,7 +75,7 @@ Use one or two live; paraphrase and cite on screen.
 
 Before opening the intention, walk `docs/ai-program/`: show how a developer can
 ask about harnesses/models, coding governance, skills/agents, agent protocols,
-security/data, quality, and adoption. Then walk the skills-and-agents facet:
+security/data, quality, and adoption. Then walk the skills-and-agents node:
 portfolio, scopes, scouting, evaluation, security, triggers/tests/context,
 provenance, publication, functional organization, projections, lifecycle, and
 outcomes. Show `skill-scout`, `skill-evaluate`, and `ai-program-advisor`.
@@ -125,7 +125,7 @@ Steps: [RUN-ORDER.md](../../docs/phases/05/RUN-ORDER.md).
 - **Business connection.** "What preference skill would capture *your* team's standards by Friday?"
 - **Scope decision.** Personal experiment, project/team dependency, enterprise policy—or reject?
 - **Lifecycle.** Who owns it, what revision was reviewed, what triggers re-review, and how is it retired?
-- **Phase 05.5.** The static locator becomes a SurrealDB registry for shared evaluations, policy, installations, updates, and controlled publication.
+- **Phase 05 Part B.** The static locator becomes a SurrealDB registry for shared evaluations, policy, installations, updates, and controlled publication.
 
 ### What they must leave Phase 05 believing
 1. Skills package procedural expertise so agents (and teams) can reuse it — onboarding guides for machines.
@@ -145,6 +145,6 @@ Steps: [RUN-ORDER.md](../../docs/phases/05/RUN-ORDER.md).
 - Client / adopter list (re-count before class) — https://agentskills.io/clients
 - anthropics/skills (official examples) — https://github.com/anthropics/skills
 - Curriculum capability source and governance — `ai/`,
-  `docs/ai-program/skills/`, and `scripts/generate-ai-tooling.mjs`
+  `docs/ai-program/02-technology-governance/03-skills-and-specialized-agents/`, and `scripts/generate-ai-tooling.mjs`
 
 *Do not hard-code “44 tools” or “1,000+ skills” as eternal facts — stamp the date and re-fetch. Treat marketplace blog posts as directional; prefer agentskills.io and Anthropic for normative claims. Reuse Phase 01's security primary sources if you illustrate malicious-install risk.*

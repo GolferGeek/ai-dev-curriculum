@@ -111,7 +111,7 @@ The catalog is **pre-built as static JSON** — no runtime API calls to GitHub. 
 - User accounts or saved favorites
 - Real-time GitHub API calls at runtime (use pre-built static catalog)
 - Skill or agent installation automation
-- Organizational publication and persistent shared policy (Phase 05.5)
+- Organizational publication and persistent shared policy (Phase 05 Part B)
 
 ## What we learned building this
 

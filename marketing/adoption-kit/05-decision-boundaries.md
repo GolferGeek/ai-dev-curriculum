@@ -4,6 +4,11 @@
 
 **Why this matters:** autonomy is a ladder, not a switch. Every action an agent can take belongs in one of three columns — and an accountable human is named for the boundary, because "the agent was mostly right" is not a defense.
 
+Classify the full authority surface: **read, propose, write, execute, publish,
+deploy, message, and purchase**. Use the detailed action-by-risk table in
+[11 — GRC Control Map](11-grc-control-map.md) to record scope, required evidence,
+and emergency stop or revocation—not only whether the agent must ask.
+
 ## The one-pager (sort your own actions into the columns)
 
 | Agent may (no approval) | Agent must ask first | Human only |

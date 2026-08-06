@@ -9,6 +9,42 @@ import {
 import { normalizeOllamaToolCalls } from "@/lib/utils/normalize";
 import { formatImageForOllama } from "@/lib/utils/multimodal";
 
+interface OllamaMessage {
+  role: "user";
+  content: string;
+  images?: string[];
+}
+
+interface OllamaRequestBody {
+  model: string;
+  messages: OllamaMessage[];
+  stream: false;
+  options: { num_predict: number };
+  tools?: PromptConfig["tools"];
+}
+
+interface OllamaToolCall {
+  function: { name: string; arguments: Record<string, unknown> };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function parseOllamaToolCall(value: unknown): OllamaToolCall | null {
+  if (!isRecord(value) || !isRecord(value.function)) return null;
+  if (typeof value.function.name !== "string") return null;
+
+  return {
+    function: {
+      name: value.function.name,
+      arguments: isRecord(value.function.arguments)
+        ? value.function.arguments
+        : {},
+    },
+  };
+}
+
 export async function callOllama(
   model: ModelConfig,
   prompt: PromptConfig,
@@ -20,8 +56,7 @@ export async function callOllama(
 
   try {
     // Build the user message
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const userMessage: Record<string, any> = {
+    const userMessage: OllamaMessage = {
       role: "user",
       content: prompt.prompt,
     };
@@ -36,8 +71,7 @@ export async function callOllama(
     }
 
     // Build request body
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const body: Record<string, any> = {
+    const body: OllamaRequestBody = {
       model: model.model,
       messages: [userMessage],
       stream: false,
@@ -61,21 +95,32 @@ export async function callOllama(
       return makeErrorResult(model, prompt, Date.now() - startTime, `Ollama error ${res.status}: ${text}`);
     }
 
-    const data = await res.json();
+    const data: unknown = await res.json();
     const latencyMs = Date.now() - startTime;
+    const dataRecord = isRecord(data) ? data : undefined;
 
     // Calculate tokens/sec from Ollama's native metrics
-    const evalCount = data.eval_count || 0;
-    const evalDuration = data.eval_duration || 1; // nanoseconds, avoid div by zero
+    const evalCount =
+      typeof dataRecord?.eval_count === "number" ? dataRecord.eval_count || 0 : 0;
+    const evalDuration =
+      typeof dataRecord?.eval_duration === "number"
+        ? dataRecord.eval_duration || 1
+        : 1; // nanoseconds, avoid div by zero
     const tokensPerSecond = evalCount / (evalDuration / 1e9);
 
     // Extract response text
-    const response = data.message?.content || "";
+    const message = isRecord(dataRecord?.message) ? dataRecord.message : undefined;
+    const response = typeof message?.content === "string" ? message.content : "";
 
     // Extract tool calls if present
     let toolCalls: NormalizedToolCall[] | undefined;
-    if (data.message?.tool_calls && data.message.tool_calls.length > 0) {
-      toolCalls = normalizeOllamaToolCalls(data.message.tool_calls);
+    const providerToolCalls = Array.isArray(message?.tool_calls)
+      ? message.tool_calls
+          .map(parseOllamaToolCall)
+          .filter((toolCall): toolCall is OllamaToolCall => toolCall !== null)
+      : [];
+    if (providerToolCalls.length > 0) {
+      toolCalls = normalizeOllamaToolCalls(providerToolCalls);
     }
 
     return {

@@ -4,7 +4,7 @@ This contract makes program documents predictable for humans and agents.
 
 ## Required header
 
-Every normative facet or decision should identify:
+Every normative category, node, or decision should identify:
 
 ```yaml
 status: draft | active | restricted | superseded | retired
@@ -51,11 +51,17 @@ with policy, report the conflict and propose review; do not silently override.
 An agent answering from this program must:
 
 1. State the applicable scope and current answer.
-2. Cite the governing facet and active decision record.
+2. Cite the governing category or node and active decision record.
 3. Include owner and freshness.
 4. Identify known exceptions or conflicts.
 5. Label inference and uncertainty.
 6. Offer a next action when the program is incomplete or stale.
+
+For a GRC question, the answer must also follow the
+[GRC operating map](GRC-OPERATING-MAP.md): connect the authoritative approved
+requirement to scope, risk tier, control/enforcement, evidence, owner/approver,
+exception or residual-risk decision, and freshness. A missing link must be
+reported as a gap and affected restriction, not smoothed over as compliance.
 
 ## Change contract
 
@@ -75,6 +81,20 @@ without review.
 
 ## Definition of ready
 
-A facet is ready only when a new developer and an agent reach the same answer
+A category or node is ready only when a new developer and an agent reach the same answer
 without relying on private chat history. A policy with no owner, source,
-effective scope, or review trigger is unfinished.
+effective scope, or review trigger is unfinished. A GRC assertion is unfinished
+when the program cannot trace the governing requirement to implemented control,
+durable evidence, approval or exception authority, and freshness.
+
+## Folder contract
+
+The AI Program hierarchy is folder-backed. Every category and subcategory
+folder must contain a `README.md` that serves as the folder-level page for
+repository browsing, documentation sites, agents, and the AI Governance & GRC
+application. Additional records may live beside that README or in deeper
+folders.
+
+Folder pages follow the same answer and authority rules as other program
+documents. A readable explanation of a category is not a substitute for an
+approved company stance, owner, evidence, or decision.

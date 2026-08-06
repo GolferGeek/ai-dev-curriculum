@@ -26,9 +26,11 @@ nav:
     - "02 — Quality": phases/02/README.md
     - "03 — Brownfield understanding": phases/03/README.md
     - "04 — Agent systems": phases/04/README.md
-    - "05 — Capability scouting": phases/05/README.md
-    - "05.5 — Capability registry": phases/05.5/README.md
+    - "05 — Capability governance":
+      - "Part A — Scouting and evaluation": phases/05/README.md
+      - "Part B — Registry and lifecycle": phases/05.5/README.md
     - "06 — Model evaluation": phases/06/README.md
+    - "07 — AI Program capstone": phases/07/README.md
   - Operating model: MONOREPO-OPERATING-MODEL.md
   - Project portfolio: projects/README.md
   - Deploy examples: deploy/README.md
@@ -41,20 +43,21 @@ nav:
     - "04 — Deploy apps (Docker + cloud)": checklists/04-deploy-apps-docker-cloud.md
   - AI program:
     - Program index: ai-program/README.md
+    - Program map: ai-program/PROGRAM-MAP.md
     - Program contract: ai-program/PROGRAM-CONTRACT.md
+    - Program profiles: ai-program/PROGRAM-PROFILES.md
     - Coverage matrix: ai-program/COVERAGE-MATRIX.md
-    - How to ask: ai-program/HOW-TO-ASK.md
-    - Query acceptance: ai-program/QUERY-ACCEPTANCE.md
-    - Change and freshness: ai-program/CHANGE-AND-FRESHNESS.md
-    - Harnesses and models: ai-program/harnesses-and-models/README.md
-    - Coding governance: ai-program/coding-governance/README.md
-    - Skills and agents: ai-program/skills/README.md
-    - Agent systems: ai-program/agent-systems/README.md
-    - Security and data: ai-program/security-and-data/README.md
-    - Delivery and quality: ai-program/delivery-and-quality/README.md
-    - Adoption and measurement: ai-program/adoption-and-measurement/README.md
-    - Decisions: ai-program/decisions/README.md
-    - Watchlist: ai-program/watchlist.md
+    - GRC operating map: ai-program/GRC-OPERATING-MAP.md
+    - Direction and governance: ai-program/01-direction-and-governance/README.md
+    - Technology governance: ai-program/02-technology-governance/README.md
+    - Risk management: ai-program/03-risk-management/README.md
+    - Compliance and obligations: ai-program/04-compliance-and-obligations/README.md
+    - Controls and assurance: ai-program/05-controls-and-assurance/README.md
+    - Delivery and operations: ai-program/06-delivery-and-operations/README.md
+    - Program evolution: ai-program/07-program-evolution/README.md
+    - Program intelligence: ai-program/08-program-intelligence/README.md
+    - How to ask: ai-program/08-program-intelligence/HOW-TO-ASK.md
+    - Query acceptance: ai-program/08-program-intelligence/QUERY-ACCEPTANCE.md
   - Instructor:
     - Five-day delivery: instructor/FIVE-DAY-DELIVERY-GUIDE.md
     - Cohort discovery: instructor/COHORT-DISCOVERY.md

@@ -24,7 +24,7 @@ Before fetching, create or update a source record with:
 - client approval status
 - known security or provenance concerns
 
-Store time-sensitive observations in `docs/ai-program/watchlist.md` or a dated
+Store time-sensitive observations in `docs/ai-program/07-program-evolution/01-terrain-and-watchlist/README.md` or a dated
 decision record. Never put a remembered item count, star count, rate limit, or
 vendor claim into an enduring requirement.
 

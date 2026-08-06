@@ -4,7 +4,7 @@
 
 **Why this matters:** the harness, models, and agent patterns rotate fast. A **named process** beats heroics — and beats pivoting every time someone says "woo, cool thing."
 
-## ADAPT (copy to `docs/ai-program/decisions/` when you decide)
+## ADAPT (copy to `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/` when you decide)
 
 | Step | Your notes |
 |------|------------|
@@ -24,11 +24,11 @@
 |----------|-------------|
 | Terrain review cadence (monthly / quarterly) | |
 | Who owns `/terrain-review`? | |
-| Where does the watchlist live? (default: `docs/ai-program/watchlist.md`) | |
-| Where do decisions live? (default: `docs/ai-program/decisions/`) | |
+| Where does the watchlist live? (default: `docs/ai-program/07-program-evolution/01-terrain-and-watchlist/README.md`) | |
+| Where do decisions live? (default: `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/`) | |
 | What triggers an out-of-cycle ADAPT? (e.g. harness change, new data policy) | |
 
-## Watchlist (starter — edit `docs/ai-program/watchlist.md`)
+## Watchlist (starter — edit `docs/ai-program/07-program-evolution/01-terrain-and-watchlist/README.md`)
 
 | Candidate | Spotted | Review on | Owner | One-line why |
 |-----------|---------|-----------|-------|--------------|

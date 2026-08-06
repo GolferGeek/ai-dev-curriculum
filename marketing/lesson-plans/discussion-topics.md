@@ -485,8 +485,8 @@
 
 ### Primary
 
-#### D-CLOSE-1 — Assemble the SMB AI development program (~30–40 min)
-**Land:** Fill the ten-piece operating model with *their* names, tools, paths, boundaries, and owners. This is the course’s business deliverable. Use the [adoption kit](../adoption-kit/README.md) — one fill-in template per piece.
+#### D-CLOSE-1 — Assemble the SMB AI development program (~40–50 min)
+**Land:** Fill the eleven-piece operating model with *their* names, tools, paths, boundaries, sources, and owners. This is the course’s business deliverable. Use the [adoption kit](../adoption-kit/README.md) — one fill-in template per piece.
 
 **Working agenda**
 1. Harness + plan tier decision  
@@ -496,6 +496,43 @@
 5. Decision-boundary one-pager  
 6. Routing + spend policy (even if manual for now)  
 7. First brownfield target + safety card  
+8. Terrain-review cadence + durable decisions
+9. Memory/context scope map
+10. Leadership, program ownership + adoption rituals
+11. GRC source, risk, control, evidence + exception map
+
+---
+
+#### D-CLOSE-GRC — Turn obligations into operational controls (~45–60 min, required)
+**Land:** “Follow policy” is not enough for a developer or an agent. Start from
+authoritative client-supplied sources; classify risk; map requirements to
+controls and durable evidence; name approvals, rollback, monitoring, stop
+conditions, exceptions, owners, and review triggers.
+
+**Working sequence**
+1. Separate confirmed client sources from course defaults, proposals, and unknowns.
+2. Adapt data, tool/authority, and software-change risk tiers.
+3. Map at least three supplied requirements to controls and evidence; when a
+   source is unavailable, use the explicitly fictional fallback to practice,
+   then record the real gap and owner rather than inventing client policy.
+4. Classify the Day 5 change and identify independent review, rollback or
+   recovery, monitoring, and stop conditions proportionate to its tier.
+5. Walk one exception through request, compensating control, approval,
+   expiration, and revocation.
+
+**Talk prompts**
+- Who is authorized to say this requirement applies?
+- What evidence proves the control ran, and where will it survive the session?
+- What becomes mandatory when the change moves from normal to high risk?
+- What is blocked when the owner, approver, or applicability is unknown?
+- When does an exception expire, and how is access or authority revoked?
+
+**Boundary:** The course supplies the method and conservative starting
+vocabulary. The client supplies legal/compliance interpretation, approved risk
+definitions, control owners, and acceptance authority. The worksheet is not a
+certification or legal advice.
+
+**Artifact:** [11 — GRC Control Map](../adoption-kit/11-grc-control-map.md).
 
 ---
 

@@ -20,7 +20,9 @@ have already been supplied.
 | `DEMO-GRADE-BAR.md` | Both | Before/after | observable pass/fail standard |
 | `VERIFY.md` | Both | During/after | evidence checklist and commands |
 
-All eight modules—00, 01, 02, 03, 04, 05, 05.5, and 06—have this package.
+All eight primary phases—00, 01, 02, 03, 04, 05, 06, and 07—have this
+package. Phase 05 Part B retains the same package in its link-stable `05.5/`
+directory.
 
 ## Module matrix
 
@@ -32,8 +34,9 @@ All eight modules—00, 01, 02, 03, 04, 05, 05.5, and 06—have this package.
 | 03 | prerequisites, research target, starter kit | overview, run order, teaching | packet, grade bar, verify | `phase-03.md` | `phase-03-project-memory.pptx` |
 | 04 | prerequisites, protocol preflight | deck/presenter guide, run order, teaching | narrated trace, grade bar, verify | `phase-04.md` | `phase-04-agent-to-agent-future.pptx` |
 | 05 | source/cache preflight, capability program | scouting, full preview, evaluation board | three evaluations, rejection, verify | `phase-05.md` | `phase-05-skill-scouting.pptx` |
-| 05.5 | working locator, backup, database, roles | migrate, govern, publish, generate, drift | lifecycle demonstration, verify | `phase-05.5.md` | `phase-05-5-skills-registry.pptx` |
+| 05 Part B | working locator, backup, database, roles | migrate, govern, publish, generate, drift | lifecycle demonstration, verify | `phase-05.5.md` | `phase-05-5-skills-registry.pptx` |
 | 06 | models/keys/hardware, prompt suite | rubric, run, dashboard, interpretation | route table, caveats, verify | `phase-06.md` | `phase-06-model-evaluation.pptx` |
+| 07 | AI Program record, authority metadata, reference app | browse, assess, ask, trace, propose | governed-change demonstration, handoff | `phase-07.md` | `phase-07-ai-program-capstone.pptx` |
 
 ## Week-level artifacts
 
@@ -66,17 +69,22 @@ These are delivery inputs, not unfinished curriculum prose.
 
 ## Technical validation evidence
 
-Validated on 2026-07-28:
+Validated on 2026-08-06:
 
-- all 13 JavaScript reference packages install from committed lockfiles and
+- all 15 JavaScript reference packages install from committed lockfiles and
   produce successful production builds in dependency order;
-- the three Next.js applications pass their ESLint configurations;
-- the four Vite applications pass their Playwright browser smoke tests;
-- both SwiftUI applications build for a generic iOS Simulator destination;
+- the five Next.js applications pass their ESLint configurations;
+- the AI Program and Skills Browser references pass deterministic unit suites,
+  and six browser references pass their Playwright smoke tests;
+- both SwiftUI applications build and pass their XCTest/XCUITest suites on an
+  iOS Simulator destination;
+- the root and all 15 JavaScript reference packages have zero high-severity
+  findings in full npm dependency audits;
 - the root monorepo builds and tests successfully;
-- all eight decks—151 slides total—render without overflow and passed visual
+- all nine decks—166 slides total—render without overflow and passed visual
   inspection;
-- every phase has the standard ten-document package;
+- every primary phase and Phase 05 Part B have the standard ten-document
+  package;
 - canonical skills and agents generate identical checked-in Claude Code,
   Cursor, and Codex projections;
 - the AI-program decision system passes its required-document, facet,
@@ -84,15 +92,16 @@ Validated on 2026-07-28:
 - repository Markdown links, MindNode OPML generation, XML validity, and the
   strict MkDocs build pass.
 
-Two items intentionally remain cohort preflight work:
+One item intentionally remains cohort preflight work:
 
 1. The SurrealDB-backed and provider-backed paths require the client-approved
    services, accounts, and data policy before their authenticated end-to-end
    exercises can be rehearsed.
-2. The current stable Next.js release used by three training references has
-   upstream audit advisories without a non-preview upgrade. The references are
-   not production templates; refresh them before every cohort and follow the
-   [AI terrain watchlist](../ai-program/watchlist.md).
+
+Dependency audits were clean at the high-severity gate on the validation date. The references
+are still training assets, not production templates; refresh package and
+advisory state before every cohort and follow the
+[AI terrain watchlist](../ai-program/07-program-evolution/01-terrain-and-watchlist/README.md).
 
 The OPML maps are structurally valid and complete. Instructor visual
 calibration in MindNode remains a deliberate human step: revise one map, export

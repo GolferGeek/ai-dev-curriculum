@@ -1,10 +1,16 @@
-# Day 5 — Build Your AI Development Operating System
+# Phase 07 companion — Day 5 client-repository clinic
 
-Day Five introduces no new phase. The seven phases supplied the parts; today participants install those parts in a repository they intend to keep using.
+Phase 07 is the Day 5 capstone and the eighth primary phase. Phases 00–06
+supplied the methods and components; today participants install and exercise
+them as a company-owned AI Program in a repository they intend to keep using.
+The primary lecture and product walkthrough are in
+[phase-07.md](phase-07.md); this companion retains the extended
+client-repository clinic, operating-model detail, and optional agent-network
+exercise.
 
 This is a supervised implementation clinic, not another lecture. The instructor helps each team make sound choices, work through real repository constraints, and leave with a usable AI-development operating model in git.
 
-**Day Five promise:** leave with a repository that can support real application work, shared agent instructions, repeatable skills, governed LLM use, a safe Git process, and one verified change.
+**Day Five promise:** leave with a repository that can support real application work, shared agent instructions, repeatable skills, governed LLM use, a safe Git process, a started GRC control map, and one risk-classified, verified change.
 
 ---
 
@@ -66,7 +72,25 @@ Most teaching happens as short, just-in-time clinics while teams work.
 - Human decision boundaries, secrets handling, audit evidence, and incident response.
 - A scheduled process for revisiting models and tools as the market changes.
 
-### 6. Applying the full development loop
+### 6. Governance, risk, and compliance
+
+- How to distinguish authoritative client requirements from course defaults,
+  proposals, and unknowns.
+- How to classify data, tools, agent authority, and software changes by risk.
+- How to map applicable law, contracts, client obligations, security policy,
+  and audit needs supplied by the organization to controls and durable evidence.
+- How risk tiers change review, independent evidence, rollback, monitoring,
+  stop conditions, and human approval.
+- How bounded exceptions name scope, compensating controls, approvers,
+  expiration, and revocation.
+- Why a started operating model is not legal advice, certification, or proof of
+  production readiness.
+
+The client—not the instructor or an agent—determines applicability, interprets
+requirements, approves policy, and accepts residual risk. Unknowns stay visible
+and restricted until the client’s authorized owner resolves them.
+
+### 7. Applying the full development loop
 
 Each team uses the week's discipline on one bounded task:
 
@@ -103,7 +127,7 @@ Before changing anything, teams prove they understand the current state:
 
 Record the baseline. If the repository does not start or test before the work, that fact must not be blamed on the day's change.
 
-### 3. Architecture implementation — 90 minutes
+### 3. Architecture implementation — 60 minutes
 
 Depending on the chosen path:
 
@@ -116,9 +140,17 @@ Depending on the chosen path:
 
 Do not force Nx onto a repository merely to satisfy the course. The desired outcome is a maintainable operating platform, not a particular folder tree.
 
-### 4. Install the AI operating model — 90 minutes
+### 4. Install the AI Program, stand up its application, and complete the GRC clinic — 120 minutes
 
-Teams adapt the ten adoption-kit templates into `docs/ai-program/` and create the minimum effective versions of:
+Teams begin with the standard folder-backed
+[`docs/ai-program/` hierarchy](../../docs/ai-program/PROGRAM-MAP.md). Every
+category and subcategory folder has a `README.md`, so it can drive the
+application's left navigation and remain usable in GitHub, documentation sites,
+IDEs, and AI harnesses without the application.
+
+The eleven adoption worksheets guide teams as they place approved information
+into the appropriate AI Program nodes. Teams create the minimum effective
+versions of:
 
 - approved harness and account policy;
 - root instruction passport;
@@ -129,9 +161,51 @@ Teams adapt the ten adoption-kit templates into `docs/ai-program/` and create th
 - brownfield safety rules;
 - tool and model review cadence;
 - corporate, group, and project context map;
-- leadership, program ownership, and adoption rituals.
+- leadership, program ownership, and adoption rituals; and
+- GRC sources, risk tiers, controls, evidence, exceptions, owners, and review triggers.
 
 Then they select and adapt the skills they intend to use. At least one skill must be exercised against the repository rather than merely copied.
+
+They also run the AI Governance & GRC application against their started program.
+The Day 5 application must:
+
+- derive navigation from the AI Program folder structure;
+- show each folder's `README.md` when selected;
+- expose missing owners, decisions, evidence, reviews, and trace links as
+  findings rather than hiding them;
+- answer at least one program question with citations, scope, freshness,
+  uncertainty, and next action; and
+- treat any search index or database as a rebuildable projection of the
+  repository, not a second policy source.
+
+#### Required GRC clinic sequence
+
+Use [11 — GRC Control Map](../adoption-kit/11-grc-control-map.md). Teams:
+
+1. Register the authoritative, sanitized sources supplied by the client and
+   label missing applicability, interpretation, or ownership as a gap.
+2. Adapt the course starting tiers for data, tools, authority, and software
+   changes; do not silently treat them as approved client policy.
+3. Map at least three supplied requirements to controls, durable evidence,
+   owners, approvers, and review triggers. One must concern data/security, one
+   software delivery, and one a client, contract, audit, or regulatory source.
+   If the third source is unavailable, use the worksheet’s explicitly fictional
+   fallback to practice, then record the missing real source, owner, and
+   follow-up rather than inventing client policy.
+4. Classify the Day 5 change and name its gates, reviewer, rollback or recovery
+   action, monitoring signal, stop condition, and residual-risk acceptor.
+5. Complete one exception-path example with scope, compensating controls,
+   evidence, approver, expiration, and revocation—even if the example is
+   ultimately rejected.
+6. Link current policy, accepted decisions, proposals, conflicts, and gaps to
+   their durable locations so an agent can answer without relying on chat.
+
+**Recovery:** If authoritative inputs cannot be shared or do not yet exist,
+teams use source names and internal locations only, mark the affected action
+restricted, name the client owner, and schedule follow-up. They use the
+explicitly fictional fallback to practice the method without publishing it as
+client policy. The exercise never uses invented legal interpretation as a
+substitute.
 
 ### 5. Complete one real change — 90–120 minutes
 
@@ -152,10 +226,12 @@ Each team presents the repository, not a chat transcript.
 |------|---------------|
 | Repository architecture | The structure has a reason; Nx was chosen deliberately |
 | One working application or change | Running behavior and a bounded scope |
-| `docs/ai-program/` | Real names, tools, paths, boundaries, and owners |
+| `docs/ai-program/` | Standard hierarchy plus real names, tools, paths, boundaries, and owners |
+| AI Governance & GRC application | Folder-derived navigation, readable category pages, qualified findings, and cited answers |
 | Agent instructions and one tested skill | Repository-specific guidance, not untouched course text |
 | Git and quality gates | Exact commands, review evidence, and rollback path |
 | LLM governance | Approved usage, data boundaries, routing, spend, and accountability |
+| GRC control map | Sources and gaps; risk tiers; authority; controls and evidence; exception path; owners and review triggers |
 | Monday's next action | One owner, one task, and one date |
 
 ---
@@ -259,8 +335,18 @@ Day Five is complete when the team has:
 - [ ] a small, owned set of skills with at least one tested;
 - [ ] Git branches, approvals, required checks, and review evidence defined;
 - [ ] approved LLM accounts, data rules, routing, spend ownership, and human-only boundaries recorded;
+- [ ] a started GRC control map distinguishes authoritative sources, course
+      defaults, proposals, conflicts, and gaps;
+- [ ] data, tool/agent authority, and software-change risk tiers have named owners;
+- [ ] at least three supplied requirements map to controls and durable evidence,
+      or the missing client source has an owner and follow-up date;
+- [ ] the Day 5 change records its tier, evidence, rollback/recovery action,
+      monitoring signal, stop condition, and authorized residual-risk decision;
+- [ ] the exception path records scope, compensating controls, approver,
+      expiration, and revocation;
 - [ ] one bounded change taken through implementation and verification;
-- [ ] a named program owner and a 30-day follow-up date.
+- [ ] named program, engineering/delivery, security/data, legal/compliance, and
+      risk/exception accountabilities—or explicit gaps—and a 30-day follow-up date.
 
 ---
 
@@ -275,6 +361,9 @@ Ask repeatedly:
 - How will a new developer discover this?
 - How will an agent know what it may do?
 - What proves the change works?
+- Which authoritative requirement does this control implement, and where is the evidence?
+- What changes at a higher risk tier, and who may approve the residual risk?
+- When must this work stop, roll back, expire, or escalate?
 - Who owns this after today?
 
 The strongest Day Five result may be a modest code change accompanied by a durable operating model. The course succeeds when participants can continue safely without the instructor.

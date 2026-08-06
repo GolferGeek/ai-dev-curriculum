@@ -32,7 +32,13 @@ function readImageAsBase64(imagePath: string): string {
 /**
  * Detect the MIME type from a file path.
  */
-function mimeTypeFromPath(imagePath: string): string {
+type SupportedImageMimeType =
+  | "image/png"
+  | "image/jpeg"
+  | "image/gif"
+  | "image/webp";
+
+function mimeTypeFromPath(imagePath: string): SupportedImageMimeType {
   const ext = imagePath.split(".").pop()?.toLowerCase();
   switch (ext) {
     case "png":
@@ -63,7 +69,7 @@ export function formatImageForOllama(imagePath: string): string[] {
  */
 export function formatImageForAnthropic(imagePath: string): {
   type: "image";
-  source: { type: "base64"; media_type: string; data: string };
+  source: { type: "base64"; media_type: SupportedImageMimeType; data: string };
 } {
   return {
     type: "image",

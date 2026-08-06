@@ -25,6 +25,8 @@ for directory in \
   completed/apps/agent-to-agent/premium-data-service \
   completed/apps/agent-to-agent/restaurant-agent \
   completed/apps/agent-to-agent/web \
+  completed/apps/ai-program \
+  completed/apps/skills-browser \
   completed/apps/http-workspace \
   completed/apps/model-eval \
   completed/apps/ops-pulse \
@@ -36,6 +38,8 @@ for directory in \
 done
 
 for directory in \
+  completed/apps/ai-program \
+  completed/apps/skills-browser \
   completed/apps/model-eval \
   completed/apps/quickbooks-killer \
   completed/apps/trello-killer; do
@@ -43,7 +47,15 @@ for directory in \
   npm run lint --prefix "$directory"
 done
 
+echo "UNIT: completed/apps/ai-program"
+npm run test:unit --prefix completed/apps/ai-program
+
+echo "UNIT: completed/apps/skills-browser"
+npm run test:unit --prefix completed/apps/skills-browser
+
 for directory in \
+  completed/apps/ai-program \
+  completed/apps/skills-browser \
   completed/apps/http-workspace \
   completed/apps/ops-pulse \
   completed/apps/pipeline-crm \
@@ -53,4 +65,4 @@ for directory in \
     npm test --prefix "$directory"
 done
 
-echo "OK: completed reference applications build, lint, and browser-test."
+echo "OK: completed reference applications build, lint, unit-test, and browser-test."

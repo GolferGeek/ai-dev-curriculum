@@ -34,16 +34,13 @@ final class OnboardingUITests: XCTestCase {
         XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3), "Keyboard should remain visible after tapping handle field")
         handleField.typeText("testuser")
 
-        // Dismiss keyboard
-        let titleText = app.staticTexts["Welcome to Chirp"]
-        if titleText.exists {
-            titleText.tap()
-        }
+        // Dismiss the focused SwiftUI text field through the keyboard itself.
+        let returnKey = keyboard.buttons["return"]
+        XCTAssertTrue(returnKey.waitForExistence(timeout: 3), "Return key should exist")
+        returnKey.tap()
 
-        // Wait for keyboard to dismiss
-        let keyboardDismissed = NSPredicate(format: "count == 0")
-        expectation(for: keyboardDismissed, evaluatedWith: app.keyboards)
-        waitForExpectations(timeout: 5)
+        // Wait without passing this non-Sendable XCTestCase across actor boundaries.
+        XCTAssertTrue(keyboard.waitForNonExistence(timeout: 5), "Keyboard should dismiss")
 
         // Complete onboarding
         XCTAssertTrue(getStartedButton.waitForExistence(timeout: 3), "Get Started button should be available")

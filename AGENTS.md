@@ -24,10 +24,12 @@ npm run ai:check
 
 For questions about approved harnesses/models, LLM usage, agent authority,
 coding governance, reusable skills/agents, MCP or A2A, security/data, quality,
-or program modernization, consult `docs/ai-program/README.md` and the relevant
-facets. Follow `docs/ai-program/PROGRAM-CONTRACT.md`: cite scope, owner,
-freshness, decisions, conflicts, and gaps. Do not turn a course default into
-client policy or silently activate a proposed change.
+GRC requirement-to-control traceability, or program modernization, consult
+`docs/ai-program/README.md`, `docs/ai-program/PROGRAM-MAP.md`, and the relevant
+folder-backed categories and nodes. Follow
+`docs/ai-program/PROGRAM-CONTRACT.md`: cite scope, owner, freshness, decisions,
+conflicts, and gaps. Do not turn a course default into client policy or silently
+activate a proposed change.
 
 ## Required validation
 

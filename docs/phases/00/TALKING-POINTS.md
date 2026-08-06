@@ -19,7 +19,7 @@
 - **AI engagement (two layers)** — **organizational:** leadership guardrails, program owner, skill steward, adoption ladder (aware → coach), planning/building culture — kit 10; **agent session:** boundaries and pipeline on each task — kits 03–05.
 - **Jobs it covers** — decide policy, define work, build, verify, ship, understand brownfield, improve, adapt to change — scouting is one row, not the whole table.
 - **Growing the system** — when a pattern repeats, `/author-agent` codifies it; when policy stabilizes, it moves into `docs/ai-program/`. The monorepo **compounds**.
-- **Take-home map** — [MONOREPO-OPERATING-MODEL.md](../../MONOREPO-OPERATING-MODEL.md), [docs/ai-program/README.md](../../ai-program/README.md), [adoption kit](../../../marketing/adoption-kit/README.md) (ten templates).
+- **Take-home product** — the company-owned [AI Program](../../ai-program/README.md) uses a [standard folder hierarchy](../../ai-program/PROGRAM-MAP.md), canonical skills and agents, and an AI Governance & GRC application. The [adoption worksheets](../../../marketing/adoption-kit/README.md) gather company-specific inputs, including GRC control mapping; they are not a separate governance system.
 
 ## The pipeline (the heart of everything)
 

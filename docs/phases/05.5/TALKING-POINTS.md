@@ -1,4 +1,4 @@
-# Phase 05.5 — Talking points
+# Phase 05 Part B — Talking points
 
 ## Product evolution
 

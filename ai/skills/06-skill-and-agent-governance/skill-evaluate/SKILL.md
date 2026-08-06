@@ -5,7 +5,7 @@ description: Evaluate an exact agent-skill revision for organizational relevance
 
 # Skill evaluate
 
-Read `docs/ai-program/skills/04-evaluation-and-trust.md`, `05-security-and-permissions.md`, `06-triggers-tests-and-context.md`, and `07-provenance-and-versioning.md`.
+Read `docs/ai-program/02-technology-governance/03-skills-and-specialized-agents/04-evaluation-and-trust.md`, `05-security-and-permissions.md`, `06-triggers-tests-and-context.md`, and `07-provenance-and-versioning.md`.
 
 1. Resolve the exact revision and collect every file without executing scripts.
 2. Establish provenance, ownership, license, content hash, dependencies, and supported tools.

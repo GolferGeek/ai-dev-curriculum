@@ -1,4 +1,4 @@
-# Phase 05.5 — Instructor teaching guide
+# Phase 05 Part B — Instructor teaching guide
 
 This module closes the capability-governance story. It should feel like a
 brownfield product evolution and an operating-model rehearsal, not another

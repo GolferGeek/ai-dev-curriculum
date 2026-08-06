@@ -13,7 +13,7 @@ Docs: [Claude Code GitHub Actions](https://code.claude.com/docs/en/github-action
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │  GitHub (your repo)                                         │
-│  .claude/skills/  CLAUDE.md  docs/ai-program/guardrails/   │
+│  .claude/skills/  CLAUDE.md  docs/ai-program/05-controls-and-assurance/02-enforcement-surfaces-and-guardrails/   │
 └───────────────────────────┬─────────────────────────────────┘
                             │ checkout
                             ▼

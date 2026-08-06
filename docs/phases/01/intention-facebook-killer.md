@@ -6,6 +6,12 @@ Facebook became a firehose of ads, algorithmic posts, and distant acquaintances.
 
 This track demonstrates **richer iOS development**: agents should produce a **SwiftUI app with profiles, connections, a feed, and media**, not a contacts list with a blue theme.
 
+> **Platform choice:** this supplied intention is the native reference, not a
+> client requirement. A cohort may implement the same private-circle product
+> as a web application. Preserve the numbered demo-grade minimums and rewrite
+> platform-specific acceptance criteria, architecture, test plan, and builder
+> assignment before implementation.
+
 ## Who it's for
 
 Families, friend groups, or small communities (5–50 people) who want a **private social space** — share updates, photos, and life events with their actual circle, not a public audience.
@@ -35,7 +41,8 @@ Ship a **multi-screen app** (TabView or NavigationStack with distinct sections),
 - Real-time messaging / chat.
 - Stories or ephemeral content.
 - Content moderation or admin controls.
-- Android version.
+- A second platform in the same lab. Choose native iOS or web and prove that
+  version well.
 
 ## Success
 
@@ -44,7 +51,8 @@ A user can **set up a profile, add friends, post an update, and browse a feed of
 ## How this feeds PRD → plan → app
 
 This file is the **product intention**. The PRD should restate each numbered **Demo-grade minimum** as a **requirement with testable acceptance criteria**. The plan should assign:
-- **ios-builder** → Xcode project, SwiftData models (User, Post, Friendship/FriendRequest, Like), SwiftUI views (TabView with Feed/Compose/Friends/Profile tabs, post detail, profile view, friend request list), xcodebuild validation.
+- **ios-builder** → for the supplied native route: Xcode project, SwiftData models (User, Post, Friendship/FriendRequest, Like), SwiftUI views (TabView with Feed/Compose/Friends/Profile tabs, post detail, profile view, friend request list), xcodebuild validation.
+- **nextjs-saas-builder** → for a web substitution: responsive routes and components, equivalent persisted domain models and authorization boundaries, plus build, lint, unit, and browser validation.
 - **surrealdb-builder** (optional) → if sync is in scope, tables (users, posts, friendships, likes) with auth scopes and RELATE for friend connections.
 
 If anything is ambiguous, prefer the **stricter** reading and [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md).

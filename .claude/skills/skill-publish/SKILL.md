@@ -5,7 +5,7 @@ description: Publish an exact approved skill revision to a personal, project/tea
 
 # Skill publish
 
-Read `docs/ai-program/skills/02-scope-and-precedence.md`, `07-provenance-and-versioning.md`, and `08-approval-and-publication.md`.
+Read `docs/ai-program/02-technology-governance/03-skills-and-specialized-agents/02-scope-and-precedence.md`, `07-provenance-and-versioning.md`, and `08-approval-and-publication.md`.
 
 1. Resolve exact evaluated revision, approval, scope, owner, conditions, and expiration.
 2. Refuse stale, ambiguous, rejected, expired, or self-approved input.

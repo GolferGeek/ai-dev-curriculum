@@ -33,6 +33,12 @@ with enough model capacity for the labs. Cursor is the recommended common IDE;
 Claude Code and Codex are fully supported. Exact plans, pricing, model access,
 and data terms are confirmed before each cohort.
 
+The application tracks are adaptable to the client. In particular, the
+Twitter and Facebook examples have supplied native iOS references, but neither
+effort is required to remain iOS: a cohort may deliver either as a web
+application. Web is the cross-platform teaching default; SwiftUI/Xcode is an
+optional Mac-only specialization.
+
 ## Business Problem
 
 Many local businesses need custom software faster than their teams can deliver: internal tools, customer-facing applications, workflow automation, dashboards, integrations, reporting, product prototypes, and revenue-generating software experiments. Hiring more developers is expensive and slow. Buying commercial software often creates a poor fit, recurring costs, or fragmented workflows.
@@ -98,7 +104,7 @@ Any of the three can also be extended as a Day 5 final project for teams that wa
 
 A week-long course for technical staff who want to use AI coding agents in real development work. This is the strongest match for a $1,500-per-person workforce training product.
 
-The standard version uses curriculum projects and realistic business app examples. The suggested applications can be swapped for backlog-relevant apps when a company has a clear need. Every participant leaves with a started **adoption kit** — ten fill-in templates covering approved tools, shared agent instructions, artifact conventions, quality gates, decision boundaries, model routing and spend, brownfield safety, terrain review, context scope, and organizational ownership. On Day Five, teams apply it in a current repository, a new Nx monorepo, or a standalone AI program repository while completing one safe, verified change.
+The standard version uses curriculum projects and realistic business app examples. The suggested applications can be swapped for backlog-relevant apps when a company has a clear need. Every team leaves with a started [**AI Program**](ai-program-take-home-product.md): a standard folder-backed governance and GRC structure; selectable Full, Essential, and Light views over one canonical record; AI-culture, workforce, learning, psychological-safety, sentiment-privacy, and outcome guidance; initial company-specific decisions, owners, sources, controls, evidence links, and gaps; maintained AI skills and agents; and an AI Governance & GRC application for navigating and asking questions of the program. Eleven adoption worksheets guide the intake work but are not a separate product. On Day Five, teams install and adapt the program in a current repository, a new monorepo, or a standalone company-wide AI Program repository while completing one risk-classified, verified change.
 
 **Length and scheduling (for discussion):** The course is about **30 contact hours** — five sessions of roughly six instructional hours each. Pulling a small team out for five consecutive business days is often impractical, so the same content can be delivered on whichever calendar fits the cohort:
 
@@ -179,6 +185,10 @@ By the end of the five-day course, participants will be able to:
   organized by function and generated for Claude Code, Cursor, and Codex.
 - Query and maintain an agent-readable AI program covering models/harnesses,
   coding governance, protocols, security/data, delivery/quality, and adoption.
+- Build a started GRC control map that distinguishes authoritative client
+  requirements from course defaults and connects risk tiers, agent authority,
+  controls, evidence, rollback, monitoring, stop conditions, exceptions,
+  accountable owners, and review triggers.
 - Choose models empirically by evaluating them against the organization's own prompts, and draft a routing policy that matches model cost to task difficulty.
 - Identify common AI-assisted development risks around data privacy, security, dependencies, and over-trusting generated code.
 - Leave with a started adoption kit: a repeatable workflow and operating-model templates their organization can fill in and use after the course.

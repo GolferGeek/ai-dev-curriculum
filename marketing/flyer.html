@@ -112,6 +112,27 @@
     font-weight: 800;
   }
 
+  /* Governance, risk, and compliance */
+  .grc-intro { margin-bottom: 16px; }
+  .grc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .grc-card {
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--teal);
+    border-radius: 10px;
+    padding: 17px 18px 18px;
+    background: #fcfbf9;
+  }
+  .grc-card h3 {
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .grc-card p { font-size: 13.5px; color: var(--muted); }
+
   /* Week table */
   table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
   th, td { text-align: left; padding: 10px 12px; }
@@ -179,6 +200,7 @@
   @media (max-width: 640px) {
     header, main, footer { padding-left: 24px; padding-right: 24px; }
     header h1 { font-size: 30px; }
+    .grc-grid { grid-template-columns: 1fr; }
   }
   @media print {
     body { background: #fff; }
@@ -224,8 +246,10 @@
             <li>Verify software in a real browser — never trust the transcript</li>
             <li>Review AI-generated code before it reaches production</li>
             <li>Research an existing codebase before changing it</li>
+            <li>Set agent authority, human decision boundaries, and evidence requirements by risk</li>
+            <li>Translate security, data, legal, contract, and compliance requirements into development guardrails</li>
             <li>Maintain canonical skills and agents across three coding harnesses</li>
-            <li>Build an agent-readable AI development program</li>
+            <li>Build an agent-readable AI development program with accountable owners and review cycles</li>
             <li>Pick models with evidence — evals, routing, and cost policy</li>
           </ul>
         </div>
@@ -243,26 +267,50 @@
     </section>
 
     <section>
+      <h2>Governance, risk &amp; compliance (GRC)</h2>
+      <p class="lede grc-intro">
+        Speed does not remove accountability. You learn to make your organization’s rules visible to both developers and agents, then require evidence proportionate to the risk before work can move forward.
+      </p>
+      <div class="grc-grid">
+        <div class="grc-card">
+          <h3>Governance</h3>
+          <p>Define what agents may read, change, run, publish, or deploy; where people must approve; who owns each decision; and when the rules must be reviewed.</p>
+        </div>
+        <div class="grc-card">
+          <h3>Risk</h3>
+          <p>Classify data, tools, and software changes by consequence, then match them to review gates, independent evidence, rollback plans, monitoring, and stop conditions.</p>
+        </div>
+        <div class="grc-card">
+          <h3>Compliance</h3>
+          <p>Turn applicable law, contracts, client obligations, security policy, and audit needs into repository guidance, required evidence, exception paths, and durable decision records.</p>
+        </div>
+      </div>
+      <p class="support">
+        The course provides the operating structure; your organization supplies its applicable obligations, accountable owners, and approvers.
+      </p>
+    </section>
+
+    <section>
       <h2>The week at a glance</h2>
       <table>
         <thead>
           <tr><th>Day</th><th>Focus</th><th>You build</th></tr>
         </thead>
         <tbody>
-          <tr><td>Day 1</td><td>The pipeline, then real apps with auth &amp; data</td><td>Your first agent-built app, then a SaaS-style app with sign-in and per-user data</td></tr>
+          <tr><td>Day 1</td><td>The pipeline, then real apps with auth &amp; data</td><td>Your first agent-built app, then a SaaS-style app with sign-in and per-user data; social examples may be web or optional native iOS</td></tr>
           <tr><td>Day 2</td><td>Quality gates &amp; understanding existing code</td><td>Automated review pipeline; a research packet on a real codebase</td></tr>
           <tr><td>Day 3</td><td>Agent protocols &amp; the skills ecosystem</td><td>A multi-agent protocol dashboard; a browsable skills library</td></tr>
           <tr><td>Day 4</td><td>Model evaluation, routing &amp; cost</td><td>A model-comparison lab scored on <em>your</em> prompts</td></tr>
-          <tr><td>Day 5</td><td>Final project &amp; your operating model</td><td>Your project — and your company's AI development playbook</td></tr>
+          <tr><td>Day 5</td><td>Your company-owned AI Program &amp; GRC</td><td>A navigable governance application that answers what is missing, stale, changing, conflicting, or unowned</td></tr>
         </tbody>
       </table>
     </section>
 
     <section>
       <div class="callout">
-        <h3>You leave with more than skills — you leave with your playbook</h3>
+        <h3>You leave with more than skills — you leave with an AI Program</h3>
         <p>
-          Every team goes home with a started <strong>adoption kit</strong>: fill-in templates for tool and plan decisions, shared agent instructions, quality gates, human decision boundaries, model routing and spend policy, and safety rules for your real codebase. It's your organization's AI development operating model — begun in class, finished at work.
+          Every team goes home with a started, company-owned <strong>AI Program</strong>: a scalable governance/GRC document hierarchy, approved-capability records, decision and evidence patterns, Full/Essential/Light profiles, and a simple application for people and agents to navigate and question it. It is begun in class, carried home, and maintained by the organization.
         </p>
       </div>
     </section>
@@ -291,7 +339,7 @@
     <div class="who">
       Led by <strong>Matthew Weber (GolferGeek)</strong> — 25 years in large codebases, and a solo developer who builds production-scale AI platforms (most open source) every day using the exact workflow this course teaches. Private company cohorts can aim the final day at your own codebase and backlog.
     </div>
-    <a class="cta" href="#">Reserve your seat</a>
+    <a class="cta" href="https://github.com/GolferGeek/ai-dev-curriculum">View the course</a>
   </footer>
 
 </div>

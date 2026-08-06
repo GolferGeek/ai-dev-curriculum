@@ -101,7 +101,7 @@ Fix failures before [checklist 02](02-github-actions-and-skills.md).
 Copy adoption kit templates into git memory — not only on someone's laptop:
 
 ```bash
-mkdir -p docs/ai-program/decisions
+mkdir -p docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession
 # Copy templates from marketing/adoption-kit/ as you fill them — see docs/ai-program/README.md
 ```
 

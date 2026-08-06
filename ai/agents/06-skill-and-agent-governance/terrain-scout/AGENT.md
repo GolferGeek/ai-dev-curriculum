@@ -37,7 +37,7 @@ For the given candidate, fill **ADAPT**:
 
 End with **Verdict:** `integrate` | `track` | `reject` and one-paragraph rationale.
 
-Offer a draft at `docs/ai-program/decisions/YYYY-MM-DD-<slug>.md` using the template in adoption kit piece 8.
+Offer a draft at `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/YYYY-MM-DD-<slug>.md` using the template in adoption kit piece 8.
 
 ## Watchlist mode
 

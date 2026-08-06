@@ -1,8 +1,8 @@
 # Guardrails sheets
 
-Companion to the [ten adoption-kit templates](../README.md) and canonical `ai/`
+Companion to the [eleven adoption-kit templates](../README.md) and canonical `ai/`
 library. Each sheet is one guardrail pattern your team copies into
-`docs/ai-program/guardrails/` and wires into its approved harness projections.
+`docs/ai-program/05-controls-and-assurance/02-enforcement-surfaces-and-guardrails/` and wires into its approved harness projections.
 
 **Document half** — fill-in policy + copy-paste examples (this folder).  
 **Capability half** — canonical skill or agent under `ai/` that implements the

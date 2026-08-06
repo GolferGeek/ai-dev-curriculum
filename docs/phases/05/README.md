@@ -50,7 +50,7 @@ Required product surfaces:
 - clear labels for discovered, evaluated, rejected, restricted, and candidate
   states.
 
-Phase 05 does not publish to the canonical `ai/` library. Phase 05.5 adds the
+Phase 05 Part A does not publish to the canonical `ai/` library. Part B adds the
 persistent registry, controlled publication, projections, and lifecycle work.
 
 ## Lab outputs
@@ -79,7 +79,7 @@ Use [TEACHING.md](TEACHING.md) for the facilitation script and
 
 ## Canonical program foundation
 
-Read [the capability program](../../ai-program/skills/README.md) and inspect
+Read [the capability program](../../ai-program/02-technology-governance/03-skills-and-specialized-agents/README.md) and inspect
 [`ai/`](../../../ai/README.md). The canonical library is organized into seven
 functional groups. Generation creates compatible Claude Code, Cursor, and
 Codex projections; the catalog treats those outputs as derivatives, not

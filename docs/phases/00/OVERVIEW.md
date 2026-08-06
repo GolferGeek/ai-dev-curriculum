@@ -42,7 +42,7 @@ The build often finishes in under an hour for these slices. **Nobody watches the
 
 - The **pipeline** you'll reuse in Phase 01+ and at work: `/intention` → `/prd` → `/plan` → `/run-plan` → prove.
 - The habit of **predict-then-compare** — say what the agent will do before it runs; judge the result against that.
-- A map to the **operating model** you'll grow over the week — [MONOREPO-OPERATING-MODEL.md](../../MONOREPO-OPERATING-MODEL.md), [adoption kit](../../../marketing/adoption-kit/README.md), `docs/ai-program/`.
+- A map to the **AI Program take-home product** you'll grow over the week—[program structure](../../ai-program/PROGRAM-MAP.md), [operating model](../../MONOREPO-OPERATING-MODEL.md), and [adoption worksheets](../../../marketing/adoption-kit/README.md).
 
 ---
 

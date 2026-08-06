@@ -5,7 +5,7 @@ description: Maintain an approved skill portfolio by finding upstream changes, s
 
 # Skill maintain
 
-Read `docs/ai-program/skills/09-ownership-and-lifecycle.md` and `10-outcomes-and-review.md`.
+Read `docs/ai-program/02-technology-governance/03-skills-and-specialized-agents/09-ownership-and-lifecycle.md` and `10-outcomes-and-review.md`.
 
 1. Inventory approved revisions, owners, consumers, destinations, dependencies, review dates, and outcomes.
 2. Compare upstream, reviewed, approved, and installed hashes.

@@ -11,6 +11,7 @@
     "ai:program:check": "node scripts/verify-ai-program.mjs",
     "docs:links": "node scripts/verify-markdown-links.mjs",
     "completed:check": "./scripts/verify-completed-apps.sh",
+    "completed:ios:check": "./scripts/verify-ios-reference-apps.sh",
     "mindmaps:generate": "node scripts/generate-mind-maps.mjs",
     "mindmaps:check": "node scripts/generate-mind-maps.mjs --check",
     "postinstall": "PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium"

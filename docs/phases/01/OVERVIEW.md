@@ -14,11 +14,13 @@
 |---|---|
 | **Act I — SaaS Killers** | Short history of the SaaS trade; why build is back (2025–26); David vs Goliath + moving port — *why ownable product slices matter now.* |
 | **Act II — Not vibe coding** | Name vibe coding (Lovable, Replit, etc.); credit platform guardrails; contrast with **our** pipeline + auth proof. |
-| **Pick a killer + intention** | QuickBooks, Trello, Twitter, or Facebook track — provided [intention](./intention-quickbooks-killer.md); **predict** where auth will be weak. |
+| **Pick a killer + delivery platform** | QuickBooks, Trello, Twitter, or Facebook intention. Twitter/Facebook may be delivered as web or native iOS; **predict** where auth will be weak. |
 | **Pipeline build** | `/intention` → `/prd` → `/plan` → `/run-plan` — **SurrealDB + auth first**, then Next.js app (~60–90 min agent time). |
 | **Auth reflect + breach test** | Walk signup → sign-in → protected data; **second user** — can B see A's data? Build · test · browser. **This is the lesson.** |
 
 Nobody watches the progress bar during the build — that window is for economics, security research, and discussion.
+
+**Platform choice:** intentions describe the business capability, not an immutable UI stack. The supplied Twitter and Facebook references are SwiftUI examples; clients may convert either effort to Next.js + SurrealDB. Web is the cohort default, and native iOS is an optional Mac/Xcode path.
 
 ---
 

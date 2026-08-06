@@ -85,7 +85,7 @@ For a manufacturer, ask specifically:
   failing build?
 - Who can approve tools, merge code, deploy software, and accept risk?
 
-### AI experience and sentiment
+### AI experience, culture, and sentiment
 
 - Who uses code completion, model chat, IDE agents, CLI agents, or agent-first
   environments today?
@@ -100,7 +100,10 @@ For a manufacturer, ask specifically:
   products, better quality, or all of them?
 
 Do not argue someone out of skepticism. Convert claims into testable questions
-and let the labs provide evidence.
+and let the labs provide evidence. Use this conversation for facilitation, not
+covert assessment or individual performance scoring. Any durable sentiment
+collection follows the program's
+[listening and privacy contract](../ai-program/07-program-evolution/06-adoption-outcomes-and-improvement/06-sentiment-listening-and-privacy/README.md).
 
 ### Development system
 
@@ -152,6 +155,29 @@ For each candidate, ask:
 
 Record these as decisions or explicit gaps in `docs/ai-program/`. Do not turn
 an instructor recommendation into client policy.
+
+### GRC source and owner readiness
+
+Confirm enough input exists for the Day 5 GRC clinic without asking the client
+to disclose protected material:
+
+- Which legal, regulatory, contractual, client, security, privacy, or audit
+  requirement sets has the organization already determined apply?
+- Where do the authoritative sources live, and who may interpret each one?
+- What data-classification vocabulary and approved tool destinations already
+  exist?
+- Who owns delivery controls, security/data controls, residual-risk acceptance,
+  exceptions, incidents, and policy review?
+- What is the existing exception process, including required evidence,
+  expiration, compensating controls, and revocation?
+- Which change classes require independent review, rollback rehearsal,
+  monitoring, explicit stop conditions, or formal traceability?
+
+Record source names, approved locations, owners, and sanitized summaries. Do
+not request confidential contract language, legal advice, customer data,
+credentials, or incident details. If applicability or ownership is unknown,
+mark the affected activity restricted for the exercise and assign a client
+follow-up; neither the instructor nor an agent resolves the uncertainty.
 
 ### Change and maintenance capacity
 

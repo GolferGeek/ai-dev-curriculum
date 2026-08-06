@@ -25,7 +25,7 @@ Prices, included usage, plan names, model access, and data terms change frequent
 - **The client may standardize access.** If it does, use the client-approved account, model, retention, and data-handling configuration.
 - **The course does not depend on one provider.** The canonical skills, specialized agents, and program decisions live in the monorepo and are projected into each supported harness.
 
-Before class, the instructor records the cohort's approved access choices in `docs/ai-program/decisions/` and refreshes any time-sensitive claims in `docs/ai-program/watchlist.md`.
+Before class, the instructor records the cohort's approved access choices in `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/` and refreshes any time-sensitive claims in `docs/ai-program/07-program-evolution/01-terrain-and-watchlist/README.md`.
 
 ## API key hygiene (non-negotiable)
 
@@ -36,7 +36,7 @@ Before class, the instructor records the cohort's approved access choices in `do
 
 ## What each phase actually needs
 
-- **Phases 00–05.5:** just your approved coding harness. No model API keys are required by the default labs.
+- **Phases 00–05, including Phase 05 Part B:** just your approved coding harness. No model API keys are required by the default labs.
 - **Phase 06 (Model Eval Lab):** [Ollama](https://ollama.com/) — free and local — for the local contestants; an Anthropic API key only if you include the hosted Claude contestants.
 - **Phase 04 (Protocols):** runs with mocks by default; keys only if you wire real hosted models in.
 

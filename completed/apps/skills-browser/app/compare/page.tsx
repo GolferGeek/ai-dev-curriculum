@@ -1,0 +1,6 @@
+import { catalog } from "@/lib/catalog";
+export default function ComparePage() {
+  const diff = catalog.demoDiff;
+  const groups = [["Added", diff.added], ["Changed", diff.changed], ["Removed", diff.removed], ["Unchanged", diff.unchanged], ["Failed", diff.failed]] as const;
+  return <main className="standard-page"><p className="eyebrow">RUN-TO-RUN CHANGE</p><h1>Compare what changed before deciding</h1><p className="intro">This reference uses an explicitly labeled training fixture to demonstrate every diff state. Real scouting runs replace this fixture with revision-specific evidence.</p><div className="diff-banner"><strong>{diff.label}</strong><span>Fixture evidence—not a claim about an external marketplace.</span></div><div className="diff-grid">{groups.map(([label, values]) => <article key={label}><span>{values.length}</span><h2>{label}</h2>{values.map((value) => <p key={value}>{value}</p>)}</article>)}</div><section className="decision-note"><h2>Stable name ≠ stable instructions</h2><p>Changed capabilities return to evaluation. Removed upstream content does not erase an approved internal revision. Failed sources remain visible instead of silently shrinking the catalog.</p></section></main>;
+}

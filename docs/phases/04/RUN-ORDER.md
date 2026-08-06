@@ -3,7 +3,7 @@
 ## Before you start
 
 - [ ] Phase 03 complete (comfortable with research skills and the pipeline)
-- [ ] Node.js 18+ installed
+- [ ] Node.js 20.9+ installed
 - [ ] Familiar with the `/intention → /prd → /plan → /run-plan` pipeline
 - [ ] Read [OVERVIEW.md](./OVERVIEW.md) and [AGENT-TO-AGENT-FUTURE.md](./AGENT-TO-AGENT-FUTURE.md)
 - [ ] Bring one company relationship to redesign for authorized agents

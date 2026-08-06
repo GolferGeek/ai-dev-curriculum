@@ -27,8 +27,7 @@ export async function callAnthropic(
   const startTime = Date.now();
 
   // Build message content
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const contentParts: any[] = [];
+  const contentParts: Anthropic.ContentBlockParam[] = [];
 
   // Add image if multimodal prompt
   if (prompt.image && model.supportsImages) {
@@ -42,8 +41,7 @@ export async function callAnthropic(
   contentParts.push({ type: "text", text: prompt.prompt });
 
   // Build request params
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const params: any = {
+  const params: Anthropic.MessageCreateParamsNonStreaming = {
     model: model.model,
     max_tokens: 4096,
     messages: [{ role: "user" as const, content: contentParts }],
@@ -68,20 +66,20 @@ export async function callAnthropic(
 
       // Extract text response
       let responseText = "";
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const textBlocks = response.content.filter((b: any) => b.type === "text");
+      const textBlocks = response.content.filter(
+        (block): block is Anthropic.TextBlock => block.type === "text"
+      );
       if (textBlocks.length > 0) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        responseText = textBlocks.map((b: any) => b.text).join("\n");
+        responseText = textBlocks.map((block) => block.text).join("\n");
       }
 
       // Extract tool calls
       let toolCalls: NormalizedToolCall[] | undefined;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const toolBlocks = response.content.filter((b: any) => b.type === "tool_use");
+      const toolBlocks = response.content.filter(
+        (block): block is Anthropic.ToolUseBlock => block.type === "tool_use"
+      );
       if (toolBlocks.length > 0) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        toolCalls = normalizeAnthropicToolCalls(toolBlocks as any[]);
+        toolCalls = normalizeAnthropicToolCalls(toolBlocks);
       }
 
       return {
@@ -98,8 +96,7 @@ export async function callAnthropic(
         timestamp: new Date().toISOString(),
       };
     } catch (err: unknown) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const status = (err as any)?.status;
+      const status = err instanceof Anthropic.APIError ? err.status : undefined;
       if (status === 429 && attempt < MAX_RETRIES) {
         const delay = Math.pow(2, attempt) * 1000;
         await new Promise((r) => setTimeout(r, delay));

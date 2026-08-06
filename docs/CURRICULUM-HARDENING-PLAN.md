@@ -143,7 +143,8 @@ Completed:
 
 - one continuing learner branch and one `starter-kit-v1` release model;
 - learner `apps/` separated from `completed/apps/` reference implementations;
-- fully developed ten-document packages for all eight modules;
+- fully developed ten-document packages for all eight primary phases, plus
+  Phase 05 Part B;
 - a five-day developer-only delivery guide, syllabus, lesson plans, decks, and
   recovery model;
 - function-organized canonical skills and agents with generated Claude Code,

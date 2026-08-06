@@ -6,6 +6,12 @@ Social media is controlled by algorithms optimized for engagement, not connectio
 
 This track demonstrates **iOS-native development with AI**: agents should produce a **SwiftUI app with real persistence and multiple screens**, not a single-view placeholder.
 
+> **Platform choice:** this supplied intention is the native reference, not a
+> client requirement. A cohort may replatform the same product behavior to a
+> web application. Preserve the numbered demo-grade minimums and rewrite the
+> platform-specific acceptance criteria, architecture, test plan, and builder
+> assignment before implementation.
+
 ## Who it's for
 
 Anyone who wants a **personal or small-group micro-blog** — post thoughts, follow friends or family, read a chronological timeline. Think "Twitter for your circle" without the toxicity or platform risk.
@@ -35,7 +41,8 @@ Ship a **multi-screen app** (TabView or NavigationStack with distinct sections),
 - Real-time streaming / WebSocket feed.
 - Direct messages.
 - Content moderation or reporting.
-- Android version.
+- A second platform in the same lab. Choose native iOS or web and prove that
+  version well.
 
 ## Success
 
@@ -44,7 +51,8 @@ A user can **launch the app, create a profile, post a thought, follow another us
 ## How this feeds PRD → plan → app
 
 This file is the **product intention**. The PRD should restate each numbered **Demo-grade minimum** as a **requirement with testable acceptance criteria**. The plan should assign:
-- **ios-builder** → Xcode project, SwiftData models (User, Post, Follow), SwiftUI views (TabView with Feed/Compose/Profile tabs, user profile view, post cell), xcodebuild validation.
+- **ios-builder** → for the supplied native route: Xcode project, SwiftData models (User, Post, Follow), SwiftUI views (TabView with Feed/Compose/Profile tabs, user profile view, post cell), xcodebuild validation.
+- **nextjs-saas-builder** → for a web substitution: responsive routes and components, equivalent persisted domain models and authorization boundaries, plus build, lint, unit, and browser validation.
 - **surrealdb-builder** (optional) → if sync is in scope, tables (users, posts, follows) with auth scopes.
 
 If anything is ambiguous, prefer the **stricter** reading and [DEMO-GRADE-BAR.md](./DEMO-GRADE-BAR.md).

@@ -11,7 +11,7 @@
 
 ## Program
 
-- Read [the skills and agents program](../../ai-program/skills/README.md).
+- Read [the skills and agents program](../../ai-program/02-technology-governance/03-skills-and-specialized-agents/README.md).
 - Inspect [`ai/functions.json`](../../../ai/functions.json) and one canonical
   skill and agent.
 - Identify the organization's allowed source, license, network, and data

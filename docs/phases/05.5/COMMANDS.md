@@ -1,4 +1,4 @@
-# Commands — Phase 05.5
+# Commands — Phase 05 Part B
 
 Use the equivalent capability invocation for the selected harness:
 

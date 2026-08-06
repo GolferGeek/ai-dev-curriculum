@@ -1,0 +1,4 @@
+import { catalog } from "@/lib/catalog";
+export default function SourcesPage() {
+  return <main className="standard-page"><p className="eyebrow">PROVENANCE & FRESHNESS</p><h1>Sources and scouting runs</h1><p className="intro">Canonical content and harness projections are shown together without pretending that generated projections are independent sources of truth.</p><div className="source-list">{catalog.sources.map((source) => <article key={source.name}><div><span className={`authority ${source.authority}`}>{source.authority}</span><span className={`source-status ${source.status}`}>{source.status}</span></div><h2>{source.name}</h2><p>{source.note}</p><dl><div><dt>Path</dt><dd>{source.path}</dd></div><div><dt>Revision</dt><dd>{source.revision.slice(0, 12)}</dd></div><div><dt>Retrieved</dt><dd>{source.retrievedAt}</dd></div><div><dt>Entries</dt><dd>{source.count}</dd></div></dl></article>)}</div></main>;
+}

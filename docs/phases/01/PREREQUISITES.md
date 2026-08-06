@@ -14,14 +14,14 @@ Everything from [phase 00 prerequisites](../00/PREREQUISITES.md), plus Phase 00 
 
 ## Required (web tracks — the class default)
 
-- **Node.js 18+** (same as phase 00)
+- **Node.js 20.9+** (same as phase 00; required by the current Next.js reference applications)
 - **npm** (same as phase 00)
 
 > **Platform note:** The default Phase 01 path is **Next.js + SurrealDB on every OS** (Windows, macOS, Linux). Cursor, Claude Code, and Codex all run on Windows; the apps and SurrealDB behave the same. Use PowerShell or Git Bash — prefer [Git for Windows](https://git-scm.com/download/win) if you use Claude Code natively (enables its Bash tool).
 
 ## Required (iOS tracks: Twitter killer, Facebook killer) — Mac only, opt-in
 
-> **Not the class default.** Native **SwiftUI / SwiftData / Xcode** tracks require **macOS**. Windows and Linux participants stay on the web versions of those products. Treat iOS as an individual opt-in, not a cohort requirement.
+> **Not the class default and never required by the product choice.** Native **SwiftUI / SwiftData / Xcode** delivery requires **macOS**. Twitter and Facebook may instead be built as Next.js + SurrealDB web applications on any supported OS. Treat iOS as an individual opt-in, not a cohort requirement or a client-policy default.
 
 - **macOS** (Xcode only runs on Mac — there is no Windows/Linux substitute)
 - **Xcode 26+** — Install from the Mac App Store. Includes Simulator, SwiftUI, SwiftData. (Apple now versions Xcode by year; App Store submissions require the iOS 26 SDK as of April 2026.)

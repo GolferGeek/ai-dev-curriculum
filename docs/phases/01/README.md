@@ -36,8 +36,8 @@ These are already set up in `.claude/` — here's what they do and why.
 |-------|-------------|--------------|
 | **saas-researcher** | Analyzes a SaaS product to scope a buildable killer app. Drafts intention files. | Before `/intention` — helps you pick and scope your target. |
 | **surrealdb-builder** | Sets up SurrealDB locally, defines schemas, configures auth scopes, creates seed data. | First step of `/run-plan` — builds the data layer before the app. |
-| **nextjs-saas-builder** | Builds the Next.js app — pages, auth flows, API routes, dashboard, Playwright tests. | Second step of `/run-plan` for web tracks (QuickBooks, Trello). |
-| **ios-builder** | Builds the SwiftUI app — views, SwiftData models, xcodebuild validation, XCTest. | `/run-plan` for iOS tracks (Twitter, Facebook). |
+| **nextjs-saas-builder** | Builds the Next.js app — pages, auth flows, API routes, dashboard, Playwright tests. | Second step of `/run-plan` for any web delivery, including web versions of Twitter or Facebook. |
+| **ios-builder** | Builds the SwiftUI app — views, SwiftData models, xcodebuild validation, XCTest. | Optional Mac-only delivery for Twitter or Facebook. |
 
 ### Skills
 
@@ -70,10 +70,10 @@ Choose one (or bring your own — run `/research custom` to scope it):
 |-------|---------------|-------------|-------|---------------|
 | **Web A** | [intention-quickbooks-killer.md](./intention-quickbooks-killer.md) | QuickBooks | Next.js + SurrealDB | Invoices, income/expenses, simple dashboard — what freelancers actually use |
 | **Web B** | [intention-trello-killer.md](./intention-trello-killer.md) | Trello | Next.js + SurrealDB | Kanban boards, cards, drag-and-drop, collaboration |
-| **iOS A** | [intention-twitter-killer.md](./intention-twitter-killer.md) | Twitter | SwiftUI + SwiftData | Personal feed — posts, follows, timeline |
-| **iOS B** | [intention-facebook-killer.md](./intention-facebook-killer.md) | Facebook | SwiftUI + SwiftData | Family/friend circle — profiles, friends, feed, photos |
+| **Social A** | [intention-twitter-killer.md](./intention-twitter-killer.md) | Twitter | **Your choice:** Next.js + SurrealDB, or SwiftUI + SwiftData on Mac | Personal feed — posts, follows, timeline |
+| **Social B** | [intention-facebook-killer.md](./intention-facebook-killer.md) | Facebook | **Your choice:** Next.js + SurrealDB, or SwiftUI + SwiftData on Mac | Family/friend circle — profiles, friends, feed, photos |
 
-> **Mac with Xcode?** You can pick an iOS track. **No Xcode?** Stick with Web A or Web B.
+> **The product intention does not lock the platform.** Twitter and Facebook have supplied iOS reference implementations, but a learner or client may change either effort to a web application. The cohort default is Next.js + SurrealDB so every participant can use Windows, macOS, or Linux. Native iOS remains an opt-in choice for Mac/Xcode users.
 
 ---
 
@@ -115,9 +115,9 @@ Pass the PRD to `/plan`:
 
 Output: `docs/artifacts/plan.md`
 
-The plan should name **which agents** handle which milestones:
+The plan should record the chosen delivery platform and name **which agents** handle which milestones:
 - **surrealdb-builder** → database schema, auth scopes, seed data
-- **nextjs-saas-builder** or **ios-builder** → the app itself
+- **nextjs-saas-builder** for web, or **ios-builder** for the optional native iOS delivery → the app itself
 
 Review it: Does every PRD goal have a milestone? Are verification steps included? Fix before proceeding.
 

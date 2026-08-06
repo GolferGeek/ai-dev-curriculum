@@ -16,7 +16,7 @@
 
 - [ ] **Git** — `git --version` prints a version.
   - **Windows:** install [Git for Windows](https://git-scm.com/download/win) (gives you Git Bash, which the AI agents use).
-- [ ] **Node.js LTS (18+) with npm** — `node --version` and `npm --version` both print versions. [nodejs.org](https://nodejs.org)
+- [ ] **Node.js 20.9+ with npm** — `node --version` and `npm --version` both print versions. Use a current LTS release. [nodejs.org](https://nodejs.org)
 - [ ] **A code editor** — VS Code or similar (Cursor users already have one).
 - [ ] **A GitHub account** — free is fine; you'll clone the course repo and push your work.
 
@@ -35,6 +35,26 @@
 - [ ] **Ollama** ([ollama.com](https://ollama.com)) — for running local models in the Day 4 model-eval lab. Useful but not required; hosted models work too.
 - [ ] **Anthropic API key** — only if you want to use API-based models in the eval lab.
 - [ ] **Mac only, opt-in:** Xcode — solely for the optional native iOS track. The class default is web apps on every OS; do not install Xcode just for this course.
+
+## 5. Private-cohort GRC preparation (client sponsor and authorized owners)
+
+Before Day 1, identify the people who can speak for engineering delivery,
+security/data, legal or compliance interpretation, and risk/exception approval.
+Arrange for at least one authorized representative to join the Day 5 clinic or
+be available for documented follow-up.
+Provide participants with approved, sanitized references—or only the internal
+locations and owners—for:
+
+- data classification and acceptable AI/tool use;
+- relevant client, vendor, or customer contract requirements;
+- secure-development, audit-evidence, incident, and exception processes; and
+- any regulatory control sets the organization has already determined apply.
+
+Do not send confidential contract text, legal advice, customer data, secrets,
+or incident details to the instructor or place them in the course repository.
+Unknown applicability is acceptable for class, but it must be recorded as a gap
+with an owner and follow-up date. The instructor and coding agents do not decide
+which legal or regulatory obligations apply.
 
 ## Platform notes
 

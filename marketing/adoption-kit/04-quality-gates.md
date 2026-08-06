@@ -4,6 +4,12 @@
 
 **Why this matters:** generation got cheap; understanding didn't. Gates catch what the agent got wrong; **living standards** make sure the same mistake can't pass twice.
 
+Before selecting gates, assign the change a risk tier using
+[11 — GRC Control Map](11-grc-control-map.md). The table below is the common
+baseline; higher-risk work adds independent review, realistic-environment
+evidence, rollback rehearsal, monitoring, stop conditions, and explicit human
+approval.
+
 ## The gate (edit commands to match your stack)
 
 | Gate | Command | Must pass before… |

@@ -1,4 +1,4 @@
-# Demo-grade bar — Phase 05.5
+# Demo-grade bar — Phase 05 Part B
 
 ## Pass
 

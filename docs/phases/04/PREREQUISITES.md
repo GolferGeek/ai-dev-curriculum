@@ -3,7 +3,7 @@
 ## Required
 
 - Phase 03 complete
-- Node.js 18+ and npm
+- Node.js 20.9+ and npm
 - Familiarity with `/intention → /prd → /plan → /run-plan`
 - Five available local ports: 3000 and 4000–4003
 - Permission to run local HTTP services
@@ -35,4 +35,3 @@ lsof -i :4001
 lsof -i :4002
 lsof -i :4003
 ```
-

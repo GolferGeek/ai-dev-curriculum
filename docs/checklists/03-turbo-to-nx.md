@@ -108,7 +108,7 @@ Use this as a **skills ladder** for the team — not everyone needs Level 4 on d
 - [ ] Add plugins only for stacks you actually run (don’t install `@nx/angular` for a Next-only shop)
 - [ ] One generator workflow documented (e.g. new package in `packages/`)
 - [ ] Boundary rules agreed with arch lead — start permissive, tighten later
-- [ ] Remote cache decision recorded in `docs/ai-program/decisions/`
+- [ ] Remote cache decision recorded in `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/`
 
 ### Level 4 — Program ownership (Angular-heavy or polyglot shops)
 
@@ -189,7 +189,7 @@ rm turbo.json
 
 - [ ] No references to `turbo` in root scripts or CI
 - [ ] Team trained on Level 1 commands
-- [ ] Record decision in `docs/ai-program/decisions/` (ADR: “Adopt Nx orchestration”)
+- [ ] Record decision in `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/` (ADR: “Adopt Nx orchestration”)
 
 ---
 

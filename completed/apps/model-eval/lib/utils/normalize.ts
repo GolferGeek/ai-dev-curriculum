@@ -2,6 +2,16 @@
 
 import { NormalizedToolCall } from "@/lib/types";
 
+interface AnthropicToolUseBlock {
+  type: "tool_use";
+  name: string;
+  input: unknown;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
 /**
  * Normalize Ollama tool calls.
  * Ollama returns: { function: { name, arguments: object } }
@@ -40,13 +50,10 @@ export function normalizeOpenAIToolCalls(
  * Anthropic returns content blocks: { type: "tool_use", name, input: object }
  */
 export function normalizeAnthropicToolCalls(
-  contentBlocks: Array<{ type: string; name?: string; input?: Record<string, unknown> }>
+  contentBlocks: AnthropicToolUseBlock[]
 ): NormalizedToolCall[] {
-  if (!contentBlocks || !Array.isArray(contentBlocks)) return [];
-  return contentBlocks
-    .filter((b) => b.type === "tool_use")
-    .map((b) => ({
-      name: b.name ?? "unknown",
-      arguments: b.input ?? {},
-    }));
+  return contentBlocks.map((block) => ({
+    name: block.name,
+    arguments: isRecord(block.input) ? block.input : {},
+  }));
 }

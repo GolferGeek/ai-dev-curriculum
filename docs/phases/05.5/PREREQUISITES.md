@@ -1,4 +1,4 @@
-# Prerequisites — Phase 05.5
+# Prerequisites — Phase 05 Part B
 
 ## Product and data
 

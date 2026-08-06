@@ -1,6 +1,6 @@
 # Curriculum readiness assessment
 
-Assessment date: 2026-07-28
+Assessment date: 2026-08-06
 
 ## Decision
 
@@ -38,10 +38,10 @@ that the three harnesses are identical.
 |---|---|---|---|
 | Program design | Ready | Eight connected modules mapped to five developer-focused days | Protect lab time and use the documented recovery ladder |
 | Participant documents | Ready | Every module has the complete ten-document package | Apply client-specific policy and access details |
-| Instructor materials | Ready | Delivery guide, lesson plans, talking points, demos, verification, and 151 reviewed slides | Run a timed rehearsal before the first paid cohort |
+| Instructor materials | Ready | Delivery guide, lesson plans, talking points, demos, verification, and 166 reviewed slides | Run a timed rehearsal before the first paid cohort |
 | Skills and agents | Ready | Function-organized canonical sources and deterministic projections for all three supported harnesses | Assign client owners and approval boundaries |
-| AI program | Ready | Seven queryable facets, program contract, coverage matrix, decisions, watchlist, query scenarios, and change rules | Populate the client's actual decisions and evidence |
-| Reference code | Ready for training | JavaScript builds, Next lint, Vite browser smoke tests, and Swift simulator builds pass | Rehearse service/provider paths; monitor the Next.js exception |
+| AI program | Ready | Eight navigable categories, Full/Essential/Light profiles, program contract, coverage matrix, GRC traces, decisions, watchlist, query scenarios, and change rules | Populate the client's actual decisions and evidence |
+| Reference code | Ready for training | JavaScript builds, Next lint, deterministic unit suites, browser smoke tests, and Swift simulator build/test suites pass | Rehearse service- and provider-backed paths |
 | Mind maps | Structurally ready | Introduction, master, and eight phase OPML maps generate and validate | Instructor imports and calibrates visual conventions in MindNode |
 | Remote delivery | Ready with preflight | Setup, recovery, client decisions, and day-level control are documented | Confirm cohort topology, access, accessibility, and support roles |
 | Maintenance | Ready | CI detects document, projection, AI-program, mind-map, root, and reference-app drift | Establish the client's review cadence and named stewards |
@@ -79,9 +79,9 @@ and safely evolve the record later.
   be captured during rehearsal and the first cohort.
 - Authenticated SurrealDB and live-provider exercises depend on approved
   client infrastructure and must be rehearsed in that environment.
-- Three training-only Next.js references use the current stable release while
-  upstream advisories remain open with no non-preview upgrade. This is tracked
-  in the [AI terrain watchlist](ai-program/watchlist.md).
+- The root and all 15 JavaScript reference packages have zero high-severity npm
+  audit findings at the assessment date; package and advisory state remains
+  dated terrain and must be refreshed before a cohort.
 - OPML structure can be generated and validated; MindNode presentation style
   should be calibrated by the instructor after importing the first map.
 - Tool interfaces, model availability, pricing, and vendor strategy are dated

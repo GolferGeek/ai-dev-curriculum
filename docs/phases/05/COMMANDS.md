@@ -31,5 +31,5 @@ bash scripts/verify-curriculum-structure.sh
 | `test-browser` | Running app and test cases | Visual/interaction evidence | Treat screenshots as functional proof |
 | `commit` | Reviewed diff and checks | Intentional checkpoint or PR | Include secrets or unrelated work |
 
-Scouting and evaluation are read-only by default. Phase 05.5 introduces
+Scouting and evaluation are read-only by default. Phase 05 Part B introduces
 publication and maintenance actions with explicit authority.

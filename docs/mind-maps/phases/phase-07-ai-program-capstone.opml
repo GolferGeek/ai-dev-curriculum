@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Phase 07 — AI Program Governance &amp; GRC</title>
+    <ownerName>GolferGeek AI Development Curriculum</ownerName>
+  </head>
+  <body>
+    <outline text="Phase 07 — AI Program Governance &amp; GRC" _note="Authoritative package: docs/phases/07; lecture: marketing/lesson-plans/phase-07.md; reference: completed/apps/ai-program.">
+      <outline text="Instructor intent">
+        <outline text="Make the organization&apos;s AI Program the durable take-home product"/>
+        <outline text="Treat the application as a projection, not a second policy store"/>
+        <outline text="Connect technical direction, governance, risk, controls, and evidence"/>
+      </outline>
+      <outline text="Before">
+        <outline text="Complete Phases 00–06 and preserve the repository baseline"/>
+        <outline text="Review PROGRAM-CONTRACT.md and the eight-category map"/>
+        <outline text="Name cohort scope, approvers, and prohibited evidence"/>
+      </outline>
+      <outline text="Browse">
+        <outline text="Derive navigation from folders and README.md files"/>
+        <outline text="Filter one canonical hierarchy through Full, Essential, or Light"/>
+        <outline text="Read category purpose, stance, owner, freshness, and gaps"/>
+        <outline text="Treat draft, UNASSIGNED, stale, and missing evidence as findings"/>
+      </outline>
+      <outline text="Culture and sentiment">
+        <outline text="Culture = principles, workforce experience, learning, safety, communication, and outcomes"/>
+        <outline text="Sentiment = privacy-bounded aggregate evidence, not individual performance data"/>
+        <outline text="Preserve minority safety signals, uncertainty, and visible follow-through"/>
+      </outline>
+      <outline text="Ask">
+        <outline text="How is our governance?"/>
+        <outline text="What are we lacking, missing, or doing wrong?"/>
+        <outline text="What changed, and what is old?"/>
+        <outline text="How is our AI culture, and which profile is active?"/>
+        <outline text="Return scope, citations, authority, freshness, uncertainty, and next action"/>
+      </outline>
+      <outline text="Trace">
+        <outline text="Requirement → interpretation → scope → risk → control"/>
+        <outline text="Control → enforcement → owner → evidence → review"/>
+        <outline text="Missing links remain visible blockers"/>
+      </outline>
+      <outline text="Propose and govern">
+        <outline text="Prepare a bounded Markdown proposal without activating policy"/>
+        <outline text="Govern one low-risk change through approval and verification"/>
+        <outline text="Record one owner, one next action, and one review date"/>
+      </outline>
+      <outline text="Close">
+        <outline text="Hand off the canonical record, application, skills, and operating cadence"/>
+        <outline text="Explain why citation is not certification"/>
+        <outline text="Schedule the first 30-day program review"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

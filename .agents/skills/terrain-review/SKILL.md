@@ -9,7 +9,7 @@ description: Run a terrain review — ADAPT worksheet for a candidate, watchlist
 - `assess "<candidate>"` — ADAPT worksheet for one tool/pattern
 - `watchlist` — review watchlist entries only (overdue dates, stale items)
 
-**Output:** Report at `docs/artifacts/terrain-review-report.md` (and optional draft in `docs/ai-program/decisions/` when assessing a candidate).
+**Output:** Report at `docs/artifacts/terrain-review-report.md` (and optional draft in `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/` when assessing a candidate).
 
 When the user runs this command:
 
@@ -17,7 +17,7 @@ When the user runs this command:
 
 2. **Invoke the terrain-scout agent** with the user's mode:
    - **Full review:** read watchlist, recent decisions, harness policy (`01-harness-and-plan.md`), routing/spend (`06-routing-and-spend.md` if present), `.claude/` layout, and phase README freshness. Flag drift (stale model IDs, broken paths, expired examples).
-   - **`assess "<candidate>"`:** produce a complete **ADAPT** worksheet with recommended verdict (`integrate` / `track` / `reject`) and draft decision filename `docs/ai-program/decisions/YYYY-MM-DD-<slug>.md` for human edit — **do not merge without user approval**.
+   - **`assess "<candidate>"`:** produce a complete **ADAPT** worksheet with recommended verdict (`integrate` / `track` / `reject`) and draft decision filename `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/YYYY-MM-DD-<slug>.md` for human edit — **do not merge without user approval**.
    - **`watchlist`:** list overdue review dates, entries older than 90 days without ADAPT, duplicates.
 
 3. **Apply scout tempering in the report:**

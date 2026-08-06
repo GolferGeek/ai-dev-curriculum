@@ -31,7 +31,7 @@
       <outline text="Day 3 — Connect and govern">
         <outline text="Phase 04 — tools versus counterparties; observable protocols"/>
         <outline text="Phase 05 — scout and evaluate skills and agents"/>
-        <outline text="Phase 05.5 — registry, canonical publication, projections, lifecycle"/>
+        <outline text="Phase 05 Part B — registry, canonical publication, projections, lifecycle"/>
       </outline>
       <outline text="Day 4 — Evaluate and route">
         <outline text="Phase 06 — workload-specific model tournament"/>
@@ -39,19 +39,21 @@
         <outline text="Route table and fallback policy—not one universal winner"/>
       </outline>
       <outline text="Day 5 — Install the operating model">
+        <outline text="Phase 07 — AI Program Governance &amp; GRC capstone"/>
         <outline text="Adapt AGENTS.md, docs/ai-program/, and canonical ai/"/>
         <outline text="Complete one low-risk real change through the full bracket"/>
         <outline text="Query and audit the AI program"/>
         <outline text="Assign 30/60/90-day owners and review cadence"/>
       </outline>
       <outline text="Organizational AI program">
-        <outline text="Harnesses and models"/>
-        <outline text="Coding governance"/>
-        <outline text="Skills and specialized agents"/>
-        <outline text="Agent systems and protocols"/>
-        <outline text="Security and data"/>
-        <outline text="Delivery and quality"/>
-        <outline text="Adoption and measurement"/>
+        <outline text="01 Direction and governance"/>
+        <outline text="02 Technology governance"/>
+        <outline text="03 Risk management"/>
+        <outline text="04 Compliance and obligations"/>
+        <outline text="05 Controls and assurance"/>
+        <outline text="06 Delivery and operations"/>
+        <outline text="07 Program evolution"/>
+        <outline text="08 Program intelligence"/>
         <outline text="Coverage matrix — every decision domain, artifact, owner, and gap"/>
         <outline text="Query acceptance — prove retrieval, conflict handling, and safe updates"/>
         <outline text="Ask → assess → propose → review → update → measure"/>

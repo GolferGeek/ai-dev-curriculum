@@ -6,10 +6,14 @@ import process from "node:process";
 import { execFileSync } from "node:child_process";
 
 const root = process.cwd();
-const files = execFileSync("git", ["ls-files", "*.md"], {
-  cwd: root,
-  encoding: "utf8",
-})
+const files = execFileSync(
+  "git",
+  ["ls-files", "--cached", "--others", "--exclude-standard", "*.md"],
+  {
+    cwd: root,
+    encoding: "utf8",
+  },
+)
   .split("\n")
   .filter(Boolean)
   .filter(
@@ -26,7 +30,13 @@ const failures = [];
 
 for (const file of files) {
   const absolute = path.join(root, file);
-  const content = await readFile(absolute, "utf8");
+  let content;
+  try {
+    content = await readFile(absolute, "utf8");
+  } catch (error) {
+    if (error?.code === "ENOENT") continue;
+    throw error;
+  }
   const withoutFences = content.replace(/```[\s\S]*?```/g, "");
   const targets = [];
 
@@ -87,5 +97,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Markdown links verified across ${files.length} tracked curriculum files.`,
+  `Markdown links verified across ${files.length} curriculum files.`,
 );

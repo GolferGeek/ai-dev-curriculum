@@ -1,6 +1,6 @@
-# Phase 05.5 — Organizational capability registry
+# Phase 05 Part B — Organizational capability registry
 
-Phase 05.5 evolves the working locator into a persistent control plane for
+Phase 05 Part B evolves the working locator into a persistent control plane for
 skills and specialized agents. Developers preserve Phase 05 behavior, migrate
 catalog history into SurrealDB, model revision-bound policy, publish an
 approved capability into canonical `ai/`, generate all three native harness

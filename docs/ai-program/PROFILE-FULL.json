@@ -1,0 +1,10 @@
+{
+  "id": "full",
+  "label": "Full",
+  "description": "Complete enterprise AI Program hierarchy and all readiness findings.",
+  "audience": "Mid-size, large, regulated, multi-client, or higher-authority organizations.",
+  "limitations": "Completeness of the view is not proof of compliance or control operation.",
+  "includedFolders": ["*"],
+  "includedDocuments": ["*"],
+  "expansionTriggers": []
+}

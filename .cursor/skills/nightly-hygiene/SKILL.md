@@ -7,7 +7,7 @@ description: Set up or run nightly repo hygiene — scan, fix, monitor, harden, 
 **Input:** Optional flags: `dry-run` (scan + monitor only, no fixes), `app <name>` (single app), `tier1` (build/lint/test only).
 **Output:** `docs/artifacts/nightly-hygiene-report.md` with pass/fail, next steps, and GitHub Actions checklist.
 
-**Policy home:** [marketing/adoption-kit/guardrails/01-nightly-hygiene-github-actions.md](../../../../marketing/adoption-kit/guardrails/01-nightly-hygiene-github-actions.md) — copy into `docs/ai-program/guardrails/` for your team.
+**Policy home:** [marketing/adoption-kit/guardrails/01-nightly-hygiene-github-actions.md](../../../../marketing/adoption-kit/guardrails/01-nightly-hygiene-github-actions.md) — copy into `docs/ai-program/05-controls-and-assurance/02-enforcement-surfaces-and-guardrails/` for your team.
 
 When the user runs this command:
 

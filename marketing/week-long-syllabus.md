@@ -14,13 +14,16 @@ most recently working with Angular frontends and C# backends. Matt built
 open-source platform tools to exercise his own AI-development learning and is
 now focused on teaching the resulting operating model.
 
-**Rhythm:** Two primary modules per day on Days 1–3, with Phase 05.5 completing
-the capability-registry story across the Day 3 close or Day 4 opening. Day 4
-deepens model choice and cost; Day 5 turns the week into the client's
-developer operating model. Well-scoped class builds can finish quickly, so
-instructors use agent run time for teaching, review, and governance.
+**Rhythm:** Eight primary phases run from `00` through `07`. Days 1–3 cover two
+primary phases each; Phase 05 has Part A (scouting/evaluation) and Part B
+(registry/publication/lifecycle) across the Day 3 close or Day 4 opening. Day 4
+deepens model choice and cost; Phase 07 makes Day 5 the client's AI Program
+capstone. Well-scoped builds leave agent run time for teaching and review.
 
-**Scheduling:** written here as five consecutive days, but the two-phases-per-day structure maps cleanly onto other calendars — one session per week for five weeks, or ten half-day sessions (one phase each) over two weeks. See the [course proposal](course-proposal.md) for format options.
+**Scheduling:** written as five consecutive days, but the eight-phase structure
+maps to other calendars: one session per week for five weeks or eight primary
+half-day sessions plus the Phase 05 Part B extension. See the
+[course proposal](course-proposal.md) for format options.
 
 Instructor detail: [lesson-plans/](lesson-plans/) (per-phase plans) and [lesson-plans/discussion-topics.md](lesson-plans/discussion-topics.md) (cross-cutting talks slotted by phase).
 
@@ -38,9 +41,9 @@ The curriculum emphasizes disciplined human oversight. AI tools accelerate devel
 |-----|---------|-----------|--------|
 | **1** | [Phase 00](../docs/phases/00/README.md) — Pipeline & first build | [Phase 01](../docs/phases/01/README.md) — SaaS killer (auth + data) | Define well, build fast, verify the trust boundary |
 | **2** | [Phase 02](../docs/phases/02/README.md) — Quality gates | [Phase 03](../docs/phases/03/README.md) — Brownfield research | Review & understand before you change |
-| **3** | [Phase 04](../docs/phases/04/README.md) — Agent protocols | [Phase 05](../docs/phases/05/README.md) + [05.5](../docs/phases/05.5/README.md) — capability locator and registry | Where software is going; encode and govern org knowledge |
+| **3** | [Phase 04](../docs/phases/04/README.md) — Agent protocols | [Phase 05](../docs/phases/05/README.md) [Parts A](../docs/phases/05/README.md) [and B](../docs/phases/05.5/README.md) — capability governance | Where software is going; encode and govern org knowledge |
 | **4** | [Phase 06](../docs/phases/06/README.md) — Model eval lab | Routing, cost, procurement & adoption prep | Which model for which job — with evidence |
-| **5** | Final project / their repo | SMB operating model & presentations | Take it home |
+| **5** | [Phase 07](../docs/phases/07/README.md) — AI Program capstone | Governed change, readiness review & presentations | Take the operating product home |
 
 Verification (in-app browser, Playwright, computer use) is **woven through Days 1–2** whenever an app is running — not a standalone day. Governance, harness memory, corporate context, and model routing are taught from [discussion-topics.md](lesson-plans/discussion-topics.md) during build windows.
 
@@ -98,10 +101,12 @@ Participants will be able to:
 - Describe agent protocols at a high level (discover, authorize, settle, watch the wire).
 - Treat skills and specialized agents as organizational dependencies; maintain
   a canonical function-based library and generate native harness projections.
-- Query and modernize an agent-readable AI program covering harnesses/models,
-  coding governance, protocols, security/data, delivery/quality, and adoption.
+- Query and modernize an agent-readable AI program covering technical
+  governance, GRC, culture, workforce experience, sentiment boundaries,
+  delivery, and adoption; select Full, Essential, or Light without duplicating
+  policy.
 - Choose models empirically (evals + routing policy), including local vs hosted tradeoffs.
-- Draft an SMB-scale AI development operating model for their workplace, using the take-home [adoption kit](adoption-kit/README.md).
+- Start a company-owned [AI Program](ai-program-take-home-product.md) with a standard governance/GRC hierarchy, maintained capabilities, and an application interface; use the [adoption worksheets](adoption-kit/README.md) to gather company-specific inputs.
 
 ## Example Applications
 
@@ -201,7 +206,7 @@ Advanced builds scheduled in-week (not only as Day 5 options):
 
 **Deliverable:** Running protocol demo (or partial) with at least one inspectable exchange narrated by the room.
 
-### Afternoon — Phases 05 and 05.5
+### Afternoon — Phase 05 Parts A and B
 
 - Skills, specialized agents, rules, tools, memory, and code.
 - Functional organization, canonical source, and three native projections.
@@ -233,12 +238,12 @@ with Claude Code, Cursor, and Codex projections.
 
 **Deliverable:** Harness + dashboard; eval in progress or complete depending on hardware/API limits.
 
-### Afternoon — Synthesis (no new phase number)
+### Afternoon — Phase 06 synthesis
 
 - **Model routing (deep):** cheap vs mid vs frontier; cascade vs classify; escalation metrics.
 - Eval-driven procurement; cost visibility; privacy–cost–quality triangle.
 - Fill gaps from earlier days (verification practice, passport polish, decision-boundary one-pager).
-- Prep Day 5: choose a repository path; draft the ten-piece AI development operating model.
+- Prep Day 5: choose a repository path; draft the eleven-piece AI development operating model; identify approved, sanitized GRC source names/locations and client owners.
 
 **Deliverable:** Written route table + golden-prompt list for their org; Day 5 plan.
 
@@ -249,7 +254,7 @@ with Claude Code, Cursor, and Codex projections.
 
 ## Day 5: Build Your AI Development Operating System
 
-**Phases:** none new — **apply the week**  
+**Phase:** **07 — AI Program capstone**
 **Theme:** Build your AI development operating system in a repository you will keep.
 
 ### Choose one repository path
@@ -262,10 +267,11 @@ with Claude Code, Cursor, and Codex projections.
 
 - Baseline the repository before changing it.
 - Make and document the Nx decision rather than forcing a migration.
-- Adapt the queryable `docs/ai-program/`, root agent instructions, and a small
+- Adapt the folder-backed, queryable `docs/ai-program/`, root agent instructions, and a small
   set of owned canonical skills and agents.
 - Define Git branches, approvals, checks, review evidence, and rollback expectations.
 - Record approved LLM accounts, data boundaries, model routing, spend ownership, and human-only decisions.
+- Complete a GRC control-mapping clinic: authoritative client sources, data/tool/change risk tiers, controls and durable evidence, independent review, rollback, monitoring, stop conditions, exceptions, owners, and review triggers.
 - Complete one real, low-risk change through intention, implementation, verification, and review.
 
 ### Optional stretch: the room's agent network
@@ -284,15 +290,17 @@ Each participant or team presents:
 - How they verified it.
 - What risks remain.
 - Their repository architecture and Nx decision.
-- Their adapted `docs/ai-program/`, agent instructions, skills, Git process, and LLM governance.
-- How their organization will use the workflow after the course (ten-piece model filled in).
+- Their adapted `docs/ai-program/`, AI Governance & GRC application, agent instructions, skills, Git process, and LLM governance.
+- How their organization will use the workflow after the course (eleven-piece model started, including the GRC control map).
 
 ### Private Cohort Option
 
 Day 5 is designed as a supervised **their-repo** day: orientation, local startup, architecture work, AI tool configuration and permission boundaries, one low-risk AI-assisted change, and a review-ready operating model. Draws on every phase, especially Phase 03 research, Phase 02 quality, Phase 05 skills governance, and Phase 06 model routing.
 
-**Discussion track:** D-CLOSE-1 (required), D-CLOSE-2, D-CLOSE-3.  
-**Detail:** [week-close.md](lesson-plans/week-close.md) (full Day 5 lesson plan) and [adoption-kit/](adoption-kit/README.md).
+**Discussion track:** D-CLOSE-1 and D-CLOSE-GRC (required), D-CLOSE-2, D-CLOSE-3.
+**Detail:** [phase-07.md](lesson-plans/phase-07.md) (primary lesson),
+[week-close.md](lesson-plans/week-close.md) (extended client-repository clinic),
+and [adoption-kit/](adoption-kit/README.md).
 
 ---
 

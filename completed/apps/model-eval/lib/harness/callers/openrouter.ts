@@ -12,6 +12,33 @@ import { formatImageForOpenRouter } from "@/lib/utils/multimodal";
 const OPENROUTER_BASE = "https://openrouter.ai/api/v1/chat/completions";
 const MAX_RETRIES = 3;
 
+type OpenRouterContentPart =
+  | ReturnType<typeof formatImageForOpenRouter>
+  | { type: "text"; text: string };
+
+interface OpenRouterRequestBody {
+  model: string;
+  messages: Array<{ role: "user"; content: OpenRouterContentPart[] }>;
+  max_tokens: number;
+  tools?: PromptConfig["tools"];
+}
+
+interface OpenRouterToolCall {
+  function: { name: string; arguments: string };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isOpenRouterToolCall(value: unknown): value is OpenRouterToolCall {
+  if (!isRecord(value) || !isRecord(value.function)) return false;
+  return (
+    typeof value.function.name === "string" &&
+    typeof value.function.arguments === "string"
+  );
+}
+
 export async function callOpenRouter(
   model: ModelConfig,
   prompt: PromptConfig,
@@ -26,8 +53,7 @@ export async function callOpenRouter(
   const startTime = Date.now();
 
   // Build message content
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const contentParts: any[] = [];
+  const contentParts: OpenRouterContentPart[] = [];
 
   // Add image if multimodal prompt
   if (prompt.image && model.supportsImages) {
@@ -41,8 +67,7 @@ export async function callOpenRouter(
   contentParts.push({ type: "text", text: prompt.prompt });
 
   // Build request body
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const body: Record<string, any> = {
+  const body: OpenRouterRequestBody = {
     model: model.model,
     messages: [{ role: "user", content: contentParts }],
     max_tokens: 4096,
@@ -84,18 +109,29 @@ export async function callOpenRouter(
         return makeErrorResult(model, prompt, Date.now() - startTime, `OpenRouter error ${res.status}: ${text}`);
       }
 
-      const data = await res.json();
+      const data: unknown = await res.json();
       const latencyMs = Date.now() - startTime;
 
-      const choice = data.choices?.[0];
-      const responseText = choice?.message?.content || "";
-      const outputTokens = data.usage?.completion_tokens || 0;
+      const dataRecord = isRecord(data) ? data : undefined;
+      const choices = Array.isArray(dataRecord?.choices) ? dataRecord.choices : [];
+      const choice = isRecord(choices[0]) ? choices[0] : undefined;
+      const message = isRecord(choice?.message) ? choice.message : undefined;
+      const responseText =
+        typeof message?.content === "string" ? message.content : "";
+      const usage = isRecord(dataRecord?.usage) ? dataRecord.usage : undefined;
+      const outputTokens =
+        typeof usage?.completion_tokens === "number"
+          ? usage.completion_tokens
+          : 0;
       const tokensPerSecond = outputTokens / (latencyMs / 1000);
 
       // Extract tool calls
       let toolCalls: NormalizedToolCall[] | undefined;
-      if (choice?.message?.tool_calls && choice.message.tool_calls.length > 0) {
-        toolCalls = normalizeOpenAIToolCalls(choice.message.tool_calls);
+      const providerToolCalls = Array.isArray(message?.tool_calls)
+        ? message.tool_calls.filter(isOpenRouterToolCall)
+        : [];
+      if (providerToolCalls.length > 0) {
+        toolCalls = normalizeOpenAIToolCalls(providerToolCalls);
       }
 
       return {

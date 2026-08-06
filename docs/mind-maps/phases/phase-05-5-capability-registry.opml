@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <opml version="2.0">
   <head>
-    <title>Phase 05.5 — Organizational Capability Registry</title>
+    <title>Phase 05 Part B — Organizational Capability Registry</title>
     <ownerName>GolferGeek AI Development Curriculum</ownerName>
   </head>
   <body>
-    <outline text="Phase 05.5 — Organizational Capability Registry" _note="Authoritative package: docs/phases/05.5; lecture: marketing/lesson-plans/phase-05.5.md.">
+    <outline text="Phase 05 Part B — Organizational Capability Registry" _note="Authoritative package: docs/phases/05.5; lecture: marketing/lesson-plans/phase-05.5.md.">
       <outline text="Instructor intent">
         <outline text="Evolve the working locator—do not start over"/>
         <outline text="Registry is control plane; Git is execution contract"/>

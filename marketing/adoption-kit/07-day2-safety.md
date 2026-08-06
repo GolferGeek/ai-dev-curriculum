@@ -22,6 +22,11 @@
 | Who signs off on the first AI-assisted PR to production? | |
 | Minimum research packet before touching an unfamiliar area | orientation + map + risk notes |
 
+Classify the first target in [11 — GRC Control Map](11-grc-control-map.md).
+Record the data involved, required evidence, rollback or recovery action,
+monitoring signal, stop condition, and authorized residual-risk decision before
+expanding beyond low-risk work.
+
 ## Policy lines
 
 - Off-limits means off-limits — encode it in the passport's Boundaries section (template 2), not just this card.

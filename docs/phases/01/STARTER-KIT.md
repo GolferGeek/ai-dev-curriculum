@@ -73,10 +73,10 @@ Each killer **intention** names Demo-grade minimums the agents must not shortcut
 |-------|-----------|-------------|-------------|
 | **Web A** | [quickbooks-killer](./intention-quickbooks-killer.md) | QuickBooks | Next.js + SurrealDB |
 | **Web B** | [trello-killer](./intention-trello-killer.md) | Trello | Next.js + SurrealDB |
-| **iOS A** *(opt-in)* | [twitter-killer](./intention-twitter-killer.md) | Twitter | SwiftUI + SwiftData |
-| **iOS B** *(opt-in)* | [facebook-killer](./intention-facebook-killer.md) | Facebook | SwiftUI + SwiftData |
+| **Social A** | [twitter-killer](./intention-twitter-killer.md) | Twitter | Next.js + SurrealDB by default; SwiftUI + SwiftData is an opt-in Mac delivery |
+| **Social B** | [facebook-killer](./intention-facebook-killer.md) | Facebook | Next.js + SurrealDB by default; SwiftUI + SwiftData is an opt-in Mac delivery |
 
-**Teaching default:** Twitter and Facebook killers run as **web apps** in cohort — one stack, every OS. See [PREREQUISITES.md](./PREREQUISITES.md).
+**Teaching default:** Twitter and Facebook killers run as **web apps** in cohort — one stack, every OS. Their intentions are portable product definitions: learners and clients may choose web even though the repository also includes native iOS references. See [PREREQUISITES.md](./PREREQUISITES.md).
 
 ---
 

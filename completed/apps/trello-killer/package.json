@@ -1,6 +1,9 @@
 {
   "name": "@curriculum/trello-killer",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev -p 3200",
@@ -11,9 +14,9 @@
   },
   "dependencies": {
     "@curriculum/surrealdb": "file:../../../packages/surrealdb",
-    "next": "^16.2.12",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "next": "16.3.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.0",
@@ -22,7 +25,7 @@
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.17",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.2.12",
+    "eslint-config-next": "16.3.0",
     "postcss": "^8.5.24",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"

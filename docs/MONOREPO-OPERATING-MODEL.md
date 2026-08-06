@@ -13,7 +13,7 @@ Scouting new AI tools is **one job** this model supports. So are defining produc
 | **Documents** | Intentions, policy, decisions, reports — *what we believe and what we decided* | `docs/ai-program/`, `docs/artifacts/`, track intentions | Author, review, merge via PR |
 | **Skills & agents** | Repeatable workflows — *how the agent helps* | Canonical `ai/`; generated Claude Code, Cursor, and Codex projections | Invoke, refine with `author-agent` when a pattern repeats |
 
-**Chat is not the system of record.** A decision in Slack is decoration. A decision in `docs/ai-program/decisions/` with an owner is real.
+**Chat is not the system of record.** A decision in Slack is decoration. A decision in `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/` with an owner is real.
 
 ---
 
@@ -126,7 +126,7 @@ The monorepo is how a **practice** compounds — not only shipping apps, but enc
 
 - **`AGENTS.md`** — instruction passport ([kit 02](../marketing/adoption-kit/02-instruction-passport.md))
 - **`ai/`** — canonical shared skills and specialized agents, organized by
-  function (Phases 05 and 05.5 deepen this)
+  function (Phase 05 Parts A and B deepen this)
 - **Harness policy** — approved tools and data terms ([kit 01](../marketing/adoption-kit/01-harness-and-plan.md))
 
 Corporate context is **stable-ish**; refresh on ADAPT Integrate or quarterly terrain review — not on every hype cycle.
@@ -180,7 +180,7 @@ When the project ends, **promote** durable lessons to group or corporate memory;
 
 **Development group source of truth** — what must stay aligned in git so every harness loads the same story:
 
-- `AGENTS.md` + kits 01–10
+- `AGENTS.md` + kits 01–11
 - Shared skills (intention → ship + terrain review + your custom rituals)
 - Artifact paths and quality gate commands
 - Group overlays under `docs/groups/` when teams diverge
@@ -261,7 +261,7 @@ interpretations to `.claude/skills/` and `.claude/agents/`,
 | Turbo shell (`apps/`, `packages/`) | Where products and shared code live |
 | Pipeline skills | Define → build workflow |
 | Quality / research skills | Verify and understand |
-| [Adoption kit](../marketing/adoption-kit/README.md) (10 templates) | Policy, scope map, **leadership & org engagement** |
+| [Adoption kit](../marketing/adoption-kit/README.md) (11 templates) | Policy, scope map, **leadership & org engagement**, and GRC control mapping |
 | [`docs/ai-program/README.md`](./ai-program/README.md) | Index for corporate / group / project document homes |
 | [`/terrain-review`](./AI-CHANGE-PROCESS.md) | Starter **decision** workflow for change |
 | This doc | The map of how it fits together |

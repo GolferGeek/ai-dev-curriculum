@@ -40,8 +40,13 @@ export interface ToolDefinition {
   function: {
     name: string;
     description: string;
-    parameters: Record<string, unknown>;
+    parameters: JsonObjectSchema;
   };
+}
+
+export interface JsonObjectSchema extends Record<string, unknown> {
+  type: "object";
+  properties?: Record<string, unknown>;
 }
 
 /* ── Run configuration ── */

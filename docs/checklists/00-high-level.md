@@ -56,9 +56,10 @@ After Phase 00 merge to your `main`, the repo is **yours** — phases live under
 
 | Step | Doc | Done |
 |------|-----|------|
-| Fill adoption kit (10 templates + guardrails G1) | [adoption kit](../../marketing/adoption-kit/README.md) → commit under `docs/ai-program/` | ☐ |
+| Fill adoption kit (11 templates + guardrails G1) | [adoption kit](../../marketing/adoption-kit/README.md) → commit under `docs/ai-program/` | ☐ |
 | Memory / context map and owners | [09 — Memory context map](../../marketing/adoption-kit/09-memory-context-map.md) | ☐ |
 | Leadership + org engagement | [10 — Leadership](../../marketing/adoption-kit/10-leadership-and-org-engagement.md) | ☐ |
+| GRC sources, risk tiers, controls, evidence, and exceptions | [11 — GRC control map](../../marketing/adoption-kit/11-grc-control-map.md) | ☐ |
 | Nightly hygiene (Tier 1 → Tier 2) | [Guardrails G1](../../marketing/adoption-kit/guardrails/01-nightly-hygiene-github-actions.md) | ☐ |
 
 ---
@@ -83,7 +84,7 @@ You are on track when:
 | Planned # | Topic |
 |-----------|--------|
 | 04 | **Deploy apps (Docker + cloud)** — [04-deploy-apps-docker-cloud.md](04-deploy-apps-docker-cloud.md) |
-| 05 | Adoption kit week-close (all ten templates) |
+| 05 | Adoption kit week-close (all eleven templates, including GRC control map) |
 | 06 | First app to demo-grade (Phase 01 bar) |
 
 Suggest the next checklist when your cohort hits a repeatable pain point — keep each list **one outcome**.

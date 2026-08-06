@@ -5,7 +5,7 @@ description: Scout configured skill sources, refresh a skills catalog, and produ
 
 # Skill scout
 
-Read `docs/ai-program/skills/03-scouting-and-discovery.md` and its scouting checklist.
+Read `docs/ai-program/02-technology-governance/03-skills-and-specialized-agents/03-scouting-and-discovery.md` and its scouting checklist.
 
 1. Confirm approved sources, scope, cadence, and network authority.
 2. Snapshot source URLs, revisions, and timestamps.

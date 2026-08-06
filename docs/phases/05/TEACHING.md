@@ -117,7 +117,7 @@ unclear outcome. The instructor approves the reasoning quality, not adoption.
   canonical `ai/`.
 - **All candidates pass.** Require a rejection and improve the rubric.
 - **Installation sneaks into “copy.”** Remove the action or relabel it as
-  export; publication belongs in Phase 05.5.
+  export; publication belongs in Phase 05 Part B.
 - **Live network fails.** Use the dated offline snapshot and still demonstrate
   the diff.
 
@@ -129,5 +129,5 @@ Ask each learner to finish:
 - “An approved name is not enough because…”
 - “I would trigger re-review when…”
 
-Preview Phase 05.5: the locator will become a registry that records policy,
+Preview Phase 05 Part B: the locator will become a registry that records policy,
 generates native projections, and uses Git review for publication.

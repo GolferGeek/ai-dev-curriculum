@@ -1,8 +1,8 @@
 # Presentation deck QA
 
-Verified: 2026-07-28
+Verified: 2026-08-06
 
-All eight teaching decks were rendered slide by slide, inspected as full-deck
+All nine teaching decks were rendered slide by slide, inspected as full-deck
 montages, and checked for content outside the slide canvas.
 
 | Deck | Slides | Overflow | Visual inspection | Content alignment |
@@ -13,14 +13,17 @@ montages, and checked for content outside the slide canvas.
 | Phase 03 — project memory | 18 | Pass | Pass | Pass |
 | Phase 04 — agent-to-agent future | 37 | Pass | Pass | Pass |
 | Phase 05 — capability scouting | 12 | Pass | Pass | Updated and passed |
-| Phase 05.5 — capability registry | 12 | Pass | Pass | Updated and passed |
+| Phase 05 Part B — capability registry | 12 | Pass | Pass | Updated and passed |
 | Phase 06 — model evaluation | 26 | Pass | Pass | Pass |
+| Phase 07 — AI Program Governance & GRC | 15 | Pass | Pass | Pass |
 
 Phase 05 was updated from a skills-only story to skills plus specialized
 agents, canonical function groups, complete package inspection, and native
-projection compatibility. Phase 05.5 now teaches extension of the existing
+projection compatibility. Phase 05 Part B teaches extension of the existing
 product, canonical `ai/` publication, three generated projections, and
-revision-bound governance.
+revision-bound governance. Phase 07 makes the repository-backed AI Program the
+take-home governance product, with qualified answers, GRC traceability, and
+reviewable change proposals.
 
 ## Before each cohort
 

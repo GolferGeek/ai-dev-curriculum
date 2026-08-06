@@ -1,4 +1,4 @@
-# Verify — Phase 05.5
+# Verify — Phase 05 Part B
 
 ## Migration and recovery
 

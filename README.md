@@ -12,6 +12,12 @@ The repository is both the course and the operating model:
 - `apps/` is the learner's active workspace.
 - `completed/apps/` contains finished reference implementations.
 
+The durable take-home product is a started company-owned
+[`docs/ai-program/`](docs/ai-program/README.md): a standard folder-backed AI
+governance and GRC structure, canonical skills and agents, and an application
+experience for browsing the program and asking qualified questions about its
+health, gaps, changes, staleness, and conflicts.
+
 ## Start once, continue all week
 
 There are no phase branches and no phase tags. Create one learner branch from
@@ -47,9 +53,9 @@ The client chooses policy. The curriculum does not require one vendor.
 | **02 — Quality engineering** | Scan, fix, monitor, harden, and ship | [Phase 02](docs/phases/02/README.md) |
 | **03 — Brownfield understanding** | Investigate unfamiliar code before changing it | [Phase 03](docs/phases/03/README.md) |
 | **04 — Agent systems** | Build observable agent-to-agent workflows and boundaries | [Phase 04](docs/phases/04/README.md) |
-| **05 — Capability scouting** | Discover and evaluate skills and agents safely | [Phase 05](docs/phases/05/README.md) |
-| **05.5 — Organizational registry** | Publish, maintain, update, and retire trusted capability | [Phase 05.5](docs/phases/05.5/README.md) |
+| **05 — Capability governance** | Part A: scout/evaluate; Part B: publish, maintain, and retire trusted capability | [Phase 05](docs/phases/05/README.md) · [Part B](docs/phases/05.5/README.md) |
 | **06 — Model evaluation** | Test models on your workload and route work using evidence | [Phase 06](docs/phases/06/README.md) |
+| **07 — AI Program capstone** | Operate the folder-backed Governance & GRC product and complete one governed change | [Phase 07](docs/phases/07/README.md) |
 
 The instructor schedule combines modules into five teachable days. Learners use
 the same repository, branch, documents, and AI operating layer from beginning
@@ -62,7 +68,7 @@ ai/                       canonical skills and agents by function
 apps/                     learner-built applications
 completed/apps/           finished reference implementations
 docs/phases/              learner and instructor phase packages
-docs/ai-program/          organizational AI operating model
+docs/ai-program/          company-owned AI Program and application content graph
 marketing/lesson-plans/   expanded lectures and facilitation
 marketing/decks/          PowerPoint teaching decks
 packages/                 active shared packages

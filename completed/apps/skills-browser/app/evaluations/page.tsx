@@ -1,0 +1,4 @@
+import { catalog } from "@/lib/catalog";
+export default function EvaluationsPage() {
+  return <main className="standard-page"><p className="eyebrow">EVIDENCE-BASED TRUST</p><h1>Three decisions, including a defensible no</h1><p className="intro">Evaluation applies to an exact revision and scope. A familiar name, attractive source, or passing demo never authorizes organization-wide use.</p><div className="evaluation-list">{catalog.evaluations.map((evaluation) => <article key={evaluation.capability}><div className="evaluation-heading"><div><span className={`decision ${evaluation.decision}`}>{evaluation.decision}</span><h2>{evaluation.capability}</h2></div><span>Owner: {evaluation.owner}</span></div><p><strong>Scope:</strong> {evaluation.scope}</p><ul>{evaluation.evidence.map((item) => <li key={item}>{item}</li>)}</ul><p className="trigger"><strong>Re-review when:</strong> {evaluation.reReviewTrigger}</p></article>)}</div></main>;
+}

@@ -11,7 +11,7 @@ Every plan follows the same arc:
 
 These pair with the per-phase `TEACHING.md` (room mechanics) and `README.md`/`RUN-ORDER.md` (exact steps) in each `docs/phases/XX/` folder.
 
-Cross-cutting **business / harness / org** talks (model routing, corporate context, SMB operating model, shadow AI, etc.) live in [discussion-topics.md](discussion-topics.md) — slotted by phase for build-window teaching. The take-home [adoption kit](../adoption-kit/README.md) templates map onto those talks and get filled in during the [week close](week-close.md).
+Cross-cutting **business / harness / org** talks (model routing, corporate context, AI governance, shadow AI, etc.) live in [discussion-topics.md](discussion-topics.md)—slotted by phase for build-window teaching. The take-home product is the company-owned [AI Program](../ai-program-take-home-product.md); the [adoption worksheets](../adoption-kit/README.md) gather inputs that are placed into it during the [week close](week-close.md).
 
 > **Instructor refresh:** anywhere a plan says *[refresh]*, pull a current article, post, or release note before the cohort — the themes are stable, the examples should be current.
 
@@ -23,6 +23,8 @@ Cross-cutting **business / harness / org** talks (model routing, corporate conte
 - [phase-02.md](phase-02.md) — Quality engineering: review bottleneck, comprehension debt, scanners → gates
 - [phase-03.md](phase-03.md) — Brownfield research: understand before change; AI senior at comprehension, junior at execution
 - [phase-04.md](phase-04.md) — Protocols: A2A / AP2 / x402 / AG-UI — agents that discover, hire, and pay
-- [phase-05.md](phase-05.md) — Skills Browser: open Agent Skills standard, capability vs preference, ecosystem discovery
+- [phase-05.md](phase-05.md) — Phase 05 Part A: Skills Browser, capability vs preference, ecosystem discovery
+- [phase-05.5.md](phase-05.5.md) — Phase 05 Part B: registry, publication, projections, and lifecycle
 - [phase-06.md](phase-06.md) — Model Eval Lab: your workload, your rubric, multi-judge tournament, quality vs speed
-- [week-close.md](week-close.md) — Day 5: a hands-on their-repository clinic covering architecture, Nx, `docs/ai-program/`, skills, Git, LLM governance, and one verified change
+- [phase-07.md](phase-07.md) — AI Program capstone: folder-backed Governance & GRC product, cited answers, traceability, and governed change
+- [week-close.md](week-close.md) — Phase 07 companion: extended client-repository clinic and optional agent-network exercise

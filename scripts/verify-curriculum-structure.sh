@@ -33,10 +33,15 @@ phase_documents=(
   VERIFY.md
 )
 
-for phase in 00 01 02 03 04 05 05.5 06; do
+for phase in 00 01 02 03 04 05 06 07; do
   for document in "${phase_documents[@]}"; do
     need "docs/phases/$phase/$document"
   done
+done
+
+# Phase 05 Part B keeps its link-stable 05.5 directory and the same package.
+for document in "${phase_documents[@]}"; do
+  need "docs/phases/05.5/$document"
 done
 
 for deck in \
@@ -47,13 +52,15 @@ for deck in \
   phase-04-agent-to-agent-future.pptx \
   phase-05-skill-scouting.pptx \
   phase-05-5-skills-registry.pptx \
-  phase-06-model-evaluation.pptx; do
+  phase-06-model-evaluation.pptx \
+  phase-07-ai-program-capstone.pptx; do
   need "marketing/decks/$deck"
 done
 
-for lesson in 00 01 02 03 04 05 05.5 06; do
+for lesson in 00 01 02 03 04 05 06 07; do
   need "marketing/lesson-plans/phase-$lesson.md"
 done
+need "marketing/lesson-plans/phase-05.5.md"
 
 for capability in intention prd plan run-plan scan-errors fix-errors monitor \
   harden commit pr-eval research test-browser skill-scout skill-evaluate \

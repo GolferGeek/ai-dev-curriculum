@@ -30,7 +30,7 @@ appropriate scope, and an accountable owner.
 - a refreshable catalog and immutable scouting snapshots;
 - a searchable capability matrix and revision diff;
 - three evidence-backed evaluation records;
-- one candidate ready—or explicitly not ready—for Phase 05.5;
+- one candidate ready—or explicitly not ready—for Phase 05 Part B;
 - an owner and re-review trigger; and
 - a clear mental model for canonical skills and agents versus generated tool
   projections.

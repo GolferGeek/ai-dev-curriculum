@@ -1,12 +1,31 @@
 /* ── Results I/O — atomic writes to data/results.json and intermediates ── */
 
-import { EvalRun } from "@/lib/types";
+import { EvalResult, EvalRun } from "@/lib/types";
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync, readdirSync } from "fs";
 import { resolve, join } from "path";
 
 const DATA_DIR = resolve(process.cwd(), "data");
 const RESULTS_PATH = join(DATA_DIR, "results.json");
 const INTERMEDIATE_DIR = join(DATA_DIR, "intermediate");
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isEvalResult(value: unknown): value is EvalResult {
+  if (!isRecord(value)) return false;
+
+  return (
+    typeof value.modelId === "string" &&
+    typeof value.promptId === "string" &&
+    Array.isArray(value.runs) &&
+    typeof value.bestScore === "number" &&
+    typeof value.avgScore === "number" &&
+    typeof value.worstScore === "number" &&
+    typeof value.consistency === "number" &&
+    typeof value.avgTokensPerSecond === "number"
+  );
+}
 
 function ensureDirs(): void {
   if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
@@ -49,12 +68,14 @@ export function recoverFromIntermediate(): EvalRun | null {
 
   // Each intermediate file contains an array of EvalResult for one model.
   // We can rebuild a partial EvalRun from these.
-  const allResults: unknown[] = [];
+  const allResults: EvalResult[] = [];
   for (const file of files) {
     try {
-      const data = JSON.parse(readFileSync(join(INTERMEDIATE_DIR, file), "utf-8"));
+      const data: unknown = JSON.parse(
+        readFileSync(join(INTERMEDIATE_DIR, file), "utf-8")
+      );
       if (Array.isArray(data)) {
-        allResults.push(...data);
+        allResults.push(...data.filter(isEvalResult));
       }
     } catch {
       // skip corrupt intermediate files
@@ -77,8 +98,7 @@ export function recoverFromIntermediate(): EvalRun | null {
     },
     models: [],
     prompts: [],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    results: allResults as any[],
+    results: allResults,
     totalGenerations: 0,
     completedGenerations: allResults.length,
   };

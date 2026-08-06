@@ -9,6 +9,7 @@ struct ComposeView: View {
     @State private var photoItem: PhotosPickerItem?
     @State private var photoData: Data?
     @State private var showPostedAlert = false
+    @FocusState private var isTextEditorFocused: Bool
 
     private var currentUser: User? { currentUsers.first }
 
@@ -22,6 +23,7 @@ struct ComposeView: View {
                 Section("What's on your mind?") {
                     TextEditor(text: $text)
                         .frame(minHeight: 100)
+                        .focused($isTextEditorFocused)
                         .accessibilityIdentifier("compose_text_field")
                 }
 
@@ -76,6 +78,7 @@ struct ComposeView: View {
         text = ""
         photoData = nil
         photoItem = nil
+        isTextEditorFocused = false
         showPostedAlert = true
     }
 }

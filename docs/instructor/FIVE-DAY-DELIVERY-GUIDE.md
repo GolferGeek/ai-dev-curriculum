@@ -44,7 +44,7 @@ Complete at least three business days before delivery:
 - Test SurrealDB, Playwright/browser access, GitHub flow, and optional Ollama.
 - Prepare dated offline source snapshots and reference-app recovery.
 - Identify client-specific code/data that may or may not be used.
-- Name client decision owners for each AI-program facet.
+- Name client decision owners for each AI Program category and required node.
 
 Send learners the setup checklist and require confirmation before Day 1.
 
@@ -110,7 +110,7 @@ A2A delegation to an independent actor. Build or inspect the observable
 protocol flow. Require identity, authority, task state, event, and failure
 explanations; do not teach a protocol as a complete business relationship.
 
-### Afternoon: Phases 05 and 05.5
+### Afternoon: Phase 05 Parts A and B
 
 Use one combined product arc:
 
@@ -141,16 +141,17 @@ While evaluations run:
 - design routing and fallback;
 - discuss hosted/local data boundaries;
 - inspect tool/provider politics as dated terrain;
-- query all facets of `docs/ai-program/`;
+- query all eight folder-backed categories of `docs/ai-program/`;
 - assign owners and identify client decisions still missing; and
 - plan the Day 5 low-risk real change.
 
 Do not crown a universal model. Produce a route table for defined work.
 
-## Day 5 — build the client's operating system
+## Day 5 — Phase 07: build the client's AI Program
 
 ### Morning
 
+- Open the Phase 07 reference application and challenge its readiness findings.
 - Choose current repo, shared monorepo, or standalone AI-program repo.
 - Baseline without changing production.
 - Adapt `AGENTS.md`, `docs/ai-program/`, function groups, canonical
@@ -161,7 +162,9 @@ Do not crown a universal model. Produce a route table for defined work.
 ### Afternoon
 
 - Execute and verify the change.
-- Run the AI-program advisor in ask and audit modes.
+- Run the application and AI-program advisor in ask and audit modes.
+- Show one complete requirement-to-control trace and one visible missing link.
+- Prepare a reviewable proposal without silently changing active policy.
 - Run canonical/projection and program checks.
 - Present the product result and the operating model.
 - Record 30/60/90-day owners, reviews, pilots, and training.

@@ -1,4 +1,4 @@
-# Phase 05.5 — Lesson plan
+# Phase 05 Part B — Capability registry lesson plan
 
 *Use this immediately after Phase 05 or as the opening extension on Day 4.
 Learners improve the existing capability locator; they do not begin a second

@@ -60,6 +60,11 @@ final class FacebookKillerUITests: XCTestCase {
         XCTAssertTrue(postButton.waitForExistence(timeout: 5), "Post button should exist")
         postButton.tap()
 
+        let postedAlert = app.alerts["Posted!"]
+        XCTAssertTrue(postedAlert.waitForExistence(timeout: 5), "Posted confirmation should appear")
+        postedAlert.buttons["OK"].tap()
+        XCTAssertTrue(postedAlert.waitForNonExistence(timeout: 5), "Posted confirmation should dismiss")
+
         // Verify we navigate to feed and the new post appears
         let feedTab = app.tabBars.buttons["Feed"]
         XCTAssertTrue(feedTab.waitForExistence(timeout: 5), "Feed tab should exist after posting")
@@ -94,11 +99,10 @@ final class FacebookKillerUITests: XCTestCase {
         XCTAssertTrue(friendsTab.waitForExistence(timeout: 13), "Friends tab should exist")
         friendsTab.tap()
 
-        // Check for "My Friends" or "No friends yet" (either means the section rendered)
-        let myFriends = app.staticTexts["My Friends"]
-        let noFriends = app.staticTexts["No friends yet"]
-        let hasFriendsContent = myFriends.waitForExistence(timeout: 13) || noFriends.exists
-        XCTAssertTrue(hasFriendsContent, "Friends tab should show content")
+        // Verify an actual seeded friend instead of relying on section-header
+        // accessibility, which differs between iOS 17 and newer runtimes.
+        let alice = app.staticTexts["Alice Johnson"]
+        XCTAssertTrue(alice.waitForExistence(timeout: 13), "Seeded friend should appear")
     }
 
     func testProfileView() {

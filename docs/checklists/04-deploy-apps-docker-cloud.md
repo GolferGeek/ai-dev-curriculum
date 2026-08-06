@@ -169,7 +169,7 @@ nx run quickbooks-killer:docker:run -p 3100:3100
 
 CI can call **`nx affected -t docker:build`** instead of raw `docker build`. **Nx Release** can version and publish images to a registry in one flow — evaluate against kit **06** spend/ownership *[refresh]*.
 
-- [ ] Team chose **raw Docker in CI** vs **`@nx/docker`** targets — recorded in `docs/ai-program/decisions/`
+- [ ] Team chose **raw Docker in CI** vs **`@nx/docker`** targets — recorded in `docs/ai-program/07-program-evolution/02-proposals-decisions-and-supersession/`
 
 ### What stays identical (Turbo or Nx)
 

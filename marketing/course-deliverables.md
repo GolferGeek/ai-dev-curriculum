@@ -2,9 +2,10 @@
 
 ## The Short Version
 
-The course produces more than demo applications. Participants leave with working examples of AI-built software, a repeatable AI development workflow, and the first draft of their team's AI development operating model.
+The course produces more than demo applications. Participants leave with working examples of AI-built software, a repeatable AI development workflow, and a started company-owned [AI Program](ai-program-take-home-product.md): a standard governance/GRC structure, Full/Essential/Light scale profiles, AI-culture and sentiment boundaries, initial organization-specific content, maintained AI capabilities, and an application for navigating and asking questions of the program.
 
-The app is the proof. The process is the product. The operating model is the take-home value.
+The app is the proof. The process enables delivery. The AI Program is the
+durable take-home product the organization continues to build.
 
 ## What This Means For A Client
 
@@ -42,6 +43,8 @@ Depending on the cohort and selected tracks, these may include:
 - Brownfield codebase research reports.
 - Model evaluation results.
 - Skill or agent workflow examples.
+
+The Twitter and Facebook product efforts are **not locked to iOS**. Their supplied reference applications demonstrate SwiftUI, but a client may deliver either product intention as a web application instead. The cohort default is web; native iOS is an optional Mac/Xcode specialization.
 
 These artifacts are intentionally practical. They show how a team can move from a business idea to a running software slice, then inspect and verify the result before deciding whether to move on, revise, or harden.
 
@@ -121,6 +124,26 @@ Defines:
 - Who is accountable for final decisions.
 - Where speed is acceptable and where deeper review is required.
 
+### Governance, Risk And Compliance Control Map
+
+Defines:
+
+- Which authoritative organizational, legal, contractual, client, security,
+  privacy, regulatory, or audit sources govern the work.
+- How data, tools, agent authority, and software changes are classified by risk.
+- Which controls, review gates, independent evidence, rollback actions,
+  monitoring signals, and stop conditions each tier requires.
+- How requirements map to durable repository guidance and auditable evidence.
+- How exceptions are requested, approved, bounded, reviewed, expired, and
+  revoked.
+- Who owns each control, interprets each requirement, approves residual risk,
+  and reviews the result.
+
+The course supplies the mapping method and a conservative starting vocabulary.
+The client supplies and approves its applicable obligations, risk definitions,
+owners, and exception authority. A started map is not a compliance
+certification or a declaration that the organization is production-ready.
+
 ### Day-2 Repo Safety Rules
 
 Defines:
@@ -153,7 +176,7 @@ Defines:
 
 ## The Course Output In One Sentence
 
-Participants leave with working software, a repeatable AI development workflow, and the first draft of the process documents their team needs to use AI development safely and productively.
+Participants leave with working software, a repeatable AI development workflow, and the first draft of the process documents their team needs to use AI development safely, accountably, and productively.
 
 ## Why This Matters
 
